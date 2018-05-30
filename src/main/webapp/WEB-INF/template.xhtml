@@ -20,9 +20,16 @@
 
     <h:body>
         <div class="layout-wrapper">
-            <ui:insert name="content">
+            <ui:include src="./topbar.xhtml"></ui:include>
+            <ui:include src="./menu.xhtml"></ui:include>
 
-            </ui:insert>
+            <div class="layout-content">
+                <ui:insert name="content"></ui:insert>
+            </div>
+            
+            <div class="layout-footer">
+                <ui:include src="./footer.xhtml"></ui:include>
+            </div>
         </div>
        
         <h:outputStylesheet name="css/layout.css" library="showcase" />
