@@ -89,37 +89,36 @@ body {
                         }
                     }
 
-                    .submenu {
+                    ul {
+                        margin: 0;
                         display: block;
-                        margin-left: 8px;
+                        width: 100%;
+                        list-style-type: none;
+                        padding-top: 10px;
 
-                        ul {
-                            margin: 0;
-                            display: inline-block;
-                            width: 49%;
-                            list-style-type: none;
-    
-                            li {
-                                border: 0;
-                                padding: 6px;
-                                width: 103px;
-    
+                        li {
+                            border: 0;
+                            width: 100%;
+                            padding: 0;
+
+                            a {
                                 i {
                                     font-size: 6px;
                                     color: #738183;
                                     display: inline-block;
                                     vertical-align: middle;
                                 }
-
-                                a {
+    
+                                .menu-item {
                                     font-size: 13px;
+                                    font-weight: normal;
                                     color: #889597;
                                     display: inline-block;
-                                    padding: 0 4px;
                                 }
-                            }
+                            }                    
                         }
                     }
+                    
 
                     &.ui-state-active {
                         a {
@@ -127,7 +126,8 @@ body {
                                 color: #1b82d7;
                             }
                         }
-                        .submenu {
+
+                        ul {
                             display: block;
                         }
                     }

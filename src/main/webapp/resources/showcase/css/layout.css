@@ -89,31 +89,29 @@ body {
             font-size: 14px;
             font-weight: 600;
             color: #889597; }
-        body .layout-wrapper .layout-menu ul li .submenu {
+        body .layout-wrapper .layout-menu ul li ul {
+          margin: 0;
           display: block;
-          margin-left: 8px; }
-          body .layout-wrapper .layout-menu ul li .submenu ul {
-            margin: 0;
-            display: inline-block;
-            width: 49%;
-            list-style-type: none; }
-            body .layout-wrapper .layout-menu ul li .submenu ul li {
-              border: 0;
-              padding: 6px;
-              width: 103px; }
-              body .layout-wrapper .layout-menu ul li .submenu ul li i {
-                font-size: 6px;
-                color: #738183;
-                display: inline-block;
-                vertical-align: middle; }
-              body .layout-wrapper .layout-menu ul li .submenu ul li a {
-                font-size: 13px;
-                color: #889597;
-                display: inline-block;
-                padding: 0 4px; }
+          width: 100%;
+          list-style-type: none;
+          padding-top: 10px; }
+          body .layout-wrapper .layout-menu ul li ul li {
+            border: 0;
+            width: 100%;
+            padding: 0; }
+            body .layout-wrapper .layout-menu ul li ul li a i {
+              font-size: 6px;
+              color: #738183;
+              display: inline-block;
+              vertical-align: middle; }
+            body .layout-wrapper .layout-menu ul li ul li a .menu-item {
+              font-size: 13px;
+              font-weight: normal;
+              color: #889597;
+              display: inline-block; }
         body .layout-wrapper .layout-menu ul li.ui-state-active a span {
           color: #1b82d7; }
-        body .layout-wrapper .layout-menu ul li.ui-state-active .submenu {
+        body .layout-wrapper .layout-menu ul li.ui-state-active ul {
           display: block; }
   body .layout-wrapper .layout-content {
     margin-left: 240px;
