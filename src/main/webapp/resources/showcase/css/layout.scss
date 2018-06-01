@@ -189,7 +189,6 @@ body {
                     background-color: #f5f7f8;
                     padding: 25px 80px;
                     height: 320px;
-                    position: absolute;
 
                     span {
                         color: #30383c;
@@ -210,41 +209,45 @@ body {
                     }
                 }
 
-                .features {
-                    border-radius: 4px;
-                    background-color: #ffffff;
-                    border: solid 1px #b9c1ce;
-                    width: 1020px;
-                    height: auto;
-                    position: relative;
-                    top: 164px;
-                    left: 310px;
-
-                    .feature-box {
-                        text-align: center;
-                        padding: 20px;
-
-                        span {
-                            display: block;
-                            color: #30383c;
-
-                            &.feature-header {
-                                font-size: 16px;
-                                font-weight: 600;
-                                margin: 10px;
-                            }
-    
-                            &.feature-info {
-                                font-size: 14px;
-                            }
-                        }
-                    }
-                }
+                
 
                 .users {
                     text-align: center;
                     background-color: #20272a;
                     height: 520px;
+                    position: relative;
+
+                    .features {
+                        border-radius: 4px;
+                        background-color: #ffffff;
+                        border: solid 1px #b9c1ce;
+                        width: 80%;
+                        height: auto;
+                        top: -200px;
+                        left: 10%;
+                        right: 10%;
+                        position: absolute;
+
+                        .feature-box {
+                            text-align: center;
+                            padding: 20px;
+    
+                            span {
+                                display: block;
+                                color: #30383c;
+    
+                                &.feature-header {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    margin: 10px;
+                                }
+        
+                                &.feature-info {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
 
                     span {
                         color: #ffffff;
@@ -252,7 +255,7 @@ body {
 
                         &.section-header {
                             font-size: 24px;
-                            padding-top: 200px;
+                            padding-top: 220px;
                         }
     
                         &.info-users {
@@ -306,7 +309,7 @@ body {
 
                     .testimonial-box {
                         padding: 24px 0;
-                        
+
                         .testimonial-info {
                             line-height: 1.57;
                             display: inline-block;
@@ -322,6 +325,86 @@ body {
                             padding: 40px;
                         }
                     }  
+                }
+
+                .themes {
+                    text-align: center;
+                    padding: 0 130px;
+
+                    span {
+                        font-size: 14px;
+                        line-height: 1.57;
+                        color: #20272a;
+                        display: block;
+
+                        &.themes-header {
+                            font-size: 24px;
+                            padding-top: 24px;
+                        }
+                    }
+
+                    .theme-box {
+                        padding-top: 36px;
+                        text-align: center;
+
+                        img {
+                            height: 200px;
+                            width: auto;
+                        }
+
+                        .ui-button {
+                            width: 300px;
+                            text-align: center;
+                            background-color: #20272a;
+                            border-radius: 0;
+                            border: none;
+                            padding: 16px;
+
+                            .ui-button-text {
+                                font-size: 14px;
+                            	color: #ffffff;
+                            }
+                        }
+                    }
+                }
+
+                .support {
+                    background-color: #20272a;
+                    padding: 48px 124px;
+
+                    .support-box {
+                        span {
+                            font-size: 14px;
+                            color: #ffffff;
+                            display: block;
+                            text-align: left;
+
+                            &.support-header {
+                                font-size: 24px;
+                            }
+
+                            &.support-info {
+                                line-height: 1.57;
+                                padding: 24px 0;
+                            }
+                        }
+
+                        .ui-button {
+                            text-align: center;
+                            background-color: #FBD17B;
+                            padding: 8px 20px;
+                            border: 0;
+
+                            .ui-button-text {
+                                font-size: 18px;
+                                color: #b27800;
+                            }
+                        }
+                    }
+
+                    .support-image {
+                        text-align: center;
+                    }
                 }
             }
         }
