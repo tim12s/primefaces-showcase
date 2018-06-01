@@ -410,7 +410,19 @@ body {
         }
 
         .layout-footer {
-
+            background-color: #eaecef;
+            height: 65px;
+            position: relative;
+            bottom: -70px;
+            left: 240px;
+            text-align: center;
+            width: calc(100% - 240px);
+            
+            span {
+                font-size: 14px;
+                line-height: 1.57;
+                color: #20272a;
+            }
         }
     }
 }
