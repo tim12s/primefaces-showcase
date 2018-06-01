@@ -280,8 +280,50 @@ body {
                         }
                     }
                 }
-            }
 
+                .testimonials {
+                    text-align: center;
+                    background-color: #f5f7f8;
+                    padding: 24px 230px;
+
+                    span {
+                        display: block;
+                        color: #20272a;
+                        font-size: 14px;
+
+                        &.testimonial-header {
+                            font-size: 24px;
+                        }
+    
+                        &.name {
+                            font-weight: 600;
+                        }
+    
+                        &.firm-name {
+                            color: #889597;
+                        }
+                    }
+
+                    .testimonial-box {
+                        padding: 24px 0;
+                        
+                        .testimonial-info {
+                            line-height: 1.57;
+                            display: inline-block;
+                            color: #20272a;
+                            font-size: 14px;
+                            width: 65%;
+                            vertical-align: middle;
+                        }
+
+                        img {
+                            display: inline-block;
+                            vertical-align: middle;
+                            padding: 40px;
+                        }
+                    }  
+                }
+            }
         }
 
         .layout-footer {

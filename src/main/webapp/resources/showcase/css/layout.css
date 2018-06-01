@@ -209,3 +209,30 @@ body {
           padding: 20px; }
           body .layout-wrapper .layout-content #home .users .user-list ul li img {
             vertical-align: middle; }
+    body .layout-wrapper .layout-content #home .testimonials {
+      text-align: center;
+      background-color: #f5f7f8;
+      padding: 24px 230px; }
+      body .layout-wrapper .layout-content #home .testimonials span {
+        display: block;
+        color: #20272a;
+        font-size: 14px; }
+        body .layout-wrapper .layout-content #home .testimonials span.testimonial-header {
+          font-size: 24px; }
+        body .layout-wrapper .layout-content #home .testimonials span.name {
+          font-weight: 600; }
+        body .layout-wrapper .layout-content #home .testimonials span.firm-name {
+          color: #889597; }
+      body .layout-wrapper .layout-content #home .testimonials .testimonial-box {
+        padding: 24px 0; }
+        body .layout-wrapper .layout-content #home .testimonials .testimonial-box .testimonial-info {
+          line-height: 1.57;
+          display: inline-block;
+          color: #20272a;
+          font-size: 14px;
+          width: 65%;
+          vertical-align: middle; }
+        body .layout-wrapper .layout-content #home .testimonials .testimonial-box img {
+          display: inline-block;
+          vertical-align: middle;
+          padding: 40px; }
