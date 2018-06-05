@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div id="error">
+            <div class="error-message-box">
+                <span class="error-name">Page Not Found</span>
+                <span class="error-info">We couldn’t find this page. Please try again later.</span>
+                <p:commandButton type="button" value="Go to Homepage" class="secondary"/>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

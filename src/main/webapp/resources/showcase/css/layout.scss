@@ -100,6 +100,7 @@ body {
 
                     a {
                         padding: 0 14px;
+                        text-decoration: none;
 
                         img {
                             width: 16px;
@@ -431,6 +432,49 @@ body {
 
                     .support-image {
                         text-align: center;
+                    }
+                }
+            }
+
+            #error {
+                background: url("\#{resource['showcase:images/circuit.jpg']}");
+                width: auto;
+                height: 800px;
+                background-size: cover;
+
+                .error-message-box {
+                    background-image: linear-gradient(280deg, #1b81d7, #1f4869);
+                    height: 203px;
+                    padding: 8px;
+
+                    span {
+                        color: #ffffff;
+                        padding: 12px;
+                        font-size: 16px;
+                        display: block;
+
+                        &.error-name {
+                            font-size: 28px;
+                        }
+                    }
+
+                    .ui-button {
+                        border-radius: 3px;
+                        background-color: #40c4ff;
+                        margin-top: 24px;
+                        margin-left: 12px;
+                        border-color: #40c4ff;
+
+                        .ui-button-text {
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #30383c;                        
+                        }
+                        
+                        &.secondary {
+                            background-color: #fdd106;
+                            border-color: #fdd106;
+                        }
                     }
                 }
             }
