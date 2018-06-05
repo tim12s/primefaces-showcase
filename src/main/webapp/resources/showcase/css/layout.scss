@@ -15,7 +15,7 @@ body {
             background-color: #30383c;
             z-index: 1000;
 
-            .menu-button {
+            #menu-button {
                 display: none;
             }
 
@@ -95,12 +95,14 @@ body {
                 li {
                     background: #ffffff;
                     width: 240px;
-                    padding: 10px 0;
                     border-bottom: 1px solid #e3e9ea;
 
                     a {
-                        padding: 0 14px;
+                        padding: 10px 14px;
                         text-decoration: none;
+                        width: 100%;
+                        box-sizing: border-box;
+                        display: block;
 
                         img {
                             width: 16px;
@@ -118,7 +120,7 @@ body {
 
                     ul {
                         margin: 0;
-                        display: block;
+                        display: none;
                         width: 100%;
                         list-style-type: none;
                         padding-top: 10px;
@@ -129,6 +131,8 @@ body {
                             padding: 0;
 
                             a {
+                                padding: 0 14px;
+                                
                                 i {
                                     font-size: 6px;
                                     color: #738183;
@@ -144,10 +148,9 @@ body {
                                 }
                             }                    
                         }
-                    }
-                    
+                    } 
 
-                    &.ui-state-active {
+                    &.active-menuitem {
                         a {
                             span {
                                 color: #1b82d7;
@@ -157,7 +160,7 @@ body {
                         ul {
                             display: block;
                         }
-                    }
+                    }                   
                 } 
             }
         }
@@ -502,7 +505,7 @@ body {
             .layout-topbar {
                 text-align: center;
 
-                .menu-button {
+                #menu-button {
                     display: block;
                     width: 70px;
                     height: 70px;
@@ -581,6 +584,12 @@ body {
             .layout-footer {
                 left: 0px;
                 width: 100%;
+            }
+
+            &.layout-menu-mobile-active {
+                .layout-menu {
+                    display: block;
+                }       
             }
         }
     }
