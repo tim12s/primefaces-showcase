@@ -1,16 +1,4 @@
-/* open-sans-300 - latin */
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 300;
-    src: url("\#{resource['showcase:fonts/open-sans-v13-latin-300.eot']}"); /* IE9 Compat Modes */
-    src: local('Open Sans Light'), local('OpenSans-Light'),
-         url("\#{resource['showcase:fonts/open-sans-v13-latin-300.eot']}?#iefix") format('embedded-opentype'), /* IE6-IE8 */
-         url("\#{resource['showcase:fonts/open-sans-v13-latin-300.woff2']}") format('woff2'), /* Super Modern Browsers */
-         url("\#{resource['showcase:fonts/open-sans-v13-latin-300.woff']}") format('woff'), /* Modern Browsers */
-         url("\#{resource['showcase:fonts/open-sans-v13-latin-300.ttf']}") format('truetype'), /* Safari, Android, iOS */
-         url("\#{resource['showcase:fonts/open-sans-v13-latin-300.svg']}#OpenSans") format('svg'); /* Legacy iOS */
-  }
+
   
   /* open-sans-regular - latin */
   @font-face {
