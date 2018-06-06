@@ -6,5 +6,6 @@ nbactions.xml
 .vscode
 layout.classpath
 .sass-cache
+layout.css
 .DS_STORE
 bin
