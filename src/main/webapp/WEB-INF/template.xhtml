@@ -14,6 +14,7 @@
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
         <title><ui:insert name="title">PrimeFaces Showcase</ui:insert></title>
+        <h:outputStylesheet name="showcase/css/sh.css" />
         <h:outputScript name="script/layout.js" library="showcase" />
         <ui:insert name="head"/>
     </h:head>
@@ -26,14 +27,16 @@
             <div class="layout-content">
                 <ui:insert name="content">
                     <div class="content-section content-introduction">
-                        <h1><ui:insert name="title"></ui:insert></h1>
+                        <span><ui:insert name="title"></ui:insert></span>
                         <p><ui:insert name="description"></ui:insert></p>
                     </div>
                     <div class="content-section content-implementation">
                         <ui:insert name="implementation"></ui:insert>
                     </div>
                     <div class="content-section content-source">
-                        <ui:insert name="source"></ui:insert>
+                        <ui:insert name="source">
+                            <h:outputScript name="showcase/script/sh.js" target="body"/>
+                        </ui:insert>
                     </div>
                 </ui:insert>
             </div>
