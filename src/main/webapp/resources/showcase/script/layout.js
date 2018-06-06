@@ -68,7 +68,7 @@ $(document).ready(function() {
                 $this.menuClick = false;
             });
         },
-        
+
         removeMenuitem: function (id) {
             this.expandedMenuitems = $.grep(this.expandedMenuitems, function (value) {
                 return value !== id;
@@ -96,6 +96,9 @@ $(document).ready(function() {
             var submenu = item.children('ul');
             item.addClass('active-menuitem');
 
+            if(submenu.length) {
+                submenu.slideDown();
+            }
         },
     
         deactivate: function(item) {

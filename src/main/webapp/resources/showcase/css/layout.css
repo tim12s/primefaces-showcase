@@ -57,7 +57,8 @@ body {
         padding: 24px 32px; }
         body .layout-wrapper .layout-topbar ul li a {
           font-size: 15px;
-          color: #ffffff; }
+          color: #ffffff;
+          text-decoration: none; }
         body .layout-wrapper .layout-topbar ul li:hover {
           background-color: #4a4f52; }
       body .layout-wrapper .layout-topbar ul.ui-state-active {
@@ -108,12 +109,14 @@ body {
             font-size: 14px;
             font-weight: 600;
             color: #889597; }
+          body .layout-wrapper .layout-menu ul li a:hover {
+            background-color: rgba(216, 216, 216, 0.4); }
         body .layout-wrapper .layout-menu ul li ul {
           margin: 0;
           display: none;
           width: 100%;
           list-style-type: none;
-          padding-top: 10px; }
+          padding: 10px 0; }
           body .layout-wrapper .layout-menu ul li ul li {
             border: 0;
             width: 100%;
@@ -132,8 +135,6 @@ body {
                 display: inline-block; }
         body .layout-wrapper .layout-menu ul li.active-menuitem a span {
           color: #1b82d7; }
-        body .layout-wrapper .layout-menu ul li.active-menuitem ul {
-          display: block; }
   body .layout-wrapper .layout-content {
     margin-left: 240px;
     position: relative;
