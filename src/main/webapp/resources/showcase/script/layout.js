@@ -38,7 +38,7 @@ $(document).ready(function() {
             $this.menulinks.on('click', function (e) {
                 var link = $(this),
                 item = link.parent('li'),
-                submenu = item.children('ul');
+                submenu = item.children('div');
     
                 if (item.hasClass('active-menuitem')) {
                     if (submenu.length) {
@@ -93,7 +93,7 @@ $(document).ready(function() {
         },
     
         activate: function(item) {
-            var submenu = item.children('ul');
+            var submenu = item.children('div');
             item.addClass('active-menuitem');
 
             if(submenu.length) {
@@ -102,7 +102,7 @@ $(document).ready(function() {
         },
     
         deactivate: function(item) {
-            var submenu = item.children('ul');
+            var submenu = item.children('div');
             item.removeClass('active-menuitem');
     
             if(submenu.length) {
@@ -115,7 +115,7 @@ $(document).ready(function() {
     
             for(var i = 0; i < items.length; i++) {
                 var item = items.eq(i),
-                submenu = item.children('ul');
+                submenu = item.children('div');
     
                 if(submenu.length) {
                     if(item.hasClass('active-menuitem')) {
@@ -166,7 +166,7 @@ $(document).ready(function() {
                         var menuitem = $("#" + this.expandedMenuitems[i].replace(/:/g, "\\:"));
                         menuitem.addClass('active-menuitem');
     
-                        var submenu = menuitem.children('ul');
+                        var submenu = menuitem.children('div');
                         if(submenu.length) {
                             submenu.show();
                         }
