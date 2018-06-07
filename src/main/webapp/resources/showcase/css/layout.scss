@@ -362,7 +362,7 @@ body {
 
                 .themes {
                     text-align: center;
-                    padding: 36px 80px 72px 80px;
+                    padding: 36px 60px;
                     background-color: #2974d4;
 
                     .section-header-themes {
@@ -382,16 +382,19 @@ body {
                     }
 
                     .theme-box {
+                        padding: 0;
                         padding-top: 36px;
+
                         
                         img {
+                            height: 200px;
                             width: auto;
                             display: block;
                             margin: auto;
                         }
 
                         .ui-button {
-                            width: 400px;
+                            width: 357px;
                             text-align: center;
                             background-color: #20272a;
                             border-radius: 0;
