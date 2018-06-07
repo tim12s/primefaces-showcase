@@ -376,25 +376,27 @@ body {
                         padding-top: 36px;
                         
                         img {
-                            height: 200px;
                             width: auto;
                             display: block;
                             margin: auto;
                         }
 
                         .ui-button {
-                            width: 300px;
+                            width: 400px;
                             text-align: center;
                             background-color: #20272a;
                             border-radius: 0;
                             border: none;
                             padding: 16px;
-                            display: block;
                             margin: auto;
 
                             .ui-button-text {
                                 font-size: 14px;
                             	color: #ffffff;
+                            }
+
+                            &:hover {
+                                background-color: #4c5254;
                             }
                         }
                     }
