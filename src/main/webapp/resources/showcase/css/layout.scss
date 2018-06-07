@@ -315,27 +315,20 @@ body {
                 .testimonials {
                     text-align: center;
                     background-color: #f5f7f8;
-                    padding: 32px 100px;
+                    padding: 32px;
 
-                    span {
-                        display: block;
+                    .testimonial-header {
+                        font-size: 24px;
                         color: #20272a;
-                        font-size: 14px;
-
-                        &.testimonial-header {
-                            font-size: 24px;
-                        }
-    
-                        &.name {
-                            font-weight: 600;
-                        }
-    
-                        &.firm-name {
-                            color: #889597;
-                        }
+                        margin: auto;
+                        width: 100%;
+                        margin-bottom: 32px;
                     }
 
                     .testimonial-box {
+                        margin-left: -1px;
+                        margin-top: -1px;
+                        border: 1px solid #ffffff;
                         padding: 24px 0;
 
                         .testimonial-info {
@@ -346,13 +339,25 @@ body {
                             width: 65%;
                             vertical-align: middle;
                         }
+                    }
 
-                        img {
-                            display: inline-block;
-                            vertical-align: middle;
-                            padding: 40px;
+                    .testimonial-box:nth-child(2n) {
+                        background-color: #ffffff;
+                    }
+
+                    span {
+                        display: block;
+                        color: #20272a;
+                        font-size: 14px;
+    
+                        &.name {
+                            font-weight: 600;
                         }
-                    }  
+    
+                        &.firm-name {
+                            color: #889597;
+                        }
+                    }
                 }
 
                 .themes {
