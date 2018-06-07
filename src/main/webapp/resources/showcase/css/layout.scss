@@ -263,19 +263,31 @@ body {
 
                     .ui-button {
                         text-align: center;
-                        background-color: #FBD17B;
+                        background-color: #40B6EA;
                         padding: 8px 20px;
                         border: 0;
 
                         .ui-button-text {
                             font-size: 18px;
-                            color: #b27800;
+                            color: #22495b;
                         }
                         
                         &.secondary {
                             background-color: #FBD17B;
                             margin-left: 24px;
                             border-color: #FBD17B;
+                            
+                            .ui-button-text {
+                                color: #b27800;
+                            }
+
+                            &:hover {
+                                background-color:#e1bc6e;
+                            }
+                        }
+
+                        &:hover {
+                            background-color: #3392bd;
                         }
                     }
                 }
