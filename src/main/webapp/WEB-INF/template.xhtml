@@ -26,6 +26,9 @@
 
             <div class="layout-content">
                 <ui:insert name="content">
+                    <div class="content-section content-submenu">
+                        <ui:insert name="subsubmenu"></ui:insert>
+                    </div>
                     <div class="content-section content-introduction">
                         <span><ui:insert name="title"></ui:insert></span>
                         <p><ui:insert name="description"></ui:insert></p>
