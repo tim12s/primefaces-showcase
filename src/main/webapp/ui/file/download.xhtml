@@ -84,8 +84,8 @@ public class FileDownloadView {
     private StreamedContent file;
 	
 	public FileDownloadView() {        
-        InputStream stream = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/resources/demo/images/optimus.jpg");
-		file = new DefaultStreamedContent(stream, "image/jpg", "downloaded_optimus.jpg");
+        InputStream stream = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/resources/demo/images/boromir.jpg");
+		file = new DefaultStreamedContent(stream, "image/jpg", "downloaded_boromir.jpg");
 	}
 
     public StreamedContent getFile() {
