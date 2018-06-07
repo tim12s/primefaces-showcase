@@ -542,6 +542,10 @@ body {
                     font-size: 16px;
                     color: #ffffff;
                     font-weight: normal;
+
+                    a {
+                        color: #fdd106;
+                    }
                 }
             }
 
@@ -597,9 +601,16 @@ body {
             position: relative;
             bottom: -70px;
             left: 240px;
-            text-align: left;
             width: calc(100% - 240px);
+
+            .footer-left {
+                text-align: left;
+            }
             
+            .footer-right {
+                text-align: right;
+            }
+
             span {
                 font-size: 14px;
                 line-height: 1.57;
