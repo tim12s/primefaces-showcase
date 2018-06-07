@@ -363,6 +363,7 @@ body {
                 .themes {
                     text-align: center;
                     padding: 36px 80px 72px 80px;
+                    background-color: #2974d4;
 
                     .section-header-themes {
                         margin: auto;
@@ -370,7 +371,7 @@ body {
                         span {
                             font-size: 14px;
                             line-height: 1.57;
-                            color: #20272a;
+                            color: #ffffff;
                             display: block;
     
                             &.themes-header {
@@ -404,7 +405,7 @@ body {
                             }
 
                             &:hover {
-                                background-color: #4c5254;
+                                background-color: #363c3f;
                             }
                         }
                     }
