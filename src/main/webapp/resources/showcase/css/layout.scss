@@ -488,25 +488,33 @@ body {
                 }
             }
 
-            .content-section {
-
-            }
-
             .content-submenu {
                 background-color: #212425;
-                height: auto;
-                padding: 32px;
+                height: 100%;
+                display: block;
 
-                ul {
-                    padding: 0;
-                    margin: 0;
-                    list-style: none;
+                .SubSubMenu {
+                    padding: 32px;
 
-                    li {
-                        a {
-                            text-decoration: none;
-                            font-size: 14px;
-                            color: #dce0ed;
+                    ul {
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                        width: 100%;
+    
+                        li {
+                            width: 17%;
+                            display: inline-block;
+                            
+                            a {
+                                text-decoration: none;
+                                font-size: 14px;
+                                color: #dce0ed;
+
+                                &:hover {
+                                    color: #1b81d7;
+                                }
+                            }
                         }
                     }
                 }
