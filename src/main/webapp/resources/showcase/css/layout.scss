@@ -400,7 +400,6 @@ body {
 
                             &:hover {
                                 background-color: #4c5254;
-                                font-weight: 600;
                             }
                         }
                     }
@@ -491,6 +490,26 @@ body {
 
             .content-section {
 
+            }
+
+            .content-submenu {
+                background-color: #212425;
+                height: auto;
+                padding: 32px;
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+
+                    li {
+                        a {
+                            text-decoration: none;
+                            font-size: 14px;
+                            color: #dce0ed;
+                        }
+                    }
+                }
             }
 
             .content-introduction {
