@@ -496,6 +496,32 @@ body {
                     }
                 }
 
+                .designer {
+                    background-color: #fff;
+                    padding: 30px;
+
+                    .section-header-designer {
+                        margin: 10px 0 20px;
+                        display: block;
+                        text-align: center;
+                        font-size: 24px;
+                        color: #20272a;
+                    }
+
+                    img {
+                        width: 100%;
+                        margin-bottom: 30px;                    
+                    }
+
+                    .designer-info {
+                        .highlight {
+                            text-decoration: none;
+                            color: #1b82d7;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
                 .support {
                     background-color: #20272a;
                     padding: 48px 124px;
@@ -768,7 +794,7 @@ body {
                         .header {
                             padding: 46px 0;
                         }
-                        
+
                         .ui-button {
                             margin-top: 10px;
                             margin-left: 24px;
@@ -809,7 +835,15 @@ body {
             .layout-footer {
                 left: 0px;
                 width: 100%;
-            }
+
+                .footer-left {
+                    text-align: center;
+                }
+                
+                .footer-right {
+                    text-align: center;
+                }
+                }
 
             &.layout-menu-mobile-active {
                 .layout-menu {
