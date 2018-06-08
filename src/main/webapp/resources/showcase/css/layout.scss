@@ -764,6 +764,17 @@ body {
                 top: 110px;
 
                 #home {
+                    .hero {
+                        .header {
+                            padding: 46px 0;
+                        }
+                        
+                        .ui-button {
+                            margin-top: 10px;
+                            margin-left: 24px;
+                        }
+                    }
+
                     .testimonials {
                         padding: 24px 20px;
 
