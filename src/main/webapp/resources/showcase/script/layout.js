@@ -12,8 +12,11 @@ $(document).ready(function() {
             this.menulinks = this.menu.find('a');
             this.menuButton = $('#menu-button');
             this.expandedMenuitems = this.expandedMenuitems||[];
+            this.nano = this.menu.children('.nano');
 
             this.restoreMenuState();
+            
+            this.nano.nanoScroller({flash:true});
 
             this._bindEvents();
         },
@@ -54,6 +57,10 @@ $(document).ready(function() {
                     $this.activate(item);
                 }
 
+                setTimeout(function() {
+                    $(".nano").nanoScroller();
+                }, 500);
+                
                 if (submenu.length) {
                     e.preventDefault();
                 }
@@ -179,7 +186,8 @@ $(document).ready(function() {
             return window.innerWidth <= 1024;
         }
 
-    }
+    };
+    
     Showcase.init();
 });
 /*!

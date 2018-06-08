@@ -14,10 +14,15 @@
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
         <title><ui:insert name="title">PrimeFaces Showcase</ui:insert></title>
-        <h:outputStylesheet name="showcase/css/sh.css" />
+        
+        <h:outputStylesheet name="css/sh.css" library="showcase" />
+        <h:outputStylesheet name="css/nanoscroller.css" library="showcase" />
+        
         <h:outputScript name="jquery/jquery.js" library="primefaces" />
         <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
+        <h:outputScript name="script/nanoscroller.js" library="showcase" />
         <h:outputScript name="script/layout.js" library="showcase" />
+        
         <ui:insert name="head"/>
     </h:head>
 
