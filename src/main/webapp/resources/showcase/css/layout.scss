@@ -143,7 +143,7 @@ body {
 
                 input {
                     padding: 9px 0 9px 32px;
-                    width: 180px;
+                    width: 240px;
                     border-radius: 2px;
                     background-color: rgba(216, 216, 216, 0.4);
                     border: solid 1px rgba(136, 149, 151, 0.4);
@@ -191,9 +191,13 @@ body {
                         ul {
                             margin: 0;
                             display: inline-block;
-                            width: 49%;
+                            width: 37%;
                             list-style-type: none;
                             padding: 10px 0;
+
+                            &.submenu-left {
+                                width: 61%;
+                            }
     
                             li {
                                 border: 0;

@@ -14,24 +14,18 @@
                     <span>AjaxCore</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
-                        <li>
-                            <h:link outcome="/ui/ajax/basic">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">Basic</span>
-                            </h:link>
-                        </li>
-                        <li>
-                            <h:link outcome="/ui/ajax/event">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">Event</span>
-                            </h:link>
-                        </li>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/ajax/listener">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Listener</span>
                             </h:link>
+                        </li>
+                        <li>   
+                            <h:link outcome="/ui/ajax/partialSubmit">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">PartialSubmit</span>
+                            </h:link>                
                         </li>
                         <li>
                             <h:link outcome="/ui/ajax/counter">
@@ -51,6 +45,12 @@
                                 <span class="menu-item">Validation</span>
                             </h:link>                
                         </li>
+                        <li>           
+                            <h:link outcome="/ui/ajax/remoteCommand">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">RemoteCommand</span>
+                            </h:link>  
+                        </li>
                         <li>                  
                             <h:link outcome="/ui/ajax/dropdown">
                                 <i class="fa fa-circle"></i>
@@ -59,11 +59,17 @@
                         </li>
                     </ul>
                     <ul>
-                        <li>   
-                            <h:link outcome="/ui/ajax/partialSubmit">
+                        <li>
+                            <h:link outcome="/ui/ajax/basic">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">PartialSubmit</span>
-                            </h:link>                
+                                <span class="menu-item">Basic</span>
+                            </h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/ajax/event">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">Event</span>
+                            </h:link>
                         </li>
                         <li>
                             <h:link outcome="/ui/ajax/selector">
@@ -95,12 +101,6 @@
                                 <span class="menu-item">Status</span>
                             </h:link>
                         </li>
-                        <li>           
-                            <h:link outcome="/ui/ajax/remoteCommand">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">RemoteCommand</span>
-                            </h:link>  
-                        </li>
                     </ul>
                 </div>
             </li>
@@ -110,7 +110,7 @@
                     <span>Input</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/input/autoComplete">
                                 <i class="fa fa-circle"></i>
@@ -126,44 +126,44 @@
                         <li>
                             <h:link outcome="/ui/input/booleanButton">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">BooleanButton</span>
+                                <span class="menu-item">SelectBooleanButton</span>
                             </h:link>
                         </li>
                         <li>
                             <h:link outcome="/ui/input/booleanCheckbox">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">BooleanCheckbox</span>
+                                <span class="menu-item">SelectBooleanCheckbox</span>
                             </h:link>
                         </li>
                         <li>
-                            <h:link outcome="/ui/input/calendar">
+                            <h:link outcome="/ui/input/oneButton">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">Calendar</span>
+                                <span class="menu-item">SelectOneButton</span>
+                            </h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/input/oneRadio">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">SelectOneRadio</span>
                             </h:link>
                         </li>
                         <li>           
                             <h:link outcome="/ui/input/checkboxMenu">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">CheckboxMenu</span>
+                                <span class="menu-item">SelectCheckboxMenu</span>
                             </h:link>                
-                        </li>
-                        <li>                  
-                            <h:link outcome="/ui/input/editor">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">Editor</span>
-                            </h:link>        
                         </li>
                         <li>   
                             <h:link outcome="/ui/input/oneMenu">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">OneMenu</span>
+                                <span class="menu-item">SelectOneMenu</span>
                             </h:link>                        
                         </li>
-                        <li>
-                            <h:link outcome="/ui/input/inputText">
+                        <li>                  
+                            <h:link outcome="/ui/input/triStateCheckbox">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">InputText</span>
-                            </h:link>
+                                <span class="menu-item">TriStateCheckbox</span>
+                            </h:link>         
                         </li>
                         <li>
                             <h:link outcome="/ui/input/inputGroup">
@@ -186,25 +186,25 @@
                         <li>
                             <h:link outcome="/ui/input/listbox">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">Listbox</span>
+                                <span class="menu-item">SelectOneListbox</span>
                             </h:link>
                         </li>
                         <li>           
                             <h:link outcome="/ui/input/manyButton">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">ManyButton</span>
+                                <span class="menu-item">SelectManyButton</span>
                             </h:link>             
                         </li>
                         <li>                  
                             <h:link outcome="/ui/input/manyMenu">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">ManyMenu</span>
+                                <span class="menu-item">SelectManyMenu</span>
                             </h:link>        
                         </li>
                         <li>   
                             <h:link outcome="/ui/input/manyCheckbox">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">ManyCheckbox</span>
+                                <span class="menu-item">SelectManyCheckbox</span>
                             </h:link>                       
                         </li>
                         <li>
@@ -216,16 +216,16 @@
                     </ul>
                     <ul>
                         <li>
-                            <h:link outcome="/ui/input/oneButton">
+                            <h:link outcome="/ui/input/calendar">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">OneButton</span>
+                                <span class="menu-item">Calendar</span>
                             </h:link>
                         </li>
-                        <li>
-                            <h:link outcome="/ui/input/oneRadio">
+                        <li>                  
+                            <h:link outcome="/ui/input/editor">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">OneRadio</span>
-                            </h:link>
+                                <span class="menu-item">Editor</span>
+                            </h:link>        
                         </li>
                         <li>
                             <h:link outcome="/ui/input/signature">
@@ -245,10 +245,16 @@
                                 <span class="menu-item">Slider</span>
                             </h:link>               
                         </li>
+                        <li>
+                            <h:link outcome="/ui/input/inputText">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">InputText</span>
+                            </h:link>
+                        </li>
                         <li>                  
                             <h:link outcome="/ui/input/inputSwitch">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">Switch</span>
+                                <span class="menu-item">InputSwitch</span>
                             </h:link>       
                         </li>
                         <li>   
@@ -299,12 +305,6 @@
                                 <span class="menu-item">TextEditor</span>
                             </h:link>                
                         </li>
-                        <li>                  
-                            <h:link outcome="/ui/input/triStateCheckbox">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">TriStateCheckbox</span>
-                            </h:link>         
-                        </li>
                         <li>   
                             <h:link outcome="/ui/input/chips">
                                 <i class="fa fa-circle"></i>
@@ -320,7 +320,7 @@
                     <span>Button</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/button/button">
                                 <i class="fa fa-circle"></i>
@@ -368,7 +368,7 @@
                     <span>Data</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/data/carousel">
                                 <i class="fa fa-circle"></i>
@@ -405,17 +405,11 @@
                                 <span class="menu-item">DataTable</span>
                             </h:link>
                         </li>
-                        <li>
-                            <h:link outcome="/ui/data/diagram/basic">
+                        <li>                  
+                            <h:link outcome="/ui/data/htree/basic">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">Diagram</span>
-                            </h:link>
-                        </li>
-                        <li>
-                            <h:link outcome="/ui/data/pickList">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">PickList</span>
-                            </h:link>
+                                <span class="menu-item">HorizontalTree</span>
+                            </h:link>        
                         </li>
                         <li>
                             <h:link outcome="/ui/data/orderList">
@@ -429,6 +423,12 @@
                                 <span class="menu-item">Organigram</span>
                             </h:link>              
                         </li>
+                        <li>   
+                            <h:link outcome="/ui/data/dataexporter/basic">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">DataExporter</span>
+                            </h:link>                       
+                        </li>
                         <li>                  
                             <h:link outcome="/ui/data/gmap/basic">
                                 <i class="fa fa-circle"></i>
@@ -438,16 +438,22 @@
                     </ul>
                     <ul>
                         <li>   
-                            <h:link outcome="/ui/data/dataexporter/basic">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">DataExporter</span>
-                            </h:link>                       
-                        </li>
-                        <li>   
                             <h:link outcome="/ui/data/mindmap">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Mindmap</span>
                             </h:link>                       
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/data/diagram/basic">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">Diagram</span>
+                            </h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/data/pickList">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">PickList</span>
+                            </h:link>
                         </li>
                         <li>
                             <h:link outcome="/ui/data/repeat">
@@ -485,12 +491,6 @@
                                 <span class="menu-item">TreeTable</span>
                             </h:link>                
                         </li>
-                        <li>                  
-                            <h:link outcome="/ui/data/htree/basic">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">HorizontalTree</span>
-                            </h:link>        
-                        </li>
                         <li>   
                             <h:link outcome="/ui/data/timeline/basic">
                                 <i class="fa fa-circle"></i>
@@ -506,8 +506,8 @@
                     <span>Panel</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
-                        <li>
+                    <ul class="submenu-left">
+                       <li>
                             <h:link outcome="/ui/panel/accordionPanel">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Accordion</span>
@@ -602,18 +602,18 @@
                     <span>Overlay</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/overlay/confirmDialog">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">ConfirmDialog</span>
                             </h:link>
                         </li>
-                        <li>
-                            <h:link outcome="/ui/overlay/dialog/basic">
+                        <li>           
+                            <h:link outcome="/ui/overlay/overlayPanel">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">Dialog</span>
-                            </h:link>
+                                <span class="menu-item">OverlayPanel</span>
+                            </h:link>               
                         </li>
                         <li>
                             <h:link outcome="/ui/overlay/lightBox">
@@ -623,17 +623,17 @@
                         </li>
                     </ul>
                     <ul>
-                        <li>           
-                            <h:link outcome="/ui/overlay/overlayPanel">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">OverlayPanel</span>
-                            </h:link>               
-                        </li>
                         <li>                  
                             <h:link outcome="/ui/overlay/tooltip/tooltipOptions">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Tooltip</span>
                             </h:link>         
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/overlay/dialog/basic">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">Dialog</span>
+                            </h:link>
                         </li>
                         <li>   
                             <h:link outcome="/ui/overlay/sidebar">
@@ -650,7 +650,7 @@
                     <span>Menu</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/menu/breadcrumb">
                                 <i class="fa fa-circle"></i>
@@ -740,7 +740,7 @@
                     <span>Charts</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/chart/area">
                                 <i class="fa fa-circle"></i>
@@ -860,8 +860,8 @@
                     <span>Messages</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
-                        <li>
+                    <ul class="submenu-left">
+                       <li>
                             <h:link outcome="/ui/message/growl">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Growl</span>
@@ -884,18 +884,18 @@
                     <span>Multimedia</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
-                        <li>
-                            <h:link outcome="/ui/multimedia/barcode">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">Barcode</span>
-                            </h:link>
-                        </li>
-                        <li>           
+                    <ul class="submenu-left">
+                       <li>           
                             <h:link outcome="/ui/multimedia/compare">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Compare</span>
                             </h:link>              
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/multimedia/graphicImage">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">GraphicImage</span>
+                            </h:link>
                         </li>
                         <li>                  
                             <h:link outcome="/ui/multimedia/contentFlow">
@@ -918,9 +918,9 @@
                     </ul>
                     <ul>
                         <li>
-                            <h:link outcome="/ui/multimedia/graphicImage">
+                            <h:link outcome="/ui/multimedia/barcode">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">GraphicImage</span>
+                                <span class="menu-item">Barcode</span>
                             </h:link>
                         </li>
                         <li>
@@ -950,8 +950,8 @@
                     <span>File</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
-                        <li>
+                    <ul class="submenu-left">
+                       <li>
                             <h:link outcome="/ui/file/upload/basic">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Upload</span>
@@ -974,7 +974,7 @@
                     <span>DragDrop</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/dnd/draggable">
                                 <i class="fa fa-circle"></i>
@@ -1010,7 +1010,7 @@
                     <span>ClientSideValidation</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/csv/basic">
                                 <i class="fa fa-circle"></i>
@@ -1046,7 +1046,7 @@
                     <span>DialogFramework</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/df/basic">
                                 <i class="fa fa-circle"></i>
@@ -1082,11 +1082,23 @@
                     <span>Misc</span>
                 </a>
                 <div class="submenu-container">
-                    <ul>
+                    <ul class="submenu-left">
                         <li>
                             <h:link outcome="/ui/misc/responsive">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Responsive</span>
+                            </h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/misc/themeSwitcher">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">ThemeSwitcher</span>
+                            </h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/misc/outputLabel">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">OutputLabel</span>
                             </h:link>
                         </li>
                         <li>
@@ -1149,18 +1161,6 @@
                                 <span class="menu-item">FeedReader</span>
                             </h:link>
                         </li>
-                        <li>
-                            <h:link outcome="/ui/misc/focus">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">Focus</span>
-                            </h:link>
-                        </li>
-                        <li>
-                            <h:link outcome="/ui/misc/hotkey">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">Hotkey</span>
-                            </h:link>
-                        </li>
                         <li>           
                             <h:link outcome="/ui/misc/idleMonitor">
                                 <i class="fa fa-circle"></i>
@@ -1194,9 +1194,15 @@
                             </h:link>
                         </li>
                         <li>
-                            <h:link outcome="/ui/misc/outputLabel">
+                            <h:link outcome="/ui/misc/focus">
                                 <i class="fa fa-circle"></i>
-                                <span class="menu-item">OutputLabel</span>
+                                <span class="menu-item">Focus</span>
+                            </h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/ui/misc/hotkey">
+                                <i class="fa fa-circle"></i>
+                                <span class="menu-item">Hotkey</span>
                             </h:link>
                         </li>
                         <li>
@@ -1257,12 +1263,6 @@
                             <h:link outcome="/ui/misc/terminal/basic">
                                 <i class="fa fa-circle"></i>
                                 <span class="menu-item">Terminal</span>
-                            </h:link>
-                        </li>
-                        <li>
-                            <h:link outcome="/ui/misc/themeSwitcher">
-                                <i class="fa fa-circle"></i>
-                                <span class="menu-item">ThemeSwitcher</span>
                             </h:link>
                         </li>
                         <li>           
