@@ -1,4 +1,5 @@
 @import './_fonts';
+@import './_mixins';
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -20,6 +21,7 @@ body {
             width: 100%;
             height: 70px;
             background-color: #30383c;
+            @include shadow(0 2px 5px 0 rgba(0,0,0,.3));
 
             #menu-button {
                 display: none;
@@ -119,7 +121,7 @@ body {
             }
         }
 
-        .layout-menu {
+        .layout-sidebar {
             overflow: auto;
             position: fixed;
             top: 70px;
@@ -127,8 +129,8 @@ body {
             width: 300px;
             height: 100%;
             background-color: #ffffff;
-            box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
             z-index: 1000;
+            @include shadow(0 0px 10px rgba(0, 0, 0, 0.3));
 
             .search-input {
                 padding: 14px;
@@ -149,28 +151,27 @@ body {
                 }
             }
 
-            ul {
+            .layout-menu {
                 list-style: none;
                 padding: 0;
                 margin: 0;
                 border: 0;
 
-                li {
+                > li {
                     background: #ffffff;
-                    width: 302px;
                     border-bottom: 1px solid #e3e9ea;
 
-                    a {
+                    > a {
                         padding: 10px 14px;
                         text-decoration: none;
                         width: 100%;
-                        box-sizing: border-box;
                         display: block;
+                        @include box-sizing(border-box);
 
                         img {
                             width: 16px;
                             height: auto;
-                            margin-right: 16px;
+                            margin-right: 8px;
                             vertical-align: middle;
                         }
 
@@ -178,6 +179,7 @@ body {
                             font-size: 14px;
                             font-weight: 600;
                             color: #889597;
+                            vertical-align: middle;
                         }
 
                         &:hover {
@@ -185,27 +187,26 @@ body {
                         }
                     }
 
-                    .submenu-container {
+                    > div {
                         display: none;
+                        @include clearfix();
 
                         ul {
                             margin: 0;
-                            display: inline-block;
-                            width: 37%;
                             list-style-type: none;
                             padding: 10px 0;
-
-                            &.submenu-left {
-                                width: 61%;
-                            }
+                            float: left;
+                            @include box-sizing(border-box);
     
                             li {
                                 border: 0;
-                                width: 100%;
                                 padding: 0;
     
                                 a {
-                                    padding: 4px 14px;
+                                    padding: 6px 12px;
+                                    display: block;
+                                    font-size: 13px;
+                                    color: #889597;
                                     
                                     i {
                                         font-size: 6px;
@@ -214,19 +215,32 @@ body {
                                         vertical-align: middle;
                                     }
         
-                                    .menu-item {
+                                    .menuitem-text {
                                         font-size: 13px;
                                         font-weight: normal;
-                                        color: #889597;
+                                        
                                         display: inline-block;
+                                        vertical-align: middle;
+                                    }
+
+                                    &:hover {
+                                        background-color:#EFF3F6;
                                     }
                                 }                    
+                            }
+
+                            &:first-child {
+                                width: 60%;
+                            }
+
+                            &:last-child {
+                                width: 40%;
                             }
                         }
                     }
                      
                     &.active-menuitem {
-                        a {
+                        > a {
                             span {
                                 color: #1b82d7;
                             }
@@ -561,11 +575,9 @@ body {
             }
 
             .content-submenu {
-                background-color: #212425;
-                height: 100%;
-                display: block;
+                background-color: #2b3236;
 
-                .SubSubMenu {
+                > div {
                     padding: 32px;
 
                     ul {
@@ -573,18 +585,27 @@ body {
                         margin: 0;
                         list-style: none;
                         width: 100%;
+                        @include clearfix();
     
                         li {
-                            width: 17%;
-                            display: inline-block;
+                            list-style: none;
+                            width: 20%;
+                            float: left;
+                            margin-top: 5px;
                             
                             a {
+                                color: #dce0ed;
+                                display: block;
+                                width: 90%;
+                                border: 1px solid transparent;
+                                transition: border-color .1s;
+                                padding: 6px 12px;
+                                border-radius: 3px;
                                 text-decoration: none;
                                 font-size: 14px;
-                                color: #dce0ed;
 
                                 &:hover {
-                                    color: #1b81d7;
+                                    border-color: #dce0ed;
                                 }
                             }
                         }
@@ -601,12 +622,6 @@ body {
                     font-size: 28px;
                     color: #ffffff;
                     margin: 0;
-
-                    &.subitem {
-                        color: #ffffff;
-                        opacity: 0.9;
-                        font-weight: normal;
-                    }
                 }
 
                 p {
@@ -617,6 +632,10 @@ body {
                     a {
                         color: #fdd106;
                     }
+                }
+
+                .subitem {
+                    font-weight: normal;
                 }
             }
 
@@ -654,9 +673,14 @@ body {
                             border-color: #0e4675;
                             
                             a {
-                                font-size: 14px;
+                                padding: 10px 14px;
+                                font-size: 16px;
                                 font-weight: normal;
                                 color: #ffffff;
+                            }
+
+                            &.ui-state-hover {
+                                background-color: #265882;
                             }
 
                             &.ui-state-active {
