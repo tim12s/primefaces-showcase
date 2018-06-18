@@ -1,8 +1,10 @@
 @import './_fonts';
 
 body {
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
-    font-family: 'Open Sans';
+    font-size: 14px;
+
 
     .layout-wrapper {
         .layout-topbar {
@@ -13,7 +15,6 @@ body {
             width: 100%;
             height: 70px;
             background-color: #30383c;
-            z-index: 1000;
 
             #menu-button {
                 display: none;
@@ -29,7 +30,7 @@ body {
                 }
             }
 
-            ul {
+            .layout-topbar-menu {
                 padding: 0;
                 list-style: none;
                 position: absolute;
@@ -90,6 +91,7 @@ body {
                                     -moz-border-radius:5px; 
                                     -webkit-border-radius:5px;
                                 }
+
                                 .ui-text { 
                                     display:inline-block; 
                                     margin-top:7px; 
@@ -126,7 +128,7 @@ body {
             position: fixed;
             top: 70px;
             left: 0;
-            width: 302px;
+            width: 300px;
             height: 100%;
             background-color: #ffffff;
             box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
@@ -186,6 +188,7 @@ body {
                             background-color: rgba(216, 216, 216, 0.4);
                         }
                     }
+
                     .submenu-container {
                         display: none;
 
@@ -260,61 +263,85 @@ body {
         }
 
         .layout-content {
-            margin-left: 302px;
-            position: relative;
-            top: 70px;
+            margin-left: 300px;
+            padding: 70px 0 0 0;
 
-            #home {
-                .hero {
-                    background: url("\#{resource['showcase:images/bg-hero.png']}");
-                    padding: 55px;
-                    width: auto;
-                    height: 280px;
+            .homepage {
+                h2 {
+                    font-size: 1.5em;
+                    font-weight: normal;
+                    margin: 1em;
+                }
+
+                p {
+                    margin: 1em;
+                    line-height: 1.5em;
+                }
+
+                .introduction {
+                    background: url("\#{resource['showcase:images/bg-introduction.png']}");
+                    padding: 64px;
                     background-size: cover;
-                    position: relative;
+                    color: #ffffff;
 
-                    .header {
-                        padding: 60px 0;
+                    .introduction-header {
+                        h1 {
+                            font-size: 28px;
+                            font-weight: 700;
+                            margin: 14px 0;
+                        }
 
-                        span {
+                        p {
                             font-size: 24px;
-                            font-weight: bold;
-                            color: #ffffff;
-    
-                            &.regular-header {
-                                font-weight: normal;
-                                display: block;
-                            }
+                            margin: 0 0 42px 0;
                         }
                     }
 
                     .ui-button {
                         text-align: center;
                         background-color: #40B6EA;
-                        padding: 8px 20px;
                         border: 0;
+                        min-width: 220px;
 
                         .ui-button-text {
+                            padding: 14px;
                             font-size: 18px;
                             color: #22495b;
+                        }
+
+                        .ui-icon {
+                            color:#22495b;
+                        }
+
+                        &:hover {
+                            background-color: #3392bd;
                         }
                         
                         &.secondary {
                             background-color: #FBD17B;
-                            margin-left: 24px;
+                            margin-left: 21px;
                             border-color: #FBD17B;
                             
                             .ui-button-text {
                                 color: #b27800;
                             }
 
+                            .ui-icon {
+                                color: #b27800;
+                            }
+                            
+
                             &:hover {
                                 background-color:#e1bc6e;
                             }
                         }
 
-                        &:hover {
-                            background-color: #3392bd;
+                        .ui-icon {
+                            width: auto;
+                            height: auto;
+                            font-size: 21px;
+                            margin-top: -11px;
+                            margin-left: 7px;
                         }
                     }
                 }
@@ -322,42 +349,16 @@ body {
                 .why-primefaces {
                     text-align: center;
                     background-color: #f5f7f8;
-                    padding: 32px 80px 32px 80px;
-                    height: auto;
-
-                    a {
-                        text-decoration: none;
-                    }
-
-                    span {
-                        color: #30383c;
-                        font-size: 14px;
-                        line-height: 21px;
-                        display: block;
-                        margin-bottom: 12px;
-
-                        &.info-header {
-                            font-size: 24px;
-                            color: #30383c;
-                        }
-
-                        &.link {
-                            color: #2593c4;
-                            display: inline;
-                            font-weight: 600;
-                        }
-                    }
+                    padding: 32px;
                 }
 
                 .features {
-
                     background-color: #ffffff;
-                    height: auto;
-                    padding: 32px 0;
+                    padding: 32px;
 
                     .feature-box {
                         text-align: center;
-                        padding: 20px;
+                        padding: 24px;
 
                         span {
                             display: block;
@@ -379,41 +380,22 @@ body {
                 .users {
                     text-align: center;
                     background-color: #20272a;
-                    height: auto;
-                    padding-top: 32px;
-                    padding-bottom: 32px;
+                    padding: 32px;
+                    color: #ffffff;
                     
-                    .users-panel {
-                        span {
-                            color: #ffffff;
+                    .user-list {
+                        ul {
                             display: block;
-    
-                            &.section-header {
-                                font-size: 24px;
-                                padding-top: 12px;
-                            }
-        
-                            &.info-users {
-                                font-size: 14px;
-                                padding-top: 12px;
-                            }
-                        }
-      
-    
-                        .user-list {
-                            ul {
-                                display: block;
-                                padding: 0;
-                                margin: 0;
-                                list-style: none;
-    
-                                li {
-                                    display: inline-block;
-                                    padding: 20px;
-    
-                                    img {
-                                        vertical-align: middle;
-                                    }
+                            padding: 0;
+                            margin: 32px 0 0 0;
+                            list-style: none;
+
+                            li {
+                                display: inline-block;
+                                padding: 20px;
+
+                                img {
+                                    vertical-align: middle;
                                 }
                             }
                         }
@@ -425,23 +407,13 @@ body {
                     background-color: #f5f7f8;
                     padding: 32px;
 
-                    .testimonial-header {
-                        font-size: 24px;
-                        color: #20272a;
-                        margin: auto;
-                        width: 100%;
-                        margin-bottom: 32px;
-                    }
-
                     .testimonial-box {
-                        vertical-align: middle;
-                        margin-left: -1px;
-                        margin-top: -1px;
-                        border: 1px solid #ffffff;
-                        padding: 24px 0;
+                        border: 1px solid #f5f7f8;
+                        padding: 32px;
+                        background-color: #ffffff;
 
                         .testimonial-info {
-                            line-height: 1.57;
+                            line-height: 1.5;
                             display: inline-block;
                             color: #20272a;
                             font-size: 14px;
@@ -450,47 +422,25 @@ body {
                         }
                     }
 
-                    .testimonial-box:nth-child(2n) {
-                        background-color: #ffffff;
+                    p {
+                        color: #20272a;
+                        margin: 0 0 14px 0;
                     }
 
-                    span {
-                        display: block;
-                        color: #20272a;
-                        font-size: 14px;
-    
-                        &.name {
-                            font-weight: 600;
-                        }
+                    .testimonial-name {
+                        font-weight: 600;
                     }
                 }
 
                 .themes {
                     text-align: center;
-                    padding: 36px 60px;
+                    padding: 32px;
                     background-color: #2974d4;
-
-                    .section-header-themes {
-                        margin: auto;
-
-                        span {
-                            font-size: 14px;
-                            line-height: 1.57;
-                            color: #ffffff;
-                            display: block;
-    
-                            &.themes-header {
-                                font-size: 24px;
-                                padding-top: 24px;
-                            }
-                        }    
-                    }
+                    color: #ffffff;
 
                     .theme-box {
-                        padding: 0;
-                        padding-top: 36px;
+                        padding: 32px 0;
 
-                        
                         img {
                             height: 200px;
                             width: auto;
@@ -520,41 +470,24 @@ body {
                 }
 
                 .designer {
-                    background-color: #fff;
-                    padding: 48px 124px;
-
-                    .section-header-designer {
-                        margin: 10px 0 20px;
-                        display: block;
+                    .designer-intro {
+                        background-color: #ffffff;
+                        padding: 32px;
                         text-align: center;
-                        font-size: 24px;
-                        color: #20272a;
                     }
 
                     img {
-                        width: 100%;
-                        margin-bottom: 30px;                    
-                    }
-
-                    .designer-info {
-                        font-size: 14px;
-                        line-height: 1.57;
-
-                        .highlight {
-                            text-decoration: none;
-                            color: #1b82d7;
-                            font-weight: 600;
-                        }
+                        width: 100%;             
                     }
                 }
 
                 .support {
                     background-color: #20272a;
-                    padding: 48px 124px;
+                    padding: 56px;
 
                     .support-box {
+
                         span {
-                            font-size: 14px;
                             color: #ffffff;
                             display: block;
                             text-align: left;
@@ -740,11 +673,8 @@ body {
 
         .layout-footer {
             background-color: #eaecef;
-            height: auto;
-            position: relative;
-            bottom: -70px;
-            left: 302px;
-            width: calc(100% - 302px);
+            margin-left: 300px;
+            width: calc(100% - 300px);
 
             .footer-left {
                 text-align: left;
@@ -762,7 +692,7 @@ body {
         }
     }
 
-    @media (max-width: 1024px) {
+    @media screen and (max-width: 64em) {
         .layout-wrapper {
             .layout-topbar {
                 text-align: center;
@@ -812,11 +742,9 @@ body {
     
             .layout-content {
                 margin-left: 0px;
-                position: relative;
-                top: 110px;
 
-                #home {
-                    .hero {
+                .homepage {
+                    .introduction {
                         .header {
                             padding: 46px 0;
                         }
