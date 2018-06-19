@@ -31,11 +31,11 @@ $(document).ready(function() {
 
             this.menuButton.off('click').on('click', function(e) {
                 $this.menuClick = true;
-    
                 if($this.isMobile()) {
-                    $this.wrapper.toggleClass('layout-menu-mobile-active');
+                    $this.wrapper.toggleClass('layout-sidebar-mobile-active');   
+                    $(document.body).toggleClass('hidden-overflow-body');   
                 }
-    
+                
                 e.preventDefault();
             });    
     
@@ -68,9 +68,8 @@ $(document).ready(function() {
             });
 
             $(document.body).on('click', function() {
-
                 if(!$this.menuClick && $this.isMobile()) {
-                    $this.wrapper.removeClass('layout-menu-mobile-active');
+                    $this.wrapper.removeClass('layout-mobile-active');
                 }
     
                 $this.menuClick = false;
