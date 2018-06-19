@@ -11,9 +11,11 @@ $(document).ready(function() {
             this.sidebar = this.wrapper.children('.layout-sidebar');
             this.menu = $('#layout-menu');
             this.menulinks = this.menu.find('a');
+            this.submenuItems = this.menu.find('> li');
             this.menuButton = $('#menu-button');
             this.expandedMenuitems = this.expandedMenuitems||[];
             this.nano = this.menu.children('.nano');
+            this.searchInput = this.sidebar.find('.search-input > input');
 
             this.restoreMenuState();
             
@@ -73,6 +75,47 @@ $(document).ready(function() {
                 }
     
                 $this.menuClick = false;
+            });
+            
+            this.searchInput.on('keyup', function(e) {
+                var input = $(this), 
+                searchedValue = input.val().toLowerCase(),
+                matchSub = false;
+
+                for(var i = 0; i < $this.submenuItems.length; i++) {
+                    var submenuItem = $this.submenuItems.eq(i),
+                    submenuLink = submenuItem.children('a'),
+                    submenuLinkVal = $.trim(submenuLink.children('span').text()).toLowerCase();
+                    
+                    if(submenuLinkVal.search(searchedValue) < 0 || searchedValue.length === 0) {  
+                        var menulinksInSubmenu = submenuLink.next().find('a');
+                        
+                        for(var j = 0; j < menulinksInSubmenu.length; j++) {
+                            var menulink = menulinksInSubmenu.eq(j),
+                            menuitem = menulink.parent(),
+                            itemVal = $.trim(menulink.children('span').text()).toLowerCase();
+                            
+                            if(itemVal.search(searchedValue) >= 0) {
+                                menuitem.show();
+                                matchSub = true;
+                            }
+                            else{
+                                menuitem.hide();
+                            }
+                        }
+                        
+                        if(matchSub) {
+                            submenuItem.show();
+                            matchSub = false;
+                        }
+                        else {
+                            submenuItem.hide();
+                        }
+                    }
+                    else {
+                        submenuItem.show();
+                    }
+                }   
             });
         },
 
