@@ -531,13 +531,13 @@ body {
             }
         }
 
-        #error {
+        .layout-error {
             background: url("\#{resource['showcase:images/circuit.jpg']}");
             width: auto;
             height: 800px;
             background-size: cover;
 
-            .error-message-box {
+            .layout-error-message-box {
                 background-image: linear-gradient(280deg, #1b81d7, #1f4869);
                 height: 203px;
                 padding: 8px;
@@ -548,27 +548,26 @@ body {
                     font-size: 16px;
                     display: block;
 
-                    &.error-name {
+                    &.layout-error-name {
                         font-size: 28px;
                     }
                 }
 
                 .ui-button {
                     border-radius: 3px;
-                    background-color: #40c4ff;
+                    background-color: #FBD17B;
+                    border-color: #FBD17B;
                     margin-top: 24px;
                     margin-left: 12px;
-                    border-color: #40c4ff;
 
                     .ui-button-text {
                         font-size: 16px;
                         font-weight: 600;
-                        color: #30383c;                        
+                        color: #b27800;                        
                     }
-                    
-                    &.secondary {
-                        background-color: #fdd106;
-                        border-color: #fdd106;
+
+                    &:hover {
+                        background-color:#e1bc6e;
                     }
                 }
             }
