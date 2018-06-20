@@ -117,6 +117,19 @@ $(document).ready(function() {
                     }
                 }   
             });
+            
+            this.topbar.find('a').on("click", function(e) {
+                var href = $(this).attr('href');
+                if(href && href !== '#') {
+                    window.location.href = href;
+                }
+                else {
+                    var theme = $(this).data("theme");
+                    changeTheme([{name:'globaltheme', value:theme}]);
+                    PrimeFaces.changeTheme(theme);
+                    e.preventDefault();
+                }
+            });
         },
 
         removeMenuitem: function (id) {
