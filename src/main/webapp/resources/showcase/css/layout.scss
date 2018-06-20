@@ -100,6 +100,11 @@ body {
                             margin-right: 7px;
                             vertical-align: middle;
                         }
+                        
+                        .ui-theme {
+                            margin-right: 7px;
+                            vertical-align: middle;
+                        }
 
                         span { 
                             display:inline-block; 
@@ -764,6 +769,11 @@ body {
                         height: 40px;
                         line-height: 40px;
                     }
+                    
+                    .themes-overlay {
+                        top: 40px;
+                        margin-left: auto;
+                    }
                 }
             }
         }
@@ -790,6 +800,16 @@ body {
 
                 .support {
                     text-align: center;
+                }
+            }
+            
+            .content-submenu {
+                > div {
+                    ul {
+                        li {
+                            width: 50%;
+                        }
+                    }
                 }
             }
         }
