@@ -199,6 +199,9 @@
     <profiles>
         <profile>
             <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <jsfVersion>Mojarra-2.3.2</jsfVersion>
                 <primefacesVersion>PrimeFaces-6.3-SNAPSHOT</primefacesVersion>
@@ -230,9 +233,6 @@
         </profile>
         <profile>
             <id>community-stable</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <jsfVersion>Mojarra-2.3.2</jsfVersion>
                 <primefacesVersion>PrimeFaces-6.2</primefacesVersion>
