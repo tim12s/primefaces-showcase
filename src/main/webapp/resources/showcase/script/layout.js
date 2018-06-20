@@ -14,7 +14,7 @@ $(document).ready(function() {
             this.submenuItems = this.menu.find('> li');
             this.menuButton = $('#menu-button');
             this.expandedMenuitems = this.expandedMenuitems||[];
-            this.nano = this.menu.children('.nano');
+            this.nano = this.sidebar.children('.nano');
             this.searchInput = this.sidebar.find('.search-input > input');
 
             this.restoreMenuState();
