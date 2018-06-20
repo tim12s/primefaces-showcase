@@ -27,7 +27,7 @@ $(document).ready(function() {
         _bindEvents: function() {
             var $this = this;
 
-            this.menu.on('click', function() {
+            this.sidebar.on('click', function() {
                 $this.menuClick = true;
             });
 
@@ -119,7 +119,7 @@ $(document).ready(function() {
                 }   
             });
             
-            this.topbar.find('a').on("click", function(e) {
+            this.topbar.find('> .layout-topbar-menu .themes-overlay a').on("click", function(e) {
                 var href = $(this).attr('href');
                 if(href && href !== '#') {
                     window.location.href = href;
