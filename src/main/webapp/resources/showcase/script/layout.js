@@ -71,7 +71,8 @@ $(document).ready(function() {
 
             $(document.body).on('click', function() {
                 if(!$this.menuClick && $this.isMobile()) {
-                    $this.wrapper.removeClass('layout-mobile-active');
+                    $this.wrapper.removeClass('layout-sidebar-mobile-active');
+                    $(document.body).removeClass('hidden-overflow-body');  
                 }
     
                 $this.menuClick = false;

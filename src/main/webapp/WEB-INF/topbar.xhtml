@@ -36,11 +36,12 @@
                             <a href="#" data-theme="#{theme.name}"><span class="ui-theme ui-theme-#{theme}"></span><span>#{theme.displayName}</span></a>
                         </ui:repeat>
                     </div>
-                    <p:remoteCommand name="changeTheme" actionListener="#{guestPreferences.changeTheme}" />
                 </li>
                 <li>
                     <a href="https://www.primefaces.org/support">SUPPORT</a>
                 </li>
+                
+                <p:remoteCommand name="changeTheme" actionListener="#{guestPreferences.changeTheme}" />
             </h:form>
         </ul>
     </div>
