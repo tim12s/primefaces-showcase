@@ -167,6 +167,25 @@
                 <version>3.2.0</version>
             </plugin>
             <plugin>
+                <groupId>nl.geodienstencentrum.maven</groupId>
+                <artifactId>sass-maven-plugin</artifactId>
+                <version>3.5.4</version>
+                <executions>
+                   <execution>
+                      <goals>
+                          <goal>update-stylesheets</goal>
+                      </goals>
+                   </execution>
+                </executions>
+                <configuration>
+                       <sassSourceDirectory>${basedir}/src/main/webapp/resources/showcase/css</sassSourceDirectory>
+                       <destination>${basedir}/src/main/webapp/resources/showcase/css</destination>
+                       <sassOptions>
+                           <always_update>true</always_update>
+                        </sassOptions>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.9.v20180320</version>
