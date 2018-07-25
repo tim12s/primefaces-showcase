@@ -325,9 +325,21 @@ body {
 
                 .ui-button {
                     text-align: center;
+                    background: none;
                     background-color: #40B6EA;
                     border: 0;
                     margin-right: 21px;
+                    @include transition(background-color .2s);
+                    @include border-radius(3px);
+                    @include shadow(none);
+                    text-shadow: none;
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: normal;
+                    
+                    span {
+                        font-weight: normal; 
+                        text-shadow: none !important;
+                    }
 
                     .ui-button-text {
                         padding: 14px 16px 14px 48px;
