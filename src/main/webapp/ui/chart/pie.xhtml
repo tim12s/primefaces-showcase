@@ -45,9 +45,9 @@ public class ChartView implements Serializable {
     private PieChartModel pieModel2;
 
     @PostConstruct
-	public void init() {
+    public void init() {
         createPieModels();
-	}
+    }
 
     public PieChartModel getPieModel1() {
         return pieModel1;
@@ -72,6 +72,7 @@ public class ChartView implements Serializable {
         
         pieModel1.setTitle("Simple Pie");
         pieModel1.setLegendPosition("w");
+        pieModel1.setShadow(false);
     }
     
     private void createPieModel2() {
@@ -87,6 +88,7 @@ public class ChartView implements Serializable {
         pieModel2.setFill(false);
         pieModel2.setShowDataLabels(true);
         pieModel2.setDiameter(150);
+        pieModel2.setShadow(false);
     }
     
 }
