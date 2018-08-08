@@ -50,7 +50,7 @@
             <version>2.4.5.Final</version>
         </dependency>
 
-         <!-- Data Exporter -->
+        <!-- Data Exporter -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -171,18 +171,19 @@
                 <artifactId>sass-maven-plugin</artifactId>
                 <version>3.5.4</version>
                 <executions>
-                   <execution>
-                      <goals>
-                          <goal>update-stylesheets</goal>
-                      </goals>
-                   </execution>
+                    <execution>
+                        <goals>
+                            <goal>update-stylesheets</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <configuration>
-                       <sassSourceDirectory>${basedir}/src/main/webapp/resources/showcase/css</sassSourceDirectory>
-                       <destination>${basedir}/src/main/webapp/resources/showcase/css</destination>
-                       <sassOptions>
-                           <always_update>true</always_update>
-                        </sassOptions>
+                    <sassSourceDirectory>${basedir}/src/main/webapp/resources/showcase/css</sassSourceDirectory>
+                    <destination>${basedir}/src/main/webapp/resources/showcase/css</destination>
+                    <sassOptions>
+                        <always_update>true</always_update>
+                        <sourcemap>:none</sourcemap>
+                    </sassOptions>
                 </configuration>
             </plugin>
             <plugin>
