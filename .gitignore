@@ -7,5 +7,6 @@ nbactions.xml
 layout.classpath
 .sass-cache
 layout.css
+layout.css.map
 .DS_STORE
 bin
