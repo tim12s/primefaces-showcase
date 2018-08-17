@@ -172,6 +172,7 @@
                 <version>3.5.4</version>
                 <executions>
                     <execution>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>update-stylesheets</goal>
                         </goals>
