@@ -1,0 +1,158 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="./template.xhtml">
+
+    <ui:define name="title">
+        Charts - <span class="subitem">Stacked</span>
+    </ui:define>
+
+    <ui:define name="description">
+        BarChart is created with a BarChartModel.
+    </ui:define>
+
+    <ui:define name="implementation">
+        <p:barChart model="#{chartJsView.stackedGroupBarModel}" style="width: 100%; height: 500px;"/>
+    </ui:define>
+
+    <ui:define name="source">
+        <p:tabView>
+            <p:tab title="stacked.xhtml">
+                <pre name="code" class="brush:xml">
+&lt;p:barChart model="\#{chartJsView.stackedGroupBarModel}" style="width: 100%; height: 500px;"/&gt;
+                </pre>
+            </p:tab>
+
+            <p:tab title="ChartJsView.java">
+                <pre name="code" class="brush:java">
+package org.primefaces.showcase.view.chartjs;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.ItemSelectEvent;
+import org.primefaces.model.charts.ChartData;
+import org.primefaces.model.charts.axes.cartesian.CartesianScales;
+import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearAxes;
+import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearTicks;
+import org.primefaces.model.charts.bar.BarChartDataSet;
+import org.primefaces.model.charts.bar.BarChartModel;
+import org.primefaces.model.charts.bar.BarChartOptions;
+import org.primefaces.model.charts.optionconfig.title.Title;
+import org.primefaces.model.charts.optionconfig.tooltip.Tooltip;
+
+@ManagedBean
+public class ChartJsView implements Serializable {
+
+    private BarChartModel stackedGroupBarModel;
+
+    @PostConstruct
+    public void init() {
+        createStackedGroupBarModel();
+    }
+    
+    public void createStackedGroupBarModel() {
+        stackedGroupBarModel = new BarChartModel();
+        ChartData data = new ChartData();
+        
+        BarChartDataSet barDataSet = new BarChartDataSet();
+        barDataSet.setLabel("Dataset 1");
+        barDataSet.setBackgroundColor("rgb(255, 99, 132)");
+        barDataSet.setStack("Stack 0");
+        List&lt;Number&gt; dataVal = new ArrayList&lt;&gt;();
+        dataVal.add(-32);
+        dataVal.add(-70);
+        dataVal.add(-33);
+        dataVal.add(30);
+        dataVal.add(-49);
+        dataVal.add(23);
+        dataVal.add(-92);
+        barDataSet.setData(dataVal);
+        
+        BarChartDataSet barDataSet2 = new BarChartDataSet();
+        barDataSet2.setLabel("Dataset 2");
+        barDataSet2.setBackgroundColor("rgb(54, 162, 235)");
+        barDataSet2.setStack("Stack 0");
+        List&lt;Number&gt; dataVal2 = new ArrayList&lt;&gt;();
+        dataVal2.add(83);
+        dataVal2.add(18);
+        dataVal2.add(86);
+        dataVal2.add(8);
+        dataVal2.add(34);
+        dataVal2.add(46);
+        dataVal2.add(11);
+        barDataSet2.setData(dataVal2);
+        
+        BarChartDataSet barDataSet3 = new BarChartDataSet();
+        barDataSet3.setLabel("Dataset 3");
+        barDataSet3.setBackgroundColor("rgb(75, 192, 192)");
+        barDataSet3.setStack("Stack 1");
+        List&lt;Number&gt; dataVal3 = new ArrayList&lt;&gt;();
+        dataVal3.add(-45);
+        dataVal3.add(73);
+        dataVal3.add(-25);
+        dataVal3.add(65);
+        dataVal3.add(49);
+        dataVal3.add(-18);
+        dataVal3.add(46);
+        barDataSet3.setData(dataVal3);
+        
+        data.addChartDataSet(barDataSet);
+        data.addChartDataSet(barDataSet2);
+        data.addChartDataSet(barDataSet3);
+        
+        List&lt;String&gt; labels = new ArrayList&lt;&gt;();
+        labels.add("January");
+        labels.add("February");
+        labels.add("March");
+        labels.add("April");
+        labels.add("May");
+        labels.add("June");
+        labels.add("July");
+        data.setLabels(labels);
+        stackedGroupBarModel.setData(data);
+        
+        //Options
+        BarChartOptions options = new BarChartOptions();
+        CartesianScales cScales = new CartesianScales();
+        CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setStacked(true);    
+        cScales.addXAxesData(linearAxes);
+        cScales.addYAxesData(linearAxes);
+        options.setScales(cScales);
+        
+        Title title = new Title();
+        title.setDisplay(true);
+        title.setText("Bar Chart - Stacked Group");
+        options.setTitle(title);
+        
+        Tooltip tooltip = new Tooltip();
+        tooltip.setMode("index");
+        tooltip.setIntersect(false);
+        options.setTooltip(tooltip);  
+        
+        stackedGroupBarModel.setOptions(options);
+    }
+
+    public BarChartModel getStackedGroupBarModel() {
+        return stackedGroupBarModel;
+    }
+
+    public void setStackedGroupBarModel(BarChartModel stackedGroupBarModel) {
+        this.stackedGroupBarModel = stackedGroupBarModel;
+    }
+}
+                </pre>
+            </p:tab>
+
+        </p:tabView>
+    </ui:define>
+
+</ui:composition>
