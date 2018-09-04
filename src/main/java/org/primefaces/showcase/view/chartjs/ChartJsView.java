@@ -785,6 +785,7 @@ public class ChartJsView implements Serializable {
         
         radarModel2.setOptions(options);
         radarModel2.setData(data);
+        radarModel2.setExtender("skinRadarChart");
     }
     
     public void createBubbleModel() {

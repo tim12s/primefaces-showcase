@@ -5,6 +5,18 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/template.xhtml">
 
+    <ui:define name="head">
+        <script type="text/javascript">
+            function skinRadarChart() {
+                Chart.defaults.global.startAngle = 36;
+                Chart.defaults.global.tooltips.cornerRadius = 3;
+                Chart.defaults.global.tooltips.enabled = true;
+                Chart.defaults.global.tooltips.mode = 'point';
+                Chart.defaults.global.tooltips.position = 'nearest';
+            }
+        </script>
+    </ui:define>
+    
     <ui:define name="title">
         Charts - <span class="subitem">Radar</span>
     </ui:define>
@@ -36,6 +48,18 @@
         &lt;p:radarChart model="\#{chartJsView.radarModel2}"/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+
+
+/* JS */
+&lt;script type="text/javascript"&gt;
+    function skinRadarChart() {
+        Chart.defaults.global.startAngle = 36;
+        Chart.defaults.global.tooltips.cornerRadius = 3;
+        Chart.defaults.global.tooltips.enabled = true;
+        Chart.defaults.global.tooltips.mode = 'point';
+        Chart.defaults.global.tooltips.position = 'nearest';
+    }
+&lt;/script&gt;
                 </pre>
             </p:tab>
 
@@ -221,6 +245,7 @@ public class ChartJsView implements Serializable {
         
         radarModel2.setOptions(options);
         radarModel2.setData(data);
+        radarModel2.setExtender("skinRadarChart");
     }
 
     public RadarChartModel getRadarModel() {
