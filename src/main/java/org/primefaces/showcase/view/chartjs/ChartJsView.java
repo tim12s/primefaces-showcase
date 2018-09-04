@@ -710,7 +710,6 @@ public class ChartJsView implements Serializable {
         ChartData data = new ChartData();
         
         RadarChartDataSet radarDataSet = new RadarChartDataSet();
-        radarDataSet.setLabel("My First Dataset");
         radarDataSet.setLabel("P.Practitioner");
         radarDataSet.setLineTension(0.1);
         radarDataSet.setBackgroundColor("rgba(102, 153, 204, 0.2)");
@@ -729,7 +728,6 @@ public class ChartJsView implements Serializable {
         radarDataSet.setData(dataVal);
 
         RadarChartDataSet radarDataSet2 = new RadarChartDataSet();
-        radarDataSet2.setLabel("My Second Dataset");
         radarDataSet2.setLabel("P.Manager");
         radarDataSet2.setLineTension(0.1);
         radarDataSet2.setBackgroundColor("rgba(255, 204, 102, 0.2)");
