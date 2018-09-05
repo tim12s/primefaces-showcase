@@ -64,7 +64,7 @@
                 </p:selectOneMenu>
 
                 <p:outputLabel for="lazy" value="Lazy:" />
-                <p:selectOneMenu id="lazy" value="#{selectOneMenuView.option}" lazy="true" style="width:125px">
+                <p:selectOneMenu id="lazy" value="#{selectOneMenuView.option}" dynamic="true" style="width:125px">
                     <f:selectItem itemLabel="Select One" itemValue="" />
                     <f:selectItems value="#{selectOneMenuView.options}" />
                 </p:selectOneMenu>
