@@ -15,32 +15,75 @@
  */
 package org.primefaces.showcase.view.button;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import org.primefaces.model.menu.DefaultMenuItem;
+import org.primefaces.model.menu.DefaultMenuModel;
+import org.primefaces.model.menu.DefaultSubMenu;
+import org.primefaces.model.menu.MenuModel;
 
 @ManagedBean
 public class ButtonView {
     
+    private MenuModel model;
+
+    @PostConstruct
+    public void init() {
+        model = new DefaultMenuModel();
+
+        //First submenu
+        DefaultSubMenu firstSubmenu = new DefaultSubMenu("Dynamic Submenu");
+
+        DefaultMenuItem item = new DefaultMenuItem("External");
+        item.setUrl("http://www.primefaces.org");
+        item.setIcon("ui-icon-home");
+        firstSubmenu.addElement(item);
+
+        model.addElement(firstSubmenu);
+
+        //Second submenu
+        DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
+
+        item = new DefaultMenuItem("Save");
+        item.setIcon("ui-icon-disk");
+        item.setCommand("#{buttonView.save}");
+        item.setUpdate("messages");
+        secondSubmenu.addElement(item);
+
+        item = new DefaultMenuItem("Delete");
+        item.setIcon("ui-icon-close");
+        item.setCommand("#{buttonView.delete}");
+        item.setAjax(false);
+        secondSubmenu.addElement(item);
+
+        model.addElement(secondSubmenu);
+    }
+
+    public MenuModel getModel() {
+        return model;
+    }
+
     public void save(ActionEvent actionEvent) {
-		addMessage("Data saved");
-	}
-	
-	public void update(ActionEvent actionEvent) {
-		addMessage("Data updated");
-	}
-	
-	public void delete(ActionEvent actionEvent) {
-		addMessage("Data deleted");
-	}
-    
+        addMessage("Data saved");
+    }
+
+    public void update(ActionEvent actionEvent) {
+        addMessage("Data updated");
+    }
+
+    public void delete(ActionEvent actionEvent) {
+        addMessage("Data deleted");
+    }
+
     public void buttonAction(ActionEvent actionEvent) {
         addMessage("Welcome to Primefaces!!");
     }
-	
-	public void addMessage(String summary) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
+
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
 }
