@@ -4,27 +4,28 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:sc="http://primefaces.org/ui/showcase"
       lang="en">
 
     <h:head>
         <f:facet name="first">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
         </f:facet>
         <title>PrimeFaces Showcase</title>
-        
-        <h:outputStylesheet name="css/sh.css" library="showcase" />
-        <h:outputStylesheet name="css/nanoscroller.css" library="showcase" />
-        <h:outputStylesheet name="css/primeflex.css" library="showcase" />
 
-        
-        <h:outputScript name="jquery/jquery.js" library="primefaces" />
-        <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
-        <h:outputScript name="script/nanoscroller.js" library="showcase" />
-        <h:outputScript name="script/layout.js" library="showcase" />
-        
+        <h:outputStylesheet name="css/sh.css" library="showcase"/>
+        <h:outputStylesheet name="css/nanoscroller.css" library="showcase"/>
+        <h:outputStylesheet name="css/primeflex.css" library="showcase"/>
+
+
+        <h:outputScript name="jquery/jquery.js" library="primefaces"/>
+        <h:outputScript name="jquery/jquery-plugins.js" library="primefaces"/>
+        <h:outputScript name="script/nanoscroller.js" library="showcase"/>
+        <h:outputScript name="script/layout.js" library="showcase"/>
+
         <ui:insert name="head"/>
     </h:head>
 
@@ -46,16 +47,21 @@
                         <ui:insert name="implementation"></ui:insert>
                     </div>
                     <div class="content-section content-source">
-                        <ui:insert name="source"></ui:insert>
+                        <ui:insert name="source">
+                            <sc:tabscode
+                                    value="#{sc:getFilesContent(facesContext.externalContext.requestServletPath, true)}">
+                                <ui:insert name="more-source-tabs"/>
+                            </sc:tabscode>
+                        </ui:insert>
                     </div>
                 </ui:insert>
             </div>
-            
+
             <ui:include src="./footer.xhtml"></ui:include>
             <div class="layout-mask"></div>
 
         </div>
-        
+
         <ui:insert name="status">
             <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
                 <f:facet name="start">
@@ -63,18 +69,18 @@
                 </f:facet>
 
                 <f:facet name="complete">
-                    <h:outputText value="" />
+                    <h:outputText value=""/>
                 </f:facet>
             </p:ajaxStatus>
         </ui:insert>
-        
+
         <ui:insert name="highlight">
             <h:outputScript name="showcase/script/sh.js" target="body"/>
         </ui:insert>
-        
+
         <ui:insert name="body"></ui:insert>
-        
-        <h:outputStylesheet name="css/layout.css" library="showcase" />
+
+        <h:outputStylesheet name="css/layout.css" library="showcase"/>
     </h:body>
 
 </html>
