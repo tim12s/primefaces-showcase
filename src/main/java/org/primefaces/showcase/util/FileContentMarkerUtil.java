@@ -96,7 +96,7 @@ public class FileContentMarkerUtil {
                     while (m.find()) {
                         String group = m.group(1);
                         Object bean = Faces.evaluateExpressionGet("#{" + group + "}");
-                        if (bean != null && !bean.getClass().getName().startsWith("java")) {
+                        if (bean != null && bean.getClass().getName().startsWith("org.primefaces.showcase")) {
                             String javaFileName = StringUtils.substringAfterLast(bean.getClass().getName(), ".") + ".java";
                             if (!javaFiles.contains(new FileContent(javaFileName, null, null, null))) {
                                 String path = "/" + StringUtils.replaceAll(bean.getClass().getName(), "\\.", "/") + ".java";
@@ -112,7 +112,11 @@ public class FileContentMarkerUtil {
             }
         }
 
-        return new FileContent(fileName, content.toString().trim(), settings.getType(), javaFiles);
+        String value = content.toString().trim();
+        if ("xml".equalsIgnoreCase(settings.getType())) {
+            value = prettyFormat(value);
+        }
+        return new FileContent(fileName, value, settings.getType(), javaFiles);
     }
 
     private static Marker getMatchingMarker(String line, Marker[] markers) {
@@ -123,5 +127,14 @@ public class FileContentMarkerUtil {
         }
 
         return null;
+    }
+
+    private static final String prettyFormat(String value) {
+        String[] chunks = value.split("(?<=\\n)");
+        String pretty = "";
+        for (String chunk : chunks) {
+            pretty += chunk.replaceFirst("\\s{8}", "");
+        }
+        return pretty;
     }
 }
