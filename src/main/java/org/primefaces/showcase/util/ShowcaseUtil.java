@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.faces.application.ProjectStage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
 import javax.faces.context.FacesContext;
@@ -38,9 +39,10 @@ public class ShowcaseUtil {
             files = new ArrayList<>();
             flatFileContent(srcContent, files);
 
-            provider.put("contents", fullPath, files);
+            if (ProjectStage.Production.equals(Faces.getApplication().getProjectStage())) {
+                provider.put("contents", fullPath, files);
+            }
         }
-
         return files;
     }
 
