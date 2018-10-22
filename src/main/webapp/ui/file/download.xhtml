@@ -34,7 +34,7 @@ function stop() {
         </p:dialog>
        
         <h:form>   
-            <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+            <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="pi pi-arrow-down">
                 <p:fileDownload value="#{fileDownloadView.file}" />
             </p:commandButton>      
         </h:form>
@@ -50,7 +50,7 @@ function stop() {
 &lt;/p:dialog&gt;
 
 &lt;h:form&gt;
-    &lt;p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s"&gt;
+    &lt;p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="pi pi-arrow-down"&gt;
         &lt;p:fileDownload value="\#{fileDownloadView.file}" /&gt;
     &lt;/p:commandButton&gt;
 &lt;/h:form&gt;

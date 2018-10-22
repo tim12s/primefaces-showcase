@@ -39,7 +39,7 @@ public class ButtonView {
 
         DefaultMenuItem item = new DefaultMenuItem("External");
         item.setUrl("http://www.primefaces.org");
-        item.setIcon("ui-icon-home");
+        item.setIcon("pi pi-home");
         firstSubmenu.addElement(item);
 
         model.addElement(firstSubmenu);
@@ -48,13 +48,13 @@ public class ButtonView {
         DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
 
         item = new DefaultMenuItem("Save");
-        item.setIcon("ui-icon-disk");
+        item.setIcon("pi pi-save");
         item.setCommand("#{buttonView.save}");
         item.setUpdate("messages");
         secondSubmenu.addElement(item);
 
         item = new DefaultMenuItem("Delete");
-        item.setIcon("ui-icon-close");
+        item.setIcon("pi pi-times");
         item.setCommand("#{buttonView.delete}");
         item.setAjax(false);
         secondSubmenu.addElement(item);

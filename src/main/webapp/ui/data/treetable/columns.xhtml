@@ -27,7 +27,7 @@
             <h:panelGrid columns="3" style="margin:10px 0">
                 <p:outputLabel for="template" value="Template:" style="font-weight:bold"/>
                 <p:inputText id="template" value="#{ttColumnsView.columnTemplate}" size="50"/>
-                <p:commandButton update="tt" actionListener="#{ttColumnsView.createDynamicColumns}" value="Update" process="@parent" icon="ui-icon-refresh" />
+                <p:commandButton update="tt" actionListener="#{ttColumnsView.createDynamicColumns}" value="Update" process="@parent" icon="pi pi-refresh" />
             </h:panelGrid>
             
             <p:treeTable id="tt" value="#{ttColumnsView.root}" var="document">
@@ -50,7 +50,7 @@
     &lt;h:panelGrid columns="3" style="margin:10px 0"&gt;
         &lt;p:outputLabel for="template" value="Template:" style="font-weight:bold"/&gt;
         &lt;p:inputText id="template" value="\#{ttColumnsView.columnTemplate}" size="50"/&gt;
-        &lt;p:commandButton update="tt" actionListener="\#{ttColumnsView.createDynamicColumns}" value="Update" process="@parent" icon="ui-icon-refresh" /&gt;
+        &lt;p:commandButton update="tt" actionListener="\#{ttColumnsView.createDynamicColumns}" value="Update" process="@parent" icon="pi pi-refresh" /&gt;
     &lt;/h:panelGrid&gt;
 
     &lt;p:treeTable id="tt" value="\#{ttColumnsView.root}" var="document"&gt;

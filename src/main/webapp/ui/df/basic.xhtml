@@ -16,8 +16,8 @@
     <ui:define name="implementation">
         
         <h:form>
-            <p:commandButton value="View" icon="ui-icon-extlink" actionListener="#{dfView.viewCars}" />
-            <p:commandButton value="Options" icon="ui-icon-extlink" actionListener="#{dfView.viewCarsCustomized}" />
+            <p:commandButton value="View" icon="pi pi-home" actionListener="#{dfView.viewCars}" />
+            <p:commandButton value="Options" icon="pi pi-home" actionListener="#{dfView.viewCarsCustomized}" />
         </h:form>
         
     </ui:define>
@@ -27,8 +27,8 @@
             <p:tab title="basic.xhtml">
                 <pre name="code" class="brush:xml">
 &lt;h:form&gt;
-    &lt;p:commandButton value="View" icon="ui-icon-extlink" actionListener="\#{dfView.viewCars}" /&gt;
-    &lt;p:commandButton value="Options" icon="ui-icon-extlink" actionListener="\#{dfView.viewCarsCustomized}" /&gt;
+    &lt;p:commandButton value="View" icon="pi pi-home" actionListener="\#{dfView.viewCars}" /&gt;
+    &lt;p:commandButton value="Options" icon="pi pi-home" actionListener="\#{dfView.viewCarsCustomized}" /&gt;
 &lt;/h:form&gt;
                 </pre>
             </p:tab>
@@ -85,7 +85,7 @@ public class DFView {
     &lt;/h:head&gt;
     
     &lt;h:body&gt;
-        &lt;i id="customheader" class="fa fa-fw fa-car" style="display:none"&gt;&lt;/i&gt;
+        &lt;i id="customheader" class="pi pi-home" style="display:none"&gt;&lt;/i&gt;
 
         &lt;p:dataTable var="car" value="\#{dfCarsView.cars}"&gt;
             &lt;p:column headerText="Id"&gt;

@@ -16,7 +16,7 @@
     <ui:define name="implementation">
         <p:chart type="line" model="#{chartView.zoomModel}" style="height:300px;" widgetVar="chart"/>
         <br />    
-        <p:commandButton type="button" value="Reset" icon="ui-icon-cancel" onclick="PF('chart').resetZoom()"/>    
+        <p:commandButton type="button" value="Reset" icon="pi pi-ban" onclick="PF('chart').resetZoom()"/>    
     </ui:define>
 
     <ui:define name="source">
@@ -25,7 +25,7 @@
                 <pre name="code" class="brush:xml">
 &lt;p:chart type="line" model="\#{chartView.zoomModel}" style="height:300px;" widgetVar="chart"/&gt;
 
-&lt;p:commandButton type="button" value="Reset" icon="ui-icon-cancel" onclick="PF('chart').resetZoom()"/&gt;
+&lt;p:commandButton type="button" value="Reset" icon="pi pi-ban" onclick="PF('chart').resetZoom()"/&gt;
                 </pre>
             </p:tab>
 

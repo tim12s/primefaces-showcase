@@ -23,12 +23,12 @@
                 <p:selectBooleanButton id="value1" value="#{selectBooleanView.value1}" onLabel="Yes" offLabel="No" style="width:60px" />
 
                 <h:outputText value="Subscribe me to newsletter: " />
-                <p:selectBooleanButton id="value2" value="#{selectBooleanView.value2}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px">
+                <p:selectBooleanButton id="value2" value="#{selectBooleanView.value2}" onLabel="Yes" offLabel="No" onIcon="pi pi-check" offIcon="pi pi-times" style="width:60px">
                     <p:ajax update="msgs" listener="#{selectBooleanView.addMessage}" />
                 </p:selectBooleanButton>
             </h:panelGrid>
 
-            <p:commandButton id="submit" value="Submit" update="display" icon="ui-icon-check" oncomplete="PF('dlg').show()" />
+            <p:commandButton id="submit" value="Submit" update="display" icon="pi pi-check" oncomplete="PF('dlg').show()" />
 
             <p:dialog id="dialog" header="Values" modal="true" resizable="false" showEffect="fade" widgetVar="dlg">
                 <h:panelGrid columns="1" id="display">
@@ -52,12 +52,12 @@
         &lt;p:selectBooleanButton id="value1" value="\#{selectBooleanView.value1}" onLabel="Yes" offLabel="No" style="width:60px" /&gt;
 
         &lt;h:outputText value="Subscribe me to newsletter: " /&gt;
-        &lt;p:selectBooleanButton id="value2" value="\#{selectBooleanView.value2}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px"&gt;
+        &lt;p:selectBooleanButton id="value2" value="\#{selectBooleanView.value2}" onLabel="Yes" offLabel="No" onIcon="pi pi-check" offIcon="pi pi-times" style="width:60px"&gt;
             &lt;p:ajax update="msgs" listener="\#{selectBooleanView.addMessage}" /&gt;
         &lt;/p:selectBooleanButton&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:commandButton id="submit" value="Submit" update="display" icon="ui-icon-check" oncomplete="PF('dlg').show()" /&gt;
+    &lt;p:commandButton id="submit" value="Submit" update="display" icon="pi pi-check" oncomplete="PF('dlg').show()" /&gt;
 
     &lt;p:dialog id="dialog" header="Values" modal="true" resizable="false" showEffect="fade" widgetVar="dlg"&gt;
         &lt;h:panelGrid columns="1" id="display"&gt;

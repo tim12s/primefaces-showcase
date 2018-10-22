@@ -67,14 +67,14 @@
 
                 <p:organigramNode type="division"
                                   styleClass="division"
-                                  icon="ui-icon-suitcase"
+                                  icon="pi pi-briefcase"
                                   iconPos="left">
                     <h:outputText value="#{node.data}" />
                 </p:organigramNode>
 
                 <p:organigramNode type="employee"
                                   styleClass="employee"
-                                  icon="ui-icon-person">
+                                  icon="pi pi-user">
                     <h:outputText value="#{node.data}" />
                 </p:organigramNode>
             </p:organigram>
@@ -82,18 +82,18 @@
             <p:contextMenu for="organigram" nodeType="employee">
                 <p:menuitem value="fire employee"
                             update="organigram"
-                            icon="ui-icon-close"
+                            icon="pi pi-times"
                             actionListener="#{organigramView.removeEmployee()}" />
             </p:contextMenu>
 
             <p:contextMenu for="organigram" nodeType="division">
                 <p:menuitem value="Add employee"
                             ajax="false"
-                            icon="ui-icon-plus"
+                            icon="pi pi-plus"
                             onclick="PF('addEmployeeDialog').show(); return false;" />
                 <p:menuitem value="Remove division"
                             update="organigram @form:growl"
-                            icon="ui-icon-close"
+                            icon="pi pi-times"
                             actionListener="#{organigramView.removeDivision()}" />
             </p:contextMenu>
 
@@ -194,14 +194,14 @@
 
         &lt;p:organigramNode type="division"
                           styleClass="division"
-                          icon="ui-icon-suitcase"
+                          icon="pi pi-briefcase"
                           iconPos="left"&gt;
             &lt;h:outputText value="#\{node.data}" /&gt;
         &lt;/p:organigramNode&gt;
 
         &lt;p:organigramNode type="employee"
                           styleClass="employee"
-                          icon="ui-icon-person"&gt;
+                          icon="pi pi-user"&gt;
             &lt;h:outputText value="#\{node.data}" /&gt;
         &lt;/p:organigramNode&gt;
     &lt;/p:organigram&gt;
@@ -209,18 +209,18 @@
     &lt;p:contextMenu for="organigram" nodeType="employee"&gt;
         &lt;p:menuitem value="fire employee"
                     update="organigram"
-                    icon="ui-icon-close"
+                    icon="pi pi-times"
                     actionListener="#\{organigramView.removeEmployee()}" /&gt;
     &lt;/p:contextMenu&gt;
 
     &lt;p:contextMenu for="organigram" nodeType="division"&gt;
         &lt;p:menuitem value="Add employee"
                     ajax="false"
-                    icon="ui-icon-plus"
+                    icon="pi pi-plus"
                     onclick="PF('addEmployeeDialog').show(); return false;" /&gt;
         &lt;p:menuitem value="Remove division"
                     update="organigram @form:growl"
-                    icon="ui-icon-close"
+                    icon="pi pi-times"
                     actionListener="#\{organigramView.removeDivision()}" /&gt;
     &lt;/p:contextMenu&gt;
 

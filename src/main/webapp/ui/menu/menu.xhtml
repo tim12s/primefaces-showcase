@@ -21,31 +21,31 @@
             <h3 style="margin-top:0">Plain Menu</h3>
             <p:menu>
                 <p:submenu label="Ajax">
-                    <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk" />
-                    <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                    <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="pi pi-save" />
+                    <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="pi pi-refresh"/>
                 </p:submenu>
                 <p:submenu label="Non-Ajax">
-                    <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+                    <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/>
                 </p:submenu>
                 <p:submenu label="Navigations">
-                    <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
-                    <p:menuitem value="Internal" icon="ui-icon-star"/>
+                    <p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/>
+                    <p:menuitem value="Internal" icon="pi pi-star"/>
                 </p:submenu>
             </p:menu>
 
             <h3>Overlay</h3>
-            <p:commandButton id="dynaButton" value="Show" type="button" icon="ui-icon-extlink"/>
+            <p:commandButton id="dynaButton" value="Show" type="button" icon="pi pi-home"/>
             <p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom">
                 <p:submenu label="Ajax">
-                    <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk"/>
-                    <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                    <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="pi pi-save"/>
+                    <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="pi pi-refresh"/>
                 </p:submenu>
                 <p:submenu label="Non-Ajax">
-                    <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+                    <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/>
                 </p:submenu>
                 <p:submenu label="Navigations">
-                    <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
-                    <p:menuitem value="Internal" icon="ui-icon-star"/>
+                    <p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/>
+                    <p:menuitem value="Internal" icon="pi pi-star"/>
                 </p:submenu>
             </p:menu>
 
@@ -55,15 +55,15 @@
             <h3>Toggleable</h3>
             <p:menu toggleable="true">
                 <p:submenu label="Ajax">
-                    <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk" />
-                    <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                    <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="pi pi-save" />
+                    <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="pi pi-refresh"/>
                 </p:submenu>
                 <p:submenu label="Non-Ajax">
-                    <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+                    <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/>
                 </p:submenu>
                 <p:submenu label="Navigations">
-                    <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
-                    <p:menuitem value="Internal" icon="ui-icon-star"/>
+                    <p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/>
+                    <p:menuitem value="Internal" icon="pi pi-star"/>
                 </p:submenu>
             </p:menu>
         </h:form>
@@ -80,31 +80,31 @@
     &lt;h3 style="margin-top:0"&gt;Plain Menu&lt;/h3&gt;
     &lt;p:menu&gt;
         &lt;p:submenu label="Ajax"&gt;
-            &lt;p:menuitem value="Save" actionListener="\#{menuView.save}" update="messages" icon="ui-icon-disk" /&gt;
-            &lt;p:menuitem value="Update" actionListener="\#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+            &lt;p:menuitem value="Save" actionListener="\#{menuView.save}" update="messages" icon="pi pi-save" /&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{menuView.update}" update="messages" icon="pi pi-refresh"/&gt;
         &lt;/p:submenu&gt;
         &lt;p:submenu label="Non-Ajax"&gt;
-            &lt;p:menuitem value="Delete" actionListener="\#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/&gt;
         &lt;/p:submenu&gt;
         &lt;p:submenu label="Navigations"&gt;
-            &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/&gt;
-            &lt;p:menuitem value="Internal" icon="ui-icon-star"/&gt;
+            &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/&gt;
+            &lt;p:menuitem value="Internal" icon="pi pi-star"/&gt;
         &lt;/p:submenu&gt;
     &lt;/p:menu&gt;
 
     &lt;h3&gt;Overlay&lt;/h3&gt;
-    &lt;p:commandButton id="dynaButton" value="Show" type="button" icon="ui-icon-extlink"/&gt;
+    &lt;p:commandButton id="dynaButton" value="Show" type="button" icon="pi pi-home"/&gt;
     &lt;p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom"&gt;
         &lt;p:submenu label="Ajax"&gt;
-            &lt;p:menuitem value="Save" actionListener="\#{menuView.save}" update="messages" icon="ui-icon-disk"/&gt;
-            &lt;p:menuitem value="Update" actionListener="\#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+            &lt;p:menuitem value="Save" actionListener="\#{menuView.save}" update="messages" icon="pi pi-save"/&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{menuView.update}" update="messages" icon="pi pi-refresh"/&gt;
         &lt;/p:submenu&gt;
         &lt;p:submenu label="Non-Ajax"&gt;
-            &lt;p:menuitem value="Delete" actionListener="\#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/&gt;
         &lt;/p:submenu&gt;
         &lt;p:submenu label="Navigations"&gt;
-            &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/&gt;
-            &lt;p:menuitem value="Internal" icon="ui-icon-star"/&gt;
+            &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/&gt;
+            &lt;p:menuitem value="Internal" icon="pi pi-star"/&gt;
         &lt;/p:submenu&gt;
     &lt;/p:menu&gt;
 
@@ -114,15 +114,15 @@
     &lt;h3&gt;Toggleable&lt;/h3&gt;
     &lt;p:menu toggleable="true"&gt;
         &lt;p:submenu label="Ajax"&gt;
-            &lt;p:menuitem value="Save" actionListener="\#{menuView.save}" update="messages" icon="ui-icon-disk" /&gt;
-            &lt;p:menuitem value="Update" actionListener="\#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+            &lt;p:menuitem value="Save" actionListener="\#{menuView.save}" update="messages" icon="pi pi-save" /&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{menuView.update}" update="messages" icon="pi pi-refresh"/&gt;
         &lt;/p:submenu&gt;
         &lt;p:submenu label="Non-Ajax"&gt;
-            &lt;p:menuitem value="Delete" actionListener="\#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/&gt;
         &lt;/p:submenu&gt;
         &lt;p:submenu label="Navigations"&gt;
-            &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/&gt;
-            &lt;p:menuitem value="Internal" icon="ui-icon-star"/&gt;
+            &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/&gt;
+            &lt;p:menuitem value="Internal" icon="pi pi-star"/&gt;
         &lt;/p:submenu&gt;
     &lt;/p:menu&gt;
 &lt;/h:form&gt;
@@ -156,7 +156,7 @@ public class MenuView {
         
         DefaultMenuItem item = new DefaultMenuItem("External");
 		item.setUrl("http://www.primefaces.org");
-        item.setIcon("ui-icon-home");
+        item.setIcon("pi pi-home");
 		firstSubmenu.addElement(item);
         
         model.addElement(firstSubmenu);
@@ -165,19 +165,19 @@ public class MenuView {
 		DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
 
 		item = new DefaultMenuItem("Save");
-		item.setIcon("ui-icon-disk");
+		item.setIcon("pi pi-save");
         item.setCommand("\#{menuView.save}");
         item.setUpdate("messages");
 		secondSubmenu.addElement(item);
         
         item = new DefaultMenuItem("Delete");
-        item.setIcon("ui-icon-close");
+        item.setIcon("pi pi-times");
         item.setCommand("\#{menuView.delete}");
         item.setAjax(false);
         secondSubmenu.addElement(item);
         
         item = new DefaultMenuItem("Redirect");
-        item.setIcon("ui-icon-search");
+        item.setIcon("pi pi-search");
         item.setCommand("\#{menuView.redirect}");
 		secondSubmenu.addElement(item);
 

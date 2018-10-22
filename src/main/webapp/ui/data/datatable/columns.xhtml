@@ -21,7 +21,7 @@
             <h:panelGrid columns="3" style="margin:10px 0">
                 <p:outputLabel for="template" value="Template:" style="font-weight:bold"/>
                 <p:inputText id="template" value="#{dtColumnsView.columnTemplate}" size="50"/>
-                <p:commandButton update="cars" actionListener="#{dtColumnsView.updateColumns}" value="Update" process="@parent" icon="ui-icon-refresh" oncomplete="PF('carsTable').clearFilters()"/>
+                <p:commandButton update="cars" actionListener="#{dtColumnsView.updateColumns}" value="Update" process="@parent" icon="pi pi-refresh" oncomplete="PF('carsTable').clearFilters()"/>
             </h:panelGrid>
 
             <p:dataTable id="cars" var="car" value="#{dtColumnsView.cars}" widgetVar="carsTable" filteredValue="#{dtColumnsView.filteredCars}">                    
@@ -44,7 +44,7 @@
     &lt;h:panelGrid columns="3" style="margin:10px 0"&gt;
         &lt;p:outputLabel for="template" value="Template:" style="font-weight:bold"/&gt;
         &lt;p:inputText id="template" value="\#{dtColumnsView.columnTemplate}" size="50"/&gt;
-        &lt;p:commandButton update="cars" actionListener="\#{dtColumnsView.updateColumns}" value="Update" process="@parent" icon="ui-icon-refresh" oncomplete="PF('carsTable').clearFilters()"/&gt;
+        &lt;p:commandButton update="cars" actionListener="\#{dtColumnsView.updateColumns}" value="Update" process="@parent" icon="pi pi-refresh" oncomplete="PF('carsTable').clearFilters()"/&gt;
     &lt;/h:panelGrid&gt;
 
     &lt;p:dataTable id="cars" var="car" value="\#{dtColumnsView.cars}" widgetVar="carsTable" filteredValue="\#{dtColumnsView.filteredCars}"&gt;                    

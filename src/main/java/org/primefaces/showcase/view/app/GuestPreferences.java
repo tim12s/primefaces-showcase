@@ -24,21 +24,21 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @SessionScoped
 public class GuestPreferences implements Serializable {
-    
+
     private String theme = "nova-light";
 
-	public String getTheme() {		
-		return theme;
-	}
+    public String getTheme() {
+        return theme;
+    }
 
-	public void setTheme(String theme) {
-		this.theme = theme;
-	}
-    
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
     public void changeTheme() {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		if(params.containsKey("globaltheme")) {
-			theme = params.get("globaltheme");
-		}
+        if (params.containsKey("globaltheme")) {
+            theme = params.get("globaltheme");
+        }
     }
 }

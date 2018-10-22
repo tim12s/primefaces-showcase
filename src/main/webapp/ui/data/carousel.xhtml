@@ -72,7 +72,7 @@
                     <h:outputText value="\$#{car.price}" />
 
                     <f:facet name="footer">
-                        <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search">
+                        <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="pi pi-search">
                             <f:setPropertyActionListener value="#{car}" target="#{carouselView.selectedCar}" />
                         </p:commandButton>
                     </f:facet>
@@ -200,7 +200,7 @@
             &lt;h:outputText value="\$\#{car.price}" /&gt;
 
             &lt;f:facet name="footer"&gt;
-                &lt;p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search"&gt;
+                &lt;p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="pi pi-search"&gt;
                     &lt;f:setPropertyActionListener value="\#{car}" target="\#{carouselView.selectedCar}" /&gt;
                 &lt;/p:commandButton&gt;
             &lt;/f:facet&gt;

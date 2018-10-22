@@ -7,14 +7,14 @@
 
     <ui:define name="head">
         <script type="text/javascript">
-			function handleDrop(event, ui) {
+            function handleDrop(event, ui) {
                 var droppedCar = ui.draggable;
 
                 droppedCar.fadeOut('fast');
-			}
-		</script>
-	</ui:define>
-    
+            }
+        </script>
+    </ui:define>
+
     <ui:define name="title">
         DragDrop - <span class="subitem">DataTable</span>
     </ui:define>
@@ -24,12 +24,12 @@
     </ui:define>
 
     <ui:define name="implementation">
-        
+
         <h:form id="carForm">
             <p:fieldset id="availableCarsField" legend="Available Cars">
                 <p:dataTable id="availableCars" var="car" value="#{dndCarsView.cars}">
                     <p:column style="width:20px">
-                        <h:outputText id="dragIcon" styleClass="ui-icon ui-icon-arrow-4" />
+                        <h:outputText id="dragIcon" styleClass="ui-icon pi pi-plus" />
                         <p:draggable for="dragIcon" revert="true" helper="clone"/>
                     </p:column>
 
@@ -72,7 +72,7 @@
                         </p:column>
 
                         <p:column style="width:32px">
-                            <p:commandButton update=":carForm:display" oncomplete="PF('carDialog').show()" icon="ui-icon-search">
+                            <p:commandButton update=":carForm:display" oncomplete="PF('carDialog').show()" icon="pi pi-search">
                                 <f:setPropertyActionListener value="#{car}" target="#{dndCarsView.selectedCar}" />
                             </p:commandButton>
                         </p:column>
@@ -85,7 +85,7 @@
             </p:droppable>
 
             <p:dialog header="Car Detail" widgetVar="carDialog" resizable="false" draggable="false"
-                        showEffect="fade" hideEffect="fade" modal="true">
+                      showEffect="fade" hideEffect="fade" modal="true">
 
                 <p:outputPanel id="display">
                     <h:panelGrid columns="2" cellpadding="4" rendered="#{not empty dndCarsView.selectedCar}">
@@ -108,7 +108,7 @@
                 </p:outputPanel>
             </p:dialog>
         </h:form>
-        
+
     </ui:define>
 
     <ui:define name="source">
@@ -127,7 +127,7 @@
     &lt;p:fieldset id="availableCarsField" legend="Available Cars"&gt;
         &lt;p:dataTable id="availableCars" var="car" value="\#{dndCarsView.cars}"&gt;
             &lt;p:column style="width:20px"&gt;
-                &lt;h:outputText id="dragIcon" styleClass="ui-icon ui-icon-arrow-4" /&gt;
+                &lt;h:outputText id="dragIcon" styleClass="ui-icon pi pi-plus" /&gt;
                 &lt;p:draggable for="dragIcon" revert="true" helper="clone"/&gt;
             &lt;/p:column&gt;
 
@@ -170,7 +170,7 @@
                 &lt;/p:column&gt;
 
                 &lt;p:column style="width:32px"&gt;
-                    &lt;p:commandButton update=":carForm:display" oncomplete="PF('carDialog').show()" icon="ui-icon-search"&gt;
+                    &lt;p:commandButton update=":carForm:display" oncomplete="PF('carDialog').show()" icon="pi pi-search"&gt;
                         &lt;f:setPropertyActionListener value="\#{car}" target="\#{dndCarsView.selectedCar}" /&gt;
                     &lt;/p:commandButton&gt;
                 &lt;/p:column&gt;
@@ -273,7 +273,7 @@ public class DNDCarsView implements Serializable {
 
                 </pre>
             </p:tab>
-            
+
         </p:tabView>
 
     </ui:define>

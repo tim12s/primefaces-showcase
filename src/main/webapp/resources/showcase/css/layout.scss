@@ -116,8 +116,9 @@ body {
                         }
 
                         i {
-                            font-size: 16px;
+                            font-size: 21px;
                             text-align: center;
+                            vertical-align: middle;
                             width: 26px;
                             margin-right: 7px; 
                         }
@@ -153,8 +154,9 @@ body {
             i {
                 position: absolute;
                 color: #738183;
-                top: 24px;
-                left: 20px;
+                top: 23px;
+                left: 18px;
+                font-size: 16px;
             }
 
             input {
@@ -199,7 +201,6 @@ body {
                     }
 
                     span {
-                        font-weight: 600;
                         color: #6c7778;
                         font-size: 16px;
                         vertical-align: middle;
@@ -880,6 +881,10 @@ body {
             }   
         }
     }
+}
+
+.pi.ajax-loader {
+    font-size: 4em;
 }
 
 /* Themes */

@@ -19,7 +19,7 @@
         <h:form id="rootform">
             <p:growl id="growl" showDetail="true" />
 
-            <p:commandButton id="rootbtn" value="View" icon="ui-icon-extlink" actionListener="#{dfRootView.openLevel1}">
+            <p:commandButton id="rootbtn" value="View" icon="pi pi-home" actionListener="#{dfRootView.openLevel1}">
                 <p:ajax event="dialogReturn" listener="#{dfRootView.onReturnFromLevel1}" update="growl"/>
             </p:commandButton>
         </h:form>
@@ -33,7 +33,7 @@
 &lt;h:form id="rootform"&gt;
     &lt;p:growl id="growl" showDetail="true" /&gt;
 
-    &lt;p:commandButton id="rootbtn" value="View" icon="ui-icon-extlink" actionListener="\#{dfRootView.openLevel1}"&gt;
+    &lt;p:commandButton id="rootbtn" value="View" icon="pi pi-home" actionListener="\#{dfRootView.openLevel1}"&gt;
         &lt;p:ajax event="dialogReturn" listener="\#{dfRootView.onReturnFromLevel1}" update="growl"/&gt;
     &lt;/p:commandButton&gt;
 &lt;/h:form&gt;
@@ -59,7 +59,7 @@
         &lt;h:form id="level1form"&gt;
             &lt;p class="ui-widget"&gt;You are at Level 1.&lt;/p&gt;
 
-            &lt;p:commandButton id="level1btn" value="Go into level 2" icon="ui-icon-extlink" actionListener="\#{dfLevel1View.openLevel2}"&gt;
+            &lt;p:commandButton id="level1btn" value="Go into level 2" icon="pi pi-home" actionListener="\#{dfLevel1View.openLevel2}"&gt;
                 &lt;p:ajax event="dialogReturn" listener="\#{dfLevel1View.onReturnFromLevel2}" /&gt;
             &lt;/p:commandButton&gt;
         &lt;/h:form&gt;
@@ -88,7 +88,7 @@
         &lt;h:form id="level2form"&gt;
             &lt;p class="ui-widget"&gt;You are at Level 2.&lt;/p&gt;
             
-            &lt;p:commandButton id="level2button" value="Go to Level 3" icon="ui-icon-extlink" actionListener="\#{dfLevel2View.openLevel3}"&gt;
+            &lt;p:commandButton id="level2button" value="Go to Level 3" icon="pi pi-home" actionListener="\#{dfLevel2View.openLevel3}"&gt;
                 &lt;p:ajax event="dialogReturn" listener="\#{dfLevel2View.onReturnFromLevel3}" /&gt;
             &lt;/p:commandButton&gt;
         &lt;/h:form&gt;

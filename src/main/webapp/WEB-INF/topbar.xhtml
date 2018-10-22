@@ -3,7 +3,7 @@
 
     <div class="layout-topbar">
         <a id="menu-button" href="#">
-            <i class="fa fa-bars"></i>
+            <i class="pi pi-bars"></i>
         </a>
         <h:link class="logo-container" outcome="/index.xhtml">
             <p:graphicImage name="images/primefaces-logo.png" library="showcase" />
@@ -19,7 +19,7 @@
                 <div class="themes-overlay">
                     <div class="themes-overlay-header">DESIGNER</div>
                     <a href="https://www.primefaces.org/designer/primefaces">
-                        <i class="fa fa-paint-brush"></i><span>Theme Designer</span></a>
+                        <i class="pi pi-images"></i><span>Theme Designer</span></a>
                     <div class="themes-overlay-header">PREMIUM</div>
                     <a href="https://www.primefaces.org/layouts/babylon"><h:graphicImage name="showcase/images/themeswitcher/themeswitcher-babylon.png" alt="Babylon"/><span>Babylon</span></a>
                     <a href="https://www.primefaces.org/layouts/olympia"><h:graphicImage name="showcase/images/themeswitcher/themeswitcher-olympia.png" alt="Olympia"/><span>Olympia</span></a>
@@ -43,7 +43,7 @@
                     <div class="themes-overlay-header">FREE</div>
                     <h:form>
                         <ui:repeat value="#{themeSwitcherView.themes}" var="theme">
-                            <a href="#" data-theme="#{theme.name}"><span class="ui-theme ui-theme-#{theme}"></span><span>#{theme.displayName}</span></a>
+                            <a href="#" data-theme="#{theme.name}"><h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{theme.name}.png" alt="Omega"/><span>#{theme.displayName}</span></a>
                         </ui:repeat>
                         <p:remoteCommand name="changeTheme" actionListener="#{guestPreferences.changeTheme}" />
                     </h:form>

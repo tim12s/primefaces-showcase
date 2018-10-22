@@ -18,7 +18,7 @@
         <h:form>
             <p:growl id="growl" showDetail="true" />
 
-            <p:commandButton value="Select Car" icon="ui-icon-extlink" actionListener="#{dfView.chooseCar}">
+            <p:commandButton value="Select Car" icon="pi pi-home" actionListener="#{dfView.chooseCar}">
                 <p:ajax event="dialogReturn" listener="#{dfView.onCarChosen}" update="growl" />
             </p:commandButton>
         </h:form>
@@ -32,7 +32,7 @@
 &lt;h:form&gt;
     &lt;p:growl id="growl" showDetail="true" /&gt;
 
-    &lt;p:commandButton value="Select Car" icon="ui-icon-extlink" actionListener="\#{dfView.chooseCar}"&gt;
+    &lt;p:commandButton value="Select Car" icon="pi pi-home" actionListener="\#{dfView.chooseCar}"&gt;
         &lt;p:ajax event="dialogReturn" listener="\#{dfView.onCarChosen}" update="growl" /&gt;
     &lt;/p:commandButton&gt;
 &lt;/h:form&gt;
@@ -109,7 +109,7 @@ public class DFView {
                 &lt;/p:column&gt;
 
                 &lt;p:column style="width:32px;text-align: center"&gt;
-                    &lt;p:commandButton icon="ui-icon-search" actionListener="\#{dfCarsView.selectCarFromDialog(car)}" /&gt;
+                    &lt;p:commandButton icon="pi pi-search" actionListener="\#{dfCarsView.selectCarFromDialog(car)}" /&gt;
                 &lt;/p:column&gt;
             &lt;/p:dataTable&gt;
         &lt;/h:form&gt;

@@ -35,7 +35,7 @@
         <h:form id="form">
             <p:dataView var="car" value="#{dataGridView.cars}" rows="12" paginator="true" rowsPerPageTemplate="6,12,16"
                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                        gridIcon="fa fa-th-large" listIcon="fa fa-bars">
+                        gridIcon="pi pi-th-large" listIcon="pi pi-bars">
 
                 <p:dataViewGridItem>
                     <p:panel header="#{car.id}" style="text-align:center">
@@ -45,7 +45,7 @@
                             <h:outputText value="#{car.brand}" />
 
                             <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">
-                                <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                                <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" />
                                 <f:setPropertyActionListener value="#{car}" target="#{dataGridView.selectedCar}" />
                             </p:commandLink>
                         </h:panelGrid>
@@ -70,7 +70,7 @@
                         </p:outputPanel>
 
                         <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">
-                            <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                            <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" />
                             <f:setPropertyActionListener value="#{car}" target="#{dataGridView.selectedCar}" />
                         </p:commandLink>
                     </h:panelGrid>
@@ -108,7 +108,7 @@
 &lt;h:form id="form"&gt;
     &lt;p:dataView var="car" value="\#{dataGridView.cars}" rows="12" paginator="true" rowsPerPageTemplate="6,12,16"
                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                gridIcon="fa fa-th-large" listIcon="fa fa-bars"&gt;
+                gridIcon="pi pi-th-large" listIcon="pi pi-bars"&gt;
 
         &lt;p:dataViewGridItem&gt;
             &lt;p:panel header="\#{car.id}" style="text-align:center"&gt;
@@ -118,7 +118,7 @@
                     &lt;h:outputText value="\#{car.brand}" /&gt;
 
                     &lt;p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail"&gt;
-                        &lt;h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" /&gt;
+                        &lt;h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" /&gt;
                         &lt;f:setPropertyActionListener value="\#{car}" target="\#{dataGridView.selectedCar}" /&gt;
                     &lt;/p:commandLink&gt;
                 &lt;/h:panelGrid&gt;
@@ -143,7 +143,7 @@
                 &lt;/p:outputPanel&gt;
 
                 &lt;p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail"&gt;
-                    &lt;h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" /&gt;
+                    &lt;h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" /&gt;
                     &lt;f:setPropertyActionListener value="\#{car}" target="\#{dataGridView.selectedCar}" /&gt;
                 &lt;/p:commandLink&gt;
             &lt;/h:panelGrid&gt;

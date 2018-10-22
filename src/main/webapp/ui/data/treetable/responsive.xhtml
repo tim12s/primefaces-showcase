@@ -48,7 +48,7 @@
                     <h:outputText value="#{document.type}" />
                 </p:column>
                 <p:column style="width:24px"  headerText="(p4)" priority="4">
-                    <p:commandLink update=":form:documentPanel" oncomplete="PF('documentDialog').show()" title="View Detail" styleClass="ui-icon ui-icon-search">
+                    <p:commandLink update=":form:documentPanel" oncomplete="PF('documentDialog').show()" title="View Detail" styleClass="ui-icon pi pi-search">
                         <f:setPropertyActionListener value="#{document}" target="#{ttBasicView.selectedDocument}" />
                     </p:commandLink>
                 </p:column>
@@ -92,7 +92,7 @@
             &lt;h:outputText value="\#{document.type}" /&gt;
         &lt;/p:column&gt;
         &lt;p:column style="width:24px" headerText="(p4)" priority="4"&gt;
-            &lt;p:commandLink update=":form:documentPanel" oncomplete="PF('documentDialog').show()" title="View Detail" styleClass="ui-icon ui-icon-search"&gt;
+            &lt;p:commandLink update=":form:documentPanel" oncomplete="PF('documentDialog').show()" title="View Detail" styleClass="ui-icon pi pi-search"&gt;
                 &lt;f:setPropertyActionListener value="\#{document}" target="\#{ttBasicView.selectedDocument}" /&gt;
             &lt;/p:commandLink&gt;
         &lt;/p:column&gt;

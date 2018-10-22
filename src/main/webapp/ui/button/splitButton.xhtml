@@ -20,30 +20,30 @@
 
             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                 <p:outputLabel for="basic" value="Basic:" />
-                <p:splitButton id="basic" value="Save" actionListener="#{buttonView.save}" update="messages" icon="ui-icon-disk">
-                    <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
-                    <p:menuitem value="Delete" actionListener="#{buttonView.delete}" ajax="false" icon="ui-icon-close" />
+                <p:splitButton id="basic" value="Save" actionListener="#{buttonView.save}" update="messages" icon="pi pi-save">
+                    <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="pi pi-refresh" />
+                    <p:menuitem value="Delete" actionListener="#{buttonView.delete}" ajax="false" icon="pi pi-times" />
                     <p:separator />
-                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink" />
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home" />
                 </p:splitButton>  
                 
                 <p:outputLabel for="dynaButton" value="Programmatic Menu:" />
-                <p:splitButton id="dynaButton" value="Save" model="#{buttonView.model}" actionListener="#{buttonView.save}" update="messages" icon="ui-icon-disk"></p:splitButton>
+                <p:splitButton id="dynaButton" value="Save" model="#{buttonView.model}" actionListener="#{buttonView.save}" update="messages" icon="pi pi-save"></p:splitButton>
 
                 <p:outputLabel for="advanced" value="Advanced:" />
-                <p:splitButton id="advanced" value="Save" actionListener="#{buttonView.save}" update="messages" icon="ui-icon-disk" filter="true" filterMatchMode="startsWith">
+                <p:splitButton id="advanced" value="Save" actionListener="#{buttonView.save}" update="messages" icon="pi pi-save" filter="true" filterMatchMode="startsWith">
                     <p:submenu label="Ajax">
-                        <p:menuitem value="Save" actionListener="#{buttonView.save}" update="messages" icon="ui-icon-disk" />
-                        <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                        <p:menuitem value="Save" actionListener="#{buttonView.save}" update="messages" icon="pi pi-save" />
+                        <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="pi pi-refresh"/>
                     </p:submenu>
                     <p:submenu label="Non-Ajax">
-                        <p:menuitem value="Delete" actionListener="#{buttonView.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+                        <p:menuitem value="Delete" actionListener="#{buttonView.delete}" update="messages" ajax="false" icon="pi pi-times"/>
                     </p:submenu>
                     <p:submenu label="Navigations">
-                        <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
+                        <p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/>
                     </p:submenu>
                     <p:separator />
-                    <p:menuitem value="sInternal" icon="ui-icon-star"/>
+                    <p:menuitem value="sInternal" icon="pi pi-star"/>
                 </p:splitButton> 
             </h:panelGrid>
         </h:form>
@@ -59,30 +59,30 @@
 
     &lt;h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"&gt;
         &lt;p:outputLabel for="basic" value="Basic:" /&gt;
-        &lt;p:splitButton id="basic" value="Save" actionListener="\#{buttonView.save}" update="messages" icon="ui-icon-disk"&gt;
-            &lt;p:menuitem value="Update" actionListener="\#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" /&gt;
-            &lt;p:menuitem value="Delete" actionListener="\#{buttonView.delete}" ajax="false" icon="ui-icon-close" /&gt;
+        &lt;p:splitButton id="basic" value="Save" actionListener="\#{buttonView.save}" update="messages" icon="pi pi-save"&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{buttonView.update}" update="messages" icon="pi pi-refresh" /&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{buttonView.delete}" ajax="false" icon="pi pi-times" /&gt;
             &lt;p:separator /&gt;
-            &lt;p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink" /&gt;
+            &lt;p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home" /&gt;
         &lt;/p:splitButton&gt;  
 
         &lt;p:outputLabel for="dynaButton" value="Programmatic Menu:" /&gt;
-        &lt;p:splitButton id="dynaButton" value="Save" model="\#{buttonView.model}" actionListener="\#{buttonView.save}" update="messages" icon="ui-icon-disk"&gt;&lt;/p:splitButton&gt;
+        &lt;p:splitButton id="dynaButton" value="Save" model="\#{buttonView.model}" actionListener="\#{buttonView.save}" update="messages" icon="pi pi-save"&gt;&lt;/p:splitButton&gt;
 
         &lt;p:outputLabel for="advanced" value="Advanced:" /&gt;
-        &lt;p:splitButton id="advanced" value="Save" actionListener="\#{buttonView.save}" update="messages" icon="ui-icon-disk" filter="true" filterMatchMode="startsWith"&gt;
+        &lt;p:splitButton id="advanced" value="Save" actionListener="\#{buttonView.save}" update="messages" icon="pi pi-save" filter="true" filterMatchMode="startsWith"&gt;
             &lt;p:submenu label="Ajax"&gt;
-                &lt;p:menuitem value="Save" actionListener="\#{buttonView.save}" update="messages" icon="ui-icon-disk" /&gt;
-                &lt;p:menuitem value="Update" actionListener="\#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+                &lt;p:menuitem value="Save" actionListener="\#{buttonView.save}" update="messages" icon="pi pi-save" /&gt;
+                &lt;p:menuitem value="Update" actionListener="\#{buttonView.update}" update="messages" icon="pi pi-refresh"/&gt;
             &lt;/p:submenu&gt;
             &lt;p:submenu label="Non-Ajax"&gt;
-                &lt;p:menuitem value="Delete" actionListener="\#{buttonView.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+                &lt;p:menuitem value="Delete" actionListener="\#{buttonView.delete}" update="messages" ajax="false" icon="pi pi-times"/&gt;
             &lt;/p:submenu&gt;
             &lt;p:submenu label="Navigations"&gt;
-                &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/&gt;
+                &lt;p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/&gt;
             &lt;/p:submenu&gt;
             &lt;p:separator /&gt;
-            &lt;p:menuitem value="sInternal" icon="ui-icon-star"/&gt;
+            &lt;p:menuitem value="sInternal" icon="pi pi-star"/&gt;
         &lt;/p:splitButton&gt; 
     &lt;/h:panelGrid&gt;
 &lt;/h:form&gt;
@@ -117,7 +117,7 @@ public class ButtonView {
 
         DefaultMenuItem item = new DefaultMenuItem("External");
         item.setUrl("http://www.primefaces.org");
-        item.setIcon("ui-icon-home");
+        item.setIcon("pi pi-home");
         firstSubmenu.addElement(item);
 
         model.addElement(firstSubmenu);
@@ -126,13 +126,13 @@ public class ButtonView {
         DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
 
         item = new DefaultMenuItem("Save");
-        item.setIcon("ui-icon-disk");
+        item.setIcon("pi pi-save");
         item.setCommand("\#{buttonView.save}");
         item.setUpdate("messages");
         secondSubmenu.addElement(item);
 
         item = new DefaultMenuItem("Delete");
-        item.setIcon("ui-icon-close");
+        item.setIcon("pi pi-times");
         item.setCommand("\#{buttonView.delete}");
         item.setAjax(false);
         secondSubmenu.addElement(item);

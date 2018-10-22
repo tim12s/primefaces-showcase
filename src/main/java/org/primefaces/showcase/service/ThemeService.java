@@ -40,6 +40,7 @@ public class ThemeService {
         themes.add(new Theme(4, "Luna-Amber", "luna-amber"));
         themes.add(new Theme(5, "Luna-Green", "luna-green"));
         themes.add(new Theme(6, "Luna-Pink", "luna-pink"));
+        themes.add(new Theme(7, "Omega", "omega"));
         
     }
     

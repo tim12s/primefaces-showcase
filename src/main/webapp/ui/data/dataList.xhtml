@@ -54,7 +54,7 @@
                 <f:facet name="header">
                     Paginator
                 </f:facet>
-                <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail" styleClass="ui-icon ui-icon-search" style="float:left;margin-right:10px">
+                <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail" styleClass="ui-icon pi pi-search" style="float:left;margin-right:10px">
                     <f:setPropertyActionListener value="#{car}" target="#{dataListView.selectedCar}" />
                     <h:outputText value="#{car.brand}, #{car.year}" />
                 </p:commandLink>
@@ -112,7 +112,7 @@
         &lt;f:facet name="header"&gt;
             Paginator
         &lt;/f:facet&gt;
-        &lt;p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail" styleClass="ui-icon ui-icon-search" style="float:left;margin-right:10px"&gt;
+        &lt;p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail" styleClass="ui-icon pi pi-search" style="float:left;margin-right:10px"&gt;
             &lt;f:setPropertyActionListener value="\#{car}" target="\#{dataListView.selectedCar}" /&gt;
             &lt;h:outputText value="\#{car.brand}, \#{car.year}" /&gt;
         &lt;/p:commandLink&gt;

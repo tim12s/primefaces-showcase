@@ -44,8 +44,8 @@
             </p:treeTable>
             
             <p:contextMenu for="docs">
-                <p:menuitem value="View" update="documentPanel" icon="ui-icon-search" oncomplete="PF('documentDialog').show()"/>
-                <p:menuitem value="Delete" actionListener="#{ttContextMenuView.deleteNode}" update="docs" icon="ui-icon-close"/>
+                <p:menuitem value="View" update="documentPanel" icon="pi pi-search" oncomplete="PF('documentDialog').show()"/>
+                <p:menuitem value="Delete" actionListener="#{ttContextMenuView.deleteNode}" update="docs" icon="pi pi-times"/>
             </p:contextMenu>
             
             <p:dialog id="dialog" header="Document Detail" showEffect="fade" widgetVar="documentDialog" modal="true" resizable="false">
@@ -88,8 +88,8 @@
     &lt;/p:treeTable&gt;
 
     &lt;p:contextMenu for="docs"&gt;
-        &lt;p:menuitem value="View" update="documentPanel" icon="ui-icon-search" oncomplete="PF('documentDialog').show()"/&gt;
-        &lt;p:menuitem value="Delete" actionListener="\#{ttContextMenuView.deleteNode}" update="docs" icon="ui-icon-close"/&gt;
+        &lt;p:menuitem value="View" update="documentPanel" icon="pi pi-search" oncomplete="PF('documentDialog').show()"/&gt;
+        &lt;p:menuitem value="Delete" actionListener="\#{ttContextMenuView.deleteNode}" update="docs" icon="pi pi-times"/&gt;
     &lt;/p:contextMenu&gt;
 
     &lt;p:dialog id="dialog" header="Document Detail" showEffect="fade" widgetVar="documentDialog" modal="true" resizable="false"&gt;

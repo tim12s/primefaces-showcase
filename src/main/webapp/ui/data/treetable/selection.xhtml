@@ -48,7 +48,7 @@
                 </p:column>
             </p:treeTable>
             
-            <p:commandButton value="Display" update="msgs" icon="ui-icon-newwin"
+            <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
 								actionListener="#{ttSelectionView.displaySelectedSingle}"/>
             
             <p:treeTable value="#{ttSelectionView.root2}" var="document" selectionMode="multiple" selection="#{ttSelectionView.selectedNodes1}">
@@ -66,7 +66,7 @@
                 </p:column>
             </p:treeTable>
             
-            <p:commandButton value="Display" update="msgs" icon="ui-icon-newwin"
+            <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
                              actionListener="#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes1)}"/>
             
             <p:treeTable value="#{ttSelectionView.root3}" var="document" selectionMode="checkbox" selection="#{ttSelectionView.selectedNodes2}">
@@ -84,7 +84,7 @@
                 </p:column>
             </p:treeTable>
             
-            <p:commandButton value="Display" update="msgs" icon="ui-icon-newwin"
+            <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
 								actionListener="#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes2)}"/>
         </h:form>
         
@@ -112,7 +112,7 @@
         &lt;/p:column&gt;
     &lt;/p:treeTable&gt;
 
-    &lt;p:commandButton value="Display" update="msgs" icon="ui-icon-newwin"
+    &lt;p:commandButton value="Display" update="msgs" icon="pi pi-clone"
                         actionListener="\#{ttSelectionView.displaySelectedSingle}"/&gt;
 
     &lt;p:treeTable value="\#{ttSelectionView.root2}" var="document" selectionMode="multiple" selection="\#{ttSelectionView.selectedNodes1}"&gt;
@@ -130,7 +130,7 @@
         &lt;/p:column&gt;
     &lt;/p:treeTable&gt;
 
-    &lt;p:commandButton value="Display" update="msgs" icon="ui-icon-newwin"
+    &lt;p:commandButton value="Display" update="msgs" icon="pi pi-clone"
                      actionListener="\#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes1)}"/&gt;
 
     &lt;p:treeTable value="\#{ttSelectionView.root3}" var="document" selectionMode="checkbox" selection="\#{ttSelectionView.selectedNodes2}"&gt;
@@ -148,7 +148,7 @@
         &lt;/p:column&gt;
     &lt;/p:treeTable&gt;
 
-    &lt;p:commandButton value="Display" update="msgs" icon="ui-icon-newwin"
+    &lt;p:commandButton value="Display" update="msgs" icon="pi pi-clone"
                         actionListener="\#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes2)}"/&gt;
 &lt;/h:form&gt;
                 </pre>
