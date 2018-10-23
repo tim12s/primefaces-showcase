@@ -43,7 +43,7 @@
                     <div class="themes-overlay-header">FREE</div>
                     <h:form>
                         <ui:repeat value="#{themeSwitcherView.themes}" var="theme">
-                            <a href="#" data-theme="#{theme.name}"><h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{theme.name}.png" alt="Omega"/><span>#{theme.displayName}</span></a>
+                            <a href="#" data-theme="#{theme.name}"><h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{theme.name}.png" alt="#{theme.name}"/><span>#{theme.displayName}</span></a>
                         </ui:repeat>
                         <p:remoteCommand name="changeTheme" actionListener="#{guestPreferences.changeTheme}" />
                     </h:form>
