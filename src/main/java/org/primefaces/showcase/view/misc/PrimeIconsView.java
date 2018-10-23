@@ -29,9 +29,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.primefaces.json.JSONArray;
+import org.primefaces.json.JSONException;
+import org.primefaces.json.JSONObject;
 
 @ManagedBean
 public class PrimeIconsView implements Serializable {
