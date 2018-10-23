@@ -21,7 +21,7 @@
                 <h:outputText id="output" value="#{counterView.number}" />
             </h:panelGrid>
 
-            <p:commandButton value="Count" actionListener="#{counterView.increment}" update="output" />
+            <p:commandButton value="Count" action="#{counterView.increment}" update="output" />
         </h:form>
         
     </ui:define>

@@ -19,9 +19,9 @@
             <p:growl id="messages" showDetail="true"/>
 
             <p:menuButton value="Options">
-                <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="pi pi-save"/>
-                <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="pi pi-refresh"/>
-                <p:menuitem value="Delete" actionListener="#{menuView.delete}" ajax="false" icon="pi pi-times"/>
+                <p:menuitem value="Save" action="#{menuView.save}" update="messages" icon="pi pi-save"/>
+                <p:menuitem value="Update" action="#{menuView.update}" update="messages" icon="pi pi-refresh"/>
+                <p:menuitem value="Delete" action="#{menuView.delete}" ajax="false" icon="pi pi-times"/>
                 <p:separator />
                 <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
             </p:menuButton>

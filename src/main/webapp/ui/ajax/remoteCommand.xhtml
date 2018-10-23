@@ -16,7 +16,7 @@
     <ui:define name="implementation">
         
         <h:form>
-            <p:remoteCommand name="rc" update="msgs" actionListener="#{remoteCommandView.execute}" />
+            <p:remoteCommand name="rc" update="msgs" action="#{remoteCommandView.execute}" />
             
             <p:growl id="msgs" showDetail="true" />
             <p:commandButton type="button" onclick="rc()" value="Execute" icon="pi pi-refresh" />

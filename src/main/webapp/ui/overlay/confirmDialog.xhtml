@@ -18,7 +18,7 @@
         <h:form>     
             <p:growl id="message" showDetail="true" />
             
-            <p:commandButton value="Destroy the World" actionListener="#{dialogView.destroyWorld}" update="message">
+            <p:commandButton value="Destroy the World" action="#{dialogView.destroyWorld}" update="message">
                 <p:confirm header="Confirmation" message="Are you sure?" icon="pi pi-exclamation-triangle" />
             </p:commandButton>
             

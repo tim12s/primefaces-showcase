@@ -18,11 +18,11 @@
         <h:form>   
             <p:growl id="growl" life="2000" />
             
-            <p:commandLink id="ajax" update="growl" actionListener="#{buttonView.buttonAction}" style="margin-right:20px;">
+            <p:commandLink id="ajax" update="growl" action="#{buttonView.buttonAction}" style="margin-right:20px;">
                 <h:outputText value="Ajax Submit" />
             </p:commandLink>
 
-            <p:commandLink id="nonAjax" actionListener="#{buttonView.buttonAction}" style="margin-right:20px;" ajax="false">
+            <p:commandLink id="nonAjax" action="#{buttonView.buttonAction}" style="margin-right:20px;" ajax="false">
                 <h:outputText value="Non-Ajax Submit" />
             </p:commandLink>      
         </h:form>

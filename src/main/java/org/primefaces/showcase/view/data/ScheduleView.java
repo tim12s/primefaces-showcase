@@ -173,7 +173,7 @@ public class ScheduleView implements Serializable {
 		this.event = event;
 	}
 	
-	public void addEvent(ActionEvent actionEvent) {
+	public void addEvent() {
 		if(event.getId() == null)
 			eventModel.addEvent(event);
 		else

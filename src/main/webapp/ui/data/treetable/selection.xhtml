@@ -49,7 +49,7 @@
             </p:treeTable>
             
             <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
-								actionListener="#{ttSelectionView.displaySelectedSingle}"/>
+								action="#{ttSelectionView.displaySelectedSingle}"/>
             
             <p:treeTable value="#{ttSelectionView.root2}" var="document" selectionMode="multiple" selection="#{ttSelectionView.selectedNodes1}">
                 <f:facet name="header">
@@ -67,7 +67,7 @@
             </p:treeTable>
             
             <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
-                             actionListener="#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes1)}"/>
+                             action="#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes1)}"/>
             
             <p:treeTable value="#{ttSelectionView.root3}" var="document" selectionMode="checkbox" selection="#{ttSelectionView.selectedNodes2}">
                 <f:facet name="header">
@@ -85,7 +85,7 @@
             </p:treeTable>
             
             <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
-								actionListener="#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes2)}"/>
+								action="#{ttSelectionView.displaySelectedMultiple(ttSelectionView.selectedNodes2)}"/>
         </h:form>
         
     </ui:define>

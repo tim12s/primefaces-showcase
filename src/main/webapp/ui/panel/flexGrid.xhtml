@@ -90,8 +90,8 @@
 
         <h3>Dynamic</h3>
         <h:form>
-            <p:commandButton icon="pi pi-plus" actionListener="#{flexGridView.increment}" update="output" />
-            <p:commandButton icon="pi pi-minus" actionListener="#{flexGridView.decrease}" update="output" />
+            <p:commandButton icon="pi pi-plus" action="#{flexGridView.increment}" update="output" />
+            <p:commandButton icon="pi pi-minus" action="#{flexGridView.decrease}" update="output" />
 
             <p:outputPanel id="output">
                 <div class="p-grid" style="margin-top: .5em">
@@ -531,8 +531,8 @@
 
 &lt;h3&gt;Dynamic&lt;/h3&gt;
 &lt;h:form&gt;
-    &lt;p:commandButton icon="pi pi-plus" actionListener="\#{flexGridView.increment}" update="output" /&gt;
-    &lt;p:commandButton icon="pi pi-minus" actionListener="\#{flexGridView.decrease}" update="output" /&gt;
+    &lt;p:commandButton icon="pi pi-plus" action="\#{flexGridView.increment}" update="output" /&gt;
+    &lt;p:commandButton icon="pi pi-minus" action="\#{flexGridView.decrease}" update="output" /&gt;
 
     &lt;p:outputPanel id="output"&gt;
         &lt;div class="p-grid" style="margin-top: .5em"&gt;

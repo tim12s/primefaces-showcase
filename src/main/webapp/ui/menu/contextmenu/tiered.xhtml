@@ -23,11 +23,11 @@
 
             <p:contextMenu style="width:180px">
                 <p:submenu label="Ajax Menuitems" icon="pi pi-refresh">
-                    <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="pi pi-save" />
-                    <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="pi pi-refresh" />
+                    <p:menuitem value="Save" action="#{menuView.save}" update="messages" icon="pi pi-save" />
+                    <p:menuitem value="Update" action="#{menuView.update}" update="messages" icon="pi pi-refresh" />
                 </p:submenu>
                 <p:submenu label="Non-Ajax Menuitem" icon="pi pi-clone">
-                    <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/>
+                    <p:menuitem value="Delete" action="#{menuView.delete}" update="messages" ajax="false" icon="pi pi-times"/>
                 </p:submenu>
                 <p:separator />
                 <p:submenu label="Navigations" icon="pi pi-home">

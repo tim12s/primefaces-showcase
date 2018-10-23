@@ -31,7 +31,7 @@
         <h:form>
             <p:growl id="msgs" showDetail="true" />
             
-            <p:hotkey bind="ctrl+shift+s" update="msgs" actionListener="#{hotkeyView.save}"/>
+            <p:hotkey bind="ctrl+shift+s" update="msgs" action="#{hotkeyView.save}"/>
 
             <h:panelGrid columns="2" cellpadding="5">
                 <p:outputLabel for="text" value="Text" />

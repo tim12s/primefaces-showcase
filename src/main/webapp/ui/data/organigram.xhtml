@@ -83,7 +83,7 @@
                 <p:menuitem value="fire employee"
                             update="organigram"
                             icon="pi pi-times"
-                            actionListener="#{organigramView.removeEmployee()}" />
+                            action="#{organigramView.removeEmployee()}" />
             </p:contextMenu>
 
             <p:contextMenu for="organigram" nodeType="division">
@@ -94,7 +94,7 @@
                 <p:menuitem value="Remove division"
                             update="organigram @form:growl"
                             icon="pi pi-times"
-                            actionListener="#{organigramView.removeDivision()}" />
+                            action="#{organigramView.removeDivision()}" />
             </p:contextMenu>
 
             <p:dialog id="addEmployeeDialog"
@@ -106,7 +106,7 @@
                 <p:commandButton process="@parent"
                                  update=":form:organigram"
                                  value="Add"
-                                 actionListener="#{organigramView.addEmployee()}"
+                                 action="#{organigramView.addEmployee()}"
                                  oncomplete="PF('addEmployeeDialog').hide();"/>
 
             </p:dialog>

@@ -92,7 +92,7 @@
                 <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm" timeOnly="true"  />
             </h:panelGrid>
             
-            <p:commandButton value="Submit" update="msgs" actionListener="#{calendarView.click}" icon="pi pi-check" />
+            <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
             
             <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
                 <p:panelGrid id="display" columns="2" columnClasses="label,value">

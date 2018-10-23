@@ -34,8 +34,8 @@
             </p:tree>
             
             <p:contextMenu for="docs">
-                <p:menuitem value="View" update="messages" actionListener="#{treeContextMenuView.displaySelectedSingle}" icon="pi pi-search" />
-                <p:menuitem value="Delete" update="docs" actionListener="#{treeContextMenuView.deleteNode}" icon="pi pi-times"/>
+                <p:menuitem value="View" update="messages" action="#{treeContextMenuView.displaySelectedSingle}" icon="pi pi-search" />
+                <p:menuitem value="Delete" update="docs" action="#{treeContextMenuView.deleteNode}" icon="pi pi-times"/>
             </p:contextMenu>
         </h:form>
         

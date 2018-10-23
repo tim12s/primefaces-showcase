@@ -66,7 +66,7 @@
                     <p:inputText id="title" value="#{addMarkersView.title}" />
 
                     <f:facet name="footer">
-                        <p:commandButton value="Add" actionListener="#{addMarkersView.addMarker}" update=":messages" oncomplete="markerAddComplete()" />
+                        <p:commandButton value="Add" action="#{addMarkersView.addMarker}" update=":messages" oncomplete="markerAddComplete()" />
                         <p:commandButton value="Cancel" onclick="return cancel()" />
                     </f:facet>
                 </h:panelGrid>

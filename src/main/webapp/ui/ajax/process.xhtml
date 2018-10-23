@@ -29,12 +29,12 @@
             </h:panelGrid>
 
             <h:panelGrid columns="6" cellpadding="5">
-                <p:commandButton value="All" id="btnAll" process="@all" update="grid" actionListener="#{userView.save}" />
-                <p:commandButton value="Form" id="btnForm" process="@form" update="grid" actionListener="#{userView.save}" />
-                <p:commandButton value="This" id="btnThis" process="@this" update="grid" actionListener="#{userView.save}" />
-                <p:commandButton value="None" id="btnNone" process="@none" update="grid" actionListener="#{userView.save}" />
-                <p:commandButton value="Parent" id="btnParent" process="@parent" update="grid" actionListener="#{userView.save}" />
-                <p:commandButton value="This Surname" id="btnSurname" process="@this,surname" update="grid" actionListener="#{userView.save}" />
+                <p:commandButton value="All" id="btnAll" process="@all" update="grid" action="#{userView.save}" />
+                <p:commandButton value="Form" id="btnForm" process="@form" update="grid" action="#{userView.save}" />
+                <p:commandButton value="This" id="btnThis" process="@this" update="grid" action="#{userView.save}" />
+                <p:commandButton value="None" id="btnNone" process="@none" update="grid" action="#{userView.save}" />
+                <p:commandButton value="Parent" id="btnParent" process="@parent" update="grid" action="#{userView.save}" />
+                <p:commandButton value="This Surname" id="btnSurname" process="@this,surname" update="grid" action="#{userView.save}" />
             </h:panelGrid>
         </h:form>
         

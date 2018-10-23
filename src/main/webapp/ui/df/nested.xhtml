@@ -19,7 +19,7 @@
         <h:form id="rootform">
             <p:growl id="growl" showDetail="true" />
 
-            <p:commandButton id="rootbtn" value="View" icon="pi pi-home" actionListener="#{dfRootView.openLevel1}">
+            <p:commandButton id="rootbtn" value="View" icon="pi pi-home" action="#{dfRootView.openLevel1}">
                 <p:ajax event="dialogReturn" listener="#{dfRootView.onReturnFromLevel1}" update="growl"/>
             </p:commandButton>
         </h:form>

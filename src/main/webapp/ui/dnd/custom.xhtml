@@ -74,8 +74,8 @@
     <ui:define name="implementation">
         
         <h:form id="form">
-            <p:remoteCommand name="treeToTable" actionListener="#{columnManagerView.treeToTable}" update="tree cars" oncomplete="initDND()"/>
-            <p:remoteCommand name="tableToTree" actionListener="#{columnManagerView.tableToTree}" update="tree cars" oncomplete="initDND()"/>
+            <p:remoteCommand name="treeToTable" action="#{columnManagerView.treeToTable}" update="tree cars" oncomplete="initDND()"/>
+            <p:remoteCommand name="tableToTree" action="#{columnManagerView.tableToTree}" update="tree cars" oncomplete="initDND()"/>
 
             <p:tree id="tree" value="#{columnManagerView.availableColumns}" var="column" style="margin-bottom:20px">
                 <p:treeNode>

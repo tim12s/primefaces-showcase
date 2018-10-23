@@ -46,11 +46,11 @@
 
                 <p:submenu label="Actions" icon="pi pi-cog">
                     <p:submenu label="Ajax" icon="pi pi-refresh">
-                        <p:menuitem value="Save" actionListener="#{menuView.save}" icon="pi pi-save" update="messages"/>
-                        <p:menuitem value="Update" actionListener="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
+                        <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
+                        <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
                     </p:submenu>
                     <p:submenu label="Non-Ajax" icon="pi pi-clone">
-                        <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
+                        <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
                     </p:submenu>
                 </p:submenu>
 

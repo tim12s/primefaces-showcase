@@ -16,7 +16,7 @@
         <h:form id="level1form">
             <p class="ui-widget">You are at Level 1.</p>
 
-            <p:commandButton id="level1btn" value="Go into level 2" icon="pi pi-home" actionListener="#{dfLevel1View.openLevel2}">
+            <p:commandButton id="level1btn" value="Go into level 2" icon="pi pi-home" action="#{dfLevel1View.openLevel2}">
                 <p:ajax event="dialogReturn" listener="#{dfLevel1View.onReturnFromLevel2}" />
             </p:commandButton>
         </h:form>

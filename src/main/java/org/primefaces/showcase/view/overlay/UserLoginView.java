@@ -15,12 +15,11 @@
  */
 package org.primefaces.showcase.view.overlay;
 
+import org.primefaces.PrimeFaces;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
-
-import org.primefaces.PrimeFaces;
 
 
 @ManagedBean
@@ -46,7 +45,7 @@ public class UserLoginView {
         this.password = password;
     }
   
-    public void login(ActionEvent event) {
+    public void login() {
         FacesMessage message = null;
         boolean loggedIn = false;
         

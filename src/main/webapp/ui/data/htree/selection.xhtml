@@ -45,7 +45,7 @@
             </p:tree>
 				
             <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
-								actionListener="#{treeSelectionView.displaySelectedSingle}"/>
+								action="#{treeSelectionView.displaySelectedSingle}"/>
             
             <h3>Multiple with metakey</h3>
             <p:tree value="#{treeSelectionView.root2}" var="doc" orientation="horizontal"
@@ -66,7 +66,7 @@
             </p:tree>
 				
             <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
-                        actionListener="#{treeSelectionView.displaySelectedMultiple(treeSelectionView.selectedNodes1)}"/>
+                        action="#{treeSelectionView.displaySelectedMultiple(treeSelectionView.selectedNodes1)}"/>
             
             <h3>Checkbox</h3>
             <p:tree value="#{treeSelectionView.root3}" var="doc" orientation="horizontal"
@@ -87,7 +87,7 @@
             </p:tree>
 				
             <p:commandButton value="Display" update="msgs" icon="pi pi-clone"
-                        actionListener="#{treeSelectionView.displaySelectedMultiple(treeSelectionView.selectedNodes2)}"/>
+                        action="#{treeSelectionView.displaySelectedMultiple(treeSelectionView.selectedNodes2)}"/>
         </h:form>
         
     </ui:define>

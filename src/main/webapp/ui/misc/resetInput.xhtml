@@ -34,19 +34,19 @@
 
             <p:toolbar>
                 <f:facet name="left">
-                    <p:commandButton value="Submit" update="panel" actionListener="#{resetInputView.save}" style="margin-right:20px;" />
+                    <p:commandButton value="Submit" update="panel" action="#{resetInputView.save}" style="margin-right:20px;" />
                 </f:facet>
                 
                 <f:facet name="right">
-                    <p:commandButton value="Reset Fail" update="panel" process="@this" actionListener="#{resetInputView.resetFail}" style="margin-right:20px;" />
+                    <p:commandButton value="Reset Fail" update="panel" process="@this" action="#{resetInputView.resetFail}" style="margin-right:20px;" />
 
                     <p:commandButton value="Reset Tag" update="panel" process="@this" style="margin-right:20px;" >
                         <p:resetInput target="panel" />
                     </p:commandButton>
 
-                    <p:commandButton value="Reset Code" update="panel" process="@this" actionListener="#{resetInputView.reset}"  style="margin-right:20px;" />
+                    <p:commandButton value="Reset Code" update="panel" process="@this" action="#{resetInputView.reset}"  style="margin-right:20px;" />
 
-                    <p:commandButton value="Reset Non-Ajax" actionListener="#{resetInputView.reset}" immediate="true" ajax="false" style="margin-right:20px;">
+                    <p:commandButton value="Reset Non-Ajax" action="#{resetInputView.reset}" immediate="true" ajax="false" style="margin-right:20px;">
                         <p:resetInput target="panel" />
                     </p:commandButton>
 

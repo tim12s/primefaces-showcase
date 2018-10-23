@@ -149,7 +149,7 @@
 
                     <p:separator />
 
-                    <p:commandButton value="Send" onclick="PF('composeDlg').hide()" actionListener="#{mailboxView.send}" update=":msg" process="@this"/>
+                    <p:commandButton value="Send" onclick="PF('composeDlg').hide()" action="#{mailboxView.send}" update=":msg" process="@this"/>
                     <p:commandButton value="Cancel" onclick="PF('composeDlg').hide()" type="button"/>
 
                 </h:form>
