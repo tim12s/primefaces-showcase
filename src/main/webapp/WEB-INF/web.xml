@@ -3,20 +3,20 @@
          version="3.0"
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" >
-	
+
     <session-config>
         <cookie-config>
             <http-only>true</http-only>
         </cookie-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>
-    
+
 	   <!-- Load custom tag into JSF web application -->
     <context-param>
         <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
         <param-value>/WEB-INF/showcase.taglib.xml</param-value>
     </context-param>
-    
+
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
@@ -70,6 +70,9 @@
     </context-param>
 
     <listener>
+        <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
+    </listener>
+    <listener>
         <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
     </listener>
 
@@ -107,7 +110,7 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-    
+
     <mime-mapping>
         <extension>ttf</extension>
         <mime-type>application/font-sfnt</mime-type>

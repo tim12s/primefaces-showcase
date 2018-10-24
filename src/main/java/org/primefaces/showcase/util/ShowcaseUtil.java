@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.enterprise.inject.spi.CDI;
 
 import javax.faces.application.ProjectStage;
 import javax.faces.component.UIComponent;
@@ -15,19 +16,11 @@ import org.omnifaces.util.Components;
 import org.omnifaces.util.Faces;
 import org.primefaces.cache.CacheProvider;
 import org.primefaces.component.tabview.Tab;
-import org.primefaces.context.PrimeApplicationContext;
 
-/**
- * ShowcaseUtil
- *
- * @author Sébastien Lepage / last modified by $Author$
- * @version $Revision$
- * @since 6.3
- */
 public class ShowcaseUtil {
 
     public static final List<FileContent> getFilesContent(String fullPath, Boolean readBeans) {
-        CacheProvider provider = PrimeApplicationContext.getCurrentInstance(Faces.getContext()).getCacheProvider();
+        CacheProvider provider = CDI.current().select(ShowcaseCacheProvider.class).get().getCacheProvider();
         List<FileContent> files = (List<FileContent>) provider.get("contents", fullPath);
 
         if (files == null) {
