@@ -19,6 +19,12 @@
             .value {
                 font-weight: bold;
             }
+            
+            .ui-autocomplete-itemtip {
+                -moz-box-sizing: content-box;
+                -webkit-box-sizing: content-box;
+                box-sizing: content-box;
+            }
         </style>
     </ui:define>
 
@@ -97,7 +103,7 @@
                     <f:facet name="itemtip">
                         <h:panelGrid columns="2" cellpadding="5">
                             <f:facet name="header">
-                                <h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{theme.name}.png" alt="#{theme.name}" styleClass="ui-theme" style="margin-left:50px" />
+                                <h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{theme.name}.png" alt="#{theme.name}" styleClass="ui-theme" />
                             </f:facet>
                             
                             <h:outputText value="Display:" />
