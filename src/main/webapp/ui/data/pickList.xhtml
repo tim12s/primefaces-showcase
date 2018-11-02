@@ -37,11 +37,11 @@
                 <p:ajax event="unselect" listener="#{pickListView.onUnselect}" update="msg"/>
                 <p:ajax event="reorder" listener="#{pickListView.onReorder}" update="msg"/>
                 
-                <p:column style="width:10%">
-                    <h:outputText styleClass="ui-theme ui-theme-#{theme.name}" />
+                <p:column style="width:15%">
+                    <h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{theme.name}.png" alt="#{theme.name}" styleClass="ui-theme"/>
                 </p:column>
 
-                <p:column style="width:90%;">
+                <p:column style="width:85%;">
                     <h:outputText value="#{theme.displayName}" />
                 </p:column>
             </p:pickList>
