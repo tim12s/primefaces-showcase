@@ -6,22 +6,22 @@
                 template="/WEB-INF/template.xhtml">
 
     <ui:define name="head">
-		<style type="text/css">
-			.ui-datalist {
-				width:300px;
+        <style type="text/css">
+            .ui-datalist {
+                width:300px;
                 margin-bottom: 20px;
-			}
-		
-			.ui-datalist-item {
-				padding:3px;
-			}
-            
+            }
+
+            .ui-datalist-item {
+                padding:3px;
+            }
+
             .paginated .ui-datalist-data {
                 padding-left: 20px;
             }
-		</style>
-	</ui:define>
-    
+        </style>
+    </ui:define>
+
     <ui:define name="title">
         DataList
     </ui:define>
@@ -31,7 +31,7 @@
     </ui:define>
 
     <ui:define name="implementation">
-        
+
         <h:form id="form">
             <p:dataList value="#{dataListView.cars1}" var="car" type="ordered">
                 <f:facet name="header">
@@ -54,20 +54,20 @@
                 <f:facet name="header">
                     Paginator
                 </f:facet>
-                <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail" styleClass="ui-icon pi pi-search" style="float:left;margin-right:10px">
+                <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail" styleClass="ui-icon pi pi-search" style="float:left;margin-right:10px;margin-top:3px; color:#333333">
                     <f:setPropertyActionListener value="#{car}" target="#{dataListView.selectedCar}" />
                     <h:outputText value="#{car.brand}, #{car.year}" />
                 </p:commandLink>
                 <h:outputText value="#{car.brand}, #{car.year}" style="display:inline-block"/>
             </p:dataList>
-            
+
             <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
                 <p:outputPanel id="carDetail" style="text-align:center;">
                     <p:panelGrid  columns="2" rendered="#{not empty dataListView.selectedCar}" columnClasses="label,value">
                         <f:facet name="header">
                             <p:graphicImage name="demo/images/car/#{dataListView.selectedCar.brand}-big.gif"/> 
                         </f:facet>
-                        
+
                         <h:outputText value="Id:" />
                         <h:outputText value="#{dataListView.selectedCar.id}" />
 
@@ -76,14 +76,14 @@
 
                         <h:outputText value="Color:" />
                         <h:outputText value="#{dataListView.selectedCar.color}" style="color:#{dataListView.selectedCar.color}"/>
-                    
+
                         <h:outputText value="Price" />
                         <h:outputText value="$#{dataListView.selectedCar.price}" />
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>
         </h:form>
-        
+
     </ui:define>
 
 </ui:composition>
