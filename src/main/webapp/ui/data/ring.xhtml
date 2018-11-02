@@ -12,19 +12,19 @@
             }
 
             .image-ring .ui-ring-item img {
-				width: 100%;
-			}
-            
+                width: 100%;
+            }
+
             .ui-ring button {
                 font-size: 1em !important;
             }
-            
+
             .value {
                 font-weight: bold;
             }
         </style>
     </ui:define>
-    
+
     <ui:define name="title">
         Ring
     </ui:define>
@@ -52,19 +52,19 @@
                 <p:graphicImage id="img" name="/demo/images/car/#{car.brand}-big.gif" />
             </p:ring>
 
-            <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="170">
+            <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="180">
                 <p:outputPanel id="carDetail" style="text-align:center;" layout="block">
                     <p:panelGrid  columns="2" rendered="#{not empty ringView.selectedCar}" columnClasses="value">
                         <f:facet name="header">
                             <p:graphicImage name="demo/images/car/#{ringView.selectedCar.brand}-big.gif" /> 
                         </f:facet>
-                        
+
                         <h:outputText value="Id:" />
                         <h:outputText value="#{ringView.selectedCar.id}" />
 
                         <h:outputText value="Year" />
                         <h:outputText value="#{ringView.selectedCar.year}" />
-                        
+
                         <h:outputText value="Brand: " />
                         <h:outputText value="#{ringView.selectedCar.brand}" />
 
@@ -74,7 +74,7 @@
                 </p:outputPanel>
             </p:dialog>
         </h:form>
-        
+
     </ui:define>
 
 </ui:composition>
