@@ -12,8 +12,6 @@ import javax.faces.component.UIPanel;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang3.BooleanUtils;
-import org.omnifaces.util.Components;
-import org.omnifaces.util.Faces;
 import org.primefaces.cache.CacheProvider;
 import org.primefaces.component.tabview.Tab;
 
@@ -24,15 +22,16 @@ public class ShowcaseUtil {
         List<FileContent> files = (List<FileContent>) provider.get("contents", fullPath);
 
         if (files == null) {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
             FileContent srcContent = getFileContent(fullPath, readBeans);
-            UIComponent tabs = Components.getCurrentComponent().getFacet("static-tabs");
+            UIComponent tabs = UIComponent.getCurrentComponent(facesContext).getFacet("static-tabs");
             if (tabs != null) {
                 attach(tabs, srcContent);
             }
             files = new ArrayList<>();
             flatFileContent(srcContent, files);
 
-            if (ProjectStage.Production.equals(Faces.getApplication().getProjectStage())) {
+            if (facesContext.isProjectStage(ProjectStage.Production)) {
                 provider.put("contents", fullPath, files);
             }
         }

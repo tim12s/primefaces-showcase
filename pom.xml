@@ -38,11 +38,6 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.6</version>
         </dependency>
-        <dependency>
-            <groupId>org.omnifaces</groupId>
-            <artifactId>omnifaces</artifactId>
-            <version>1.14.1</version>
-        </dependency>
 
         <!-- JEE dependencies -->
         <dependency>

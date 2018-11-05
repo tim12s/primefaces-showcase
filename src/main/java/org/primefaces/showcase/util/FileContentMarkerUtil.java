@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang3.StringUtils;
-import org.omnifaces.util.Faces;
 
 /**
  * FileContentMarkerUtil
@@ -66,9 +66,10 @@ public class FileContentMarkerUtil {
     private static FileContent readFileContent(String fileName, InputStream inputStream, FileContentSettings settings, boolean readBeans) throws Exception {
         StringBuilder content = new StringBuilder();
         List<FileContent> javaFiles = new ArrayList<>();
-
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        
         try (InputStreamReader ir = new InputStreamReader(inputStream);
-             BufferedReader br = new BufferedReader(ir)) {
+            BufferedReader br = new BufferedReader(ir)) {
             String line;
             boolean started = false;
 
@@ -95,7 +96,7 @@ public class FileContentMarkerUtil {
                     Matcher m = Pattern.compile("#\\{\\w*?\\s?(\\w+)[\\.\\[].*\\}").matcher(line.trim());
                     while (m.find()) {
                         String group = m.group(1);
-                        Object bean = Faces.evaluateExpressionGet("#{" + group + "}");
+                        Object bean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{" + group + "}", Object.class);
                         if (bean != null && bean.getClass().getName().startsWith("org.primefaces.showcase")) {
                             String javaFileName = StringUtils.substringAfterLast(bean.getClass().getName(), ".") + ".java";
                             if (!javaFiles.contains(new FileContent(javaFileName, null, null, null))) {
