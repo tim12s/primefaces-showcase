@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="ehcache.xsd"
-         updateCheck="true"
-         monitoring="autodetect"
-         dynamicConfig="true">
-    <diskStore path="java.io.tmpdir"/>
-    <cache name="sources"
-           maxEntriesLocalHeap="100"
-           eternal="false"
-           diskSpoolBufferSizeMB="10"
-           timeToIdleSeconds="300" timeToLiveSeconds="600"
-           memoryStoreEvictionPolicy="LRU"
-           transactionalMode="off">
-        <persistence strategy="none" />
-    </cache>
-    <cache name="contents"
-           maxEntriesLocalHeap="100"
-           eternal="false"
-           diskSpoolBufferSizeMB="10"
-           timeToIdleSeconds="300" timeToLiveSeconds="600"
-           memoryStoreEvictionPolicy="LRU"
-           transactionalMode="off">
-        <persistence strategy="none" />
-    </cache>
-</ehcache>
+<ehcache:config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:ehcache='http://www.ehcache.org/v3'
+    xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.1.xsd">
+
+    <ehcache:cache alias="sources">
+        <ehcache:key-type>java.lang.String</ehcache:key-type>
+        <ehcache:value-type>java.lang.Object</ehcache:value-type>
+        <ehcache:resources>
+            <ehcache:heap unit="entries">200</ehcache:heap>
+        </ehcache:resources>
+    </ehcache:cache>
+
+    <ehcache:cache alias="contents">
+        <ehcache:key-type>java.lang.String</ehcache:key-type>
+        <ehcache:value-type>java.lang.Object</ehcache:value-type>
+        <ehcache:resources>
+            <ehcache:heap unit="entries">200</ehcache:heap>
+        </ehcache:resources>
+    </ehcache:cache>
+</ehcache:config>
