@@ -52,7 +52,7 @@
                 <p:graphicImage id="img" name="/demo/images/car/#{car.brand}-big.gif" />
             </p:ring>
 
-            <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="180">
+            <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                 <p:outputPanel id="carDetail" style="text-align:center;" layout="block">
                     <p:panelGrid  columns="2" rendered="#{not empty ringView.selectedCar}" columnClasses="value">
                         <f:facet name="header">
