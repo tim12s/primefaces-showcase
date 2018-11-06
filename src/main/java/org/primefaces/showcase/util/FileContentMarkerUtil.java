@@ -101,8 +101,14 @@ public class FileContentMarkerUtil {
                             String javaFileName = StringUtils.substringAfterLast(bean.getClass().getName(), ".") + ".java";
                             if (!javaFiles.contains(new FileContent(javaFileName, null, null, null))) {
                                 String path = "/" + StringUtils.replaceAll(bean.getClass().getName(), "\\.", "/") + ".java";
+                                InputStream is = FileContentMarkerUtil.class.getResourceAsStream(path);
+                                
+                                if (is == null) {
+                                    throw new IllegalStateException("File " + path + " could not be read");
+                                }
+
                                 FileContent javaContent = readFileContent(javaFileName,
-                                        FileContentMarkerUtil.class.getResourceAsStream(path),
+                                        is,
                                         javaFileSettings,
                                         false);
                                 javaFiles.add(javaContent);
