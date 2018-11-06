@@ -98,13 +98,20 @@ public class FileContentMarkerUtil {
                         String group = m.group(1);
                         Object bean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{" + group + "}", Object.class);
                         if (bean != null && bean.getClass().getName().startsWith("org.primefaces.showcase")) {
-                            String javaFileName = StringUtils.substringAfterLast(bean.getClass().getName(), ".") + ".java";
+                            
+                            // special handling for member classes (like ColumnsView and ColumnsView$ColumnModel)
+                            String className = bean.getClass().getName();
+                            if (bean.getClass().isMemberClass()) {
+                                className = className.substring(0, className.indexOf("$"));
+                            }
+                            
+                            String javaFileName = StringUtils.substringAfterLast(className, ".") + ".java";
                             if (!javaFiles.contains(new FileContent(javaFileName, null, null, null))) {
-                                String path = "/" + StringUtils.replaceAll(bean.getClass().getName(), "\\.", "/") + ".java";
+                                String path = "/" + StringUtils.replaceAll(className, "\\.", "/") + ".java";
                                 InputStream is = FileContentMarkerUtil.class.getResourceAsStream(path);
                                 
                                 if (is == null) {
-                                    throw new IllegalStateException("File " + path + " could not be read");
+                                    throw new IllegalStateException("File " + path + " could not be found");
                                 }
 
                                 FileContent javaContent = readFileContent(javaFileName,
