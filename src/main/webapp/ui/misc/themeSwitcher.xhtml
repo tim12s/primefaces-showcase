@@ -30,7 +30,7 @@
                     <f:selectItems value="#{themeSwitcherView.themes}" var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" />
 
                     <p:column>
-                        <h:outputText styleClass="ui-theme ui-theme-#{t.name}" style="display-block" />
+                        <h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{t.name}.png" alt="#{t.name}" styleClass="ui-theme"/>
                     </p:column>
 
                     <p:column>
