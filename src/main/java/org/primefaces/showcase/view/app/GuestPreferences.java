@@ -17,6 +17,7 @@ package org.primefaces.showcase.view.app;
 
 import java.io.Serializable;
 import java.util.Map;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -39,6 +40,9 @@ public class GuestPreferences implements Serializable {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         if (params.containsKey("globaltheme")) {
             theme = params.get("globaltheme");
+            
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Successful",  "Selected Theme: <u><b>" + theme + "</b></u>") );
         }
     }
 }
