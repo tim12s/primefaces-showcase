@@ -704,12 +704,13 @@ body {
 
                 .ui-tabs-nav {
                     border-radius: 3px 3px 0 0;
-                    background-color: #1b81d7;
+                    background-color: #1976d2;
+                    padding: 3px 3px 0!important;
 
                     .ui-tabs-header {
                         border-radius: 3px 3px 0 0;
-                        background-color: #0e4675;
-                        border-color: #0e4675;
+                        background-color: #3f94e9;
+                        border-color: #3f94e9;
                         
                         a {
                             padding: 10px 14px;
@@ -719,17 +720,26 @@ body {
                         }
 
                         &.ui-state-hover {
-                            background-color: #265882;
+                            background-color: darken(#3f94e9, 5%);
+                            border-color: darken(#3f94e9, 5%);
                         }
 
                         &.ui-state-active {
-                            background-color: #fdfdfd;
-                            border-color: #fdfdfd;
+                            background-color: #f5f6f7;
 
                             a {
-                                color: #212425;
+                                color: #5c666a;
                             }
                         }
+                    }
+                }
+                
+                .ui-tabs-panels {
+                    background-color: transparent;
+                    border: 0 none;
+                    
+                    .ui-tabs-panel {
+                        padding: 0;
                     }
                 }
             }
