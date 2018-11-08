@@ -43,7 +43,7 @@
                         <h1><ui:insert name="title"></ui:insert></h1>
                         <p><ui:insert name="description"></ui:insert></p>
                     </div>
-                    <div class="content-section content-implementation">
+                    <div class="content-section content-implementation #{guestPreferences.theme.startsWith('luna') ? 'dark-content' : null}">
                         <ui:insert name="implementation"></ui:insert>
                     </div>
                     <div class="content-section content-source">

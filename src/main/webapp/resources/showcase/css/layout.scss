@@ -691,6 +691,16 @@ body {
                     margin-top: 0;
                 }
             }
+            
+            &.dark-content {
+                background-color: #3f3f3f;
+                color: #dedede;
+                border-color: #3f3f3f;
+                
+                > h3 {
+                    color: #dedede;
+                }
+            }
         }
 
         .content-source {

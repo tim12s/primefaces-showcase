@@ -126,6 +126,14 @@ $(document).ready(function() {
                 }
                 else {
                     var theme = $(this).data("theme");
+                    
+                    if(theme.startsWith('luna')) {
+                        $('.content-implementation').addClass('dark-content');
+                    }
+                    else {
+                        $('.content-implementation').removeClass('dark-content');
+                    }
+                    
                     changeTheme([{name:'globaltheme', value:theme}]);
                     PrimeFaces.changeTheme(theme);
                     e.preventDefault();
