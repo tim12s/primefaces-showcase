@@ -44,7 +44,7 @@
   vertical-align: baseline !important;
   width: auto !important;
   box-sizing: content-box !important;
-  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  /*font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;*/
   font-weight: normal !important;
   font-style: normal !important;
   font-size: 1em !important;
@@ -313,7 +313,7 @@
   color: #008200 !important;
 }
 .syntaxhighlighter .string, .syntaxhighlighter .string a {
-  color: #25AAE1 !important;
+  color: #2195c5 !important;
 }
 .syntaxhighlighter .keyword {
   color: #006699 !important;
@@ -339,7 +339,7 @@
   background-color: none !important;
 }
 .syntaxhighlighter .color1, .syntaxhighlighter .color1 a {
-  color: gray !important;
+  color: #444444 !important;
 }
 .syntaxhighlighter .color2, .syntaxhighlighter .color2 a {
   color: #ff1493 !important;
