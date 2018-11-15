@@ -1,17 +1,15 @@
 package org.primefaces.showcase.util;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import org.apache.commons.lang3.StringUtils;
+
+import javax.faces.context.FacesContext;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.faces.context.FacesContext;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * FileContentMarkerUtil
@@ -46,6 +44,9 @@ public class FileContentMarkerUtil {
                     Marker.of("EXAMPLE-SOURCE-END").excluded(),
                     Marker.of("</ui:define>").excluded());
 
+    private static final Pattern SC_BEAN_PATTERN = Pattern.compile("#\\{\\w*?\\s?(\\w+)[\\.\\[].*\\}");
+
+    private static final String SC_PREFIX = "org.primefaces.showcase";
 
     public static FileContent readFileContent(String fullPathToFile, InputStream is, boolean readBeans) {
         try {
@@ -95,7 +96,7 @@ public class FileContentMarkerUtil {
                 content.append(line);
 
                 if (readBeans && line.contains("#{")) {
-                    Matcher m = Pattern.compile("#\\{\\w*?\\s?(\\w+)[\\.\\[].*\\}").matcher(line.trim());
+                    Matcher m = SC_BEAN_PATTERN.matcher(line.trim());
                     while (m.find()) {
                         String group = m.group(1);
                         addBean(facesContext, javaFiles, group);
@@ -113,45 +114,39 @@ public class FileContentMarkerUtil {
     
     private static void addBean(FacesContext facesContext, List<FileContent> javaFiles, String group) throws Exception {
         Object bean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{" + group + "}", Object.class);
-        if (bean != null && bean.getClass().getName().startsWith("org.primefaces.showcase")) {
+        if (bean != null && isEligibleFile(bean.getClass().getName())) {
             // special handling for member classes (like ColumnsView and ColumnsView$ColumnModel)
             String className = bean.getClass().getName();
             if (bean.getClass().isMemberClass()) {
                 className = className.substring(0, className.indexOf("$"));
             }
 
-            String javaFileName = StringUtils.substringAfterLast(className, ".") + ".java";
-            if (!javaFiles.contains(new FileContent(javaFileName, null, null, null))) {
-                javaFiles.add(createFileContent(className));
+            for (Field field : bean.getClass().getDeclaredFields()) {
+                addDeclaredField(javaFiles, field);
             }
 
-            Field[] fields = bean.getClass().getDeclaredFields();
-            for (Field field : fields) {
-                addDeclaredField(facesContext, javaFiles, field, group);
+            String javaFileName = packageToPathAccess(className);
+            if (!isFileContainedIn(javaFileName, javaFiles)) {
+                javaFiles.add(createFileContent(className));
             }
         }
     }
 
-    private static void addDeclaredField(FacesContext facesContext, List<FileContent> javaFiles, Field field, String group) throws Exception {
+    private static void addDeclaredField(List<FileContent> javaFiles, Field field) throws Exception {
         String typeName = field.getType().getTypeName();
-        if (typeName.startsWith("org.primefaces.showcase")) {
-            FileContent content = createFileContent(typeName);
-            if (!javaFiles.contains(content)) {
-                javaFiles.add(content);
-            }
-        } 
-        else if (typeName.startsWith("org.primefaces.")) {
-            String newGroup = group + "." + field.getName();
-            addBean(facesContext, javaFiles, newGroup);
+        String javaFileName = packageToPathAccess(typeName);
+        if (isEligibleFile(typeName)
+                && !isFileContainedIn(javaFileName, javaFiles)) {
+            javaFiles.add(createFileContent(typeName));
         }
     }
 
     private static FileContent createFileContent(String fileName) throws Exception {
-        String path = "/" + StringUtils.replaceAll(fileName, "\\.", "/") + ".java";
+        String path = createFullPath(fileName);
         InputStream is = FileContentMarkerUtil.class.getResourceAsStream(path);
 
         if (is == null) {
-            throw new IllegalStateException("File " + path + " could not be found");
+            throw new FileNotFoundException("File " + path + " could not be found");
         }
 
         return readFileContent(StringUtils.substringAfterLast(fileName, ".") + ".java",
@@ -177,5 +172,21 @@ public class FileContentMarkerUtil {
             pretty += chunk.replaceFirst("\\s{8}", "");
         }
         return pretty;
+    }
+
+    private static boolean isEligibleFile(String file) {
+        return file != null && file.startsWith(SC_PREFIX);
+    }
+
+    private static String packageToPathAccess(String pckage) {
+        return StringUtils.substringAfterLast(pckage, ".") + ".java";
+    }
+
+    private static boolean isFileContainedIn(String filename, List<FileContent> javaFiles) {
+        return javaFiles.contains(new FileContent(filename, null, null, null));
+    }
+
+    private static String createFullPath(String filename) {
+        return "/" + StringUtils.replaceAll(filename, "\\.", "/") + ".java";
     }
 }
