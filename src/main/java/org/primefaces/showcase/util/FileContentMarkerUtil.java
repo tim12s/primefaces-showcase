@@ -3,6 +3,7 @@ package org.primefaces.showcase.util;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,31 +98,7 @@ public class FileContentMarkerUtil {
                     Matcher m = Pattern.compile("#\\{\\w*?\\s?(\\w+)[\\.\\[].*\\}").matcher(line.trim());
                     while (m.find()) {
                         String group = m.group(1);
-                        Object bean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{" + group + "}", Object.class);
-                        if (bean != null && bean.getClass().getName().startsWith("org.primefaces.showcase")) {
-                            
-                            // special handling for member classes (like ColumnsView and ColumnsView$ColumnModel)
-                            String className = bean.getClass().getName();
-                            if (bean.getClass().isMemberClass()) {
-                                className = className.substring(0, className.indexOf("$"));
-                            }
-                            
-                            String javaFileName = StringUtils.substringAfterLast(className, ".") + ".java";
-                            if (!javaFiles.contains(new FileContent(javaFileName, null, null, null))) {
-                                String path = "/" + StringUtils.replaceAll(className, "\\.", "/") + ".java";
-                                InputStream is = FileContentMarkerUtil.class.getResourceAsStream(path);
-                                
-                                if (is == null) {
-                                    throw new IllegalStateException("File " + path + " could not be found");
-                                }
-
-                                FileContent javaContent = readFileContent(javaFileName,
-                                        is,
-                                        javaFileSettings,
-                                        false);
-                                javaFiles.add(javaContent);
-                            }
-                        }
+                        addBean(facesContext, javaFiles, group);
                     }
                 }
             }
@@ -132,6 +109,55 @@ public class FileContentMarkerUtil {
             value = prettyFormat(value);
         }
         return new FileContent(fileName, value, settings.getType(), javaFiles);
+    }
+    
+    private static void addBean(FacesContext facesContext, List<FileContent> javaFiles, String group) throws Exception {
+        Object bean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{" + group + "}", Object.class);
+        if (bean != null && bean.getClass().getName().startsWith("org.primefaces.showcase")) {
+            // special handling for member classes (like ColumnsView and ColumnsView$ColumnModel)
+            String className = bean.getClass().getName();
+            if (bean.getClass().isMemberClass()) {
+                className = className.substring(0, className.indexOf("$"));
+            }
+
+            String javaFileName = StringUtils.substringAfterLast(className, ".") + ".java";
+            if (!javaFiles.contains(new FileContent(javaFileName, null, null, null))) {
+                javaFiles.add(createFileContent(className));
+            }
+
+            Field[] fields = bean.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                addDeclaredField(facesContext, javaFiles, field, group);
+            }
+        }
+    }
+
+    private static void addDeclaredField(FacesContext facesContext, List<FileContent> javaFiles, Field field, String group) throws Exception {
+        String typeName = field.getType().getTypeName();
+        if (typeName.startsWith("org.primefaces.showcase")) {
+            FileContent content = createFileContent(typeName);
+            if (!javaFiles.contains(content)) {
+                javaFiles.add(content);
+            }
+        } 
+        else if (typeName.startsWith("org.primefaces.")) {
+            String newGroup = group + "." + field.getName();
+            addBean(facesContext, javaFiles, newGroup);
+        }
+    }
+
+    private static FileContent createFileContent(String fileName) throws Exception {
+        String path = "/" + StringUtils.replaceAll(fileName, "\\.", "/") + ".java";
+        InputStream is = FileContentMarkerUtil.class.getResourceAsStream(path);
+
+        if (is == null) {
+            throw new IllegalStateException("File " + path + " could not be found");
+        }
+
+        return readFileContent(StringUtils.substringAfterLast(fileName, ".") + ".java",
+                is,
+                javaFileSettings,
+                false);
     }
 
     private static Marker getMatchingMarker(String line, Marker[] markers) {
