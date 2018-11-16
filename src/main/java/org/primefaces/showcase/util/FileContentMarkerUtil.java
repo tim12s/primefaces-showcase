@@ -121,13 +121,13 @@ public class FileContentMarkerUtil {
                 className = className.substring(0, className.indexOf("$"));
             }
 
-            for (Field field : bean.getClass().getDeclaredFields()) {
-                addDeclaredField(javaFiles, field);
-            }
-
             String javaFileName = packageToPathAccess(className);
             if (!isFileContainedIn(javaFileName, javaFiles)) {
                 javaFiles.add(createFileContent(className));
+            }
+            
+            for (Field field : bean.getClass().getDeclaredFields()) {
+                addDeclaredField(javaFiles, field);
             }
         }
     }
