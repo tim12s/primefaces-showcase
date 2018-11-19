@@ -4,7 +4,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/template.xhtml">
-    
+
     <ui:define name="head">
         <style type="text/css">
             body .ui-staticmessage.ui-message {
@@ -23,10 +23,10 @@
 
     <ui:define name="implementation">
 
-        <p:staticMessage severity="info" message="Hey, i'm a info!" />
-        <p:staticMessage severity="warn" message="Hey, i'm a warn!" />
-        <p:staticMessage severity="error" message="Hey, i'm a error" />
-        <p:staticMessage severity="fatal" message="Hey, i'm a fatal!" />
+        <p:staticMessage severity="info" summary="INFO!" detail="Hey, i'm a info!" />
+        <p:staticMessage severity="warn" summary="WARN!" detail="Hey, i'm a warn!" />
+        <p:staticMessage severity="error" summary="ERROR!" detail="Hey, i'm a error" />
+        <p:staticMessage severity="fatal" summary="FATAL!" detail="Hey, i'm a fatal!" />
 
     </ui:define>
 
