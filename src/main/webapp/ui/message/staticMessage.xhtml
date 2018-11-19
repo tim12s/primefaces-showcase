@@ -4,6 +4,14 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/template.xhtml">
+    
+    <ui:define name="head">
+        <style type="text/css">
+            body .ui-staticmessage.ui-message {
+                margin-right: .25em;
+            }
+        </style>
+    </ui:define>
 
     <ui:define name="title">
         StaticMessage
@@ -15,14 +23,10 @@
 
     <ui:define name="implementation">
 
-        <p:tooltip />
-
-        <h:form>
-            <p:staticMessage severity="info" message="Hey, i'm a info!" />
-            <p:staticMessage severity="warn" message="Hey, i'm a warn!" />
-            <p:staticMessage severity="error" message="Hey, i'm a error" />
-            <p:staticMessage severity="fatal" message="Hey, i'm a fatal!" />
-        </h:form>
+        <p:staticMessage severity="info" message="Hey, i'm a info!" />
+        <p:staticMessage severity="warn" message="Hey, i'm a warn!" />
+        <p:staticMessage severity="error" message="Hey, i'm a error" />
+        <p:staticMessage severity="fatal" message="Hey, i'm a fatal!" />
 
     </ui:define>
 
