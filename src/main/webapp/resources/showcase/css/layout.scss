@@ -6,6 +6,7 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     min-height: 100%;
+    overflow-x: hidden;
 
     a {
         text-decoration: none;
@@ -492,7 +493,7 @@ body {
                             font-weight: 700;
                             font-size: 18px;
                             position: absolute;
-                            right: 50px;
+                            left: calc(50% + 150px);
                             z-index: 999;
                         }
                         
