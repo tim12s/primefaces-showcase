@@ -1,7 +1,5 @@
 package org.primefaces.showcase.util;
 
-import org.apache.commons.lang3.StringUtils;
-
 import javax.faces.context.FacesContext;
 import java.io.*;
 import java.lang.reflect.Field;
@@ -50,7 +48,7 @@ public class FileContentMarkerUtil {
 
     public static FileContent readFileContent(String fullPathToFile, InputStream is, boolean readBeans) {
         try {
-            String fileName = StringUtils.substringAfterLast(fullPathToFile, "/");
+            String fileName = fullPathToFile.substring(fullPathToFile.lastIndexOf("/") + 1);
             if (fullPathToFile.endsWith(".java")) {
                 return readFileContent(fileName, is, javaFileSettings, readBeans);
             }
@@ -149,7 +147,7 @@ public class FileContentMarkerUtil {
             throw new FileNotFoundException("File " + path + " could not be found");
         }
 
-        return readFileContent(StringUtils.substringAfterLast(fileName, ".") + ".java",
+        return readFileContent(fileName.substring(fileName.lastIndexOf(".") + 1) + ".java",
                 is,
                 javaFileSettings,
                 false);
@@ -165,7 +163,7 @@ public class FileContentMarkerUtil {
         return null;
     }
 
-    private static final String prettyFormat(String value) {
+    private static String prettyFormat(String value) {
         String[] chunks = value.split("(?<=\\n)");
         String pretty = "";
         for (String chunk : chunks) {
@@ -179,7 +177,7 @@ public class FileContentMarkerUtil {
     }
 
     private static String packageToPathAccess(String pckage) {
-        return StringUtils.substringAfterLast(pckage, ".") + ".java";
+        return pckage.substring(pckage.lastIndexOf(".") + 1) + ".java";
     }
 
     private static boolean isFileContainedIn(String filename, List<FileContent> javaFiles) {
@@ -187,6 +185,6 @@ public class FileContentMarkerUtil {
     }
 
     private static String createFullPath(String filename) {
-        return "/" + StringUtils.replaceAll(filename, "\\.", "/") + ".java";
+        return "/" + filename.replaceAll("\\.", "/") + ".java";
     }
 }
