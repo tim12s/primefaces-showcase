@@ -11,7 +11,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
 import javax.faces.context.FacesContext;
 
-import org.apache.commons.lang3.BooleanUtils;
 import org.primefaces.cache.CacheProvider;
 import org.primefaces.component.tabview.Tab;
 
@@ -60,13 +59,13 @@ public class ShowcaseUtil {
         return null;
     }
 
-    private static final void attach(UIComponent component, FileContent file) {
+    private static void attach(UIComponent component, FileContent file) {
         if (component.isRendered()) {
             if (component instanceof Tab) {
-                Boolean flatten = BooleanUtils.toBooleanDefaultIfNull(
-                        Boolean.valueOf((String) component.getAttributes().get("flatten")),
-                        false);
-                FileContent content = getFileContent(((Tab) component).getTitle(), flatten);
+                String flatten = (String) component.getAttributes().get("flatten");
+                FileContent content = getFileContent(
+                        ((Tab) component).getTitle(),
+                        flatten == null ? false : Boolean.valueOf(flatten));
                 file.getAttached().add(content);
             }
             else if (component instanceof UIPanel) {
@@ -77,7 +76,7 @@ public class ShowcaseUtil {
         }
     }
 
-    private static final void flatFileContent(FileContent source, List<FileContent> dest) {
+    private static void flatFileContent(FileContent source, List<FileContent> dest) {
         dest.add(new FileContent(source.getTitle(), source.getValue(), source.getType(), Collections.<FileContent>emptyList()));
 
         for(FileContent file : source.getAttached()) {
