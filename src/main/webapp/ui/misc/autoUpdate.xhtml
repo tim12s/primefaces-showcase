@@ -23,8 +23,8 @@
                 Time: #{autoUpdateView.time}
             </p:outputPanel>
 
-            <p:commandButton value="AJAX request" update="@form" process="@this" />
-            <p:commandButton value="AJAX request with ignoreAutoUpdate=true" update="@form" process="@this" ignoreAutoUpdate="true" />
+            <p:commandButton value="AJAX request" update="@none" process="@this" />
+            <p:commandButton value="AJAX request with ignoreAutoUpdate=true" update="@none" process="@this" ignoreAutoUpdate="true" />
         </h:form>
     </ui:define>
 
