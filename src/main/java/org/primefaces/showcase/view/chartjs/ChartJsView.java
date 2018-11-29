@@ -338,15 +338,15 @@ public class ChartJsView implements Serializable {
         title.setText("Bar Chart");
         options.setTitle(title);
 
-		Legend legend = new Legend();
-		legend.setDisplay(true);
-		legend.setPosition("top");
-		LegendLabel legendLabels = new LegendLabel();
-		legendLabels.setFontStyle("bold");
-		legendLabels.setFontColor("#2980B9");
-		legendLabels.setFontSize(24);
-		legend.setLabels(legendLabels);
-		options.setLegend(legend);
+        Legend legend = new Legend();
+        legend.setDisplay(true);
+        legend.setPosition("top");
+        LegendLabel legendLabels = new LegendLabel();
+        legendLabels.setFontStyle("bold");
+        legendLabels.setFontColor("#2980B9");
+        legendLabels.setFontSize(24);
+        legend.setLabels(legendLabels);
+        options.setLegend(legend);
 
         barModel.setOptions(options);
     }
