@@ -47,6 +47,8 @@ import org.primefaces.model.charts.axes.radial.linear.RadialLinearTicks;
 import org.primefaces.model.charts.hbar.HorizontalBarChartDataSet;
 import org.primefaces.model.charts.optionconfig.elements.Elements;
 import org.primefaces.model.charts.optionconfig.elements.ElementsLine;
+import org.primefaces.model.charts.optionconfig.legend.Legend;
+import org.primefaces.model.charts.optionconfig.legend.LegendLabel;
 import org.primefaces.model.charts.optionconfig.title.Title;
 import org.primefaces.model.charts.optionconfig.tooltip.Tooltip;
 import org.primefaces.model.charts.pie.PieChartDataSet;
@@ -335,7 +337,17 @@ public class ChartJsView implements Serializable {
         title.setDisplay(true);
         title.setText("Bar Chart");
         options.setTitle(title);
-        
+
+        Legend legend = new Legend();
+        legend.setDisplay(true);
+        legend.setPosition("top");
+        LegendLabel legendLabels = new LegendLabel();
+        legendLabels.setFontStyle("bold");
+        legendLabels.setFontColor("#2980B9");
+        legendLabels.setFontSize(24);
+        legend.setLabels(legendLabels);
+        options.setLegend(legend);
+
         barModel.setOptions(options);
     }
     
