@@ -79,6 +79,11 @@
     <listener>
         <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
     </listener>
+    <!--
+    <listener>
+        <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+    </listener>
+    -->
 
     <filter>
         <filter-name>Character Encoding Filter</filter-name>
