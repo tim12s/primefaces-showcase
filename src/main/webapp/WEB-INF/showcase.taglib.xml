@@ -13,7 +13,7 @@
     </function>
 
     <tag>
-        <source>tags/tabscode.xhtml</source>
         <tag-name>tabscode</tag-name>
+        <source>tags/tabscode.xhtml</source>
     </tag>
 </facelet-taglib>
