@@ -16,7 +16,10 @@
 package org.primefaces.showcase.view.input;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
@@ -26,7 +29,7 @@ import org.primefaces.event.SelectEvent;
 
 @ManagedBean
 public class CalendarView {
-        
+
     private Date date1;
     private Date date2;
     private Date date3;
@@ -38,13 +41,40 @@ public class CalendarView {
     private Date date9;
     private Date date10;
     private Date date11;
-    
+    private Date date12;
+    private Date date13;
+    private Date date14;
+    private List<Date> multi;
+    private List<Date> range;
+    private List<Date> invalidDates;
+    private List<Integer> invalidDays;
+    private Date minDate;
+    private Date maxDate;
+
+    @PostConstruct
+    public void init() {
+        invalidDates = new ArrayList<>();
+        Date today = new Date();
+        invalidDates.add(today);
+        long oneDay = 24 * 60 * 60 * 1000;
+        for (int i = 0; i < 5; i++) {
+            invalidDates.add(new Date(invalidDates.get(i).getTime() + oneDay));
+        }
+
+        invalidDays = new ArrayList<>();
+        invalidDays.add(0); /* the first day of week is disabled */
+        invalidDays.add(3);
+
+        minDate = new Date(today.getTime() - (365 * oneDay));
+        maxDate = new Date(today.getTime() + (365 * oneDay));
+    }
+
     public void onDateSelect(SelectEvent event) {
         FacesContext facesContext = FacesContext.getCurrentInstance();
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
     }
-    
+
     public void click() {
         PrimeFaces.current().ajax().update("form:display");
         PrimeFaces.current().executeScript("PF('dlg').show()");
@@ -112,7 +142,7 @@ public class CalendarView {
 
     public void setDate8(Date date8) {
         this.date8 = date8;
-    } 
+    }
 
     public Date getDate9() {
         return date9;
@@ -136,5 +166,77 @@ public class CalendarView {
 
     public void setDate11(Date date11) {
         this.date11 = date11;
+    }
+
+    public Date getDate12() {
+        return date12;
+    }
+
+    public void setDate12(Date date12) {
+        this.date12 = date12;
+    }
+
+    public Date getDate13() {
+        return date13;
+    }
+
+    public void setDate13(Date date13) {
+        this.date13 = date13;
+    }
+
+    public Date getDate14() {
+        return date14;
+    }
+
+    public void setDate14(Date date14) {
+        this.date14 = date14;
+    }
+
+    public List<Date> getMulti() {
+        return multi;
+    }
+
+    public void setMulti(List<Date> multi) {
+        this.multi = multi;
+    }
+
+    public List<Date> getRange() {
+        return range;
+    }
+
+    public void setRange(List<Date> range) {
+        this.range = range;
+    }
+
+    public List<Date> getInvalidDates() {
+        return invalidDates;
+    }
+
+    public void setInvalidDates(List<Date> invalidDates) {
+        this.invalidDates = invalidDates;
+    }
+
+    public List<Integer> getInvalidDays() {
+        return invalidDays;
+    }
+
+    public void setInvalidDays(List<Integer> invalidDays) {
+        this.invalidDays = invalidDays;
+    }
+
+    public Date getMinDate() {
+        return minDate;
+    }
+
+    public void setMinDate(Date minDate) {
+        this.minDate = minDate;
+    }
+
+    public Date getMaxDate() {
+        return maxDate;
+    }
+
+    public void setMaxDate(Date maxDate) {
+        this.maxDate = maxDate;
     }
 }
