@@ -30,7 +30,7 @@
             <h3 style="margin-top:0">Basic</h3>
             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                 <p:outputLabel for="console" value="Console:" />
-                <p:selectOneRadio id="console" value="#{radioView.console}">
+                <p:selectOneRadio id="console" value="#{radioView.console}" unselectable="true" readonly="true">
                     <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                     <f:selectItem itemLabel="PS4" itemValue="PS4" />
                     <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
@@ -40,19 +40,19 @@
             <h3>Grid</h3>
             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                 <p:outputLabel for="city" value="City:" />
-                <p:selectOneRadio id="city" value="#{radioView.city}"  layout="grid" columns="3">
+                <p:selectOneRadio id="city" value="#{radioView.city}"  layout="grid" columns="3" readonly="true">
                     <f:selectItems value="#{radioView.cities}" var="c" itemLabel="#{city}" itemValue="#{city}"/>
                 </p:selectOneRadio>
             </h:panelGrid>
             
             <h3>Responsive</h3>
-            <p:selectOneRadio id="city2" value="#{radioView.city2}" layout="responsive" columns="3">
+            <p:selectOneRadio id="city2" value="#{radioView.city2}" layout="responsive" columns="3" readonly="true">
                 <f:selectItems value="#{radioView.cities}" var="c" itemLabel="#{city}" itemValue="#{city}"/>
             </p:selectOneRadio>
                 
             <h3>Custom Layout</h3>
-            <p:outputPanel id="customPanel" style="margin-bottom:10px">
-                <p:selectOneRadio id="customRadio" value="#{radioView.color}" layout="custom">
+            <p:outputPanel id="customPanel" style="margin-bottom:10px" >
+                <p:selectOneRadio id="customRadio" value="#{radioView.color}" layout="custom" readonly="true">
                     <f:selectItem itemLabel="Red" itemValue="Red" />
                     <f:selectItem itemLabel="Green" itemValue="Green" />
                     <f:selectItem itemLabel="Blue" itemValue="Blue" />
@@ -63,7 +63,7 @@
                     <h:outputLabel for="opt1" value="Red" />
                     <p:spinner />
 
-                    <p:radioButton id="opt2" for="customRadio" itemIndex="1" />
+                    <p:radioButton id="opt2" for="customRadio" itemIndex="1" readonly="true"/>
                     <h:outputLabel for="opt2" value="Green" />
                     <p:inputText />
 
