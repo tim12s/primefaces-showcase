@@ -30,7 +30,7 @@
             <h3 style="margin-top:0">Basic</h3>
             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                 <p:outputLabel for="console" value="Console:" />
-                <p:selectOneRadio id="console" value="#{radioView.console}">
+                <p:selectOneRadio id="console" value="#{radioView.console}" unselectable="true">
                     <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                     <f:selectItem itemLabel="PS4" itemValue="PS4" />
                     <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
