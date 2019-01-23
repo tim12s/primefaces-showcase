@@ -6,6 +6,15 @@
                 template="/WEB-INF/template.xhtml">
     
     <ui:define name="head">
+        <style type="text/css">
+            .ui-state-active {
+                background-color: #005b9f;
+            }
+            
+            .ui-state-highlight {
+                background-color: #007ad9;
+            }
+        </style>
         <script type="text/javascript">
             function initDND() {
                 $('.ui-treenode-leaf').draggable({
