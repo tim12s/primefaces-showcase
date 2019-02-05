@@ -6,7 +6,7 @@
                 template="/WEB-INF/template.xhtml">
 
     <ui:define name="title">
-        Link Button (6.3 only)
+        Link Button
     </ui:define>
 
     <ui:define name="description">
@@ -15,8 +15,20 @@
 
     <ui:define name="implementation">
 
-        <p:linkButton outcome="productDetail" value="Bookmark">
+        <p:linkButton outcome="productDetail" value="Bookmark" style="margin-right:20px;">
             <f:param name="productId" value="10" />
+        </p:linkButton>
+
+        <p:linkButton outcome="productDetail" value="With Icon" icon="pi pi-star" style="margin-right:20px;">
+            <f:param name="productId" value="20" />
+        </p:linkButton>
+
+        <p:linkButton outcome="productDetail" icon="pi pi-star" style="margin-right:20px;" title="Icon Only">
+            <f:param name="productId" value="30" />
+        </p:linkButton>
+
+        <p:linkButton outcome="productDetail" value="Bookmark" icon="pi pi-star" disabled="true" style="margin-right:20px;">
+            <f:param name="productId" value="40" />
         </p:linkButton>
 
     </ui:define>
