@@ -27,10 +27,17 @@
             <f:param name="productId" value="30" />
         </p:linkButton>
 
-        <p:linkButton outcome="productDetail" value="Bookmark" icon="pi pi-star" disabled="true" style="margin-right:20px;">
+        <p:linkButton outcome="productDetail" value="With Icon" disabled="true" style="margin-right:20px;">
             <f:param name="productId" value="40" />
         </p:linkButton>
 
+        <p:linkButton outcome="productDetail" value="Bookmark" icon="pi pi-star" disabled="true" style="margin-right:20px;">
+            <f:param name="productId" value="50" />
+        </p:linkButton>
+
+        <p:linkButton outcome="productDetail" icon="pi pi-star" style="margin-right:20px;" disabled="true" title="Icon Only">
+            <f:param name="productId" value="60" />
+        </p:linkButton>
     </ui:define>
 
 </ui:composition>
