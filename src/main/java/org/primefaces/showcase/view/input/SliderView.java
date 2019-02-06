@@ -26,7 +26,7 @@ import org.primefaces.event.SlideEndEvent;
 public class SliderView {
    
     private int number1;
-    private float number2;  
+    private float number2 = 0.2f;  
     private int number3;   
     private int number4;   
     private int number5;
