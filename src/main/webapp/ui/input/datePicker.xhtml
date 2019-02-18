@@ -92,9 +92,9 @@
                 <p:datePicker id="button" value="#{calendarView.date7}" showIcon="true" />
 
                 <p:outputLabel for="event" value="Select Event:" />
-                <p:calendar id="event" value="#{calendarView.date8}">
+                <p:datePicker id="event" value="#{calendarView.date8}">
                     <p:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="msgs" />
-                </p:calendar>
+                </p:datePicker>
 
                 <p:outputLabel for="spanish" value="Spanish:" />
                 <p:datePicker id="spanish" value="#{calendarView.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd"/>
