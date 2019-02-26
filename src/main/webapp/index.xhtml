@@ -4,6 +4,28 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/template.xhtml">
+    
+    <ui:define name="head">
+        <script type="text/javascript">
+     //<![CDATA[
+        $(document).ready(function () {
+            $('html').animate({ scrollTop: 0 }, 1);
+            $('body').animate({ scrollTop: 0 }, 1);
+        });
+
+        /* Scroll Animate */
+        $('.themes-btn').off('click').on('click', function () {
+            var target = $('#prime-themes');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 70
+                }, 500);
+                return false;
+            }
+        });
+     //]]>
+        </script>
+    </ui:define>
 
     <ui:define name="content">
         <div class="homepage">
@@ -14,7 +36,10 @@
                 </div>
     
                 <p:button value="GET STARTED" icon="pi pi-download" outcome="/getstarted"/>
-                <p:button value="THEMES" class="secondary" href="https://www.primefaces.org/themes/" icon="pi pi-images"/>
+                <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left secondary themes-btn" role="button" aria-disabled="false">
+                    <span class="ui-button-icon-left ui-icon ui-c pi pi-images"></span>
+                    <span class="ui-button-text ui-c">THEMES</span>
+                </button>
             </div>
             
             <div class="why-primefaces">
@@ -133,7 +158,7 @@
                 </div>
             </div>
 
-            <div class="themes">
+            <div id="prime-themes" class="themes">
                 <!--<div class="ui-g">
                     <div class="ui-g-12 theme-box">
                         <a href="https://www.primefaces.org/store"><p:graphicImage name="images/black-friday-2018.png" library="showcase" style="width:100%; height: 100%;"/></a>
