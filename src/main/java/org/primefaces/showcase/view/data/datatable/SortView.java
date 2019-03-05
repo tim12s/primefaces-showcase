@@ -51,7 +51,7 @@ public class SortView implements Serializable {
     }
     
     public List<Car> getCars3() {
-        return cars2;
+        return cars3;
     }
 
     public void setService(CarService service) {
