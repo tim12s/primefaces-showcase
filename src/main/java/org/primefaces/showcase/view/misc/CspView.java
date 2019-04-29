@@ -20,6 +20,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import org.primefaces.PrimeFaces;
 import org.primefaces.context.PrimeApplicationContext;
 
 @ManagedBean
@@ -49,5 +50,9 @@ public class CspView implements Serializable {
 
     public boolean isCspEnabled() {
         return cspEnabled;
+    }
+    
+    public void executeScript() {
+        PrimeFaces.current().executeScript("alert('PASS');");
     }
 }
