@@ -65,24 +65,12 @@
         </p:outputPanel>
         <p:outputPanel rendered="#{not cspView.cspEnabled}">
             <p>
-            CSP is currently <b>disabled</b> in your setup. To enable it you may add the following context parameters to your <code>web.xml</code>:<br/>
+            CSP is currently <b>disabled</b> in your setup. To enable it you may add the following context parameter to your <code>web.xml</code>:<br/>
             <pre name="code" class="brush:xml">
     &#x3C;context-param&#x3E;
-        &#x3C;param-name&#x3E;primefaces.csp.ENABLED&#x3C;/param-name&#x3E;
+        &#x3C;param-name&#x3E;primefaces.CSP&#x3C;/param-name&#x3E;
         &#x3C;param-value&#x3E;true&#x3C;/param-value&#x3E;
     &#x3C;/context-param&#x3E;
-    &#x3C;context-param&#x3E;
-        &#x3C;param-name&#x3E;primefaces.csp.SUPPORTED_DIRECTIVES&#x3C;/param-name&#x3E;
-        &#x3C;param-value&#x3E;script-src&#x3C;/param-value&#x3E;
-    &#x3C;/context-param&#x3E;
-    &#x3C;context-param&#x3E;
-        &#x3C;param-name&#x3E;primefaces.csp.ALLOWED_HOSTS&#x3C;/param-name&#x3E;
-        &#x3C;param-value&#x3E;https://www.google-analytics.com&#x3C;/param-value&#x3E;
-    &#x3C;/context-param&#x3E;
-    &#x3C;context-param&#x3E;
-        &#x3C;param-name&#x3E;primefaces.csp.JAVASCRIPT_DEBUGGING_COOKIE&#x3C;/param-name&#x3E;
-        &#x3C;param-value&#x3E;true&#x3C;/param-value&#x3E;
-    &#x3C;/context-param&#x3E;                    
             </pre>
             </p>
         </p:outputPanel>
