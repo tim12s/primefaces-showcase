@@ -285,8 +285,7 @@
                     <p:tabView>
                         <p:tab title="XHTML">
                             <pre name="code" class="brush:xml">
-&#x3C;p:button value=&#x22;Check functionality&#x22; onclick=&#x22;try { window.setTimeout(&#x27;alert(1)&#x27;,1000); } catch(e) { console.log(e); return false; } window.setTimeout(function() { alert(&#x27;PASS&#x27;); },1000); return false;&#x22; /&#x3E;
-                            </pre>
+&#x3C;p:commandButton value=&#x22;Check functionality&#x22; update=&#x22;xss-out&#x22; process=&#x22;xss-in&#x22; onstart=&#x22;window.cspScriptExecuted=false;&#x22; oncomplete=&#x22;if (!window.cspScriptExecuted) alert(&#x27;PASS&#x27;);&#x22; /&#x3E;                            </pre>
                         </p:tab>
                     </p:tabView>
                 </p:tab>                
