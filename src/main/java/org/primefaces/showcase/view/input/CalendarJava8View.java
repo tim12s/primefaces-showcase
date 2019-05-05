@@ -45,8 +45,10 @@ public class CalendarJava8View {
     private LocalDate date10;
     private LocalDate date11;
     private LocalDate date12;
+    private LocalDate date13;
     private LocalTime time1;
     private LocalTime time2;
+    private LocalTime time3;
     private LocalDateTime dateTime1;
     private LocalDateTime dateTimeDe;
     private List<LocalDate> multi;
@@ -266,5 +268,21 @@ public class CalendarJava8View {
 
     public void setTime2(LocalTime time2) {
         this.time2 = time2;
+    }
+
+    public LocalTime getTime3() {
+        return time3;
+    }
+
+    public void setTime3(LocalTime time3) {
+        this.time3 = time3;
+    }
+
+    public LocalDate getDate13() {
+        return date13;
+    }
+
+    public void setDate13(LocalDate date13) {
+        this.date13 = date13;
     }
 }

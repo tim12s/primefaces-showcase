@@ -96,6 +96,11 @@
                 <p:outputLabel for="popup" value="Popup:" />
                 <p:datePicker id="popup" value="#{calendarJava8View.date2}" />
 
+                <p:outputLabel for="popupConvertDateTime" value="Popup (f:convertDateTime):" />
+                <p:datePicker id="popupConvertDateTime" value="#{calendarJava8View.date13}" pattern="MM/dd/yyyy">
+                    <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
+                </p:datePicker>
+
                 <p:outputLabel for="multiselect" value="Multiple Selection:" />
                 <p:datePicker id="multiselect" selectionMode="multiple" value="#{calendarJava8View.multi}" readonlyInput="true" />
 
@@ -143,8 +148,11 @@
                 <p:outputLabel for="timeDe" value="Time (German):" />
                 <p:datePicker id="timeDe" value="#{calendarJava8View.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy" timePattern="HH:mm" />
 
-                <p:outputLabel for="timeonly" value="Time Only:" />
+                <p:outputLabel for="timeonly" value="Time Only (HH:mm):" />
                 <p:datePicker id="timeonly" value="#{calendarJava8View.time1}" timeOnly="true" pattern="HH:mm"/>
+
+                <p:outputLabel for="time3" value="Time Only (hh:mm a):" />
+                <p:calendar id="time3" value="#{calendarJava8View.time3}" pattern="hh:mm a" timeOnly="true"  />
 
                 <!--
                 <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern):" />
@@ -163,6 +171,11 @@
 
                     <h:outputText value="Popup:" />
                     <h:outputText value="#{calendarJava8View.date2}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
+                    </h:outputText>
+
+                    <h:outputText value="Popup (f:convertDateTime):" />
+                    <h:outputText value="#{calendarJava8View.date13}">
                         <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
@@ -247,9 +260,14 @@
                         <f:convertDateTime pattern="dd.MM.yyyy HH:mm" type="localDateTime" />
                     </h:outputText>
 
-                    <h:outputText value="Time Only:" />
+                    <h:outputText value="Time Only (HH:mm):" />
                     <h:outputText value="#{calendarJava8View.time1}">
                         <f:convertDateTime pattern="HH:mm" type="localTime" />
+                    </h:outputText>
+
+                    <h:outputText value="Time Only (hh:mm a):" />
+                    <h:outputText value="#{calendarJava8View.time3}">
+                        <f:convertDateTime pattern="hh:mm a" type="localTime"/>
                     </h:outputText>
 
                     <!--
