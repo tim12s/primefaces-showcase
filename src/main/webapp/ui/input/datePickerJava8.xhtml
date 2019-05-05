@@ -151,10 +151,10 @@
                 <p:outputLabel for="timeonly" value="Time Only (HH:mm):" />
                 <p:datePicker id="timeonly" value="#{calendarJava8View.time1}" timeOnly="true" pattern="HH:mm"/>
 
-                <p:outputLabel for="time3" value="Time Only (hh:mm a):" />
-                <p:calendar id="time3" value="#{calendarJava8View.time3}" pattern="hh:mm a" timeOnly="true"  />
-
                 <!--
+                <p:outputLabel for="time3" value="Time Only (hh:mm a; not supported by Datepicker):" />
+                <p:datePicker id="time3" value="#{calendarJava8View.time3}" pattern="hh:mm a" timeOnly="true"  />
+
                 <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern):" />
                 <p:datePicker id="timeonlyWithoutPattern" value="#{calendarJava8View.time2}" timeOnly="true"/>
                 -->
@@ -265,12 +265,12 @@
                         <f:convertDateTime pattern="HH:mm" type="localTime" />
                     </h:outputText>
 
-                    <h:outputText value="Time Only (hh:mm a):" />
+                    <!--
+                    <h:outputText value="Time Only (hh:mm a; not supported by Datepicker):" />
                     <h:outputText value="#{calendarJava8View.time3}">
                         <f:convertDateTime pattern="hh:mm a" type="localTime"/>
                     </h:outputText>
 
-                    <!--
                     <h:outputText value="Time Only (without Pattern):" />
                     <h:outputText value="#{calendarJava8View.time2}">
                         <f:convertDateTime pattern="HH:mm" type="localTime" />
