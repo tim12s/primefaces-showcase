@@ -34,7 +34,10 @@
     </context-param>
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+        <!--
         <param-value>Production</param-value>
+        -->
     </context-param>
     <context-param>
         <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
@@ -54,7 +57,10 @@
     </context-param>
     <context-param>
         <param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>
+        <!--
         <param-value>true</param-value>
+        -->
+        <param-value>false</param-value>
     </context-param>
     <context-param>
         <param-name>primefaces.FONT_AWESOME</param-name>

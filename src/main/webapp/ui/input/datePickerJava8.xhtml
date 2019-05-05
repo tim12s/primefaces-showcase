@@ -77,7 +77,7 @@
     </ui:define>
 
     <ui:define name="title">
-        DatePicker (java.util.Date)
+        DatePicker (Java8; LocalDate, LocalTime, LocalDateTime)
     </ui:define>
 
     <ui:define name="description">
@@ -91,171 +91,171 @@
 
             <h:panelGrid columns="2" cellpadding="5">
                 <p:outputLabel for="inline" value="Inline:" />
-                <p:datePicker id="inline" value="#{calendarView.date1}" inline="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="inline" value="#{calendarJava8View.date1}" inline="true" />
 
                 <p:outputLabel for="popup" value="Popup:" />
-                <p:datePicker id="popup" value="#{calendarView.date2}" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="popup" value="#{calendarJava8View.date2}" />
 
                 <p:outputLabel for="multiselect" value="Multiple Selection:" />
-                <p:datePicker id="multiselect" selectionMode="multiple" value="#{calendarView.multi}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="multiselect" selectionMode="multiple" value="#{calendarJava8View.multi}" readonlyInput="true" />
 
                 <p:outputLabel for="range" value="Range Selection:" />
-                <p:datePicker id="range" selectionMode="range" value="#{calendarView.range}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="range" selectionMode="range" value="#{calendarJava8View.range}" readonlyInput="true" />
 
                 <p:outputLabel for="month" value="Month Picker:" />
-                <p:datePicker id="month" view="month" value="#{calendarView.date3}" pattern="MM/yyyy" yearNavigator="true" yearRange="2000:2030" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="month" view="month" value="#{calendarJava8View.date3}" pattern="MM/yyyy" yearNavigator="true" yearRange="2000:2030" />
 
                 <p:outputLabel for="touch" value="Touch UI:" />
-                <p:datePicker id="touch" value="#{calendarView.date4}" touchUI="true" showOtherMonths="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="touch" value="#{calendarJava8View.date4}" touchUI="true" showOtherMonths="true"/>
 
                 <p:outputLabel for="dateTemplate" value="Date Template:" />
-                <p:datePicker id="dateTemplate" value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="dateTemplate" value="#{calendarJava8View.date5}" dateTemplate="dateTemplateFunc" />
 
                 <p:outputLabel for="disabledDD" value="Disabled Date/Day:" />
-                <p:datePicker id="disabledDD" value="#{calendarView.date6}" disabledDays="#{calendarView.invalidDays}" disabledDates="#{calendarView.invalidDates}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter" />
-
+                <p:datePicker id="disabledDD" value="#{calendarJava8View.date6}" disabledDays="#{calendarJava8View.invalidDays}" disabledDates="#{calendarJava8View.invalidDates}" readonlyInput="true" />
+                
                 <p:outputLabel for="button" value="Button:" />
-                <p:datePicker id="button" value="#{calendarView.date7}" showIcon="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="button" value="#{calendarJava8View.date7}" showIcon="true" />
 
                 <p:outputLabel for="event" value="Select Event:" />
-                <p:datePicker id="event" value="#{calendarView.date8}" converter="primefaces.DateBackwardCompatiblityConverter">
-                    <p:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="msgs" />
+                <p:datePicker id="event" value="#{calendarJava8View.date8}">
+                    <p:ajax event="dateSelect" listener="#{calendarJava8View.onDateSelect}" update="msgs" />
                 </p:datePicker>
 
                 <p:outputLabel for="spanish" value="Spanish:" />
-                <p:datePicker id="spanish" value="#{calendarView.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="spanish" value="#{calendarJava8View.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd"/>
 
                 <p:outputLabel for="german" value="German:" />
-                <p:datePicker id="german" value="#{calendarView.dateDe}" locale="de" monthNavigator="true" pattern="dd.MM.yyyy" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="german" value="#{calendarJava8View.dateDe}" locale="de" monthNavigator="true" pattern="dd.MM.yyyy"/>
 
                 <p:outputLabel for="buttonbar" value="Button Bar:" />
-                <p:datePicker id="buttonbar" value="#{calendarView.date10}" showButtonBar="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="buttonbar" value="#{calendarJava8View.date10}" showButtonBar="true"/>
                 
                 <p:outputLabel for="minmax" value="Min-Max:" />
-                <p:datePicker id="minmax" value="#{calendarView.date11}" mindate="#{calendarView.minDate}" maxdate="#{calendarView.maxDate}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="minmax" value="#{calendarJava8View.date11}" mindate="#{calendarJava8View.minDate}" maxdate="#{calendarJava8View.maxDate}" readonlyInput="true"/>
 
                 <p:outputLabel for="multi" value="Multiple Months:" />
-                <p:datePicker id="multi" value="#{calendarView.date12}" numberOfMonths="3" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="multi" value="#{calendarJava8View.date12}" numberOfMonths="3"/>
 
-                <p:outputLabel for="time" value="Time (broken before; time was not transfered to bean):" />
-                <p:datePicker id="time" value="#{calendarView.date13}" showTime="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:outputLabel for="time" value="Time:" />
+                <p:datePicker id="time" value="#{calendarJava8View.dateTime1}" showTime="true"/>
 
                 <p:outputLabel for="timeDe" value="Time (German):" />
-                <p:datePicker id="timeDe" value="#{calendarView.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="timeDe" value="#{calendarJava8View.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy" timePattern="HH:mm" />
 
                 <p:outputLabel for="timeonly" value="Time Only:" />
-                <p:datePicker id="timeonly" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="timeonly" value="#{calendarJava8View.time1}" timeOnly="true" pattern="HH:mm"/>
 
                 <!--
-                <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern; broken before; Parsing-Error):" />
-                <p:datePicker id="timeonlyWithoutPattern" value="#{calendarView.date15}" timeOnly="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern):" />
+                <p:datePicker id="timeonlyWithoutPattern" value="#{calendarJava8View.time2}" timeOnly="true"/>
                 -->
             </h:panelGrid>
 
-            <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
+            <p:commandButton value="Submit" update="msgs" action="#{calendarJava8View.click}" icon="pi pi-check" />
 
             <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
                 <p:panelGrid id="display" columns="4" columnClasses="label,value,label,value">
                     <h:outputText value="Inline:" />
-                    <h:outputText value="#{calendarView.date1}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date1}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Popup:" />
-                    <h:outputText value="#{calendarView.date2}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date2}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Multiple Selection:" />
-                    <ui:repeat var="date" value="#{calendarView.multi}" varStatus="status" size="#{calendarView.multi.size()}">
+                    <ui:repeat var="date" value="#{calendarJava8View.multi}" varStatus="status" size="#{calendarJava8View.multi.size()}">
                         #{status.first ? '' : ','}
                         <h:outputText value="#{date}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                         </h:outputText>
                     </ui:repeat>
                     
                     <h:outputText value="Range Selection:" />
-                    <ui:repeat var="date" value="#{calendarView.range}" varStatus="status" size="2">
+                    <ui:repeat var="date" value="#{calendarJava8View.range}" varStatus="status" size="2">
                         #{status.first ? '' : '-'}
                         <h:outputText value="#{date}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                            <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                         </h:outputText>
                     </ui:repeat>
 
                     <h:outputText value="Month Picker:" />
-                    <h:outputText value="#{calendarView.date3}">
-                        <f:convertDateTime pattern="MM/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date3}">
+                        <f:convertDateTime pattern="MM/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Touch UI:" />
-                    <h:outputText value="#{calendarView.date4}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date4}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Date Template:" />
-                    <h:outputText value="#{calendarView.date5}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date5}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Disabled Date/Day:" />
-                    <h:outputText value="#{calendarView.date6}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date6}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Button:" />
-                    <h:outputText value="#{calendarView.date7}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date7}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Select Event:" />
-                    <h:outputText value="#{calendarView.date8}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date8}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Spanish:" />
-                    <h:outputText value="#{calendarView.date9}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date9}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="German:" />
-                    <h:outputText value="#{calendarView.dateDe}">
-                        <f:convertDateTime pattern="dd.MM.yyyy" />
+                    <h:outputText value="#{calendarJava8View.dateDe}">
+                        <f:convertDateTime pattern="dd.MM.yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Button Bar:" />
-                    <h:outputText value="#{calendarView.date10}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date10}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
                     
                     <h:outputText value="Min-Max:" />
-                    <h:outputText value="#{calendarView.date11}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date11}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputText value="Multiple Months:" />
-                    <h:outputText value="#{calendarView.date12}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    <h:outputText value="#{calendarJava8View.date12}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
-                    <h:outputText value="Time (broken before; time was not transfered to bean):" />
-                    <h:outputText value="#{calendarView.date13}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+                    <h:outputText value="Time:" />
+                    <h:outputText value="#{calendarJava8View.dateTime1}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm" type="localDateTime" />
                     </h:outputText>
 
                     <h:outputText value="Time (German):" />
-                    <h:outputText value="#{calendarView.dateTimeDe}">
-                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                    <h:outputText value="#{calendarJava8View.dateTimeDe}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" type="localDateTime" />
                     </h:outputText>
 
                     <h:outputText value="Time Only:" />
-                    <h:outputText value="#{calendarView.date14}">
-                        <f:convertDateTime pattern="HH:mm" />
+                    <h:outputText value="#{calendarJava8View.time1}">
+                        <f:convertDateTime pattern="HH:mm" type="localTime" />
                     </h:outputText>
 
                     <!--
-                    <h:outputText value="Time Only (without Pattern; broken before; Parsing-Error):" />
-                    <h:outputText value="#{calendarView.date15}">
-                        <f:convertDateTime pattern="HH:mm" />
+                    <h:outputText value="Time Only (without Pattern):" />
+                    <h:outputText value="#{calendarJava8View.time2}">
+                        <f:convertDateTime pattern="HH:mm" type="localTime" />
                     </h:outputText>
                     -->
                 </p:panelGrid>
