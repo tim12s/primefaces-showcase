@@ -14,8 +14,18 @@
     </ui:define>
 
     <ui:define name="implementation">
+       
+        <h:form>            
+            <h3>Basic</h3>
+            <p:inputText />
+        
+           <h3>Floating Label</h3>
+           <span class="ui-float-label">
+               <p:inputText id="float-input" value="#{basicView.text}" />
+               <p:outputLabel for="@previous" value="Username" />
+           </span>
 
-       <p:inputText />
+        </h:form>
         
     </ui:define>
 
