@@ -91,64 +91,64 @@
 
             <h:panelGrid columns="2" cellpadding="5">
                 <p:outputLabel for="inline" value="Inline:" />
-                <p:datePicker id="inline" value="#{calendarView.date1}" inline="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="inline" value="#{calendarView.date1}" inline="true" />
 
                 <p:outputLabel for="popup" value="Popup:" />
-                <p:datePicker id="popup" value="#{calendarView.date2}" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="popup" value="#{calendarView.date2}" />
 
                 <p:outputLabel for="multiselect" value="Multiple Selection:" />
-                <p:datePicker id="multiselect" selectionMode="multiple" value="#{calendarView.multi}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="multiselect" selectionMode="multiple" value="#{calendarView.multi}" readonlyInput="true" converter="pf.DateBackwardCompatiblityConverter" />
 
                 <p:outputLabel for="range" value="Range Selection:" />
-                <p:datePicker id="range" selectionMode="range" value="#{calendarView.range}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="range" selectionMode="range" value="#{calendarView.range}" readonlyInput="true" converter="pf.DateBackwardCompatiblityConverter" />
 
                 <p:outputLabel for="month" value="Month Picker:" />
-                <p:datePicker id="month" view="month" value="#{calendarView.date3}" pattern="MM/yyyy" yearNavigator="true" yearRange="2000:2030" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="month" view="month" value="#{calendarView.date3}" pattern="MM/yyyy" yearNavigator="true" yearRange="2000:2030" />
 
                 <p:outputLabel for="touch" value="Touch UI:" />
-                <p:datePicker id="touch" value="#{calendarView.date4}" touchUI="true" showOtherMonths="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="touch" value="#{calendarView.date4}" touchUI="true" showOtherMonths="true"/>
 
                 <p:outputLabel for="dateTemplate" value="Date Template:" />
-                <p:datePicker id="dateTemplate" value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="dateTemplate" value="#{calendarView.date5}" dateTemplate="dateTemplateFunc" />
 
                 <p:outputLabel for="disabledDD" value="Disabled Date/Day:" />
-                <p:datePicker id="disabledDD" value="#{calendarView.date6}" disabledDays="#{calendarView.invalidDays}" disabledDates="#{calendarView.invalidDates}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="disabledDD" value="#{calendarView.date6}" disabledDays="#{calendarView.invalidDays}" disabledDates="#{calendarView.invalidDates}" readonlyInput="true" />
 
                 <p:outputLabel for="button" value="Button:" />
-                <p:datePicker id="button" value="#{calendarView.date7}" showIcon="true" converter="primefaces.DateBackwardCompatiblityConverter" />
+                <p:datePicker id="button" value="#{calendarView.date7}" showIcon="true" />
 
                 <p:outputLabel for="event" value="Select Event:" />
-                <p:datePicker id="event" value="#{calendarView.date8}" converter="primefaces.DateBackwardCompatiblityConverter">
+                <p:datePicker id="event" value="#{calendarView.date8}">
                     <p:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="msgs" />
                 </p:datePicker>
 
                 <p:outputLabel for="spanish" value="Spanish:" />
-                <p:datePicker id="spanish" value="#{calendarView.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="spanish" value="#{calendarView.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd"/>
 
                 <p:outputLabel for="german" value="German:" />
-                <p:datePicker id="german" value="#{calendarView.dateDe}" locale="de" monthNavigator="true" pattern="dd.MM.yyyy" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="german" value="#{calendarView.dateDe}" locale="de" monthNavigator="true" pattern="dd.MM.yyyy"/>
 
                 <p:outputLabel for="buttonbar" value="Button Bar:" />
-                <p:datePicker id="buttonbar" value="#{calendarView.date10}" showButtonBar="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="buttonbar" value="#{calendarView.date10}" showButtonBar="true"/>
                 
                 <p:outputLabel for="minmax" value="Min-Max:" />
-                <p:datePicker id="minmax" value="#{calendarView.date11}" mindate="#{calendarView.minDate}" maxdate="#{calendarView.maxDate}" readonlyInput="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="minmax" value="#{calendarView.date11}" mindate="#{calendarView.minDate}" maxdate="#{calendarView.maxDate}" readonlyInput="true"/>
 
                 <p:outputLabel for="multi" value="Multiple Months:" />
-                <p:datePicker id="multi" value="#{calendarView.date12}" numberOfMonths="3" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="multi" value="#{calendarView.date12}" numberOfMonths="3"/>
 
                 <p:outputLabel for="time" value="Time (broken before; time was not transfered to bean):" />
-                <p:datePicker id="time" value="#{calendarView.date13}" showTime="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="time" value="#{calendarView.date13}" showTime="true"/>
 
                 <p:outputLabel for="timeDe" value="Time (German):" />
-                <p:datePicker id="timeDe" value="#{calendarView.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="timeDe" value="#{calendarView.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy"/>
 
                 <p:outputLabel for="timeonly" value="Time Only:" />
-                <p:datePicker id="timeonly" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="timeonly" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
 
                 <!--
                 <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern; broken before; Parsing-Error):" />
-                <p:datePicker id="timeonlyWithoutPattern" value="#{calendarView.date15}" timeOnly="true" converter="primefaces.DateBackwardCompatiblityConverter"/>
+                <p:datePicker id="timeonlyWithoutPattern" value="#{calendarView.date15}" timeOnly="true"/>
                 -->
             </h:panelGrid>
 
