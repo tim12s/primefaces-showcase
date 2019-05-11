@@ -25,6 +25,7 @@ import javax.faces.context.FacesContext;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class CalendarJava8View {
     private LocalTime time2;
     private LocalTime time3;
     private LocalDateTime dateTime1;
+    private LocalDateTime dateTime2;
     private LocalDateTime dateTimeDe;
     private List<LocalDate> multi;
     private List<LocalDate> range;
@@ -57,6 +59,7 @@ public class CalendarJava8View {
     private List<Integer> invalidDays;
     private LocalDate minDate;
     private LocalDate maxDate;
+    private ZonedDateTime zonedDateTime1;
 
     @PostConstruct
     public void init() {
@@ -284,5 +287,21 @@ public class CalendarJava8View {
 
     public void setDate13(LocalDate date13) {
         this.date13 = date13;
+    }
+
+    public ZonedDateTime getZonedDateTime1() {
+        return zonedDateTime1;
+    }
+
+    public void setZonedDateTime1(ZonedDateTime zonedDateTime1) {
+        this.zonedDateTime1 = zonedDateTime1;
+    }
+
+    public LocalDateTime getDateTime2() {
+        return dateTime2;
+    }
+
+    public void setDateTime2(LocalDateTime dateTime2) {
+        this.dateTime2 = dateTime2;
     }
 }

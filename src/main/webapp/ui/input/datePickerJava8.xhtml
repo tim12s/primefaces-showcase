@@ -142,11 +142,17 @@
                 <p:outputLabel for="multi" value="Multiple Months:" />
                 <p:datePicker id="multi" value="#{calendarJava8View.date12}" numberOfMonths="3"/>
 
-                <p:outputLabel for="time" value="Time:" />
-                <p:datePicker id="time" value="#{calendarJava8View.dateTime1}" showTime="true"/>
+                <p:outputLabel for="time1" value="Time:" />
+                <p:datePicker id="time1" value="#{calendarJava8View.dateTime1}" showTime="true"/>
 
                 <p:outputLabel for="timeDe" value="Time (German):" />
                 <p:datePicker id="timeDe" value="#{calendarJava8View.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy" timePattern="HH:mm" />
+
+                <p:outputLabel for="time2" value="Time (Timezone GMT+8):" />
+                <p:datePicker id="time2" value="#{calendarJava8View.dateTime2}" showTime="true" timeZone="GMT+8"/>
+
+                <p:outputLabel for="zonedDateTime1" value="Time (ZonedDateTime; not supported yet):" />
+                <p:datePicker id="zonedDateTime1" value="#{calendarJava8View.zonedDateTime1}" showTime="true"/>
 
                 <p:outputLabel for="timeonly" value="Time Only (HH:mm):" />
                 <p:datePicker id="timeonly" value="#{calendarJava8View.time1}" timeOnly="true" pattern="HH:mm"/>
@@ -258,6 +264,16 @@
                     <h:outputText value="Time (German):" />
                     <h:outputText value="#{calendarJava8View.dateTimeDe}">
                         <f:convertDateTime pattern="dd.MM.yyyy HH:mm" type="localDateTime" />
+                    </h:outputText>
+
+                    <h:outputText value="Time (Timezone GMT+8):" />
+                    <h:outputText value="#{calendarJava8View.dateTime2}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm" type="localDateTime" />
+                    </h:outputText>
+
+                    <h:outputText value="Time (ZonedDateTime; not supported yet):" />
+                    <h:outputText value="#{calendarJava8View.zonedDateTime1}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" type="zonedDateTime" />
                     </h:outputText>
 
                     <h:outputText value="Time Only (HH:mm):" />
