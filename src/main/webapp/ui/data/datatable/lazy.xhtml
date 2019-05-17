@@ -16,7 +16,7 @@
     </ui:define>
 
     <ui:define name="implementation">
-        
+
         <h:form id="form">
             <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="10"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
@@ -40,9 +40,9 @@
                 <p:outputPanel id="carDetail" style="text-align:center;">
                     <p:panelGrid  columns="2" rendered="#{not empty dtLazyView.selectedCar}" columnClasses="label,value">
                         <f:facet name="header">
-                            <p:graphicImage name="demo/images/car/#{dtLazyView.selectedCar.brand}-big.gif"/> 
+                            <p:graphicImage name="demo/images/car/#{dtLazyView.selectedCar.brand}-big.gif"/>
                         </f:facet>
-                        
+
                         <h:outputText value="Id:" />
                         <h:outputText value="#{dtLazyView.selectedCar.id}" />
 
@@ -51,7 +51,7 @@
 
                         <h:outputText value="Color:" />
                         <h:outputText value="#{dtLazyView.selectedCar.color}" style="color:#{dtLazyView.selectedCar.color}"/>
-                    
+
                         <h:outputText value="Price:" />
                         <h:outputText value="#{dtLazyView.selectedCar.price}">
                             <f:convertNumber type="currency" currencySymbol="$" />
@@ -64,5 +64,6 @@
 
     <ui:define name="more-source-tabs">
         <p:tab title="/org/primefaces/showcase/view/data/datatable/LazySorter.java" />
+        <p:tab title="/org/primefaces/showcase/view/data/datatable/LazyCarDataModel.java" />
     </ui:define>
 </ui:composition>
