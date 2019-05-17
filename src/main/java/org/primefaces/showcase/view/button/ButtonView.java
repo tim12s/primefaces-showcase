@@ -49,7 +49,7 @@ public class ButtonView {
 
         item = new DefaultMenuItem("Save");
         item.setIcon("pi pi-save");
-        item.setCommand("#{buttonView.save}");
+        item.setFunction((i) -> { this.save(); return null; });
         item.setUpdate("messages");
         secondSubmenu.addElement(item);
 
