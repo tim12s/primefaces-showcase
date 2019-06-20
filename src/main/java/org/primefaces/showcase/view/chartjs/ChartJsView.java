@@ -33,7 +33,8 @@ import org.primefaces.model.charts.bar.BarChartModel;
 import org.primefaces.model.charts.bar.BarChartOptions;
 import org.primefaces.model.charts.bubble.BubbleChartDataSet;
 import org.primefaces.model.charts.bubble.BubbleChartModel;
-import org.primefaces.model.charts.bubble.BubblePoint;
+import org.primefaces.model.charts.data.BubblePoint;
+import org.primefaces.model.charts.data.NumericPoint;
 import org.primefaces.model.charts.donut.DonutChartDataSet;
 import org.primefaces.model.charts.donut.DonutChartModel;
 import org.primefaces.model.charts.hbar.HorizontalBarChartModel;
@@ -58,6 +59,8 @@ import org.primefaces.model.charts.polar.PolarAreaChartModel;
 import org.primefaces.model.charts.radar.RadarChartDataSet;
 import org.primefaces.model.charts.radar.RadarChartModel;
 import org.primefaces.model.charts.radar.RadarChartOptions;
+import org.primefaces.model.charts.scatter.ScatterChartModel;
+import org.primefaces.util.Constants;
 
 @ManagedBean
 public class ChartJsView implements Serializable {
@@ -89,6 +92,8 @@ public class ChartJsView implements Serializable {
     private BarChartModel mixedModel;
     
     private DonutChartModel donutModel;
+    
+    private ScatterChartModel scatterModel;
 
     @PostConstruct
     public void init() {
@@ -106,6 +111,7 @@ public class ChartJsView implements Serializable {
         createBubbleModel();
         createMixedModel();
         createDonutModel();
+        createScatterModel();
     }
     
     private void createPieModel() {
@@ -173,7 +179,7 @@ public class ChartJsView implements Serializable {
         ChartData data = new ChartData();
         
         LineChartDataSet dataSet = new LineChartDataSet();
-        List<Number> values = new ArrayList<>();
+        List<Object> values = new ArrayList<>();
         values.add(65);
         values.add(59);
         values.add(80);
@@ -209,12 +215,43 @@ public class ChartJsView implements Serializable {
         lineModel.setData(data);
     }
     
+    public void createScatterModel() {
+        scatterModel = new ScatterChartModel();
+        ChartData data = new ChartData();
+        
+        LineChartDataSet dataSet = new LineChartDataSet();
+        List<Object> values = new ArrayList<>();
+        values.add(new NumericPoint(-10, 0));
+        values.add(new NumericPoint(0,10));
+        values.add(new NumericPoint(10, 5));
+        values.add(new NumericPoint(8, 14));
+        values.add(new NumericPoint(12, 2));
+        values.add(new NumericPoint(13, 7));
+        values.add(new NumericPoint(6, 9));
+        dataSet.setData(values);
+        dataSet.setLabel("Red Dataset");
+        dataSet.setBorderColor("rgb(249, 24, 24)");
+        dataSet.setShowLine(false);
+        data.addChartDataSet(dataSet);
+        
+        //Options
+        LineChartOptions options = new LineChartOptions();        
+        Title title = new Title();
+        title.setDisplay(true);
+        title.setText("Scatter Chart");
+        options.setShowLines(false);
+        options.setTitle(title);
+        
+        scatterModel.setOptions(options);
+        scatterModel.setData(data);
+    }
+    
     public void createCartesianLinerModel() {
         cartesianLinerModel = new LineChartModel();
         ChartData data = new ChartData();
         
         LineChartDataSet dataSet = new LineChartDataSet();
-        List<Number> values = new ArrayList<>();
+        List<Object> values = new ArrayList<>();
         values.add(20);
         values.add(50);
         values.add(100);
@@ -226,7 +263,7 @@ public class ChartJsView implements Serializable {
         dataSet.setYaxisID("left-y-axis");
         
         LineChartDataSet dataSet2 = new LineChartDataSet();
-        List<Number> values2 = new ArrayList<>();
+        List<Object> values2 = new ArrayList<>();
         values2.add(0.1);
         values2.add(0.5);
         values2.add(1.0);
@@ -829,7 +866,7 @@ public class ChartJsView implements Serializable {
         dataSet.setBackgroundColor("rgba(255, 99, 132, 0.2)");
         
         LineChartDataSet dataSet2 = new LineChartDataSet();
-        List<Number> values2 = new ArrayList<>();
+        List<Object> values2 = new ArrayList<>();
         values2.add(50);
         values2.add(50);
         values2.add(50);
@@ -1008,5 +1045,13 @@ public class ChartJsView implements Serializable {
 
     public void setDonutModel(DonutChartModel donutModel) {
         this.donutModel = donutModel;
+    }
+    
+    public ScatterChartModel getScatterModel() {
+        return scatterModel;
+    }
+    
+    public void setScatterModel(ScatterChartModel scatterModel) {
+        this.scatterModel = scatterModel;
     }
 }
