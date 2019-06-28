@@ -27,7 +27,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class ButtonView {
-    
+
     private MenuModel model;
 
     @PostConstruct
@@ -35,39 +35,51 @@ public class ButtonView {
         model = new DefaultMenuModel();
 
         //First submenu
-        DefaultSubMenu firstSubmenu = new DefaultSubMenu("Dynamic Submenu");
+        DefaultMenuItem item = DefaultMenuItem.builder()
+                .value("External")
+                .url("http://www.primefaces.org")
+                .icon("pi pi-home")
+                .build();
 
-        DefaultMenuItem item = new DefaultMenuItem("External");
-        item.setUrl("http://www.primefaces.org");
-        item.setIcon("pi pi-home");
-        firstSubmenu.addElement(item);
 
-        model.addElement(firstSubmenu);
+        DefaultSubMenu firstSubmenu = DefaultSubMenu.builder()
+                .label("Dynamic Submenu")
+                .addElement(item)
+                .build();
+
+        model.getElements().add(firstSubmenu);
 
         //Second submenu
-        DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
+        item = DefaultMenuItem.builder()
+                .value("Save")
+                .icon("pi pi-save")
+                .function((i) -> save())
+                .update("messages")
+                .build();
 
-        item = new DefaultMenuItem("Save");
-        item.setIcon("pi pi-save");
-        item.setFunction((i) -> { this.save(); return null; });
-        item.setUpdate("messages");
-        secondSubmenu.addElement(item);
+        DefaultSubMenu secondSubmenu = DefaultSubMenu.builder()
+                .label("Dynamic Actions")
+                .addElement(item)
+                .build();
 
-        item = new DefaultMenuItem("Delete");
-        item.setIcon("pi pi-times");
-        item.setCommand("#{buttonView.delete}");
-        item.setAjax(false);
-        secondSubmenu.addElement(item);
+        item = DefaultMenuItem.builder()
+                .value("Delete")
+                .icon("pi pi-times")
+                .command("#{buttonView.delete}")
+                .ajax(false)
+                .build();
+        secondSubmenu.getElements().add(item);
 
-        model.addElement(secondSubmenu);
+        model.getElements().add(secondSubmenu);
     }
 
     public MenuModel getModel() {
         return model;
     }
 
-    public void save() {
+    public String save() {
         addMessage("Data saved");
+        return null;
     }
 
     public void update() {
