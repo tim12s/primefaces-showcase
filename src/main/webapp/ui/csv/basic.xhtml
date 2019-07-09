@@ -68,13 +68,58 @@
                     <p:message for="regex" />
                     <h:outputText value="#{validationView.regexText}" />
 
-                    <h:outputLabel for="date" value="Date" style="font-weight:bold"/>
-                    <p:inputText id="date" value="#{validationView.date}" label="Date">
+                    <h:outputLabel for="date" value="Date (java.util.Date)" style="font-weight:bold"/>
+                    <p:inputText id="date" value="#{validationView.date}" label="Date (java.util.Date)">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </p:inputText>
                     <p:message for="date" />
                     <h:outputText value="#{validationView.date}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+
+                    <h:outputLabel for="date2" value="Date (java.util.Date; PF Calendar)" style="font-weight:bold"/>
+                    <p:calendar id="date2" value="#{validationView.date2}" pattern="MM/dd/yyyy" label="Date (java.util.Date; PF Calendar)">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:message for="date2" />
+                    <h:outputText value="#{validationView.date2}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+
+                    <h:outputLabel for="date3" value="Date (java.util.Date; PF DatePicker)" style="font-weight:bold"/>
+                    <p:datePicker id="date3" value="#{validationView.date3}" pattern="MM/dd/yyyy" label="Date (java.util.Date; PF DatePicker)">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:datePicker>
+                    <p:message for="date3" />
+                    <h:outputText value="#{validationView.date3}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+
+                    <h:outputLabel for="localDate" value="LocalDate (Java8)" style="font-weight:bold"/>
+                    <p:inputText id="localDate" value="#{validationView.localDate}" label="LocalDate (Java8)">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:inputText>
+                    <p:message for="localDate" />
+                    <h:outputText value="#{validationView.localDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+
+                    <h:outputLabel for="localDate2" value="LocalDate (Java8; PF Calendar)" style="font-weight:bold"/>
+                    <p:calendar id="localDate2" value="#{validationView.localDate2}" pattern="MM/dd/yyyy" label="LocalDate (Java8; PF Calendar)">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
+                    </p:calendar>
+                    <p:message for="localDate2" />
+                    <h:outputText value="#{validationView.localDate2}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
+                    </h:outputText>
+
+                    <h:outputLabel for="localDate3" value="LocalDate (Java8; PF DatePicker)" style="font-weight:bold"/>
+                    <p:datePicker id="localDate3" value="#{validationView.localDate3}" pattern="MM/dd/yyyy" label="LocalDate (Java8; PF DatePicker)">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
+                    </p:datePicker>
+                    <p:message for="localDate3" />
+                    <h:outputText value="#{validationView.localDate3}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
                     <h:outputLabel for="desc" value="Description" style="font-weight:bold"/>

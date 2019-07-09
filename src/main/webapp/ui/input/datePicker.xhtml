@@ -33,6 +33,32 @@
                 day: 'Día',
                 allDayText: 'Todo el día'
             };
+            PrimeFaces.locales ['de'] = {
+                closeText: 'Schließen',
+                prevText: 'Zurück',
+                nextText: 'Weiter',
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember' ],
+                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez' ],
+                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+                dayNamesMin: ['S', 'M', 'D', 'M ', 'D', 'F ', 'S'],
+                weekHeader: 'Woche',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix:'',
+                timeOnlyTitle: 'Nur Zeit',
+                timeText: 'Zeit',
+                hourText: 'Stunde',
+                minuteText: 'Minute',
+                secondText: 'Sekunde',
+                currentText: 'Aktuelles Datum',
+                ampm: false,
+                month: 'Monat',
+                week: 'Woche',
+                day: 'Tag',
+                allDayText: 'Ganzer Tag'
+            };
         </script>
 
         <script type="text/javascript">
@@ -51,7 +77,7 @@
     </ui:define>
 
     <ui:define name="title">
-        DatePicker
+        DatePicker (java.util.Date)
     </ui:define>
 
     <ui:define name="description">
@@ -87,7 +113,7 @@
 
                 <p:outputLabel for="disabledDD" value="Disabled Date/Day:" />
                 <p:datePicker id="disabledDD" value="#{calendarView.date6}" disabledDays="#{calendarView.invalidDays}" disabledDates="#{calendarView.invalidDates}" readonlyInput="true" />
-                
+
                 <p:outputLabel for="button" value="Button:" />
                 <p:datePicker id="button" value="#{calendarView.date7}" showIcon="true" />
 
@@ -99,6 +125,9 @@
                 <p:outputLabel for="spanish" value="Spanish:" />
                 <p:datePicker id="spanish" value="#{calendarView.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd"/>
 
+                <p:outputLabel for="german" value="German:" />
+                <p:datePicker id="german" value="#{calendarView.dateDe}" locale="de" monthNavigator="true" pattern="dd.MM.yyyy"/>
+
                 <p:outputLabel for="buttonbar" value="Button Bar:" />
                 <p:datePicker id="buttonbar" value="#{calendarView.date10}" showButtonBar="true"/>
                 
@@ -108,11 +137,19 @@
                 <p:outputLabel for="multi" value="Multiple Months:" />
                 <p:datePicker id="multi" value="#{calendarView.date12}" numberOfMonths="3"/>
 
-                <p:outputLabel for="time" value="Time:" />
+                <p:outputLabel for="time" value="Time (broken before; time was not transfered to bean):" />
                 <p:datePicker id="time" value="#{calendarView.date13}" showTime="true"/>
+
+                <p:outputLabel for="timeDe" value="Time (German):" />
+                <p:datePicker id="timeDe" value="#{calendarView.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy"/>
 
                 <p:outputLabel for="timeonly" value="Time Only:" />
                 <p:datePicker id="timeonly" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+
+                <!--
+                <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern; broken before; Parsing-Error):" />
+                <p:datePicker id="timeonlyWithoutPattern" value="#{calendarView.date15}" timeOnly="true"/>
+                -->
             </h:panelGrid>
 
             <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
@@ -180,6 +217,11 @@
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
 
+                    <h:outputText value="German:" />
+                    <h:outputText value="#{calendarView.dateDe}">
+                        <f:convertDateTime pattern="dd.MM.yyyy" />
+                    </h:outputText>
+
                     <h:outputText value="Button Bar:" />
                     <h:outputText value="#{calendarView.date10}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -195,15 +237,27 @@
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
 
-                    <h:outputText value="Time:" />
+                    <h:outputText value="Time (broken before; time was not transfered to bean):" />
                     <h:outputText value="#{calendarView.date13}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+                    </h:outputText>
+
+                    <h:outputText value="Time (German):" />
+                    <h:outputText value="#{calendarView.dateTimeDe}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
                     </h:outputText>
 
                     <h:outputText value="Time Only:" />
                     <h:outputText value="#{calendarView.date14}">
                         <f:convertDateTime pattern="HH:mm" />
                     </h:outputText>
+
+                    <!--
+                    <h:outputText value="Time Only (without Pattern; broken before; Parsing-Error):" />
+                    <h:outputText value="#{calendarView.date15}">
+                        <f:convertDateTime pattern="HH:mm" />
+                    </h:outputText>
+                    -->
                 </p:panelGrid>
             </p:dialog>
         </h:form>
