@@ -22,10 +22,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +57,7 @@ public class CalendarJava8View {
     private LocalDate minDate;
     private LocalDate maxDate;
     private ZonedDateTime zonedDateTime1;
+    private YearMonth yearMonth;
 
     @PostConstruct
     public void init() {
@@ -304,4 +302,13 @@ public class CalendarJava8View {
     public void setDateTime2(LocalDateTime dateTime2) {
         this.dateTime2 = dateTime2;
     }
+
+    public YearMonth getYearMonth() {
+        return yearMonth;
+    }
+
+    public void setYearMonth(YearMonth yearMonth) {
+        this.yearMonth = yearMonth;
+    }
+
 }
