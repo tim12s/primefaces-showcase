@@ -318,13 +318,13 @@
             <id>community-stable</id>
             <properties>
                 <jsfVersion>Mojarra-2.3.2</jsfVersion>
-                <primefacesVersion>PrimeFaces-6.2</primefacesVersion>
+                <primefacesVersion>PrimeFaces-7.0</primefacesVersion>
             </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.primefaces</groupId>
                     <artifactId>primefaces</artifactId>
-                    <version>6.2</version>
+                    <version>7.0</version>
                 </dependency>
                 <dependency>
                     <groupId>org.glassfish</groupId>
