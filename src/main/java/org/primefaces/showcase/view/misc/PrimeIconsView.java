@@ -15,26 +15,22 @@
  */
 package org.primefaces.showcase.view.misc;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.Serializable;
+import org.primefaces.shaded.json.JSONArray;
+import org.primefaces.shaded.json.JSONException;
+import org.primefaces.shaded.json.JSONObject;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
+import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import org.primefaces.shaded.json.JSONArray;
-import org.primefaces.shaded.json.JSONException;
-import org.primefaces.shaded.json.JSONObject;
 
-@ManagedBean
+@Named
 @ApplicationScoped
 public class PrimeIconsView implements Serializable {
 

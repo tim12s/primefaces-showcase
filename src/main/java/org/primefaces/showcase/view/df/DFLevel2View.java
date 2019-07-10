@@ -15,14 +15,16 @@
  */
 package org.primefaces.showcase.view.df;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.faces.bean.ManagedBean;
-
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "dfLevel2View")
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+import java.util.HashMap;
+import java.util.Map;
+
+@Named("dfLevel2View")
+@RequestScoped
 public class DFLevel2View {
     
     public void openLevel3() {

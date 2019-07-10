@@ -171,6 +171,13 @@
             <artifactId>owasp-java-html-sanitizer</artifactId>
             <version>20181114.1</version>
         </dependency>
+
+        <!-- Omnifaces because of org.omnifaces.cdi.ViewScoped -->
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>3.3</version>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -324,7 +331,7 @@
                 <dependency>
                     <groupId>org.primefaces</groupId>
                     <artifactId>primefaces</artifactId>
-                    <version>7.0</version>
+                    <version>7.1-SNAPSHOT</version>
                 </dependency>
                 <dependency>
                     <groupId>org.glassfish</groupId>

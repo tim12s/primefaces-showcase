@@ -15,16 +15,17 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
 
-@ManagedBean(name = "limitTimelineRangeView")
+import javax.annotation.PostConstruct;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+
+@Named("limitTimelineRangeView")
 @ViewScoped
 public class LimitTimelineRangeView implements Serializable {
 

@@ -15,12 +15,14 @@
  */
 package org.primefaces.showcase.view.input;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class RadioView {
     
     private String console;    

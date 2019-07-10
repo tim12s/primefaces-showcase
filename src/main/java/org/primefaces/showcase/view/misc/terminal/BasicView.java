@@ -15,13 +15,15 @@
  */
 package org.primefaces.showcase.view.misc.terminal;
 
-import java.util.Date;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 
-@ManagedBean(name="terminalBasicView")
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.Date;
+
+@Named("terminalBasicView")
 @ViewScoped
-public class BasicView {
+public class BasicView implements Serializable {
     
     public String handleCommand(String command, String[] params) {
 		if(command.equals("greet")) {

@@ -15,17 +15,18 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import java.io.Serializable;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
-@ManagedBean(name="dtScrollView")
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.List;
+
+@Named("dtScrollView")
 @ViewScoped
 public class ScrollView implements Serializable {
     
@@ -37,7 +38,7 @@ public class ScrollView implements Serializable {
     private List<Car> cars6;
     private LazyDataModel<Car> lazyModel;
     
-    @ManagedProperty("#{carService}")
+    @Inject
     private CarService service;
 
     @PostConstruct

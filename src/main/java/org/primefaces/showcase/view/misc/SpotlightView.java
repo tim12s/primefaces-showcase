@@ -15,11 +15,13 @@
  */
 package org.primefaces.showcase.view.misc;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class SpotlightView {
     
     private String username;

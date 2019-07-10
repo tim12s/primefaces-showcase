@@ -15,11 +15,13 @@
  */
 package org.primefaces.showcase.view.df;
 
-import javax.faces.bean.ManagedBean;
-
 import org.primefaces.PrimeFaces;
 
-@ManagedBean(name = "dfLevel3View")
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named("dfLevel3View")
+@RequestScoped
 public class DFLevel3View {
     
     private String val;

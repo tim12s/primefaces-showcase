@@ -15,15 +15,17 @@
  */
 package org.primefaces.showcase.view.data;
 
+import org.primefaces.showcase.domain.Car;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
 
-import org.primefaces.showcase.domain.Car;
-
-@ManagedBean
+@Named
+@RequestScoped
 public class RingView implements Serializable {
     
     private List<Car> cars;

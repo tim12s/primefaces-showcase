@@ -15,13 +15,15 @@
  */
 package org.primefaces.showcase.view.panel;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.event.ToggleEvent;
 
-@ManagedBean
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class FieldsetView {
     
     public void handleToggle(ToggleEvent event) {

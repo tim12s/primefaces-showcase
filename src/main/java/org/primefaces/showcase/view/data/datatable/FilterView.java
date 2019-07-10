@@ -15,17 +15,18 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Locale;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
-@ManagedBean(name="dtFilterView")
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Locale;
+
+@Named("dtFilterView")
 @ViewScoped
 public class FilterView implements Serializable {
     
@@ -33,7 +34,7 @@ public class FilterView implements Serializable {
     
     private List<Car> filteredCars;
     
-    @ManagedProperty("#{carService}")
+    @Inject
     private CarService service;
 
     @PostConstruct

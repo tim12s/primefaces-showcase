@@ -15,15 +15,18 @@
  */
 package org.primefaces.showcase.view.multimedia;
 
-import java.io.File;
+import org.primefaces.model.CroppedImage;
+
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
-import org.primefaces.model.CroppedImage;
+import javax.inject.Named;
+import java.io.File;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class CropperView {
     
     private CroppedImage croppedImage;

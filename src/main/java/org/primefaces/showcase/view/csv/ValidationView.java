@@ -15,11 +15,13 @@
  */
 package org.primefaces.showcase.view.csv;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.time.LocalDate;
 import java.util.Date;
-import javax.faces.bean.ManagedBean;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class ValidationView {
     
     private String text;

@@ -15,12 +15,13 @@
  */
 package org.primefaces.showcase.view.misc;
 
-import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.validation.constraints.NotNull;
+import org.omnifaces.cdi.ViewScoped;
 
-@ManagedBean
+import javax.inject.Named;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
+@Named
 @ViewScoped
 public class OutputLabelView implements Serializable {
 

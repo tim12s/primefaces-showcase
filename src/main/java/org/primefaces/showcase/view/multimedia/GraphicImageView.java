@@ -15,16 +15,6 @@
  */
 package org.primefaces.showcase.view.multimedia;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.imageio.ImageIO;
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -33,7 +23,19 @@ import org.jfree.data.general.PieDataset;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
-@ManagedBean
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.imageio.ImageIO;
+import javax.inject.Named;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
+@Named
+@RequestScoped
 public class GraphicImageView {
 
 	private StreamedContent graphicText;

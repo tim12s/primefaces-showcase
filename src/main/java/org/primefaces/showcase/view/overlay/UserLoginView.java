@@ -17,12 +17,14 @@ package org.primefaces.showcase.view.overlay;
 
 import org.primefaces.PrimeFaces;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 
-@ManagedBean
+@Named
+@RequestScoped
 public class UserLoginView {
     
     private String username;

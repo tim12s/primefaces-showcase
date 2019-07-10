@@ -15,14 +15,14 @@
  */
 package org.primefaces.showcase.view.app;
 
+import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.Map;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named
 @SessionScoped
 public class GuestPreferences implements Serializable {
 

@@ -15,17 +15,18 @@
  */
 package org.primefaces.showcase.view.data.tree;
 
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.TreeNode;
 import org.primefaces.showcase.service.DocumentService;
 
-@ManagedBean(name="treeContextMenuView")
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named("treeContextMenuView")
 @ViewScoped
 public class ContextMenuView implements Serializable {
     
@@ -33,7 +34,7 @@ public class ContextMenuView implements Serializable {
     
     private TreeNode selectedNode;
     
-    @ManagedProperty("#{documentService}")
+    @Inject
     private DocumentService service;
     
     @PostConstruct

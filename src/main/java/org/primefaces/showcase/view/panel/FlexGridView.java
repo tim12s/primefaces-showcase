@@ -1,14 +1,14 @@
 package org.primefaces.showcase.view.panel;
 
+import org.omnifaces.cdi.ViewScoped;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
-@ManagedBean
+@Named
 @ViewScoped
 public class FlexGridView implements Serializable {
 

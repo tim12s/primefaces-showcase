@@ -15,22 +15,23 @@
  */
 package org.primefaces.showcase.view.dnd;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.event.DragDropEvent;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
-@ManagedBean(name = "dndCarsView")
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+@Named("dndCarsView")
 @ViewScoped
 public class DNDCarsView implements Serializable {
  
-    @ManagedProperty("#{carService}")
+    @Inject
     private CarService service;
 
     private List<Car> cars;

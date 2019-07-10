@@ -15,26 +15,26 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean(name="dtAddRowView")
+@Named("dtAddRowView")
 @ViewScoped
 public class AddRowView implements Serializable {
     
     private List<Car> cars1;
 
-    @ManagedProperty("#{carService}")
+    @Inject
     private CarService service;
     
     @PostConstruct

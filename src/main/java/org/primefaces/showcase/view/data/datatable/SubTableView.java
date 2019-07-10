@@ -15,14 +15,17 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
 import org.primefaces.showcase.domain.Stats;
 import org.primefaces.showcase.domain.Team;
 
-@ManagedBean(name="dtSubTableView")
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
+
+@Named("dtSubTableView")
+@RequestScoped
 public class SubTableView {
     
     private List<Team> teams;

@@ -15,14 +15,16 @@
  */
 package org.primefaces.showcase.view.misc;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class DefaultCommandView {
     
     private String text;

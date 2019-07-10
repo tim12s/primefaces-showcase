@@ -15,11 +15,13 @@
  */
 package org.primefaces.showcase.view.input;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class InputTextareaView {
     
     public List<String> completeArea(String query) {
