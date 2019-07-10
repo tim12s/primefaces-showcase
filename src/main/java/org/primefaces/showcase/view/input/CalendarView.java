@@ -15,17 +15,17 @@
  */
 package org.primefaces.showcase.view.input;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import org.primefaces.PrimeFaces;
+import org.primefaces.event.SelectEvent;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-
-import org.primefaces.PrimeFaces;
-import org.primefaces.event.SelectEvent;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @ManagedBean
 public class CalendarView {
@@ -39,11 +39,14 @@ public class CalendarView {
     private Date date7;
     private Date date8;
     private Date date9;
+    private Date dateDe;
     private Date date10;
     private Date date11;
     private Date date12;
     private Date date13;
     private Date date14;
+    private Date date15;
+    private Date dateTimeDe;
     private List<Date> multi;
     private List<Date> range;
     private List<Date> invalidDates;
@@ -238,5 +241,29 @@ public class CalendarView {
 
     public void setMaxDate(Date maxDate) {
         this.maxDate = maxDate;
+    }
+
+    public Date getDateTimeDe() {
+        return dateTimeDe;
+    }
+
+    public void setDateTimeDe(Date dateTimeDe) {
+        this.dateTimeDe = dateTimeDe;
+    }
+
+    public Date getDateDe() {
+        return dateDe;
+    }
+
+    public void setDateDe(Date dateDe) {
+        this.dateDe = dateDe;
+    }
+
+    public Date getDate15() {
+        return date15;
+    }
+
+    public void setDate15(Date date15) {
+        this.date15 = date15;
     }
 }

@@ -15,6 +15,7 @@
  */
 package org.primefaces.showcase.view.csv;
 
+import java.time.LocalDate;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 
@@ -28,6 +29,11 @@ public class ValidationView {
     private Double money;
     private String regexText;
     private Date date;
+    private Date date2;
+    private Date date3;
+    private LocalDate localDate;
+    private LocalDate localDate2;
+    private LocalDate localDate3;
 
     public String getText() {
         return text;
@@ -76,5 +82,40 @@ public class ValidationView {
     }
     public void setDate(Date date) {
         this.date = date;
-    } 
+    }
+
+    public Date getDate2() {
+        return date2;
+    }
+    public void setDate2(Date date) {
+        this.date2 = date;
+    }
+
+    public Date getDate3() {
+        return date3;
+    }
+    public void setDate3(Date date) {
+        this.date3 = date;
+    }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
+    }
+
+    public LocalDate getLocalDate2() {
+        return localDate2;
+    }
+    public void setLocalDate2(LocalDate localDate) {
+        this.localDate2 = localDate;
+    }
+
+    public LocalDate getLocalDate3() {
+        return localDate3;
+    }
+    public void setLocalDate3(LocalDate localDate) {
+        this.localDate3 = localDate;
+    }
 }
