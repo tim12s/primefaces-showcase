@@ -4,18 +4,18 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/template.xhtml">
-    
+
     <ui:define name="head">
         <style type="text/css">
             .ui-datalist .ui-datalist-content {
                 border:0 none
             }
-            
+
             .ui-datalist ul {
                 padding:0px 10px 0 20px;
                 margin: 5px 0;
             }
-            
+
             .label, .value {
                 vertical-align: top
             }
@@ -23,13 +23,13 @@
             .output {
                 font-weight: bold
             }
-            
+
             .ui-selectmanymenu {
                 width: 175px;
             }
         </style>
 	</ui:define>
-    
+
     <ui:define name="title">
         SelectManyMenu
     </ui:define>
@@ -50,14 +50,14 @@
                 </p:selectManyMenu>
 
                 <p:outputLabel for="advanced" value="Advanced:" />
-                <p:selectManyMenu id="advanced" value="#{selectManyView.selectedThemes}" converter="themeConverter" 
+                <p:selectManyMenu id="advanced" value="#{selectManyView.selectedThemes}" converter="#{themeConverter}"
                                   var="t" filter="true" filterMatchMode="contains" showCheckbox="true">
                     <f:selectItems value="#{selectManyView.themes}" var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" />
 
                     <p:column>
                         <h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{t.name}.png" alt="#{t.name}" styleClass="ui-theme" />
                     </p:column>
-                    
+
                     <p:column>
                         <h:outputText value="#{t.displayName}" />
                     </p:column>
@@ -82,7 +82,7 @@
                 </p:panelGrid>
             </p:dialog>
         </h:form>
-        
+
     </ui:define>
 
 </ui:composition>

@@ -23,7 +23,7 @@ import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named("themeService")
+@Named
 @ApplicationScoped
 public class ThemeService {
     

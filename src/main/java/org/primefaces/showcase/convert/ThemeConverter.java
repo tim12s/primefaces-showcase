@@ -25,15 +25,20 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-@FacesConverter("themeConverter")
+@Named
+@FacesConverter(value = "themeConverter", managed = true)
 public class ThemeConverter implements Converter {
 
+    @Inject private ThemeService themeService;
+    
+    @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
             try {
-                ThemeService service = CDI.current().select(ThemeService.class).get();
-                return service.getThemes().get(Integer.parseInt(value));
+                return themeService.getThemes().get(Integer.parseInt(value));
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
@@ -43,6 +48,7 @@ public class ThemeConverter implements Converter {
         }
     }
 
+    @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object object) {
         if(object != null) {
             return String.valueOf(((Theme) object).getId());

@@ -12,22 +12,22 @@
     <ui:define name="description">
         OrderList is used to sort a collection via Drag and Drop based reordering, transition effects, pojo support, theme support and more.
     </ui:define>
-    
+
     <ui:define name="implementation">
 
         <h:form>
             <p:growl id="msgs" showDetail="true" />
-            
+
             <h3 style="margin-top: 0">Basic OrderList</h3>
             <p:orderList value="#{orderListView.cities}" var="city" controlsLocation="none" itemLabel="#{city}" itemValue="#{city}" />
             <p:commandButton value="Submit" update="displayCities" oncomplete="PF('cityDialog').show()" style="margin-top:5px" />
-            
+
             <h3>Pojo Support with Clip Effect, Captions, Custom Content, Reorder Controls, Events and Responsive</h3>
-            <p:orderList value="#{orderListView.themes}" var="theme" itemValue="#{theme}" converter="theme" controlsLocation="left" responsive="true">
+            <p:orderList value="#{orderListView.themes}" var="theme" itemValue="#{theme}" converter="#{themeConverter}" controlsLocation="left" responsive="true">
                 <p:ajax event="select" listener="#{orderListView.onSelect}" update="msgs"/>
                 <p:ajax event="unselect" listener="#{orderListView.onUnselect}" update="msgs"/>
                 <p:ajax event="reorder" listener="#{orderListView.onReorder}" update="msgs"/>
-                
+
                 <f:facet name="caption">Available</f:facet>
 
                 <p:column style="width:40px">
@@ -55,7 +55,7 @@
                 </h:panelGrid>
             </p:dialog>
         </h:form>
-        
+
     </ui:define>
 
 </ui:composition>

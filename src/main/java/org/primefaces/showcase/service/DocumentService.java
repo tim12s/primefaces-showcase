@@ -23,7 +23,7 @@ import org.primefaces.showcase.domain.Document;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-@Named("documentService")
+@Named
 @ApplicationScoped
 public class DocumentService {
     
