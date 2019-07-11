@@ -516,7 +516,7 @@
     <ui:define name="source">
         <p:tabView>
             <p:tab title="flexGrid.xhtml">
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
 &lt;h3 class="first"&gt;Basic&lt;/h3&gt;
 &lt;div class="p-grid"&gt;
     &lt;div class="p-col"&gt;
@@ -925,7 +925,7 @@
                     &lt;div class="p-col-12 p-md-6"&gt;Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem
                         ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam
                         pretium leo et egestas luctus. Nunc facilisis gravida tellus.&lt;/div&gt;
-                &lt;/div&gt;     
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -979,10 +979,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.inject.Named;
+import javax.faces.view.ViewScoped;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class FlexGridView implements Serializable {
 
@@ -1015,7 +1015,7 @@ public class FlexGridView implements Serializable {
             columns.remove(columns.size() - 1);
         }
     }
-}                   
+}
                     </pre>
             </p:tab>
             <p:tab title="Documentation">
@@ -1174,7 +1174,7 @@ public class FlexGridView implements Serializable {
 
                 <h3>Multi Line</h3>
                 <p>When the number of columns exceed 12, columns wrap to a new line.</p>
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                 &lt;div class="p-grid"&gt;
                     &lt;div class="p-col-6"&gt;6&lt;/div&gt;
                     &lt;div class="p-col-6"&gt;6&lt;/div&gt;
@@ -1200,7 +1200,7 @@ public class FlexGridView implements Serializable {
                 <p>A column can have a fixed width while siblings having auto width. Apply "p-col-fixed" class to fix a column
                     width.
                 </p>
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                     <div class="p-grid">
                             <div class="p-col-fixed" style="width:100px">
                                 <div class="box">100px</div>
@@ -1265,7 +1265,7 @@ public class FlexGridView implements Serializable {
                 <p>In example below, large screens display 4 columns, medium screens display 2 columns in 2 rows and finally
                     on small devices, columns are stacked.</p>
 
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                     &lt;div class="p-grid"&gt;
                         &lt;div class="p-col-12 p-md-6 p-lg-3"&gt;A&lt;/div&gt;
                         &lt;div class="p-col-12 p-md-6 p-lg-3"&gt;B&lt;/div&gt;
@@ -1329,7 +1329,7 @@ public class FlexGridView implements Serializable {
                         </tbody>
                     </table>
                 </div>
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                         &lt;div class="p-grid p-justify-between"&gt;
                             &lt;div class="p-col-2"&gt;2&lt;/div&gt;
                             &lt;div class="p-col-1"&gt;1&lt;/div&gt;
@@ -1382,7 +1382,7 @@ public class FlexGridView implements Serializable {
                         </tbody>
                     </table>
                 </div>
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                             &lt;div class="p-grid p-align-center"&gt;
                                 &lt;div class="p-col"&gt;4&lt;/div&gt;
                                 &lt;div class="p-col"&gt;4&lt;/div&gt;
@@ -1433,7 +1433,7 @@ public class FlexGridView implements Serializable {
                         </tbody>
                     </table>
                 </div>
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                 &lt;div class="p-grid"&gt;
                     &lt;div class="p-col p-col-align-start"&gt;4&lt;/div&gt;
                     &lt;div class="p-col p-col-align-center"&gt;4&lt;/div&gt;
@@ -1455,11 +1455,11 @@ public class FlexGridView implements Serializable {
                 <h3>Offset</h3>
                 <p>Offset classes allow defining a left margin on a column to avoid adding empty columns for spacing.</p>
 
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                     &lt;div class="p-grid"&gt;
                         &lt;div class="p-col-6 p-offset-3"&gt;6&lt;/div&gt;
                     &lt;/div&gt;
-                    
+
                     &lt;div class="p-grid"&gt;
                         &lt;div class="p-col-4"&gt;4 &lt;/div&gt;
                         &lt;div class="p-col-4 p-offset-4"&gt;4&lt;/div&gt;
@@ -1528,7 +1528,7 @@ public class FlexGridView implements Serializable {
                 <h3>Nested</h3>
                 <p>Columns can be nested to create more complex layouts.</p>
 
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                 &lt;div class="p-grid"&gt;
                     &lt;div class="p-col-8"&gt;
                         &lt;div class="p-grid"&gt;
@@ -1572,7 +1572,7 @@ public class FlexGridView implements Serializable {
                     like to remove these gutters, apply .p-nogutter class to the container. Gutters can also be removed on
                     an ndividual columns with the same class name.
                 </p>
-                <pre name="code" class="brush:xml"> 
+                <pre name="code" class="brush:xml">
                     &lt;div class="p-grid p-nogutter"&gt;
                         &lt;div class="p-col"&gt;1&lt;/div&gt;
                         &lt;div class="p-col p-nogutter"&gt;2&lt;/div&gt;

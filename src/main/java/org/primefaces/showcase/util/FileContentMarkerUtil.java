@@ -21,7 +21,7 @@ public class FileContentMarkerUtil {
     private static final FileContentSettings javaFileSettings = new FileContentSettings()
             .setType("java")
             .setStartMarkers(
-                    Marker.of("@ManagedBean"),
+                    Marker.of("@Named"),
                     Marker.of("@RequestScoped"),
                     Marker.of("@ViewScoped"),
                     Marker.of("@SessionScoped"),
