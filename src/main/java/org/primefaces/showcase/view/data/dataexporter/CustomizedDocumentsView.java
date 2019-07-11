@@ -15,34 +15,28 @@
  */
 package org.primefaces.showcase.view.data.dataexporter;
 
-import com.lowagie.text.BadElementException;
-import com.lowagie.text.Document;
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.Image;
-import com.lowagie.text.PageSize;
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import com.lowagie.text.*;
+import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.primefaces.component.export.ExcelOptions;
 import org.primefaces.component.export.PDFOptions;
-
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
-@ManagedBean
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.List;
+
+@Named
+@RequestScoped
 public class CustomizedDocumentsView implements Serializable {
     
     private List<Car> cars;
@@ -53,7 +47,7 @@ public class CustomizedDocumentsView implements Serializable {
     
     private PDFOptions pdfOpt;
         
-    @ManagedProperty("#{carService}")
+    @Inject
     private CarService service;
     
     @PostConstruct

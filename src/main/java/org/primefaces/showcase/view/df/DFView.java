@@ -15,17 +15,19 @@
  */
 package org.primefaces.showcase.view.df;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.showcase.domain.Car;
 
-@ManagedBean(name = "dfView")
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.util.HashMap;
+import java.util.Map;
+
+@Named("dfView")
+@RequestScoped
 public class DFView {
     
     public void viewCars() {

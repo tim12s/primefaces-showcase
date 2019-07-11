@@ -15,9 +15,11 @@
  */
 package org.primefaces.showcase.view.button;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class ProductDetailView {
     
     private String productId; 

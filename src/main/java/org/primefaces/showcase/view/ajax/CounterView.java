@@ -15,11 +15,12 @@
  */
 package org.primefaces.showcase.view.ajax;
 
-import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 
-@ManagedBean
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
 @ViewScoped
 public class CounterView implements Serializable {
     

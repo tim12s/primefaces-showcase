@@ -14,20 +14,22 @@
  * limitations under the License.
  */
 package org.primefaces.showcase.view.data.gmap;
-    
-import java.io.Serializable;
-import javax.annotation.PostConstruct; 
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
- 
+
 import org.primefaces.event.map.OverlaySelectEvent;
 import org.primefaces.model.map.DefaultMapModel;
 import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Polygon;
- 
-@ManagedBean
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
+@RequestScoped
 public class PolygonsView implements Serializable {
  
     private MapModel polygonModel;

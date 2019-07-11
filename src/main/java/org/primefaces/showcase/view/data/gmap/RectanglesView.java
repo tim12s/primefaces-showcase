@@ -15,20 +15,18 @@
  */
 package org.primefaces.showcase.view.data.gmap;
 
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
- 
 import org.primefaces.event.map.OverlaySelectEvent;
-import org.primefaces.model.map.DefaultMapModel;
-import org.primefaces.model.map.LatLng;
-import org.primefaces.model.map.LatLngBounds;
-import org.primefaces.model.map.MapModel;
-import org.primefaces.model.map.Rectangle;
- 
-@ManagedBean
+import org.primefaces.model.map.*;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
+@RequestScoped
 public class RectanglesView implements Serializable {
  
     private MapModel rectangleModel;

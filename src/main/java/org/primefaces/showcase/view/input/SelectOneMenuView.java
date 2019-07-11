@@ -15,20 +15,22 @@
  */
 package org.primefaces.showcase.view.input;
 
+import org.primefaces.showcase.domain.Theme;
+import org.primefaces.showcase.service.ThemeService;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.model.SelectItem;
+import javax.faces.model.SelectItemGroup;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.model.SelectItem;
-import javax.faces.model.SelectItemGroup;
 
-import org.primefaces.showcase.domain.Theme;
-import org.primefaces.showcase.service.ThemeService;
-
-@ManagedBean
+@Named
+@RequestScoped
 public class SelectOneMenuView {
     
     private String console; 
@@ -45,7 +47,7 @@ public class SelectOneMenuView {
     private String option;  
     private List<String> options;
     
-    @ManagedProperty("#{themeService}")
+    @Inject
     private ThemeService service;
     
     @PostConstruct

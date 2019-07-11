@@ -15,13 +15,15 @@
  */
 package org.primefaces.showcase.view.input;
 
-import java.math.BigDecimal;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 
-@ManagedBean
+import javax.inject.Named;
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+@Named
 @ViewScoped
-public class InputNumberView {
+public class InputNumberView implements Serializable {
 
     private Double input1 = new Double(0);
     private Double input2 = new Double(0);

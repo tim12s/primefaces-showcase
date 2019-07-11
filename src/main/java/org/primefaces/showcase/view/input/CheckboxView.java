@@ -15,14 +15,16 @@
  */
 package org.primefaces.showcase.view.input;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
+import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class CheckboxView {
 
     private String[] selectedConsoles;

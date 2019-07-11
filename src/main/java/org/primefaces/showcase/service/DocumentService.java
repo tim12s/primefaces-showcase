@@ -15,14 +15,15 @@
  */
 package org.primefaces.showcase.service;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import org.primefaces.model.CheckboxTreeNode;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 import org.primefaces.showcase.domain.Document;
 
-@ManagedBean(name = "documentService")
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
+
+@Named("documentService")
 @ApplicationScoped
 public class DocumentService {
     

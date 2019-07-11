@@ -15,11 +15,13 @@
  */
 package org.primefaces.showcase.view.message;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class GrowlView {
     
     private String message;

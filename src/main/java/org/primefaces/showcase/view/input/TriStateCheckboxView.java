@@ -15,14 +15,15 @@
  */
 package org.primefaces.showcase.view.input;
 
-import java.io.Serializable;
+import org.omnifaces.cdi.ViewScoped;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
 
-@ManagedBean(name = "triStateCheckboxView")  
+@Named("triStateCheckboxView")
 @ViewScoped
 public class TriStateCheckboxView implements Serializable {
 

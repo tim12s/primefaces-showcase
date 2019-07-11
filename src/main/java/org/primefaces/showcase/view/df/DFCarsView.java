@@ -15,24 +15,24 @@
  */
 package org.primefaces.showcase.view.df;
 
-import java.io.Serializable;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.PrimeFaces;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
-@ManagedBean(name = "dfCarsView")
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.List;
+
+@Named("dfCarsView")
 @ViewScoped
 public class DFCarsView implements Serializable {
     
     private List<Car> cars;
 
-    @ManagedProperty("#{carService}")
+    @Inject
     private CarService service;
     
     @PostConstruct

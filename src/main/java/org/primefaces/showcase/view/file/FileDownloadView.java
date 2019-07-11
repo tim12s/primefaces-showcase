@@ -15,14 +15,16 @@
  */
 package org.primefaces.showcase.view.file;
 
-import java.io.InputStream;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
-@ManagedBean
+import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.InputStream;
+
+@Named
+@RequestScoped
 public class FileDownloadView {
     
     private StreamedContent file;

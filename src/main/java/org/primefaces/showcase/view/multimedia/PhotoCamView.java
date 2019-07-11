@@ -15,19 +15,21 @@
  */
 package org.primefaces.showcase.view.multimedia;
 
-import java.io.File;
-import java.io.IOException;
+import org.omnifaces.cdi.ViewScoped;
+import org.primefaces.event.CaptureEvent;
+
 import javax.faces.FacesException;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
-import org.primefaces.event.CaptureEvent;
+import javax.inject.Named;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
 
-@ManagedBean
+@Named
 @ViewScoped
-public class PhotoCamView {
+public class PhotoCamView implements Serializable {
     
     private String filename;
     

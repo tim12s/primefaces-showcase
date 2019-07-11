@@ -15,13 +15,7 @@
  */
 package org.primefaces.showcase.view.panel;
 
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.event.CloseEvent;
 import org.primefaces.event.DashboardReorderEvent;
 import org.primefaces.event.ToggleEvent;
@@ -30,7 +24,13 @@ import org.primefaces.model.DashboardModel;
 import org.primefaces.model.DefaultDashboardColumn;
 import org.primefaces.model.DefaultDashboardModel;
 
-@ManagedBean
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
 @ViewScoped
 public class DashboardView implements Serializable {
     

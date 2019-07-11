@@ -15,16 +15,18 @@
  */
 package org.primefaces.showcase.view.df;
 
-import java.util.HashMap;
-import java.util.Map;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "dfRootView")
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.util.HashMap;
+import java.util.Map;
+
+@Named("dfRootView")
+@RequestScoped
 public class DFRootView {
     
     public void openLevel1() {

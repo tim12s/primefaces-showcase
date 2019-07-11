@@ -15,15 +15,16 @@
  */
 package org.primefaces.showcase.view.panel;
 
-import java.io.Serializable;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.event.FlowEvent;
 import org.primefaces.showcase.domain.User;
 
-@ManagedBean
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
 @ViewScoped
 public class UserWizard implements Serializable {
 

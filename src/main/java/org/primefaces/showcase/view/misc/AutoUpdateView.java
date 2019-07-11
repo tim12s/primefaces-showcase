@@ -15,13 +15,13 @@
  */
 package org.primefaces.showcase.view.misc;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 
-@ManagedBean
+@Named
 @RequestScoped
 public class AutoUpdateView {
     

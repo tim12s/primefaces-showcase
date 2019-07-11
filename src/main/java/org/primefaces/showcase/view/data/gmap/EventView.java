@@ -15,17 +15,19 @@
  */
 package org.primefaces.showcase.view.data.gmap;
 
-import java.io.Serializable;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.event.map.PointSelectEvent;
 import org.primefaces.event.map.StateChangeEvent;
 import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.LatLngBounds;
 
-@ManagedBean
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
+@RequestScoped
 public class EventView implements Serializable {
     
     public void onStateChange(StateChangeEvent event) {

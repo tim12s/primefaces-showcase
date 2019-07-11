@@ -15,25 +15,27 @@
  */
 package org.primefaces.showcase.view.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
 import org.primefaces.event.SelectEvent;
-
 import org.primefaces.event.TransferEvent;
 import org.primefaces.event.UnselectEvent;
 import org.primefaces.model.DualListModel;
 import org.primefaces.showcase.domain.Theme;
 import org.primefaces.showcase.service.ThemeService;
 
-@ManagedBean
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
+
+@Named
+@RequestScoped
 public class PickListView {
     
-    @ManagedProperty("#{themeService}")
+    @Inject
     private ThemeService service;
     
     private DualListModel<String> cities;

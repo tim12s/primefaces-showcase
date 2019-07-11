@@ -15,18 +15,20 @@
  */
 package org.primefaces.showcase.view.input;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.event.SelectEvent;
 import org.primefaces.showcase.domain.Theme;
 import org.primefaces.showcase.service.ThemeService;
 
-@ManagedBean
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
+
+@Named
+@RequestScoped
 public class AutoCompleteView {
     
     private String txt1;
@@ -43,7 +45,7 @@ public class AutoCompleteView {
     private Theme theme4;
     private List<Theme> selectedThemes;
     
-    @ManagedProperty("#{themeService}")
+    @Inject
     private ThemeService service;
     
     public List<String> completeText(String query) {

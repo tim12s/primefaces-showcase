@@ -15,15 +15,16 @@
  */
 package org.primefaces.showcase.service;
 
+import org.primefaces.showcase.domain.Car;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import org.primefaces.showcase.domain.Car;
 
-@ManagedBean(name = "carService")
+@Named("carService")
 @ApplicationScoped
 public class CarService {
     

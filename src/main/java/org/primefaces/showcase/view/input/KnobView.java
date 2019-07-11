@@ -15,12 +15,14 @@
  */
 package org.primefaces.showcase.view.input;
 
-import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class KnobView implements Serializable {  
   
     private int value = 50;  

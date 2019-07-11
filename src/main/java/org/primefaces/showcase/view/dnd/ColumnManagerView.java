@@ -15,22 +15,23 @@
  */
 package org.primefaces.showcase.view.dnd;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
-@ManagedBean
+import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+@Named
 @ViewScoped
 public class ColumnManagerView implements Serializable {
     
@@ -42,7 +43,7 @@ public class ColumnManagerView implements Serializable {
     
     private TreeNode availableColumns;
     
-    @ManagedProperty("#{carService}")
+    @Inject
     private CarService service;
     
     @PostConstruct

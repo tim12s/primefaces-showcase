@@ -15,18 +15,21 @@
  */
 package org.primefaces.showcase.view.data.tree;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import org.primefaces.model.TreeNode;
 import org.primefaces.showcase.service.DocumentService;
 
-@ManagedBean(name="treeIconView")
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named("treeIconView")
+@RequestScoped
 public class IconView {
     
     private TreeNode root;
     
-    @ManagedProperty("#{documentService}")
+    @Inject
     private DocumentService service;
     
     @PostConstruct

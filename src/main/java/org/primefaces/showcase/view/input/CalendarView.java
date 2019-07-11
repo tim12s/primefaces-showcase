@@ -19,15 +19,17 @@ import org.primefaces.PrimeFaces;
 import org.primefaces.event.SelectEvent;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class CalendarView {
 
     private Date date1;

@@ -15,9 +15,11 @@
  */
 package org.primefaces.showcase.view.ajax;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class SelectorView {
     
     private String text1;   

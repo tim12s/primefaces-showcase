@@ -15,18 +15,20 @@
  */
 package org.primefaces.showcase.view.panel;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.event.TabChangeEvent;
 import org.primefaces.event.TabCloseEvent;
 import org.primefaces.showcase.domain.Car;
 
-@ManagedBean
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
+
+@Named
+@RequestScoped
 public class TabbedView {
     
     private List<Car> cars;

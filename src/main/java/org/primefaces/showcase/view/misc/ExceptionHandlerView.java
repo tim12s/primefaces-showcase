@@ -15,13 +15,13 @@
  */
 package org.primefaces.showcase.view.misc;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.FacesException;
 import javax.faces.application.ViewExpiredException;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 @RequestScoped
 public class ExceptionHandlerView {
 

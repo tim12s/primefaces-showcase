@@ -15,14 +15,16 @@
  */
 package org.primefaces.showcase.view.overlay;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-
 import org.primefaces.showcase.domain.Movie;
 
-@ManagedBean
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
+
+@Named
+@RequestScoped
 public class MovieView {
     
     private List<Movie> movieList;

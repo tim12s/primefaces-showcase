@@ -15,18 +15,19 @@
  */
 package org.primefaces.showcase.view.data.treetable;
 
+import org.omnifaces.cdi.ViewScoped;
+import org.primefaces.model.TreeNode;
+import org.primefaces.showcase.service.DocumentService;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-import org.primefaces.model.TreeNode;
-import org.primefaces.showcase.service.DocumentService;
 
-@ManagedBean(name="ttColumnsView")
+@Named("ttColumnsView")
 @ViewScoped
 public class ColumnsView implements Serializable {
     
@@ -38,7 +39,7 @@ public class ColumnsView implements Serializable {
     
     private TreeNode root;
         
-    @ManagedProperty("#{documentService}")
+    @Inject
     private DocumentService service;
     
     @PostConstruct

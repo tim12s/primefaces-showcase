@@ -15,13 +15,15 @@
  */
 package org.primefaces.showcase.view.misc;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.PrimeFaces;
 
-@ManagedBean
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class ResetInputView {
     
     private String text1;

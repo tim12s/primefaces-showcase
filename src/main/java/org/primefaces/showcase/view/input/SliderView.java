@@ -15,14 +15,16 @@
  */
 package org.primefaces.showcase.view.input;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
-
 import org.primefaces.event.SlideEndEvent;
 
-@ManagedBean
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class SliderView {
    
     private int number1;

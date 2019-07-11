@@ -15,15 +15,17 @@
  */
 package org.primefaces.showcase.view.data;
 
-import java.io.Serializable;
-import java.util.UUID;
-import javax.faces.bean.ManagedBean;
-
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.mindmap.DefaultMindmapNode;
 import org.primefaces.model.mindmap.MindmapNode;
 
-@ManagedBean
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.UUID;
+
+@Named
+@RequestScoped
 public class MindmapView implements Serializable {
     
     private MindmapNode root;

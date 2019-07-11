@@ -15,25 +15,22 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.component.timeline.TimelineUpdater;
 import org.primefaces.event.timeline.TimelineDragDropEvent;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
 import org.primefaces.showcase.domain.Event;
 
-@ManagedBean(name = "dndTimelineView")
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.*;
+
+@Named("dndTimelineView")
 @ViewScoped
 public class DndTimelineView implements Serializable {
 

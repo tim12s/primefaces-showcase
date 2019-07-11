@@ -15,14 +15,15 @@
  */
 package org.primefaces.showcase.view.data.tree;
 
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
-@ManagedBean(name="treeBasicView")
+import javax.annotation.PostConstruct;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named("treeBasicView")
 @ViewScoped
 public class BasicView implements Serializable {
     

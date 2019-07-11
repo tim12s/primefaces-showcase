@@ -15,15 +15,16 @@
  */
 package org.primefaces.showcase.view.data.treetable;
 
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 import org.primefaces.showcase.domain.Document;
 
-@ManagedBean(name="ttPaginatorView")
+import javax.annotation.PostConstruct;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named("ttPaginatorView")
 @ViewScoped
 public class PaginatorView implements Serializable {
     

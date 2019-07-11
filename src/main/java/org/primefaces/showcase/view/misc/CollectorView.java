@@ -15,17 +15,18 @@
  */
 package org.primefaces.showcase.view.misc;
 
+import org.omnifaces.cdi.ViewScoped;
+import org.primefaces.showcase.domain.Book;
+
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import org.primefaces.showcase.domain.Book;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class CollectorView implements Serializable {
     

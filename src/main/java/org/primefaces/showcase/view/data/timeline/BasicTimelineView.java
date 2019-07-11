@@ -15,18 +15,19 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import java.io.Serializable;
-import java.util.Calendar;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.event.timeline.TimelineSelectEvent;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
 
-@ManagedBean(name="basicTimelineView")
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.Calendar;
+
+@Named("basicTimelineView")
 @ViewScoped
 public class BasicTimelineView implements Serializable {  
   

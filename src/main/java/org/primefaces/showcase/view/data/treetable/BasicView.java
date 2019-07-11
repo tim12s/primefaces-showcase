@@ -15,16 +15,17 @@
  */
 package org.primefaces.showcase.view.data.treetable;
 
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.TreeNode;
 import org.primefaces.showcase.domain.Document;
 import org.primefaces.showcase.service.DocumentService;
 
-@ManagedBean(name="ttBasicView")
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named("ttBasicView")
 @ViewScoped
 public class BasicView implements Serializable {
     
@@ -32,7 +33,7 @@ public class BasicView implements Serializable {
     
     private Document selectedDocument;
         
-    @ManagedProperty("#{documentService}")
+    @Inject
     private DocumentService service;
     
     @PostConstruct
