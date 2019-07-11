@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.misc;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

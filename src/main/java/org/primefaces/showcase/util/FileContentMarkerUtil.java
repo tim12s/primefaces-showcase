@@ -68,9 +68,9 @@ public class FileContentMarkerUtil {
         StringBuilder content = new StringBuilder();
         List<FileContent> javaFiles = new ArrayList<>();
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        
+
         try (InputStreamReader ir = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-            BufferedReader br = new BufferedReader(ir)) {
+                BufferedReader br = new BufferedReader(ir)) {
             String line;
             boolean started = false;
 
@@ -109,13 +109,18 @@ public class FileContentMarkerUtil {
         }
         return new FileContent(fileName, value, settings.getType(), javaFiles);
     }
-    
+
     private static void addBean(FacesContext facesContext, List<FileContent> javaFiles, String group) throws Exception {
         Object bean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{" + group + "}", Object.class);
-        if (bean != null && isEligibleFile(bean.getClass().getName())) {
+        if (bean == null) {
+            return;
+        }
+        
+        Class<?> beanClass = getUnproxiedClass(bean.getClass());
+        if (isEligibleFile(beanClass.getName())) {
             // special handling for member classes (like ColumnsView and ColumnsView$ColumnModel)
-            String className = bean.getClass().getName();
-            if (bean.getClass().isMemberClass()) {
+            String className = beanClass.getName();
+            if (beanClass.isMemberClass()) {
                 className = className.substring(0, className.indexOf("$"));
             }
 
@@ -123,8 +128,8 @@ public class FileContentMarkerUtil {
             if (!isFileContainedIn(javaFileName, javaFiles)) {
                 javaFiles.add(createFileContent(className));
             }
-            
-            for (Field field : bean.getClass().getDeclaredFields()) {
+
+            for (Field field : beanClass.getDeclaredFields()) {
                 addDeclaredField(javaFiles, field);
             }
         }
@@ -186,5 +191,40 @@ public class FileContentMarkerUtil {
 
     private static String createFullPath(String filename) {
         return "/" + filename.replaceAll("\\.", "/") + ".java";
+    }
+
+    /**
+     * NOTE: copied from DeltaSpike
+     * 
+     * @param currentClass current class
+     *
+     * @return class of the real implementation
+     */
+    public static Class getUnproxiedClass(Class currentClass) {
+        Class unproxiedClass = currentClass;
+
+        while (isProxiedClass(unproxiedClass)) {
+            unproxiedClass = unproxiedClass.getSuperclass();
+        }
+
+        return unproxiedClass;
+    }
+
+    /**
+     * NOTE: copied from DeltaSpike
+     * 
+     * Analyses if the given class is a generated proxy class
+     *
+     * @param currentClass current class
+     *
+     * @return true if the given class is a known proxy class, false otherwise
+     */
+    public static boolean isProxiedClass(Class currentClass) {
+        if (currentClass == null || currentClass.getSuperclass() == null) {
+            return false;
+        }
+
+        return currentClass.getName().startsWith(currentClass.getSuperclass().getName())
+                && currentClass.getName().contains("$$");
     }
 }

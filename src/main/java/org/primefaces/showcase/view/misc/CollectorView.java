@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.misc;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 import org.primefaces.showcase.domain.Book;
 
 import javax.annotation.PostConstruct;

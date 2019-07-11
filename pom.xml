@@ -172,12 +172,6 @@
             <version>20181114.1</version>
         </dependency>
 
-        <!-- Omnifaces because of org.omnifaces.cdi.ViewScoped -->
-        <dependency>
-            <groupId>org.omnifaces</groupId>
-            <artifactId>omnifaces</artifactId>
-            <version>3.3</version>
-        </dependency>
     </dependencies>
 
     <repositories>

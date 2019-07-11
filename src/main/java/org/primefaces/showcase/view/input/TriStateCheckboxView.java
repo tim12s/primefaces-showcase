@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.input;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;

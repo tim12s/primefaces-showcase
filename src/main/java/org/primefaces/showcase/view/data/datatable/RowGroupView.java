@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
@@ -48,6 +48,6 @@ public class RowGroupView implements Serializable {
     }
     
     public int getRandomPrice() {
-		return (int) (Math.random() * 100000);
+            return (int) (Math.random() * 100000);
 	}
 }

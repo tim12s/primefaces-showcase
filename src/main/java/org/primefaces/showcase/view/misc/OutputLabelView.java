@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.misc;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;

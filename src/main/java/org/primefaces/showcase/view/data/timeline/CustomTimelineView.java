@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
 

@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.showcase.domain.Car;

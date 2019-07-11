@@ -1,6 +1,6 @@
 package org.primefaces.showcase.view.panel;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;

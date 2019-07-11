@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.showcase.domain.Car;

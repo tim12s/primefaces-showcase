@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.ajax;
 
-import org.omnifaces.cdi.ViewScoped;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -24,6 +23,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import javax.faces.view.ViewScoped;
 
 @Named
 @ViewScoped

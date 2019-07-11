@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.misc.terminal;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 
 import javax.inject.Named;
 import java.io.Serializable;

@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 import org.primefaces.showcase.domain.Player;
 import org.primefaces.showcase.domain.Sale;
 

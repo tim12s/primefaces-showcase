@@ -15,7 +15,7 @@
  */
 package org.primefaces.showcase.view.multimedia;
 
-import org.omnifaces.cdi.ViewScoped;
+import javax.faces.view.ViewScoped;
 import org.primefaces.event.CaptureEvent;
 
 import javax.faces.FacesException;
