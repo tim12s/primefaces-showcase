@@ -81,8 +81,7 @@ public class TableStateView implements Serializable {
     public void clearTableState() {
         String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
         PrimeFaces.current().multiViewState()
-                .clearMultiViewStates(viewId,
-                        (clientId) -> showMessage(clientId));
+                .clear(viewId, (clientId) -> showMessage(clientId));
     }
 
     private void showMessage(String clientId) {
