@@ -52,8 +52,8 @@ public class TagCloudView {
         return model;
     }
     
-    public void onSelect(SelectEvent event) {
-        TagCloudItem item = (TagCloudItem) event.getObject();
+    public void onSelect(SelectEvent<TagCloudItem> event) {
+        TagCloudItem item = event.getObject();
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Selected", item.getLabel());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }

@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.component.timeline.TimelineUpdater;
 import org.primefaces.event.timeline.TimelineDragDropEvent;
 import org.primefaces.model.timeline.TimelineEvent;
@@ -26,6 +25,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.*;
@@ -60,10 +60,10 @@ public class DndTimelineView implements Serializable {
 
     }
 
-    public void onDrop(TimelineDragDropEvent e) {
+    public void onDrop(TimelineDragDropEvent<Event> e) {
         // get dragged model object (event class) if draggable item is within a data iteration component,
         // update event's start and end dates.
-        Event dndEvent = (Event) e.getData();
+        Event dndEvent = e.getData();
         dndEvent.setStart(e.getStartDate());
         dndEvent.setEnd(e.getEndDate());
 

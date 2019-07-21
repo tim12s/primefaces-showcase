@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.showcase.domain.Car;
@@ -24,6 +23,7 @@ import org.primefaces.showcase.service.CarService;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -60,8 +60,8 @@ public class LazyView implements Serializable {
         this.service = service;
     }
     
-    public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Car Selected", ((Car) event.getObject()).getId());
+    public void onRowSelect(SelectEvent<Car> event) {
+        FacesMessage msg = new FacesMessage("Car Selected", event.getObject().getId());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }

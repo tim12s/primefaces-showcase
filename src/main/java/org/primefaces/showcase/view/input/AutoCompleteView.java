@@ -85,8 +85,8 @@ public class AutoCompleteView {
         return filteredThemes;
 	}
         
-    public void onItemSelect(SelectEvent event) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Item Selected", event.getObject().toString()));
+    public void onItemSelect(SelectEvent<String> event) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Item Selected", event.getObject()));
     }
 
     public String getTxt1() {

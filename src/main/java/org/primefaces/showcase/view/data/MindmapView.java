@@ -55,8 +55,8 @@ public class MindmapView implements Serializable {
         this.selectedNode = selectedNode;
     }
 
-    public void onNodeSelect(SelectEvent event) {
-        MindmapNode node = (MindmapNode) event.getObject();
+    public void onNodeSelect(SelectEvent<MindmapNode> event) {
+        MindmapNode node = event.getObject();
         
         //populate if not already loaded
         if(node.getChildren().isEmpty()) {
@@ -81,7 +81,7 @@ public class MindmapView implements Serializable {
         }   
     }
     
-    public void onNodeDblselect(SelectEvent event) {
-        this.selectedNode = (MindmapNode) event.getObject();        
+    public void onNodeDblselect(SelectEvent<MindmapNode> event) {
+        this.selectedNode = event.getObject();
     }
 }

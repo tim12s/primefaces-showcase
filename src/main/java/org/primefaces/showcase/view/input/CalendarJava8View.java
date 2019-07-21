@@ -77,11 +77,10 @@ public class CalendarJava8View {
         maxDate = LocalDate.now().plusYears(1);
     }
 
-    public void onDateSelect(SelectEvent event) {
+    public void onDateSelect(SelectEvent<LocalDate> event) {
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        LocalDate date= (LocalDate)event.getObject();
         DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", date.format(formatter)));
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", event.getObject().format(formatter)));
     }
 
     public void click() {

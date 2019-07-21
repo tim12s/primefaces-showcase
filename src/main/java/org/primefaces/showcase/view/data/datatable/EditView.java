@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.showcase.domain.Car;
@@ -24,6 +23,7 @@ import org.primefaces.showcase.service.CarService;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -65,13 +65,13 @@ public class EditView implements Serializable {
         this.service = service;
     }
     
-    public void onRowEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Car Edited", ((Car) event.getObject()).getId());
+    public void onRowEdit(RowEditEvent<Car> event) {
+        FacesMessage msg = new FacesMessage("Car Edited", event.getObject().getId());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
-    public void onRowCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Edit Cancelled", ((Car) event.getObject()).getId());
+    public void onRowCancel(RowEditEvent<Car> event) {
+        FacesMessage msg = new FacesMessage("Edit Cancelled", event.getObject().getId());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
