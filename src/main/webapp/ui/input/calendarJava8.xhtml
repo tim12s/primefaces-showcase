@@ -69,7 +69,7 @@
     </ui:define>
 
     <ui:define name="title">
-        Calendar (Java8; LocalDate, LocalTime, LocalDateTime)
+        Calendar (Java8; LocalDate, LocalTime, LocalDateTime; requires Primefaces >= 7.1)
     </ui:define>
 
     <ui:define name="description">
@@ -122,11 +122,6 @@
 
                 <p:outputLabel for="time" value="Time Only:" />
                 <p:calendar id="time" value="#{calendarJava8View.time1}" pattern="HH:mm" timeOnly="true"  />
-
-                <!--
-                <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern; broken before; generates client-side JS-error):" />
-                <p:calendar id="timeonlyWithoutPattern" value="#{calendarJava8View.time2}" timeOnly="true"  />
-                -->
             </h:panelGrid>
             
             <p:commandButton value="Submit" update="msgs" action="#{calendarJava8View.click}" icon="pi pi-check" />
@@ -197,13 +192,6 @@
                     <h:outputText value="#{calendarJava8View.time1}">
                         <f:convertDateTime pattern="HH:mm" type="localTime"/>
                     </h:outputText>
-
-                    <!--
-                    <h:outputText value="Time Only (without Pattern; broken before; date-popup shown):" />
-                    <h:outputText value="#{calendarJava8View.time2}">
-                        <f:convertDateTime pattern="HH:mm" type="localTime"/>
-                    </h:outputText>
-                    -->
                 </p:panelGrid>
             </p:dialog>
         </h:form>
