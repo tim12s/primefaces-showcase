@@ -137,19 +137,14 @@
                 <p:outputLabel for="multi" value="Multiple Months:" />
                 <p:datePicker id="multi" value="#{calendarView.date12}" numberOfMonths="3"/>
 
-                <p:outputLabel for="time" value="Time (broken before; time was not transfered to bean):" />
+                <p:outputLabel for="time" value="Time (broken; see issue 4625)" />
                 <p:datePicker id="time" value="#{calendarView.date13}" showTime="true"/>
 
-                <p:outputLabel for="timeDe" value="Time (German):" />
+                <p:outputLabel for="timeDe" value="Time (German; broken; see issue 4625):" />
                 <p:datePicker id="timeDe" value="#{calendarView.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy"/>
 
                 <p:outputLabel for="timeonly" value="Time Only:" />
                 <p:datePicker id="timeonly" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
-
-                <!--
-                <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern; broken before; Parsing-Error):" />
-                <p:datePicker id="timeonlyWithoutPattern" value="#{calendarView.date15}" timeOnly="true"/>
-                -->
             </h:panelGrid>
 
             <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
@@ -237,12 +232,12 @@
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
 
-                    <h:outputText value="Time (broken before; time was not transfered to bean):" />
+                    <h:outputText value="Time (broken; see issue 4625):" />
                     <h:outputText value="#{calendarView.date13}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
                     </h:outputText>
 
-                    <h:outputText value="Time (German):" />
+                    <h:outputText value="Time (German; broken; see issue 4625):" />
                     <h:outputText value="#{calendarView.dateTimeDe}">
                         <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
                     </h:outputText>
@@ -251,13 +246,6 @@
                     <h:outputText value="#{calendarView.date14}">
                         <f:convertDateTime pattern="HH:mm" />
                     </h:outputText>
-
-                    <!--
-                    <h:outputText value="Time Only (without Pattern; broken before; Parsing-Error):" />
-                    <h:outputText value="#{calendarView.date15}">
-                        <f:convertDateTime pattern="HH:mm" />
-                    </h:outputText>
-                    -->
                 </p:panelGrid>
             </p:dialog>
         </h:form>
