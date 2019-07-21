@@ -51,7 +51,7 @@ public class BasicTimelineView implements Serializable {
         model.add(new TimelineEvent("PrimeUI 1.1", cal.getTime()));  
           
         cal.set(2014, Calendar.OCTOBER, 11, 0, 0, 0);  
-        model.add(new TimelineEvent("Primefaces 5.1.3", cal.getTime())); 
+        model.add(new TimelineEvent("PrimeFaces 5.1.3", cal.getTime())); 
         
         cal.set(2015, Calendar.DECEMBER, 8, 0, 0, 0);  
         model.add(new TimelineEvent("PrimeUI 2.2", cal.getTime()));
@@ -87,7 +87,7 @@ public class BasicTimelineView implements Serializable {
         model.add(new TimelineEvent("PrimeUI 4.1.0", cal.getTime()));  
   
         cal.set(2016, Calendar.FEBRUARY, 29, 0, 0, 0);  
-        model.add(new TimelineEvent("Primefaces 5.3.8", cal.getTime()));  
+        model.add(new TimelineEvent("PrimeFaces 5.3.8", cal.getTime()));  
   
         cal.set(2016, Calendar.FEBRUARY, 29, 0, 0, 0);  
         model.add(new TimelineEvent("PrimeNG 0.5", cal.getTime()));  

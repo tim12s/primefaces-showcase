@@ -34,7 +34,7 @@ User Guide is available at [documentation](http://www.primefaces.org/documentati
 
 ### Contribution
 
-Visit [Contribution Wiki](https://github.com/primefaces/primefaces/wiki/Contributing-to-Primefaces) page for the detailed information.
+Visit [Contribution Wiki](https://github.com/primefaces/primefaces/wiki/Contributing-to-PrimeFaces) page for the detailed information.
 
 ### License
 

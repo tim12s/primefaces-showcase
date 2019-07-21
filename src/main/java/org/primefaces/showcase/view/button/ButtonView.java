@@ -93,7 +93,7 @@ public class ButtonView {
     }
 
     public void buttonAction() {
-        addMessage("Welcome to Primefaces!!");
+        addMessage("Welcome to PrimeFaces!!");
     }
 
     public void addMessage(String summary) {
