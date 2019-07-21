@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.data.treetable;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.model.TreeNode;
@@ -24,6 +23,7 @@ import org.primefaces.showcase.service.DocumentService;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -57,13 +57,13 @@ public class EditView implements Serializable{
         this.service = service;
     }
     
-    public void onRowEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Document Edited", ((TreeNode) event.getObject()).toString());
+    public void onRowEdit(RowEditEvent<TreeNode> event) {
+        FacesMessage msg = new FacesMessage("Document Edited", event.getObject().toString());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
-    public void onRowCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Edit Cancelled", ((TreeNode) event.getObject()).toString());
+    public void onRowCancel(RowEditEvent<TreeNode> event) {
+        FacesMessage msg = new FacesMessage("Edit Cancelled", event.getObject().toString());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     

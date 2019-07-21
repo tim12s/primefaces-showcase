@@ -31,8 +31,8 @@ public class RatingView {
     private Integer rating3;   
     private Integer rating4 = 3;
     
-    public void onrate(RateEvent rateEvent) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Rate Event", "You rated:" + ((Integer) rateEvent.getRating()).intValue());
+    public void onrate(RateEvent<Integer> rateEvent) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Rate Event", "You rated:" + rateEvent.getRating());
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     

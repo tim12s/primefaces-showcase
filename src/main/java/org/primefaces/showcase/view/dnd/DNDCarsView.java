@@ -15,12 +15,12 @@
  */
 package org.primefaces.showcase.view.dnd;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.event.DragDropEvent;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
 import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -43,11 +43,11 @@ public class DNDCarsView implements Serializable {
     @PostConstruct
     public void init() {
         cars = service.createCars(9);
-        droppedCars = new ArrayList<Car>();
+        droppedCars = new ArrayList<>();
     }
     
-    public void onCarDrop(DragDropEvent ddEvent) {
-        Car car = ((Car) ddEvent.getData());
+    public void onCarDrop(DragDropEvent<Car> ddEvent) {
+        Car car = ddEvent.getData();
  
         droppedCars.add(car);
         cars.remove(car);
