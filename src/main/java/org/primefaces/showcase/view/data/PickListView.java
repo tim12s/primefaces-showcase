@@ -103,14 +103,14 @@ public class PickListView {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }  
     
-    public void onSelect(SelectEvent event) {
+    public void onSelect(SelectEvent<Theme> event) {
         FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Selected", event.getObject().toString()));
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Selected", event.getObject().getName()));
     }
     
-    public void onUnselect(UnselectEvent event) {
+    public void onUnselect(UnselectEvent<Theme> event) {
         FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Unselected", event.getObject().toString()));
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Unselected", event.getObject().getName()));
     }
     
     public void onReorder() {

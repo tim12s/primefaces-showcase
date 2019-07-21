@@ -74,7 +74,7 @@ public class CalendarView {
         maxDate = new Date(today.getTime() + (365 * oneDay));
     }
 
-    public void onDateSelect(SelectEvent event) {
+    public void onDateSelect(SelectEvent<Date> event) {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));

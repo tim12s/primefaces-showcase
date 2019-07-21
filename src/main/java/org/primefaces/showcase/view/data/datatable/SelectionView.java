@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.data.datatable;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 import org.primefaces.showcase.domain.Car;
@@ -24,6 +23,7 @@ import org.primefaces.showcase.service.CarService;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -99,13 +99,13 @@ public class SelectionView implements Serializable {
         this.selectedCars = selectedCars;
     }
     
-    public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Car Selected", ((Car) event.getObject()).getId());
+    public void onRowSelect(SelectEvent<Car> event) {
+        FacesMessage msg = new FacesMessage("Car Selected", event.getObject().getId());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onRowUnselect(UnselectEvent event) {
-        FacesMessage msg = new FacesMessage("Car Unselected", ((Car) event.getObject()).getId());
+    public void onRowUnselect(UnselectEvent<Car> event) {
+        FacesMessage msg = new FacesMessage("Car Unselected", event.getObject().getId());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }

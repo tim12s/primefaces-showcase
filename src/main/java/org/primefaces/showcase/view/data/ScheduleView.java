@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.data;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
@@ -24,6 +23,7 @@ import org.primefaces.model.*;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.Calendar;
@@ -177,12 +177,12 @@ public class ScheduleView implements Serializable {
 		event = new DefaultScheduleEvent();
 	}
 	
-	public void onEventSelect(SelectEvent selectEvent) {
-		event = (ScheduleEvent) selectEvent.getObject();
+	public void onEventSelect(SelectEvent<ScheduleEvent> selectEvent) {
+		event = selectEvent.getObject();
 	}
 	
-	public void onDateSelect(SelectEvent selectEvent) {
-		event = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject());
+	public void onDateSelect(SelectEvent<Date> selectEvent) {
+		event = new DefaultScheduleEvent("", selectEvent.getObject(), selectEvent.getObject());
 	}
 	
 	public void onEventMove(ScheduleEntryMoveEvent event) {
