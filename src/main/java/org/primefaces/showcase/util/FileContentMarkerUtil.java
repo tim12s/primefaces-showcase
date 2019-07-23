@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.primefaces.util.LangUtils;
 
 /**
  * FileContentMarkerUtil
@@ -116,7 +117,7 @@ public class FileContentMarkerUtil {
             return;
         }
         
-        Class<?> beanClass = getUnproxiedClass(bean.getClass());
+        Class<?> beanClass = LangUtils.getUnproxiedClass(bean.getClass());
         if (isEligibleFile(beanClass.getName())) {
             // special handling for member classes (like ColumnsView and ColumnsView$ColumnModel)
             String className = beanClass.getName();
@@ -191,40 +192,5 @@ public class FileContentMarkerUtil {
 
     private static String createFullPath(String filename) {
         return "/" + filename.replaceAll("\\.", "/") + ".java";
-    }
-
-    /**
-     * NOTE: copied from DeltaSpike
-     * 
-     * @param currentClass current class
-     *
-     * @return class of the real implementation
-     */
-    public static Class getUnproxiedClass(Class currentClass) {
-        Class unproxiedClass = currentClass;
-
-        while (isProxiedClass(unproxiedClass)) {
-            unproxiedClass = unproxiedClass.getSuperclass();
-        }
-
-        return unproxiedClass;
-    }
-
-    /**
-     * NOTE: copied from DeltaSpike
-     * 
-     * Analyses if the given class is a generated proxy class
-     *
-     * @param currentClass current class
-     *
-     * @return true if the given class is a known proxy class, false otherwise
-     */
-    public static boolean isProxiedClass(Class currentClass) {
-        if (currentClass == null || currentClass.getSuperclass() == null) {
-            return false;
-        }
-
-        return currentClass.getName().startsWith(currentClass.getSuperclass().getName())
-                && currentClass.getName().contains("$$");
     }
 }
