@@ -16,7 +16,7 @@
 package org.primefaces.showcase.view.file;
 
 import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.UploadedFile;
+import org.primefaces.model.file.SingleUploadedFile;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -27,13 +27,13 @@ import javax.inject.Named;
 @RequestScoped
 public class FileUploadView {
     
-    private UploadedFile file;
+    private SingleUploadedFile file;
 
-    public UploadedFile getFile() {
+    public SingleUploadedFile getFile() {
         return file;
     }
 
-    public void setFile(UploadedFile file) {
+    public void setFile(SingleUploadedFile file) {
         this.file = file;
     }
     
