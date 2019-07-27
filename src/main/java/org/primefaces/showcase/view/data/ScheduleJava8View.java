@@ -140,12 +140,12 @@ public class ScheduleJava8View implements Serializable {
 		event = new DefaultScheduleEvent();
 	}
 	
-	public void onEventSelect(SelectEvent selectEvent) {
-		event = (ScheduleEvent) selectEvent.getObject();
+	public void onEventSelect(SelectEvent<ScheduleEvent> selectEvent) {
+		event = selectEvent.getObject();
 	}
 	
-	public void onDateSelect(SelectEvent selectEvent) {
-		event = new DefaultScheduleEvent("", (LocalDateTime) selectEvent.getObject(), (LocalDateTime) selectEvent.getObject());
+	public void onDateSelect(SelectEvent<LocalDateTime> selectEvent) {
+		event = new DefaultScheduleEvent("", selectEvent.getObject(), selectEvent.getObject());
 	}
 	
 	public void onEventMove(ScheduleEntryMoveEvent event) {

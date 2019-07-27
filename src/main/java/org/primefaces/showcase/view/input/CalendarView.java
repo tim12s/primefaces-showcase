@@ -19,18 +19,20 @@ import org.primefaces.PrimeFaces;
 import org.primefaces.event.SelectEvent;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @Named
-@RequestScoped
-public class CalendarView {
+@ViewScoped
+public class CalendarView implements Serializable {
 
     private Date date1;
     private Date date2;
@@ -72,6 +74,9 @@ public class CalendarView {
 
         minDate = new Date(today.getTime() - (365 * oneDay));
         maxDate = new Date(today.getTime() + (365 * oneDay));
+
+        dateDe = GregorianCalendar.getInstance().getTime();
+        dateTimeDe = GregorianCalendar.getInstance().getTime();
     }
 
     public void onDateSelect(SelectEvent<Date> event) {

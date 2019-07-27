@@ -185,7 +185,7 @@ public class ScheduleView implements Serializable {
 		event = selectEvent.getObject();
 	}
 	
-	public void onDateSelect(SelectEvent<Date> selectEvent) {
+	public void onDateSelect(SelectEvent<LocalDateTime> selectEvent) {
 		event = new DefaultScheduleEvent("", selectEvent.getObject(), selectEvent.getObject());
 	}
 	

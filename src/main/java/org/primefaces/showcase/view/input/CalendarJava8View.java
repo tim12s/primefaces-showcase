@@ -19,18 +19,19 @@ import org.primefaces.PrimeFaces;
 import org.primefaces.event.SelectEvent;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 @Named
-@RequestScoped
-public class CalendarJava8View {
+@ViewScoped
+public class CalendarJava8View implements Serializable {
 
     private LocalDate date1;
     private LocalDate date2;
@@ -75,6 +76,9 @@ public class CalendarJava8View {
 
         minDate = LocalDate.now().minusYears(1);
         maxDate = LocalDate.now().plusYears(1);
+
+        dateDe = LocalDate.of(2019, 7, 27);
+        dateTimeDe = LocalDateTime.of(2019, 7, 27, 12, 59);
     }
 
     public void onDateSelect(SelectEvent<LocalDate> event) {
