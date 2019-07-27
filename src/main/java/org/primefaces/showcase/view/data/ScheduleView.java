@@ -19,6 +19,7 @@ import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.*;
+import org.primefaces.util.CalendarUtils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -26,6 +27,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -48,15 +50,17 @@ public class ScheduleView implements Serializable {
 		eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
 		
 		lazyEventModel = new LazyScheduleModel() {
-			
+
 			@Override
-			public void loadEvents(Date start, Date end) {
-				Date random = getRandomDate(start);
-				addEvent(new DefaultScheduleEvent("Lazy Event 1", random, random));
-				
-				random = getRandomDate(start);
-				addEvent(new DefaultScheduleEvent("Lazy Event 2", random, random));
-			}	
+			public void loadEvents(LocalDateTime start, LocalDateTime end) {
+				for (int i=1; i<=5; i++) {
+					Date random = getRandomDate(CalendarUtils.convertLocalDateTime2Date(start));
+					addEvent(new DefaultScheduleEvent("Lazy Event 1", random, random));
+
+					random = getRandomDate(CalendarUtils.convertLocalDateTime2Date(end));
+					addEvent(new DefaultScheduleEvent("Lazy Event 2", random, random));
+				}
+			}
 		};
 	}
 	

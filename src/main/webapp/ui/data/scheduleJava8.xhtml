@@ -1,0 +1,93 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            PrimeFaces.locales['tr'] = {
+                closeText: 'kapat',
+                prevText: 'geri',
+                nextText: 'ileri',
+                currentText: 'bugün',
+                monthNames: ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran',
+                    'Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'],
+                monthNamesShort: ['Oca','Şub','Mar','Nis','May','Haz',
+                    'Tem','Ağu','Eyl','Eki','Kas','Ara'],
+                dayNames: ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'],
+                dayNamesShort: ['Pz','Pt','Sa','Ça','Pe','Cu','Ct'],
+                dayNamesMin: ['Pz','Pt','Sa','Ça','Pe','Cu','Ct'],
+                weekHeader: 'Hf',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                month: 'Ay',
+                week: 'Hafta',
+                day: 'Gün',
+                allDayText : 'Tüm Gün'
+            };
+        </script>
+        <style type="text/css">
+            .value {
+                width: 1000px;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="title">
+        Schedule (Java8; LocalDateTime; requires PrimeFaces >= 7.1)
+    </ui:define>
+
+    <ui:define name="description">
+        Schedule provides an Outlook, iCal like JSF component to manage events. Schedule is highly customizable featuring various views (month, day, week), built-in I18N, drag-drop, resize, customizable event dialog, ajax listeners for every user interaction and more.
+    </ui:define>
+
+    <ui:define name="implementation">
+
+        <h:form>
+            <p:growl id="messages" showDetail="true" />
+     
+            <h:panelGrid columnClasses="value">
+                <h3 style="margin-top: 0">Editable Schedule</h3>
+                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" timeZone="GMT+2" >
+
+                    <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                    <p:ajax event="eventSelect" listener="#{scheduleJava8View.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                    <p:ajax event="eventMove" listener="#{scheduleJava8View.onEventMove}" update="messages" />
+                    <p:ajax event="eventResize" listener="#{scheduleJava8View.onEventResize}" update="messages" />
+
+                </p:schedule>
+
+                <h3>Locale Support ( Example: Turkish )</h3>
+                <p:schedule id="scheduleLocale" value="#{scheduleJava8View.eventModel}" locale="tr" />
+                
+                <h3>Lazy Schedule</h3>
+                <p:schedule value="#{scheduleJava8View.lazyEventModel}" />
+            </h:panelGrid>
+            
+            <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+                <h:panelGrid id="eventDetails" columns="2">
+                    <p:outputLabel for="title" value="Titles:" />
+                    <p:inputText id="title" value="#{scheduleJava8View.event.title}" required="true" />
+
+                    <p:outputLabel for="from" value="From:" />
+                    <p:calendar id="from" value="#{scheduleJava8View.event.startLocalDateTime}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm"/>
+
+                    <p:outputLabel for="to" value="To:" />
+                    <p:calendar id="to" value="#{scheduleJava8View.event.endLocalDateTime}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm"/>
+
+                    <p:outputLabel for="allDay" value="All Day (see #1164):" />
+                    <h:selectBooleanCheckbox id="allDay" value="#{scheduleJava8View.event.allDay}" />
+
+                    <p:commandButton type="reset" value="Reset" />
+                    <p:commandButton id="addButton" value="Save" action="#{scheduleJava8View.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+                </h:panelGrid>
+            </p:dialog>    
+        </h:form>
+        
+    </ui:define>
+
+</ui:composition>
