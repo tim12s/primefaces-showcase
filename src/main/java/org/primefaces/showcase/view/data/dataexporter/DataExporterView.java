@@ -15,21 +15,26 @@
  */
 package org.primefaces.showcase.view.data.dataexporter;
 
-import org.primefaces.showcase.domain.Car;
-import org.primefaces.showcase.service.CarService;
+import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.Serializable;
-import java.util.List;
+
+import org.primefaces.component.datatable.DataTable;
+import org.primefaces.component.export.Exporter;
+import org.primefaces.showcase.domain.Car;
+import org.primefaces.showcase.service.CarService;
 
 @Named
 @RequestScoped
 public class DataExporterView implements Serializable {
     
     private List<Car> cars;
+    
+    private Exporter<DataTable> textExporter;
         
     @Inject
     private CarService service;
@@ -37,6 +42,7 @@ public class DataExporterView implements Serializable {
     @PostConstruct
     public void init() {
         cars = service.createCars(100);
+        textExporter = new TextExporter();
     }
 
     public List<Car> getCars() {
@@ -46,4 +52,14 @@ public class DataExporterView implements Serializable {
     public void setService(CarService service) {
         this.service = service;
     }
+
+    public Exporter<DataTable> getTextExporter() {
+        return textExporter;
+    }
+
+    public void setTextExporter(Exporter<DataTable> textExporter) {
+        this.textExporter = textExporter;
+    }
+    
+    
 }

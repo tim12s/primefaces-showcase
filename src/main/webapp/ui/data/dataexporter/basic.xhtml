@@ -50,6 +50,12 @@
                             <p:graphicImage name="/demo/images/xml.png" width="24"/>
                             <p:dataExporter type="xml" target="tbl" fileName="cars" />
                         </h:commandLink>
+                        
+                        <h:commandLink>
+							<p:graphicImage name="/demo/images/metroui.png" width="24" />
+							<p:dataExporter type="text" target="tbl" fileName="cars"
+								customExporter="#{dataExporterView.textExporter}" />
+						</h:commandLink>
                     </div>
                 </f:facet>
 
