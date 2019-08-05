@@ -30,9 +30,9 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import org.primefaces.shaded.json.JSONArray;
-import org.primefaces.shaded.json.JSONException;
-import org.primefaces.shaded.json.JSONObject;
+import org.primefaces.json.JSONArray;
+import org.primefaces.json.JSONException;
+import org.primefaces.json.JSONObject;
 
 @ManagedBean
 @ApplicationScoped

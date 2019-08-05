@@ -15,19 +15,19 @@
  */
 package org.primefaces.showcase.view.button;
 
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
 import org.primefaces.model.menu.DefaultSubMenu;
 import org.primefaces.model.menu.MenuModel;
 
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 @ManagedBean
 public class ButtonView {
-
+    
     private MenuModel model;
 
     @PostConstruct
@@ -35,62 +35,50 @@ public class ButtonView {
         model = new DefaultMenuModel();
 
         //First submenu
-        DefaultMenuItem item = DefaultMenuItem.builder()
-                .value("External")
-                .url("http://www.primefaces.org")
-                .icon("pi pi-home")
-                .build();
+        DefaultSubMenu firstSubmenu = new DefaultSubMenu("Dynamic Submenu");
 
+        DefaultMenuItem item = new DefaultMenuItem("External");
+        item.setUrl("http://www.primefaces.org");
+        item.setIcon("pi pi-home");
+        firstSubmenu.addElement(item);
 
-        DefaultSubMenu firstSubmenu = DefaultSubMenu.builder()
-                .label("Dynamic Submenu")
-                .addElement(item)
-                .build();
-
-        model.getElements().add(firstSubmenu);
+        model.addElement(firstSubmenu);
 
         //Second submenu
-        item = DefaultMenuItem.builder()
-                .value("Save")
-                .icon("pi pi-save")
-                .function((i) -> save())
-                .update("messages")
-                .build();
+        DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
 
-        DefaultSubMenu secondSubmenu = DefaultSubMenu.builder()
-                .label("Dynamic Actions")
-                .addElement(item)
-                .build();
+        item = new DefaultMenuItem("Save");
+        item.setIcon("pi pi-save");
+        item.setCommand("#{buttonView.save}");
+        item.setUpdate("messages");
+        secondSubmenu.addElement(item);
 
-        item = DefaultMenuItem.builder()
-                .value("Delete")
-                .icon("pi pi-times")
-                .command("#{buttonView.delete}")
-                .ajax(false)
-                .build();
-        secondSubmenu.getElements().add(item);
+        item = new DefaultMenuItem("Delete");
+        item.setIcon("pi pi-times");
+        item.setCommand("#{buttonView.delete}");
+        item.setAjax(false);
+        secondSubmenu.addElement(item);
 
-        model.getElements().add(secondSubmenu);
+        model.addElement(secondSubmenu);
     }
 
     public MenuModel getModel() {
         return model;
     }
 
-    public String save() {
+    public void save(ActionEvent actionEvent) {
         addMessage("Data saved");
-        return null;
     }
 
-    public void update() {
+    public void update(ActionEvent actionEvent) {
         addMessage("Data updated");
     }
 
-    public void delete() {
+    public void delete(ActionEvent actionEvent) {
         addMessage("Data deleted");
     }
 
-    public void buttonAction() {
+    public void buttonAction(ActionEvent actionEvent) {
         addMessage("Welcome to Primefaces!!");
     }
 

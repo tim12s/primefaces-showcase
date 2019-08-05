@@ -18,14 +18,9 @@ package org.primefaces.showcase.view.data.datatable;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-
-import org.primefaces.PrimeFaces;
-import org.primefaces.component.datatable.DataTable;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
@@ -77,18 +72,5 @@ public class TableStateView implements Serializable {
 
     public void setService(CarService service) {
         this.service = service;
-    }
-
-    public void clearTableState() {
-        String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
-        PrimeFaces.current().multiViewState()
-                .clearMultiViewStates(viewId,
-                        (clientId) -> showMessage(clientId));
-    }
-
-    private void showMessage(String clientId) {
-        FacesContext.getCurrentInstance()
-                .addMessage(null,
-                        new FacesMessage(FacesMessage.SEVERITY_INFO, clientId + " multiview state has been cleared out", null));
     }
 }

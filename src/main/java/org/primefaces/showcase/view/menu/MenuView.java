@@ -15,15 +15,14 @@
  */
 package org.primefaces.showcase.view.menu;
 
-import org.primefaces.model.menu.DefaultMenuItem;
-import org.primefaces.model.menu.DefaultMenuModel;
-import org.primefaces.model.menu.DefaultSubMenu;
-import org.primefaces.model.menu.MenuModel;
-
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import org.primefaces.model.menu.DefaultMenuItem;
+import org.primefaces.model.menu.DefaultMenuModel;
+import org.primefaces.model.menu.DefaultSubMenu;
+import org.primefaces.model.menu.MenuModel;
 
 @ManagedBean
 public class MenuView {
@@ -35,48 +34,36 @@ public class MenuView {
         model = new DefaultMenuModel();
 
         //First submenu
-        DefaultSubMenu firstSubmenu = DefaultSubMenu.builder()
-                .label("Dynamic Submenu")
-                .build();
+        DefaultSubMenu firstSubmenu = new DefaultSubMenu("Dynamic Submenu");
 
-        DefaultMenuItem item = DefaultMenuItem.builder()
-                .value("External")
-                .url("http://www.primefaces.org")
-                .icon("pi pi-home")
-                .build();
-        firstSubmenu.getElements().add(item);
+        DefaultMenuItem item = new DefaultMenuItem("External");
+        item.setUrl("http://www.primefaces.org");
+        item.setIcon("pi pi-home");
+        firstSubmenu.addElement(item);
 
-        model.getElements().add(firstSubmenu);
+        model.addElement(firstSubmenu);
 
         //Second submenu
-        DefaultSubMenu secondSubmenu = DefaultSubMenu.builder()
-                .label("Dynamic Actions")
-                .build();
+        DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
 
-        item = DefaultMenuItem.builder()
-                .value("Save")
-                .icon("pi pi-save")
-                .command("#{menuView.save}")
-                .update("messages")
-                .build();
-        secondSubmenu.getElements().add(item);
+        item = new DefaultMenuItem("Save");
+        item.setIcon("pi pi-save");
+        item.setCommand("#{menuView.save}");
+        item.setUpdate("messages");
+        secondSubmenu.addElement(item);
 
-        item = DefaultMenuItem.builder()
-                .value("Delete")
-                .icon("pi pi-times")
-                .command("#{menuView.delete}")
-                .ajax(false)
-                .build();
-        secondSubmenu.getElements().add(item);
+        item = new DefaultMenuItem("Delete");
+        item.setIcon("pi pi-times");
+        item.setCommand("#{menuView.delete}");
+        item.setAjax(false);
+        secondSubmenu.addElement(item);
 
-        item = DefaultMenuItem.builder()
-                .value("Redirect")
-                .icon("pi pi-search")
-                .command("#{menuView.redirect}")
-                .build();
-        secondSubmenu.getElements().add(item);
+        item = new DefaultMenuItem("Redirect");
+        item.setIcon("pi pi-search");
+        item.setCommand("#{menuView.redirect}");
+        secondSubmenu.addElement(item);
 
-        model.getElements().add(secondSubmenu);
+        model.addElement(secondSubmenu);
     }
 
     public MenuModel getModel() {
