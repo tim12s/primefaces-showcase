@@ -127,8 +127,8 @@ public class ScheduleJava8View implements Serializable {
 	public void addEvent() {
     	if (event.isAllDay()) {
     		//see https://github.com/primefaces/primefaces/issues/1164
-    		if (event.getStartLocalDateTime().toLocalDate().equals(event.getEndLocalDateTime().toLocalDate())) {
-				event.setEndLocalDateTime(event.getEndLocalDateTime().plusDays(1));
+    		if (event.getStartDate().toLocalDate().equals(event.getEndDate().toLocalDate())) {
+				event.setEndDate(event.getEndDate().plusDays(1));
 			}
 		}
 
