@@ -26,12 +26,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Named
 @ViewScoped
-public class ScheduleView implements Serializable {
+public class ScheduleJava8View implements Serializable {
 
 	private ScheduleModel eventModel;
 	
@@ -46,35 +45,29 @@ public class ScheduleView implements Serializable {
 		eventModel.addEvent(new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm()));
 		eventModel.addEvent(new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am()));
 		eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
-		
+
+		DefaultScheduleEvent scheduleEventAllDay=new DefaultScheduleEvent("Holidays (AllDay)", sevenDaysLater0am(), eightDaysLater0am());
+		scheduleEventAllDay.setAllDay(true);
+		eventModel.addEvent(scheduleEventAllDay);
+
 		lazyEventModel = new LazyScheduleModel() {
 			
 			@Override
-			public void loadEvents(Date start, Date end) {
-				Date random = getRandomDate(start);
-				addEvent(new DefaultScheduleEvent("Lazy Event 1", random, random));
-				
-				random = getRandomDate(start);
-				addEvent(new DefaultScheduleEvent("Lazy Event 2", random, random));
-			}	
+			public void loadEvents(LocalDateTime start, LocalDateTime end) {
+				for (int i=1; i<=5; i++) {
+					LocalDateTime random = getRandomDateTime(start);
+					addEvent(new DefaultScheduleEvent("Lazy Event " + i, random, random.plusHours(3)));
+				}
+			}
 		};
 	}
 	
-	public Date getRandomDate(Date base) {
-		Calendar date = Calendar.getInstance();
-		date.setTime(base);
-		date.add(Calendar.DATE, ((int) (Math.random()*30)) + 1);	//set random day of month
-		
-		return date.getTime();
+	public LocalDateTime getRandomDateTime(LocalDateTime base) {
+		LocalDateTime dateTime = base.withMinute(0).withSecond(0).withNano(0);
+		return dateTime.plusDays(((int) (Math.random()*30)));
 	}
 	
-	public Date getInitialDate() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(calendar.get(Calendar.YEAR), Calendar.FEBRUARY, calendar.get(Calendar.DATE), 0, 0, 0);
-		
-		return calendar.getTime();
-	}
-	
+
 	public ScheduleModel getEventModel() {
 		return eventModel;
 	}
@@ -83,83 +76,46 @@ public class ScheduleView implements Serializable {
 		return lazyEventModel;
 	}
 
-	private Calendar today() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE), 0, 0, 0);
-
-		return calendar;
+	private LocalDateTime previousDay8Pm() {
+    	return LocalDateTime.now().minusDays(1).withHour(20).withMinute(0).withSecond(0).withNano(0);
 	}
 	
-	private Date previousDay8Pm() {
-		Calendar t = (Calendar) today().clone();
-		t.set(Calendar.AM_PM, Calendar.PM);
-		t.set(Calendar.DATE, t.get(Calendar.DATE) - 1);
-		t.set(Calendar.HOUR, 8);
-		
-		return t.getTime();
+	private LocalDateTime previousDay11Pm() {
+		return LocalDateTime.now().minusDays(1).withHour(23).withMinute(0).withSecond(0).withNano(0);
 	}
 	
-	private Date previousDay11Pm() {
-		Calendar t = (Calendar) today().clone();
-		t.set(Calendar.AM_PM, Calendar.PM);
-		t.set(Calendar.DATE, t.get(Calendar.DATE) - 1);
-		t.set(Calendar.HOUR, 11);
-		
-		return t.getTime();
+	private LocalDateTime today1Pm() {
+		return LocalDateTime.now().withHour(13).withMinute(0).withSecond(0).withNano(0);
 	}
 	
-	private Date today1Pm() {
-		Calendar t = (Calendar) today().clone();
-		t.set(Calendar.AM_PM, Calendar.PM);
-		t.set(Calendar.HOUR, 1);
-		
-		return t.getTime();
-	}
-	
-	private Date theDayAfter3Pm() {
-		Calendar t = (Calendar) today().clone();
-		t.set(Calendar.DATE, t.get(Calendar.DATE) + 2);		
-		t.set(Calendar.AM_PM, Calendar.PM);
-		t.set(Calendar.HOUR, 3);
-		
-		return t.getTime();
+	private LocalDateTime theDayAfter3Pm() {
+		return LocalDateTime.now().plusDays(1).withHour(15).withMinute(0).withSecond(0).withNano(0);
 	}
 
-	private Date today6Pm() {
-		Calendar t = (Calendar) today().clone(); 
-		t.set(Calendar.AM_PM, Calendar.PM);
-		t.set(Calendar.HOUR, 6);
-		
-		return t.getTime();
+	private LocalDateTime today6Pm() {
+		return LocalDateTime.now().withHour(18).withMinute(0).withSecond(0).withNano(0);
 	}
 	
-	private Date nextDay9Am() {
-		Calendar t = (Calendar) today().clone();
-		t.set(Calendar.AM_PM, Calendar.AM);
-		t.set(Calendar.DATE, t.get(Calendar.DATE) + 1);
-		t.set(Calendar.HOUR, 9);
-		
-		return t.getTime();
+	private LocalDateTime nextDay9Am() {
+		return LocalDateTime.now().plusDays(1).withHour(9).withMinute(0).withSecond(0).withNano(0);
 	}
 	
-	private Date nextDay11Am() {
-		Calendar t = (Calendar) today().clone();
-		t.set(Calendar.AM_PM, Calendar.AM);
-		t.set(Calendar.DATE, t.get(Calendar.DATE) + 1);
-		t.set(Calendar.HOUR, 11);
-		
-		return t.getTime();
+	private LocalDateTime nextDay11Am() {
+		return LocalDateTime.now().plusDays(1).withHour(11).withMinute(0).withSecond(0).withNano(0);
 	}
 	
-	private Date fourDaysLater3pm() {
-		Calendar t = (Calendar) today().clone(); 
-		t.set(Calendar.AM_PM, Calendar.PM);
-		t.set(Calendar.DATE, t.get(Calendar.DATE) + 4);
-		t.set(Calendar.HOUR, 3);
-		
-		return t.getTime();
+	private LocalDateTime fourDaysLater3pm() {
+		return LocalDateTime.now().plusDays(4).withHour(15).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
+	private LocalDateTime sevenDaysLater0am() {
+		return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
+	}
+
+	private LocalDateTime eightDaysLater0am() {
+		return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
+	}
+
 	public ScheduleEvent getEvent() {
 		return event;
 	}
@@ -169,6 +125,13 @@ public class ScheduleView implements Serializable {
 	}
 	
 	public void addEvent() {
+    	if (event.isAllDay()) {
+    		//see https://github.com/primefaces/primefaces/issues/1164
+    		if (event.getStartDate().toLocalDate().equals(event.getEndDate().toLocalDate())) {
+				event.setEndDate(event.getEndDate().plusDays(1));
+			}
+		}
+
 		if(event.getId() == null)
 			eventModel.addEvent(event);
 		else
@@ -181,7 +144,7 @@ public class ScheduleView implements Serializable {
 		event = selectEvent.getObject();
 	}
 	
-	public void onDateSelect(SelectEvent<Date> selectEvent) {
+	public void onDateSelect(SelectEvent<LocalDateTime> selectEvent) {
 		event = new DefaultScheduleEvent("", selectEvent.getObject(), selectEvent.getObject());
 	}
 	
