@@ -17,31 +17,34 @@ import org.primefaces.component.api.DynamicColumn;
 import org.primefaces.component.api.UIColumn;
 import org.primefaces.component.datatable.DataTable;
 import org.primefaces.component.datatable.export.DataTableExporter;
+import org.primefaces.component.export.ExportConfiguration;
 import org.primefaces.component.export.ExporterOptions;
 import org.primefaces.util.ComponentUtils;
 import org.primefaces.util.Constants;
 import org.primefaces.util.EscapeUtils;
 
 public class TextExporter extends DataTableExporter {
+
+    private StringBuilder builder = new StringBuilder();
+
     @Override
-    public void export(FacesContext context, DataTable table, String filename, boolean pageOnly, boolean selectionOnly,
-                       String encodingType, MethodExpression preProcessor, MethodExpression postProcessor, ExporterOptions options,
-                       MethodExpression onTableRender) throws IOException {
-
+    protected void preExport(FacesContext context, ExportConfiguration config) throws IOException {
         ExternalContext externalContext = context.getExternalContext();
-        configureResponse(externalContext, filename);
-        StringBuilder builder = new StringBuilder();
+        configureResponse(externalContext, config.getOutputFileName());
 
-        if (preProcessor != null) {
-            preProcessor.invoke(context.getELContext(), new Object[]{builder});
+        if (config.getPreProcessor() != null) {
+            config.getPreProcessor().invoke(context.getELContext(), new Object[]{builder});
         }
+    }
 
+    @Override
+    protected void doExport(FacesContext context, DataTable table, ExportConfiguration config) throws IOException {
         builder.append("" + table.getId() + "\n");
 
-        if (pageOnly) {
+        if (config.isPageOnly()) {
             exportPageOnly(context, table, builder);
         }
-        else if (selectionOnly) {
+        else if (config.isSelectionOnly()) {
             exportSelectionOnly(context, table, builder);
         }
         else {
@@ -51,33 +54,21 @@ public class TextExporter extends DataTableExporter {
         builder.append("" + table.getId() + "");
 
         table.setRowIndex(-1);
+    }
 
-        if (postProcessor != null) {
-            postProcessor.invoke(context.getELContext(), new Object[]{builder});
+    @Override
+    protected void postExport(FacesContext context, ExportConfiguration config) throws IOException {
+        if (config.getPostProcessor() != null) {
+            config.getPostProcessor().invoke(context.getELContext(), new Object[]{builder});
         }
 
-        OutputStream os = externalContext.getResponseOutputStream();
-        OutputStreamWriter osw = new OutputStreamWriter(os, encodingType);
+        OutputStream os = context.getExternalContext().getResponseOutputStream();
+        OutputStreamWriter osw = new OutputStreamWriter(os, config.getEncodingType());
         PrintWriter writer = new PrintWriter(osw);
         writer.write(builder.toString());
         writer.flush();
         writer.close();
-    }
-
-    @Override
-    public void export(FacesContext facesContext, List<String> clientIds, String outputFileName, boolean pageOnly, boolean selectionOnly,
-                       String encodingType, MethodExpression preProcessor, MethodExpression postProcessor, ExporterOptions options,
-                       MethodExpression onTableRender) throws IOException {
-
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void export(FacesContext facesContext, String outputFileName, List<DataTable> tables, boolean pageOnly, boolean selectionOnly,
-                       String encodingType, MethodExpression preProcessor, MethodExpression postProcessor, ExporterOptions options,
-                       MethodExpression onTableRender) throws IOException {
-
-        throw new UnsupportedOperationException("Not supported yet.");
+        builder.setLength(0);
     }
 
     @Override
@@ -100,12 +91,7 @@ public class TextExporter extends DataTableExporter {
 
             if (col.isRendered() && col.isExportable()) {
                 String columnTag = getColumnTag(col);
-                try {
-                    addColumnValue(builder, col.getChildren(), columnTag, col);
-                }
-                catch (IOException ex) {
-                    throw new FacesException(ex);
-                }
+                addColumnValue(builder, col.getChildren(), columnTag, col);
             }
         }
     }
@@ -128,7 +114,7 @@ public class TextExporter extends DataTableExporter {
         return EscapeUtils.forXmlTag(columnTag);
     }
 
-    protected void addColumnValue(StringBuilder builder, List<UIComponent> components, String tag, UIColumn column) throws IOException {
+    protected void addColumnValue(StringBuilder builder, List<UIComponent> components, String tag, UIColumn column) {
         FacesContext context = FacesContext.getCurrentInstance();
 
         builder.append("\t\t" + tag + "");
