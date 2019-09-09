@@ -66,12 +66,14 @@ public class CustomizedDocumentsView implements Serializable {
         excelOpt.setFacetFontStyle("BOLD");
         excelOpt.setCellFontColor("#00ff00");
         excelOpt.setCellFontSize("8");
+        excelOpt.setFontName("Verdana");
         
         pdfOpt = new PDFOptions();
         pdfOpt.setFacetBgColor("#F88017");
         pdfOpt.setFacetFontColor("#0000ff");
         pdfOpt.setFacetFontStyle("BOLD");
         pdfOpt.setCellFontSize("12");
+        pdfOpt.setFontName("Courier");
     }
 
     public List<Car> getCars() {
