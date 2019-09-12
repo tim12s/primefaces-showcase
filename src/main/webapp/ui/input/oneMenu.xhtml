@@ -37,6 +37,14 @@
                     <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                 </p:selectOneMenu>
 
+                <p:outputLabel for="console" value="RTL:" />
+                <p:selectOneMenu id="console" value="#{selectOneMenuView.rtl}" style="width:125px" dir="rtl">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                </p:selectOneMenu>
+
                 <p:outputLabel for="car" value="Grouping: " />
                 <p:selectOneMenu id="car" value="#{selectOneMenuView.car}">
                     <f:selectItem itemLabel="Select One" itemValue="" />
@@ -76,6 +84,9 @@
                 <p:panelGrid columns="2" id="display" columnClasses="label,value">
                     <h:outputText value="Basic:" />
                     <h:outputText value="#{selectOneMenuView.console}" />
+
+                    <h:outputText value="RTL:" />
+                    <h:outputText value="#{selectOneMenuView.rtl}" />
 
                     <h:outputText value="Grouping:" />
                     <h:outputText value="#{selectOneMenuView.car}" />

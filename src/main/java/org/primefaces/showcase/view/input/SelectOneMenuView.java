@@ -34,6 +34,7 @@ import java.util.Map;
 public class SelectOneMenuView {
     
     private String console; 
+    private String rtl;
     
     private String car;  
     private List<SelectItem> cars;
@@ -88,6 +89,14 @@ public class SelectOneMenuView {
 
     public void setConsole(String console) {
         this.console = console;
+    }
+
+    public String getRtl() {
+        return rtl;
+    }
+
+    public void setRtl(String rtl) {
+        this.rtl = rtl;
     }
 
     public String getCar() {
