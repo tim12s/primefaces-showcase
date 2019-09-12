@@ -25,16 +25,19 @@
 
         <h:form>
             <h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid">
-                <h:outputLabel for="basic" value="Basic Spinner: " />
+                <h:outputLabel for="@next" value="Basic Spinner: " />
                 <p:spinner id="basic" value="#{spinnerView.number1}" />
 
-                <h:outputLabel for="step" value="Step Factor: " />
+                <h:outputLabel for="@next" value="Step Factor: " />
                 <p:spinner id="step" value="#{spinnerView.number2}" stepFactor="0.25" />
 
-                <h:outputLabel for="minMax" value="Min/Max: " />
+                <h:outputLabel for="@next" value="Min/Max: " />
                 <p:spinner id="minMax" value="#{spinnerView.number3}" min="0" max="100" />
+                
+                <h:outputLabel for="@next" value="Rotate: " />
+                <p:spinner id="rotate" value="#{spinnerView.number6}" min="0" max="10" rotate="true" />
 
-                <h:outputLabel for="prefix" value="Prefix: " />
+                <h:outputLabel for="@next" value="Prefix: " />
                 <p:spinner id="prefix" value="#{spinnerView.number4}" prefix="$" min="0" />
 
                 <h:outputLabel for="ajaxSpinner" value="Ajax Spinner: " />

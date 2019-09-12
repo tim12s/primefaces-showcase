@@ -27,6 +27,7 @@ public class SpinnerView {
     private int number3;
     private int number4;  
     private int number5;
+    private int number6;
 
     public int getNumber1() {
         return number1;
@@ -66,6 +67,14 @@ public class SpinnerView {
 
     public void setNumber5(int number5) {
         this.number5 = number5;
+    }
+    
+    public int getNumber6() {
+        return number6;
+    }
+
+    public void setNumber6(int number6) {
+        this.number6 = number6;
     }
 
 }
