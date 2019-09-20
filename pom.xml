@@ -16,7 +16,7 @@
         <owasp-sanitizer.version>20190610.1</owasp-sanitizer.version>
         <owb.version>2.0.11</owb.version>
         <hibernate-validator.version>5.0.1.Final</hibernate-validator.version>
-        <jakarta-faces.version>2.3.13</jakarta-faces.version>
+        <mojarra.version>2.3.13</mojarra.version>
         <myfaces.version>2.3.3</myfaces.version>
         <jetty.version>9.4.20.v20190813</jetty.version>
     </properties>
@@ -293,7 +293,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
+                <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-7.1-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -305,7 +305,7 @@
                 <dependency>
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.faces</artifactId>
-                    <version>${jakarta-faces.version}</version>
+                    <version>${mojarra.version}</version>
                 </dependency>
                 <!-- MyFaces
                 <dependency>
@@ -324,7 +324,7 @@
         <profile>
             <id>community-stable</id>
             <properties>
-                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
+                <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-7.0</primefacesVersion>
             </properties>
             <dependencies>
@@ -336,14 +336,14 @@
                 <dependency>
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.faces</artifactId>
-                    <version>${jakarta-faces.version}</version>
+                    <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
         </profile>
         <profile>
             <id>elite-dev</id>
             <properties>
-                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
+                <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-7.0.2</primefacesVersion>
             </properties>
             <dependencies>
@@ -355,14 +355,14 @@
                 <dependency>
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.faces</artifactId>
-                    <version>${jakarta-faces.version}</version>
+                    <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
         </profile>
         <profile>
             <id>elite-dev-6.2.x</id>
             <properties>
-                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
+                <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-6.2.20-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -374,7 +374,7 @@
                 <dependency>
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.faces</artifactId>
-                    <version>${jakarta-faces.version}</version>
+                    <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
         </profile>
