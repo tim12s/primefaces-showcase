@@ -13,6 +13,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <owasp-sanitizer.version>20190610.1</owasp-sanitizer.version>
+        <owb.version>2.0.11</owb.version>
+        <hibernate-validator.version>5.0.1.Final</hibernate-validator.version>
+        <jakarta-faces.version>2.3.13</jakarta-faces.version>
+        <myfaces.version>2.3.3</myfaces.version>
+        <jetty.version>9.4.20.v20190813</jetty.version>
     </properties>
 
     <dependencies>
@@ -33,7 +39,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.0.1.Final</version>
+            <version>${hibernate-validator.version}</version>
         </dependency>
 
         <!-- CDI required APIs -->
@@ -45,7 +51,7 @@
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-jcdi_2.0_spec</artifactId>
-            <version>1.0.1</version>
+            <version>1.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
@@ -62,17 +68,17 @@
         <dependency>
             <groupId>org.apache.openwebbeans</groupId>
             <artifactId>openwebbeans-impl</artifactId>
-            <version>2.0.11</version>
+            <version>${owb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.openwebbeans</groupId>
             <artifactId>openwebbeans-web</artifactId>
-            <version>2.0.11</version>
+            <version>${owb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.openwebbeans</groupId>
             <artifactId>openwebbeans-jsf</artifactId>
-            <version>2.0.11</version>
+            <version>${owb.version}</version>
         </dependency>
 
         <!-- Data Exporter -->
@@ -169,7 +175,7 @@
         <dependency>
             <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
             <artifactId>owasp-java-html-sanitizer</artifactId>
-            <version>20181114.1</version>
+            <version>${owasp-sanitizer.version}</version>
         </dependency>
 
     </dependencies>
@@ -230,7 +236,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.15.v20190215</version>
+                <version>${jetty.version}</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/showcase</contextPath>
@@ -287,7 +293,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <jsfVersion>Mojarra-2.3.2</jsfVersion>
+                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-7.1-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -298,19 +304,19 @@
                 </dependency>
                 <dependency>
                     <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <version>2.3.2</version>
+                    <artifactId>jakarta.faces</artifactId>
+                    <version>${jakarta-faces.version}</version>
                 </dependency>
                 <!-- MyFaces
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-api</artifactId>
-                    <version>2.3.3</version>
+                    <version>${myfaces.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-impl</artifactId>
-                    <version>2.3.3</version>
+                    <version>${myfaces.version}</version>
                 </dependency>
                 -->
             </dependencies>
@@ -318,7 +324,7 @@
         <profile>
             <id>community-stable</id>
             <properties>
-                <jsfVersion>Mojarra-2.3.2</jsfVersion>
+                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-7.0</primefacesVersion>
             </properties>
             <dependencies>
@@ -329,15 +335,15 @@
                 </dependency>
                 <dependency>
                     <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <version>2.3.2</version>
+                    <artifactId>jakarta.faces</artifactId>
+                    <version>${jakarta-faces.version}</version>
                 </dependency>
             </dependencies>
         </profile>
         <profile>
             <id>elite-dev</id>
             <properties>
-                <jsfVersion>Mojarra-2.3.2</jsfVersion>
+                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-7.0.2</primefacesVersion>
             </properties>
             <dependencies>
@@ -348,15 +354,15 @@
                 </dependency>
                 <dependency>
                     <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <version>2.3.2</version>
+                    <artifactId>jakarta.faces</artifactId>
+                    <version>${jakarta-faces.version}</version>
                 </dependency>
             </dependencies>
         </profile>
         <profile>
             <id>elite-dev-6.2.x</id>
             <properties>
-                <jsfVersion>Mojarra-2.3.2</jsfVersion>
+                <jsfVersion>Jakarta Faces-${jakarta-faces.version}</jsfVersion>
                 <primefacesVersion>PrimeFaces-6.2.20-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -367,8 +373,8 @@
                 </dependency>
                 <dependency>
                     <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <version>2.3.2</version>
+                    <artifactId>jakarta.faces</artifactId>
+                    <version>${jakarta-faces.version}</version>
                 </dependency>
             </dependencies>
         </profile>
