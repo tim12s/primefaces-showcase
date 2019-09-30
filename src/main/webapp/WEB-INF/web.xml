@@ -63,6 +63,10 @@
         <param-value>true</param-value>
     </context-param>
     <context-param>
+        <param-name>primefaces.CSP</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
         <param-name>primefaces.CACHE_PROVIDER</param-name>
         <param-value>org.primefaces.showcase.util.EHCache3Provider</param-value>
     </context-param>
@@ -80,13 +84,8 @@
         <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
     </listener>
     <listener>
-        <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+        <listener-class>${jsfListener}</listener-class>
     </listener>
-    <!--
-    <listener>
-        <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
-    </listener>
-    -->
 
     <filter>
         <filter-name>Character Encoding Filter</filter-name>
