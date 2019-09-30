@@ -52,8 +52,8 @@
                         </h:commandLink>
                         
                         <h:commandLink>
-                            <p:graphicImage name="/demo/images/metroui.png" width="24"/>
-                            <p:dataExporter type="text" target="tbl" fileName="cars" customExporter="#{dataExporterView.textExporter}"/>
+                            <p:graphicImage name="/demo/images/keyboardpencil.png" width="24"/>
+                            <p:dataExporter type="text" target="tbl" fileName="cars" exporter="#{dataExporterView.textExporter}"/>
                         </h:commandLink>                        
                     </div>
                 </f:facet>
@@ -109,6 +109,10 @@
             </h:commandLink>
         </h:form>
 
+    </ui:define>
+
+    <ui:define name="more-source-tabs">
+        <p:tab title="/org/primefaces/showcase/view/data/dataexporter/TextExporter.java" />
     </ui:define>
 
 </ui:composition>

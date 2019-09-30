@@ -38,7 +38,7 @@ public class TextExporter extends DataTableExporter {
     }
 
     @Override
-    protected void doExport(FacesContext context, DataTable table, ExportConfiguration config) throws IOException {
+    protected void doExport(FacesContext context, DataTable table, ExportConfiguration config, int index) throws IOException {
         builder.append("" + table.getId() + "\n");
 
         if (config.isPageOnly()) {
