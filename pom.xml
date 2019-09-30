@@ -17,7 +17,7 @@
         <owb.version>2.0.11</owb.version>
         <hibernate-validator.version>5.0.1.Final</hibernate-validator.version>
         <mojarra.version>2.3.13</mojarra.version>
-        <myfaces.version>2.3.3</myfaces.version>
+        <myfaces.version>2.3.4</myfaces.version>
         <jetty.version>9.4.20.v20190813</jetty.version>
     </properties>
 
@@ -211,6 +211,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <filtering>true</filtering>
+                            <directory>src/main/webapp</directory>
+                            <includes>
+                                <include>**/web.xml</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>nl.geodienstencentrum.maven</groupId>
@@ -294,6 +307,7 @@
             </activation>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
+                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-7.1-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -307,7 +321,21 @@
                     <artifactId>jakarta.faces</artifactId>
                     <version>${mojarra.version}</version>
                 </dependency>
-                <!-- MyFaces
+            </dependencies>
+        </profile>
+        <profile>
+            <id>dev-myfaces</id>
+            <properties>
+                <jsfVersion>Apache MyFaces-${myfaces.version}</jsfVersion>
+                <jsfListener>org.apache.myfaces.webapp.StartupServletContextListener</jsfListener>
+                <primefacesVersion>PrimeFaces-7.1-SNAPSHOT</primefacesVersion>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.primefaces</groupId>
+                    <artifactId>primefaces</artifactId>
+                    <version>7.1-SNAPSHOT</version>
+                </dependency>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-api</artifactId>
@@ -318,13 +346,13 @@
                     <artifactId>myfaces-impl</artifactId>
                     <version>${myfaces.version}</version>
                 </dependency>
-                -->
             </dependencies>
         </profile>
         <profile>
             <id>community-stable</id>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
+                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-7.0</primefacesVersion>
             </properties>
             <dependencies>
@@ -344,6 +372,7 @@
             <id>elite-dev</id>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
+                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-7.0.2</primefacesVersion>
             </properties>
             <dependencies>
@@ -363,6 +392,7 @@
             <id>elite-dev-6.2.x</id>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
+                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-6.2.20-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
