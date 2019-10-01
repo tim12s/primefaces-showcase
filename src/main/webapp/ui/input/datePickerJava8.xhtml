@@ -189,7 +189,7 @@
                     </ui:repeat>
                     
                     <h:outputText value="Range Selection:" />
-                    <ui:repeat var="date" value="#{calendarJava8View.range}" varStatus="status" size="2">
+                    <ui:repeat var="date" value="#{calendarJava8View.range}" varStatus="status" size="#{calendarJava8View.range.size()}">
                         #{status.first ? '' : '-'}
                         <h:outputText value="#{date}">
                             <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />

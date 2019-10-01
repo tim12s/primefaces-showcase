@@ -170,7 +170,7 @@
                     </ui:repeat>
                     
                     <h:outputText value="Range Selection:" />
-                    <ui:repeat var="date" value="#{calendarView.range}" varStatus="status" size="2">
+                    <ui:repeat var="date" value="#{calendarView.range}" varStatus="status" size="#{calendarView.range.size()}">
                         #{status.first ? '' : '-'}
                         <h:outputText value="#{date}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
