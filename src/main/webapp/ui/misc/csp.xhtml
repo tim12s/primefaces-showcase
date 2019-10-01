@@ -35,7 +35,7 @@
             }
         </style>
     </ui:define>
-    
+
     <ui:define name="title">
         Content Security Policy (CSP)
     </ui:define>
@@ -46,15 +46,15 @@
         Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware.</cite>
         See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a> for more details.
         </p>
-        
+
         <p>
-        This showcase is for testing CSP integration in PrimeFaces. Just step through the test cases and click at the appropriate button to check if everything 
+        This showcase is for testing CSP integration in PrimeFaces. Just step through the test cases and click at the appropriate button to check if everything
         is working as expected. If so, you should receive a <i>PASS</i> message.
         </p>
-        
+
         <p:outputPanel rendered="#{cspView.cspEnabled}">
             <p>
-            CSP is currently <b>enabled</b> in your setup. 
+            CSP is currently <b>enabled</b> in your setup.
             <!--
             The <code>script-src</code> directive is <b>#\{cspView.configuration.scripts ? 'enabled' : 'disabled'}</b>.
             The following hosts are whitelisted: <b>#\{cspView.configuration.hostWhitelist}</b>.
@@ -77,14 +77,14 @@
     </ui:define>
 
     <ui:define name="implementation">
-        
+
         <h:form>
-                
+
             <p:tabView rendered="#{cspView.cspEnabled}">
                 <p:tab title="JS event handlers">
                     <p:outputPanel>
                         JS event handlers should work as expected.
-                    </p:outputPanel>                    
+                    </p:outputPanel>
                     <p:outputPanel>
                         <p:button onclick="alert('PASS'); return false;" value="Check functionality" />
                     </p:outputPanel>
@@ -125,14 +125,14 @@
                             </pre>
                         </p:tab>
                     </p:tabView>
-                </p:tab>                
-                
+                </p:tab>
+
                 <p:tab title="JS URI handlers">
                     <p:outputPanel>
                         JS URI handlers are not supported and hence should be refused. For example, <code>&lt;a href="javascript:void(0);"&gt;</code>
                         can be replaced with <code>&lt;a href="#" onclick="return false;"&gt;</code>
                     </p:outputPanel>
-                    
+
                     <p:outputPanel>
                         <a id="link" href="javascript:window.cspScriptExecuted=true;">link</a><br/><br/>
                         <p:button value="Check functionality" onclick="window.cspScriptExecuted=false; document.getElementById('link').click(); if (!window.cspScriptExecuted) alert('PASS'); return false;" />
@@ -143,7 +143,7 @@
                         <p:tab title="XHTML">
                             <pre name="code" class="brush:xml">
 &#x3C;a id=&#x22;link&#x22; href=&#x22;javascript:window.cspScriptExecuted=true;&#x22;&#x3E;link&#x3C;/a&#x3E;&#x3C;br/&#x3E;&#x3C;br/&#x3E;
-&#x3C;p:button value=&#x22;Check functionality&#x22; onclick=&#x22;window.cspScriptExecuted=false; document.getElementById(&#x27;link&#x27;).click(); 
+&#x3C;p:button value=&#x22;Check functionality&#x22; onclick=&#x22;window.cspScriptExecuted=false; document.getElementById(&#x27;link&#x27;).click();
     if (!window.cspScriptExecuted) alert(&#x27;PASS&#x27;); return false;&#x22; /&#x3E;
                             </pre>
                         </p:tab>
@@ -167,14 +167,14 @@
                         </p:tab>
                     </p:tabView>
                 </p:tab>
-                
+
                 <p:tab title="h:commandButton with f:ajax">
                     <p:outputPanel>
                         <code>f:ajax</code> should work as expected.
                     </p:outputPanel>
                     <p:outputPanel>
                         <h:commandButton value="Check functionality">
-                            <f:ajax event="click" onevent="alert('PASS')" />
+                            <f:ajax event="click" onevent="function() { alert('PASS') }" />
                         </h:commandButton>
                     </p:outputPanel>
 
@@ -189,7 +189,7 @@
                         </p:tab>
                     </p:tabView>
                 </p:tab>
-                
+
                 <p:tab title="p:ajax">
                     <p:outputPanel>
                         <code>p:ajax</code> should work as expected.
@@ -232,7 +232,7 @@
 
                 <p:tab title="eval">
                     <p:outputPanel>
-                        JS <code>eval</code> function call should be refused. Use CSP directive <code>script-src 'unsafe-eval'</code> (not recommended) or 
+                        JS <code>eval</code> function call should be refused. Use CSP directive <code>script-src 'unsafe-eval'</code> (not recommended) or
                         <code>JSON.parse</code> (recommended) if you are trying to parse JSON strings.
                     </p:outputPanel>
 
@@ -288,8 +288,8 @@
 &#x3C;p:commandButton value=&#x22;Check functionality&#x22; update=&#x22;xss-out&#x22; process=&#x22;xss-in&#x22; onstart=&#x22;window.cspScriptExecuted=false;&#x22; oncomplete=&#x22;if (!window.cspScriptExecuted) alert(&#x27;PASS&#x27;);&#x22; /&#x3E;                            </pre>
                         </p:tab>
                     </p:tabView>
-                </p:tab>                
-                
+                </p:tab>
+
             </p:tabView>
 
             <br/>
@@ -299,6 +299,6 @@
                 title="#\{not cspView.configuration.javascriptDebuggingCookie ? 'primefaces.csp.JAVASCRIPT_DEBUGGING_COOKIE must be enabled' : ''}" />
             -->
         </h:form>
-        
+
     </ui:define>
 </ui:composition>
