@@ -137,10 +137,10 @@
                 <p:outputLabel for="multi" value="Multiple Months:" />
                 <p:datePicker id="multi" value="#{calendarView.date12}" numberOfMonths="3"/>
 
-                <p:outputLabel for="time" value="Time (broken; see issue 4625)" />
+                <p:outputLabel for="time" value="Time" />
                 <p:datePicker id="time" value="#{calendarView.date13}" showTime="true"/>
 
-                <p:outputLabel for="timeDe" value="Time (German; broken; see issue 4625):" />
+                <p:outputLabel for="timeDe" value="Time (German):" />
                 <p:datePicker id="timeDe" value="#{calendarView.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy"/>
 
                 <p:outputLabel for="timeonly" value="Time Only:" />
@@ -232,12 +232,12 @@
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
 
-                    <h:outputText value="Time (broken; see issue 4625):" />
+                    <h:outputText value="Time:" />
                     <h:outputText value="#{calendarView.date13}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
                     </h:outputText>
 
-                    <h:outputText value="Time (German; broken; see issue 4625):" />
+                    <h:outputText value="Time (German):" />
                     <h:outputText value="#{calendarView.dateTimeDe}">
                         <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
                     </h:outputText>

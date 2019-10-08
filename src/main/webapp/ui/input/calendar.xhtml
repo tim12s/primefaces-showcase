@@ -122,11 +122,6 @@
 
                 <p:outputLabel for="time" value="Time Only:" />
                 <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm" timeOnly="true"  />
-
-                <!--
-                <p:outputLabel for="timeonlyWithoutPattern" value="Time Only (without Pattern; broken before; date-popup shown):" />
-                <p:calendar id="timeonlyWithoutPattern" value="#{calendarView.date12}" timeOnly="true" />
-                -->
             </h:panelGrid>
             
             <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
@@ -197,13 +192,6 @@
                     <h:outputText value="#{calendarView.date11}">
                         <f:convertDateTime pattern="HH:mm" />
                     </h:outputText>
-
-                    <!--
-                    <h:outputText value="Time Only (without Pattern; broken before; date-popup shown):" />
-                    <h:outputText value="#{calendarView.date12}">
-                        <f:convertDateTime pattern="HH:mm" />
-                    </h:outputText>
-                    -->
                 </p:panelGrid>
             </p:dialog>
         </h:form>
