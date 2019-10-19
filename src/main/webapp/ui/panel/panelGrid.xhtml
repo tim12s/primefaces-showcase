@@ -18,6 +18,10 @@
             .ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell {
                 text-align: center;
             }
+
+            .customPanelGrid .ui-panelgrid-content {
+                align-items: center;
+            }
         </style>
 	</ui:define>
 
@@ -128,6 +132,58 @@
 
             <p:outputLabel for="selectOne" value="SelectOne (misaligned)" />
             <p:selectOneMenu id="selectOne">
+                <f:selectItem itemLabel="Select One" itemValue="" />
+                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+            </p:selectOneMenu>
+        </p:panelGrid>
+
+        <h3>Responsive (PrimeFlex, align-items: center)</h3>
+        <p:panelGrid columns="4" layout="flex" columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4" styleClass="customPanelGrid" contentStyleClass="ui-fluid">
+            <p:outputLabel for="textA1" value="Text 1" />
+            <p:inputText id="textA1" />
+
+            <p:outputLabel for="textA2" value="Text 2" />
+            <p:inputText id="textA2" />
+
+            <p:outputLabel for="dateA" value="Date" />
+            <p:datePicker id="dateA" showIcon="true" style="width:auto" />
+
+            <p:outputLabel for="checkboxA" value="Checkbox" />
+            <p:selectBooleanCheckbox id="checkboxA" itemLabel="Checkbox" />
+
+            <p:outputLabel for="text3A" value="Text 3" />
+            <p:inputText id="text3A" />
+
+            <p:outputLabel for="selectOneA" value="SelectOne" />
+            <p:selectOneMenu id="selectOneA">
+                <f:selectItem itemLabel="Select One" itemValue="" />
+                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+            </p:selectOneMenu>
+        </p:panelGrid>
+
+        <h3>Responsive (PrimeFlex, Default alignment)</h3>
+        <p:panelGrid columns="4" layout="flex" columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4" contentStyleClass="ui-fluid">
+            <p:outputLabel for="textB1" value="Text 1" />
+            <p:inputText id="textB1" />
+
+            <p:outputLabel for="textB2" value="Text 2" />
+            <p:inputText id="textB2" />
+
+            <p:outputLabel for="dateB" value="Date" />
+            <p:datePicker id="dateB" showIcon="true" style="width:auto" />
+
+            <p:outputLabel for="checkboxB" value="Checkbox" />
+            <p:selectBooleanCheckbox id="checkboxB" itemLabel="Checkbox" />
+
+            <p:outputLabel for="text3B" value="Text 3" />
+            <p:inputText id="text3B" />
+
+            <p:outputLabel for="selectOneB" value="SelectOne" />
+            <p:selectOneMenu id="selectOneB">
                 <f:selectItem itemLabel="Select One" itemValue="" />
                 <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
