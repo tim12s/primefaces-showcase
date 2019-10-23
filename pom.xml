@@ -18,7 +18,7 @@
         <hibernate-validator.version>5.0.1.Final</hibernate-validator.version>
         <poi.version>4.1.1</poi.version>
         <mojarra.version>2.3.13</mojarra.version>
-        <myfaces.version>2.3.4</myfaces.version>
+        <myfaces.version>2.3.5</myfaces.version>
         <jetty.version>9.4.20.v20190813</jetty.version>
     </properties>
 
