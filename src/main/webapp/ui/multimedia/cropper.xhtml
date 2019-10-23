@@ -19,7 +19,7 @@
             <p:growl id="msgs" showDetail="true"/>
             
             <h:panelGrid columns="2">
-                <p:imageCropper value="#{cropperView.croppedImage}" image="/resources/demo/images/nature/nature6.jpg" initialCoords="225,75,300,125"/>
+                <p:imageCropper value="#{cropperView.croppedImage}" image="/resources/demo/images/nature/nature6.jpg" initialCoords="225,75,300,125" minSize="100,100" maxSize="250,250"/>
                 <h:panelGroup id="cropped">
                     <p:graphicImage rendered="#{not empty cropperView.newImageName}" name="demo/images/crop/#{cropperView.newImageName}.jpg" />
                 </h:panelGroup>
