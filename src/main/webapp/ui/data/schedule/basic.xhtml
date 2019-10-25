@@ -29,7 +29,7 @@
      
             <h:panelGrid columnClasses="value">
                 <h3 style="margin-top: 0">Editable Schedule</h3>
-                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" timeZone="GMT+2" >
+                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" >
 
                     <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
                     <p:ajax event="eventSelect" listener="#{scheduleJava8View.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
@@ -45,10 +45,10 @@
                     <p:inputText id="title" value="#{scheduleJava8View.event.title}" required="true" />
 
                     <p:outputLabel for="from" value="From:" />
-                    <p:calendar id="from" value="#{scheduleJava8View.event.startDate}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm" />
+                    <p:calendar id="from" value="#{scheduleJava8View.event.startDate}" pattern="dd/MM/yyyy HH:mm" />
 
                     <p:outputLabel for="to" value="To:" />
-                    <p:calendar id="to" value="#{scheduleJava8View.event.endDate}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm" />
+                    <p:calendar id="to" value="#{scheduleJava8View.event.endDate}" pattern="dd/MM/yyyy HH:mm" />
 
                     <p:outputLabel for="allDay" value="All Day (see #1164):" />
                     <h:selectBooleanCheckbox id="allDay" value="#{scheduleJava8View.event.allDay}" />
