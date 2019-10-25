@@ -3,7 +3,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template.xhtml">
+                template="./template.xhtml">
 
     <ui:define name="head">
         <script type="text/javascript">
@@ -38,7 +38,7 @@
     </ui:define>
     
     <ui:define name="title">
-        Schedule (Java8; LocalDateTime; requires PrimeFaces >= 7.1)
+        Schedule (Java8; LocalDateTime; requires PrimeFaces >= 7.1) - <span class="subitem">German, more Features</span>
     </ui:define>
 
     <ui:define name="description">
@@ -52,8 +52,8 @@
             <p:growl id="messages" showDetail="true" />
      
             <h:panelGrid columnClasses="value">
-                <h3 style="margin-top: 0">Editable Schedule</h3>
-                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" timeZone="GMT+2" >
+                <h3 style="margin-top: 0">Editable Schedule, Locale Support ( Example: German), Tooltips</h3>
+                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" timeZone="GMT+2" locale="de" tooltip="true">
 
                     <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
                     <p:ajax event="eventSelect" listener="#{scheduleJava8View.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
@@ -61,12 +61,6 @@
                     <p:ajax event="eventResize" listener="#{scheduleJava8View.onEventResize}" update="messages" />
 
                 </p:schedule>
-
-                <h3>Locale Support ( Example: Turkish )</h3>
-                <p:schedule id="scheduleLocale" value="#{scheduleJava8View.eventModel}" locale="tr" />
-                
-                <h3>Lazy Schedule</h3>
-                <p:schedule value="#{scheduleJava8View.lazyEventModel}" />
             </h:panelGrid>
             
             <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">

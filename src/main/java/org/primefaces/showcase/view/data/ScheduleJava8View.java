@@ -41,12 +41,25 @@ public class ScheduleJava8View implements Serializable {
     @PostConstruct
 	public void init() {
 		eventModel = new DefaultScheduleModel();
-		eventModel.addEvent(new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm()));
-		eventModel.addEvent(new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm()));
-		eventModel.addEvent(new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am()));
-		eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
+
+		DefaultScheduleEvent event = new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm());
+		event.setDescription("Team A vs. Team B");
+		eventModel.addEvent(event);
+
+		event = new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm());
+		event.setDescription("Aragon");
+		eventModel.addEvent(event);
+
+		event = new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am());
+		event.setDescription("all you can eat");
+		eventModel.addEvent(event);
+
+		event = new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm());
+		event.setDescription("Trees, flowers, ...");
+		eventModel.addEvent(event);
 
 		DefaultScheduleEvent scheduleEventAllDay=new DefaultScheduleEvent("Holidays (AllDay)", sevenDaysLater0am(), eightDaysLater0am());
+		scheduleEventAllDay.setDescription("sleep as long as you want");
 		scheduleEventAllDay.setAllDay(true);
 		eventModel.addEvent(scheduleEventAllDay);
 

@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="./template.xhtml">
+
+    <ui:define name="head">
+        <style type="text/css">
+            .value {
+                width: 1000px;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="title">
+        Schedule (Java8; LocalDateTime; requires PrimeFaces >= 7.1) - <span class="subitem">Lazy</span>
+    </ui:define>
+
+    <ui:define name="description">
+        Schedule provides an Outlook, iCal like JSF component to manage events. Schedule is highly customizable featuring various views (month, day, week), built-in I18N, drag-drop, resize, customizable event dialog, ajax listeners for every user interaction and more.<br/>
+        Support for java.util.Date was dropped with PrimeFaces 7.1.
+    </ui:define>
+
+    <ui:define name="implementation">
+
+        <h:form>
+            <p:growl id="messages" showDetail="true" />
+     
+            <h:panelGrid columnClasses="value">
+                <h3>Lazy Schedule</h3>
+                <p:schedule value="#{scheduleJava8View.lazyEventModel}" />
+            </h:panelGrid>
+        </h:form>
+        
+    </ui:define>
+
+</ui:composition>
