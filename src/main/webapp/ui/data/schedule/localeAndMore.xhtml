@@ -52,8 +52,8 @@
             <p:growl id="messages" showDetail="true" />
      
             <h:panelGrid columnClasses="value">
-                <h3 style="margin-top: 0">Editable Schedule, Locale Support ( Example: German), Tooltips</h3>
-                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" locale="de" tooltip="true">
+                <h3 style="margin-top: 0">Editable Schedule, Locale Support ( Example: German), Tooltips, more Views</h3>
+                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" locale="de" tooltip="true" view="timeGridWeek" rightHeaderTemplate="dayGridMonth,timeGridWeek,timeGridDay,listYear" showWeekends="false"><!-- ,dayGridWeek,dayGridDay,listMonth,listWeek,listDay -->
 
                     <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
                     <p:ajax event="eventSelect" listener="#{scheduleJava8View.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
