@@ -18,8 +18,13 @@
     </ui:define>
 
     <ui:define name="description">
-        Schedule provides an Outlook, iCal like JSF component to manage events. Schedule is highly customizable featuring various views (month, day, week), built-in I18N, drag-drop, resize, customizable event dialog, ajax listeners for every user interaction and more.<br/>
-        Support for java.util.Date was dropped with PrimeFaces 7.1.
+        <p>
+            Schedule provides an Outlook, iCal like JSF component to manage events. Schedule is highly customizable featuring various views (month, day, week), built-in I18N, drag-drop, resize, customizable event dialog, ajax listeners for every user interaction and more.<br/>
+            Support for java.util.Date was dropped with PrimeFaces 7.1.
+        </p>
+        <p>
+            This Schedule is editable.
+        </p>
     </ui:define>
 
     <ui:define name="implementation">
@@ -28,7 +33,6 @@
             <p:growl id="messages" showDetail="true" />
      
             <h:panelGrid columnClasses="value">
-                <h3 style="margin-top: 0">Editable Schedule</h3>
                 <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" >
 
                     <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
