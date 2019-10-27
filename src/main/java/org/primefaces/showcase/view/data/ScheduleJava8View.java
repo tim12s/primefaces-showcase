@@ -38,6 +38,10 @@ public class ScheduleJava8View implements Serializable {
 
 	private ScheduleEvent event = new DefaultScheduleEvent();
 
+	private boolean showWeekends = true;
+	private boolean tooltip = true;
+	private boolean allDaySlot = true;
+
     @PostConstruct
 	public void init() {
 		eventModel = new DefaultScheduleModel();
@@ -175,5 +179,29 @@ public class ScheduleJava8View implements Serializable {
 	
 	private void addMessage(FacesMessage message) {
 		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
+	public boolean isShowWeekends() {
+		return showWeekends;
+	}
+
+	public void setShowWeekends(boolean showWeekends) {
+		this.showWeekends = showWeekends;
+	}
+
+	public boolean isTooltip() {
+		return tooltip;
+	}
+
+	public void setTooltip(boolean tooltip) {
+		this.tooltip = tooltip;
+	}
+
+	public boolean isAllDaySlot() {
+		return allDaySlot;
+	}
+
+	public void setAllDaySlot(boolean allDaySlot) {
+		this.allDaySlot = allDaySlot;
 	}
 }

@@ -33,9 +33,36 @@
 
         <h:form>
             <p:growl id="messages" showDetail="true" />
-     
+
+            <!--
+            <p:panelGrid columns="4" layout="flex" columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4" contentStyleClass="ui-fluid" styleClass="ui-noborder">
+                <p:selectBooleanCheckbox value="#{scheduleJava8View.showWeekends}" itemLabel="show weekends">
+                    <p:ajax update="schedule" />
+                </p:selectBooleanCheckbox>
+            </p:panelGrid>
+            -->
+
+            <p:panel header="Settings">
+                <!-- TODO: panelGrid; flex-issue when last row does not has enough columns -->
+                <p:panelGrid columns="2" layout="flex" styleClass="ui-noborder">
+                    <p:selectBooleanCheckbox value="#{scheduleJava8View.showWeekends}" itemLabel="show weekends">
+                        <p:ajax update="schedule" />
+                    </p:selectBooleanCheckbox>
+                    <p:selectBooleanCheckbox value="#{scheduleJava8View.tooltip}" itemLabel="show tooltips">
+                        <p:ajax update="schedule" />
+                    </p:selectBooleanCheckbox>
+                    <p:selectBooleanCheckbox value="#{scheduleJava8View.allDaySlot}" itemLabel="show all-day slot (timeGridWeek and timeGridDay)">
+                        <p:ajax update="schedule" />
+                    </p:selectBooleanCheckbox>
+                    <p:outputPanel />
+                </p:panelGrid>
+            </p:panel>
+
+            <p></p>
+
             <h:panelGrid columnClasses="value">
-                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" locale="de" tooltip="true" view="timeGridWeek" rightHeaderTemplate="dayGridMonth,timeGridWeek,timeGridDay,listYear" showWeekends="false"><!-- ,dayGridWeek,dayGridDay,listMonth,listWeek,listDay -->
+                <p:schedule id="schedule" value="#{scheduleJava8View.eventModel}" widgetVar="myschedule" locale="de" view="timeGridWeek" rightHeaderTemplate="dayGridMonth,timeGridWeek,timeGridDay,listYear"
+                            showWeekends="#{scheduleJava8View.showWeekends}" tooltip="#{scheduleJava8View.tooltip}" allDaySlot="#{scheduleJava8View.allDaySlot}">
 
                     <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
                     <p:ajax event="eventSelect" listener="#{scheduleJava8View.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
