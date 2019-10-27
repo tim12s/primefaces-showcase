@@ -42,6 +42,16 @@ public class ScheduleJava8View implements Serializable {
 	private boolean tooltip = true;
 	private boolean allDaySlot = true;
 
+	private String timeFormat;
+	private String slotDuration="00:30:00";
+	private String slotLabelInterval;
+	private String scrollTime="06:00:00";
+	private String minTime="04:00:00";
+	private String maxTime="20:00:00";
+	private String locale="en";
+	private String timeZone="";
+	private String clientTimeZone="local";
+
     @PostConstruct
 	public void init() {
 		eventModel = new DefaultScheduleModel();
@@ -203,5 +213,77 @@ public class ScheduleJava8View implements Serializable {
 
 	public void setAllDaySlot(boolean allDaySlot) {
 		this.allDaySlot = allDaySlot;
+	}
+
+	public String getTimeFormat() {
+		return timeFormat;
+	}
+
+	public void setTimeFormat(String timeFormat) {
+		this.timeFormat = timeFormat;
+	}
+
+	public String getSlotDuration() {
+		return slotDuration;
+	}
+
+	public void setSlotDuration(String slotDuration) {
+		this.slotDuration = slotDuration;
+	}
+
+	public String getSlotLabelInterval() {
+		return slotLabelInterval;
+	}
+
+	public void setSlotLabelInterval(String slotLabelInterval) {
+		this.slotLabelInterval = slotLabelInterval;
+	}
+
+	public String getScrollTime() {
+		return scrollTime;
+	}
+
+	public void setScrollTime(String scrollTime) {
+		this.scrollTime = scrollTime;
+	}
+
+	public String getMinTime() {
+		return minTime;
+	}
+
+	public void setMinTime(String minTime) {
+		this.minTime = minTime;
+	}
+
+	public String getMaxTime() {
+		return maxTime;
+	}
+
+	public void setMaxTime(String maxTime) {
+		this.maxTime = maxTime;
+	}
+
+	public String getLocale() {
+		return locale;
+	}
+
+	public void setLocale(String locale) {
+		this.locale = locale;
+	}
+
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	public void setTimeZone(String timeZone) {
+		this.timeZone = timeZone;
+	}
+
+	public String getClientTimeZone() {
+		return clientTimeZone;
+	}
+
+	public void setClientTimeZone(String clientTimeZone) {
+		this.clientTimeZone = clientTimeZone;
 	}
 }
