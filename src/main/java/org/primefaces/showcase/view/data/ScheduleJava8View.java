@@ -62,10 +62,12 @@ public class ScheduleJava8View implements Serializable {
 
 		event = new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm());
 		event.setDescription("Aragon");
+		event.setOverlapAllowed(true);
 		eventModel.addEvent(event);
 
 		event = new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am());
 		event.setDescription("all you can eat");
+		event.setOverlapAllowed(true);
 		eventModel.addEvent(event);
 
 		event = new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm());
