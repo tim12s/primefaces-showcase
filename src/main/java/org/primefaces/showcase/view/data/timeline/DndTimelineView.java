@@ -28,7 +28,9 @@ import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Named("dndTimelineView")
 @ViewScoped
@@ -36,21 +38,15 @@ public class DndTimelineView implements Serializable {
 
     private TimelineModel model;
 
-    private Date start;
-    private Date end;
+    private LocalDateTime start;
+    private LocalDateTime end;
     
     private List<Event> events = new ArrayList<Event>();
 
     @PostConstruct
     public void init() {
-        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-        Date now = new Date();
-
-        cal.setTimeInMillis(now.getTime() - 4 * 60 * 60 * 1000);
-        start = cal.getTime();
-
-        cal.setTimeInMillis(now.getTime() + 8 * 60 * 60 * 1000);
-        end = cal.getTime();
+        start = LocalDateTime.now().minusHours(4);
+        end = LocalDateTime.now().plusHours(8);
 
         model = new TimelineModel();
 
@@ -93,11 +89,11 @@ public class DndTimelineView implements Serializable {
         return events;
     }
 
-    public Date getStart() {
+    public LocalDateTime getStart() {
         return start;
     }
 
-    public Date getEnd() {
+    public LocalDateTime getEnd() {
         return end;
     }
 }

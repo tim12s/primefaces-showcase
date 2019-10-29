@@ -15,7 +15,6 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.component.timeline.TimelineUpdater;
 import org.primefaces.event.timeline.TimelineSelectEvent;
 import org.primefaces.model.timeline.TimelineEvent;
@@ -24,10 +23,11 @@ import org.primefaces.model.timeline.TimelineModel;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Named("linkedTimelinesView")
 @ViewScoped
@@ -46,48 +46,19 @@ public class LinkedTimelinesView implements Serializable {
     private void createFirstTimeline() {
         modelFirst = new TimelineModel();
 
-        Calendar cal = Calendar.getInstance();
-        cal.set(2015, Calendar.AUGUST, 22, 17, 30, 0);
-        modelFirst.add(new TimelineEvent(new Task("Mail from boss", "images/timeline/mail.png", false), cal.getTime()));
-
-        cal.set(2015, Calendar.AUGUST, 23, 23, 0, 0);
-        modelFirst.add(new TimelineEvent(new Task("Call back my boss", "images/timeline/callback.png", false), cal.getTime()));
-
-        cal.set(2015, Calendar.AUGUST, 24, 21, 45, 0);
-        modelFirst.add(new TimelineEvent(new Task("Travel to Spain", "images/timeline/location.png", false), cal.getTime()));
-
-        cal.set(2015, Calendar.AUGUST, 26, 0, 0, 0);
-        Date startWork = cal.getTime();
-        cal.set(2015, Calendar.SEPTEMBER, 2, 0, 0, 0);
-        Date endWork = cal.getTime();
-        modelFirst.add(new TimelineEvent(new Task("Do homework", "images/timeline/homework.png", true), startWork, endWork));
-
-        cal.set(2015, Calendar.AUGUST, 28, 0, 0, 0);
-        modelFirst.add(new TimelineEvent(new Task("Create memo", "images/timeline/memo.png", false), cal.getTime()));
-
-        cal.set(2015, Calendar.AUGUST, 31, 0, 0, 0);
-        Date startReport = cal.getTime();
-        cal.set(2015, Calendar.SEPTEMBER, 3, 0, 0, 0);
-        Date endReport = cal.getTime();
-        modelFirst.add(new TimelineEvent(new Task("Create report", "images/timeline/report.png", true), startReport, endReport));
+        modelFirst.add(new TimelineEvent(new Task("Mail from boss", "images/timeline/mail.png", false), LocalDateTime.of(2015, 8, 22, 17, 30)));
+        modelFirst.add(new TimelineEvent(new Task("Call back my boss", "images/timeline/callback.png", false), LocalDateTime.of(2015, 8, 23, 23, 0)));
+        modelFirst.add(new TimelineEvent(new Task("Travel to Spain", "images/timeline/location.png", false), LocalDateTime.of(2015, 8, 24, 21, 45)));
+        modelFirst.add(new TimelineEvent(new Task("Do homework", "images/timeline/homework.png", true), LocalDate.of(2015, 8, 26), LocalDate.of(2015, 9, 2)));
+        modelFirst.add(new TimelineEvent(new Task("Create memo", "images/timeline/memo.png", false), LocalDate.of(2015, 8, 28)));
+        modelFirst.add(new TimelineEvent(new Task("Create report", "images/timeline/report.png", true), LocalDate.of(2015, 8, 31), LocalDate.of(2015,9, 3)));
     }
 
     private void createSecondTimeline() {
         modelSecond = new TimelineModel();
 
-        Calendar cal = Calendar.getInstance();
-
-        cal.set(2015, Calendar.AUGUST, 23, 0, 0, 0);
-        Date startProject = cal.getTime();
-        cal.set(2015, Calendar.AUGUST, 30, 0, 0, 0);
-        Date endProject = cal.getTime();
-        modelSecond.add(new TimelineEvent("Project A", startProject, endProject));
-
-        cal.set(2015, Calendar.AUGUST, 27, 0, 0, 0);
-        startProject = cal.getTime();
-        cal.set(2015, Calendar.AUGUST, 31, 0, 0, 0);
-        endProject = cal.getTime();
-        modelSecond.add(new TimelineEvent("Project B", startProject, endProject));
+        modelSecond.add(new TimelineEvent("Project A", LocalDate.of(2015, 8, 23), LocalDate.of(2015, 8, 30)));
+        modelSecond.add(new TimelineEvent("Project B", LocalDate.of(2015, 8, 27), LocalDate.of(2015, 8, 31)));
     }
 
     public void onSelect(TimelineSelectEvent e) {

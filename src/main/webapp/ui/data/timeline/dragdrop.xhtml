@@ -49,10 +49,10 @@
             <h:panelGrid columns="1">
                 <h:outputText value="#{event.name}"/>
                 <h:outputText value="#{event.start}">
-                    <f:convertDateTime dateStyle="short" type="time"/>
+                    <f:convertDateTime type="localDateTime" pattern="hh:mm:ss a"/>
                 </h:outputText>
                 <h:outputText value="#{event.end}">
-                    <f:convertDateTime dateStyle="short" type="time"/>
+                    <f:convertDateTime type="localDateTime" pattern="hh:mm:ss a"/>
                 </h:outputText>
             </h:panelGrid>
         </p:timeline>

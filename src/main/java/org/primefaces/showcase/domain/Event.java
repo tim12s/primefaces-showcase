@@ -16,13 +16,13 @@
 package org.primefaces.showcase.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Event implements Serializable {
 
 	private String name;
-	private Date start;
-	private Date end;
+	private LocalDateTime start;
+	private LocalDateTime end;
 
 	public Event(String name) {
 		this.name = name;
@@ -36,19 +36,19 @@ public class Event implements Serializable {
 		this.name = name;
 	}
 
-	public Date getStart() {
+	public LocalDateTime getStart() {
 		return start;
 	}
 
-	public void setStart(Date start) {
+	public void setStart(LocalDateTime start) {
 		this.start = start;
 	}
 
-	public Date getEnd() {
+	public LocalDateTime getEnd() {
 		return end;
 	}
 
-	public void setEnd(Date end) {
+	public void setEnd(LocalDateTime end) {
 		this.end = end;
 	}
 

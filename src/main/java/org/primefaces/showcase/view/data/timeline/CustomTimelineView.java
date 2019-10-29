@@ -15,51 +15,42 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
 
 import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
+import java.time.LocalDateTime;
 
 @Named("customTimelineView")
 @ViewScoped
 public class CustomTimelineView implements Serializable {  
   
     private TimelineModel model;  
-    private Date start;  
-    private Date end;  
+    private LocalDateTime start;
+    private LocalDateTime end;
   
     @PostConstruct  
     public void init() {  
         // set initial start / end dates for the axis of the timeline  
-        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));  
-        Date now = new Date();  
-  
-        cal.setTimeInMillis(now.getTime() - 4 * 60 * 60 * 1000);  
-        start = cal.getTime();  
-  
-        cal.setTimeInMillis(now.getTime() + 8 * 60 * 60 * 1000);  
-        end = cal.getTime();  
-  
+        start = LocalDateTime.now().minusHours(4);
+        end = LocalDateTime.now().plusHours(8);
+
         // groups  
         String[] NAMES = new String[] {"User 1", "User 2", "User 3", "User 4", "User 5", "User 6"};  
   
         // create timeline model  
-        model = new TimelineModel();  
+        model = new TimelineModel();
   
-        for (String name : NAMES) {  
-            now = new Date();  
-            Date end = new Date(now.getTime() - 12 * 60 * 60 * 1000);  
-  
-            for (int i = 0; i < 5; i++) {  
-                Date start = new Date(end.getTime() + Math.round(Math.random() * 5) * 60 * 60 * 1000);  
-                end = new Date(start.getTime() + Math.round(4 + Math.random() * 5) * 60 * 60 * 1000);  
-  
+        for (String name : NAMES) {
+            LocalDateTime end = LocalDateTime.now().minusHours(12).withMinute(0).withSecond(0).withNano(0);
+
+            for (int i = 0; i < 5; i++) {
+                LocalDateTime start = end.plusHours(Math.round(Math.random() *5));
+                end = start.plusHours(4 + Math.round(Math.random() *5));
+
                 long r = Math.round(Math.random() * 2);  
                 String availability = (r == 0 ? "Unavailable" : (r == 1 ? "Available" : "Maybe"));  
   
@@ -74,11 +65,11 @@ public class CustomTimelineView implements Serializable {
         return model;  
     }  
   
-    public Date getStart() {  
+    public LocalDateTime getStart() {
         return start;  
     }  
   
-    public Date getEnd() {  
+    public LocalDateTime getEnd() {
         return end;  
     }  
 }  

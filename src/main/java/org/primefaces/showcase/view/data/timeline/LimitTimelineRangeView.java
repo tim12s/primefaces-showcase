@@ -15,15 +15,15 @@
  */
 package org.primefaces.showcase.view.data.timeline;
 
-import javax.faces.view.ViewScoped;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
 
 import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Named("limitTimelineRangeView")
 @ViewScoped
@@ -31,8 +31,8 @@ public class LimitTimelineRangeView implements Serializable {
 
 	private TimelineModel model;
 
-	private Date min;
-	private Date max;
+	private LocalDateTime min;
+	private LocalDateTime max;
 	private long zoomMin;
 	private long zoomMax;
 
@@ -40,20 +40,14 @@ public class LimitTimelineRangeView implements Serializable {
 	public void init() {
 		model = new TimelineModel();
 
-		Calendar cal = Calendar.getInstance();
-		cal.set(2015, Calendar.MAY, 25, 0, 0, 0);
-		model.add(new TimelineEvent("First", cal.getTime()));
-
-		cal.set(2015, Calendar.MAY, 26, 0, 0, 0);
-		model.add(new TimelineEvent("Last", cal.getTime()));
+		model.add(new TimelineEvent("First", LocalDate.of(2015, 5, 25)));
+		model.add(new TimelineEvent("Last", LocalDate.of(2015, 5, 26)));
 
 		// lower limit of visible range
-		cal.set(2015, Calendar.JANUARY, 1, 0, 0, 0);
-		min = cal.getTime();
+		min = LocalDate.of(2015, 1,1).atStartOfDay();
 
 		// upper limit of visible range
-		cal.set(2015, Calendar.DECEMBER, 31, 0, 0, 0);
-		max = cal.getTime();
+		max = LocalDate.of(2015, 12, 31).atStartOfDay();
 
 		// one day in milliseconds for zoomMin
 		zoomMin = 1000L * 60 * 60 * 24;
@@ -66,11 +60,11 @@ public class LimitTimelineRangeView implements Serializable {
 		return model;
 	}
 
-	public Date getMin() {
+	public LocalDateTime getMin() {
 		return min;
 	}
 
-	public Date getMax() {
+	public LocalDateTime getMax() {
 		return max;
 	}
 
