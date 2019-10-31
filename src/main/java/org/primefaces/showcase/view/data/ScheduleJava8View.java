@@ -51,6 +51,7 @@ public class ScheduleJava8View implements Serializable {
 	private String locale="en";
 	private String timeZone="";
 	private String clientTimeZone="local";
+	private String columnHeaderFormat="";
 
     @PostConstruct
 	public void init() {
@@ -287,5 +288,13 @@ public class ScheduleJava8View implements Serializable {
 
 	public void setClientTimeZone(String clientTimeZone) {
 		this.clientTimeZone = clientTimeZone;
+	}
+
+	public String getColumnHeaderFormat() {
+		return columnHeaderFormat;
+	}
+
+	public void setColumnHeaderFormat(String columnHeaderFormat) {
+		this.columnHeaderFormat = columnHeaderFormat;
 	}
 }

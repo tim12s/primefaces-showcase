@@ -98,6 +98,18 @@
 
                         <p:ajax update="schedule" />
                     </p:selectOneMenu>
+
+                    <p:outputLabel value="columnHeaderFormat" for="columnHeaderFormat" />
+                    <p:selectOneMenu id="columnHeaderFormat" value="#{scheduleJava8View.columnHeaderFormat}">
+                        <f:selectItem itemLabel="" itemValue="" />
+                        <f:selectItem itemLabel="week:'dd DD MMM'" itemValue="week:'dd DD MMM'" />
+                        <f:selectItem itemLabel="day: 'dd'" itemValue="day: 'dd'" />
+                        <f:selectItem itemLabel="timeGridWeek: 'DD MM'" itemValue="timeGridWeek: 'DD MM'" />
+                        <f:selectItem itemLabel="timeGridWeek: 'DD MM', timeGridDay: 'dd'" itemValue="timeGridWeek: 'DD MM', timeGridDay: 'dd'" />
+                        <f:selectItem itemLabel="listYear: 'dd.MM.yyyy'" itemValue="listYear: 'dd.MM.yyyy'" />
+
+                        <p:ajax update="schedule" />
+                    </p:selectOneMenu>
                 </p:panelGrid>
             </p:panel>
 
@@ -110,7 +122,8 @@
                             showWeekends="#{scheduleJava8View.showWeekends}" tooltip="#{scheduleJava8View.tooltip}" allDaySlot="#{scheduleJava8View.allDaySlot}"
                             timeFormat="#{scheduleJava8View.timeFormat}" slotDuration="#{scheduleJava8View.slotDuration}"
                             slotLabelInterval="#{scheduleJava8View.slotLabelInterval}" scrollTime="#{scheduleJava8View.scrollTime}"
-                            minTime="#{scheduleJava8View.minTime}" maxTime="#{scheduleJava8View.maxTime}">
+                            minTime="#{scheduleJava8View.minTime}" maxTime="#{scheduleJava8View.maxTime}"
+                            columnHeaderFormat="#{scheduleJava8View.columnHeaderFormat}">
 
                     <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
                     <p:ajax event="eventSelect" listener="#{scheduleJava8View.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
