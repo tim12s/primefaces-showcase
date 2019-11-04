@@ -21,18 +21,20 @@ import org.primefaces.model.StreamedContent;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import java.io.InputStream;
 
 @Named
 @RequestScoped
 public class FileDownloadView {
-    
+
     private StreamedContent file;
-	
-	public FileDownloadView() {        
-        InputStream stream = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/resources/demo/images/boromir.jpg");
-		file = new DefaultStreamedContent(stream, "image/jpg", "downloaded_boromir.jpg");
-	}
+
+    public FileDownloadView() {
+        file = DefaultStreamedContent.builder()
+                .name("downloaded_boromir.jpg")
+                .contentType("image/jpg")
+                .stream(() -> FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/resources/demo/images/boromir.jpg"))
+                .build();
+    }
 
     public StreamedContent getFile() {
         return file;

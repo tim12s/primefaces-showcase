@@ -38,47 +38,66 @@ import java.io.FileInputStream;
 @RequestScoped
 public class GraphicImageView {
 
-	private StreamedContent graphicText;
-		
-	private StreamedContent chart;
+    private StreamedContent graphicText;
+
+    private StreamedContent chart;
 
     @PostConstruct
-	public void init() {
+    public void init() {
         try {
-            //Graphic Text
-            BufferedImage bufferedImg = new BufferedImage(100, 25, BufferedImage.TYPE_INT_RGB);
-            Graphics2D g2 = bufferedImg.createGraphics();
-            g2.drawString("This is a text", 0, 10);
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            ImageIO.write(bufferedImg, "png", os);
-            graphicText = new DefaultStreamedContent(new ByteArrayInputStream(os.toByteArray()), "image/png"); 
+            graphicText = DefaultStreamedContent.builder()
+                    .contentType("image/png")
+                    .stream(() -> {
+                        try {
+                            BufferedImage bufferedImg = new BufferedImage(100, 25, BufferedImage.TYPE_INT_RGB);
+                            Graphics2D g2 = bufferedImg.createGraphics();
+                            g2.drawString("This is a text", 0, 10);
+                            ByteArrayOutputStream os = new ByteArrayOutputStream();
+                            ImageIO.write(bufferedImg, "png", os);
+                            return new ByteArrayInputStream(os.toByteArray());
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            return null;
+                        }
+                    })
+                    .build();
 
-            //Chart
-            JFreeChart jfreechart = ChartFactory.createPieChart("Cities", createDataset(), true, true, false);
-            File chartFile = new File("dynamichart");
-            ChartUtilities.saveChartAsPNG(chartFile, jfreechart, 375, 300);
-            chart = new DefaultStreamedContent(new FileInputStream(chartFile), "image/png");
-		} 
-        catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+            chart = DefaultStreamedContent.builder()
+                    .contentType("image/png")
+                    .stream(() -> {
+                        try {
+                            JFreeChart jfreechart = ChartFactory.createPieChart("Cities", createDataset(), true, true, false);
+                            File chartFile = new File("dynamichart");
+                            ChartUtilities.saveChartAsPNG(chartFile, jfreechart, 375, 300);
+                            return new FileInputStream(chartFile);
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            return null;
+                        }
+                    })
+                    .build();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public StreamedContent getGraphicText() {
         return graphicText;
     }
-		
-	public StreamedContent getChart() {
-		return chart;
-	}
-	
-	private PieDataset createDataset() {
-		DefaultPieDataset dataset = new DefaultPieDataset();
-		dataset.setValue("New York", new Double(45.0));
-		dataset.setValue("London", new Double(15.0));
-		dataset.setValue("Paris", new Double(25.2));
-		dataset.setValue("Berlin", new Double(14.8));
 
-		return dataset;
-	}
+    public StreamedContent getChart() {
+        return chart;
+    }
+
+    private PieDataset createDataset() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("New York", new Double(45.0));
+        dataset.setValue("London", new Double(15.0));
+        dataset.setValue("Paris", new Double(25.2));
+        dataset.setValue("Berlin", new Double(14.8));
+
+        return dataset;
+    }
 }
