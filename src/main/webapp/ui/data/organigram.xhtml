@@ -115,22 +115,22 @@
         <h:form>
             <p:panel header="Options">
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="zoom" />
+                    <p:outputLabel for="@next" value="zoom" />
                     <p:selectBooleanCheckbox value="#{organigramView.zoom}">
                         <p:ajax process="@this" update=":form:organigram" />
                     </p:selectBooleanCheckbox>
 
-                    <h:outputLabel value="autoScrollToSelection" />
+                    <p:outputLabel for="@next" value="autoScrollToSelection" />
                     <p:selectBooleanCheckbox value="#{organigramView.autoScrollToSelection}">
                         <p:ajax process="@this" update=":form:organigram" />
                     </p:selectBooleanCheckbox>
 
-                    <h:outputLabel value="leafNodeConnectorHeight" />
+                    <p:outputLabel for="@next" value="leafNodeConnectorHeight" />
                     <p:inputText value="#{organigramView.leafNodeConnectorHeight}">
                         <p:ajax process="@this" update=":form:organigram" />
                     </p:inputText>
 
-                    <h:outputLabel value="style" />
+                    <p:outputLabel for="@next" value="style" />
                     <p:inputText value="#{organigramView.style}" size="100">
                         <p:ajax process="@this" update=":form:organigram" />
                     </p:inputText>
