@@ -41,6 +41,7 @@ public class TabbedView {
         cars.add(new Car("HSFY23H", "Ford", 2012, "Black", 35000, false));
         cars.add(new Car("GMDK353", "Volvo", 2014, "White", 40000, true));
         cars.add(new Car("345GKM5", "Jaguar", 2011, "Gray", 48000, false));
+        cars.add(new Car("JIF261G", "BMW", 2011, "White", 52000, true));
     }
     
     public List<Car> getCars() {
