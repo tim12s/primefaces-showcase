@@ -26,6 +26,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Named
 @RequestScoped
@@ -49,7 +50,7 @@ public class AutoCompleteView {
     private ThemeService service;
     
     public List<String> completeText(String query) {
-		List<String> results = new ArrayList<String>();
+		List<String> results = new ArrayList<>();
 		for(int i = 0; i < 10; i++) {
 			results.add(query + i);
 		}
@@ -58,31 +59,15 @@ public class AutoCompleteView {
 	}
     
     public List<Theme> completeTheme(String query) {
+        String queryLowerCase = query.toLowerCase();
         List<Theme> allThemes = service.getThemes();
-		List<Theme> filteredThemes = new ArrayList<Theme>();
-        
-        for (int i = 0; i < allThemes.size(); i++) {
-            Theme skin = allThemes.get(i);
-            if(skin.getName().toLowerCase().contains(query)) {
-                filteredThemes.add(skin);
-            }
-        }
-        
-        return filteredThemes;
+        return allThemes.stream().filter(t -> t.getName().toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
 	}
     
     public List<Theme> completeThemeContains(String query) {
+        String queryLowerCase = query.toLowerCase();
         List<Theme> allThemes = service.getThemes();
-		List<Theme> filteredThemes = new ArrayList<Theme>();
-        
-        for (int i = 0; i < allThemes.size(); i++) {
-            Theme skin = allThemes.get(i);
-            if(skin.getName().toLowerCase().contains(query)) {
-                filteredThemes.add(skin);
-            }
-        }
-        
-        return filteredThemes;
+        return allThemes.stream().filter(t -> t.getName().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
 	}
         
     public void onItemSelect(SelectEvent<String> event) {
