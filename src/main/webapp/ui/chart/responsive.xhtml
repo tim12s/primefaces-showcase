@@ -13,6 +13,8 @@
         Chart size can adjust to screen size in responsive manner. In this example, first chart is responsive and second one is not.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/chart" />
+
     <ui:define name="implementation">
         <p:chart type="line" model="#{chartView.lineModel1}" style="height:300px;" responsive="true"/>
         <br />

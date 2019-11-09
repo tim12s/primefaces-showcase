@@ -25,6 +25,8 @@
         Charts can be animated on load.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/chart" />
+
     <ui:define name="implementation">
         <h:panelGrid columns="2" columnClasses="left,right" style="width:100%">
             <p:chart type="line" model="#{chartView.animatedModel1}" style="width:400px;" />

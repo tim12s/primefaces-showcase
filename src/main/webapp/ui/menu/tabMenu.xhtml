@@ -13,6 +13,8 @@
         TabMenu is a menu component displaying menuitems as tabs.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/tabmenu" />
+
     <ui:define name="implementation">
         <p:tabMenu activeIndex="#{param.i}">
             <p:menuitem value="Overview" outcome="/ui/menu/tabMenu" icon="pi pi-star">

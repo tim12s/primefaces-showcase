@@ -676,6 +676,19 @@ body {
             .subitem {
                 font-weight: normal;
             }
+
+            div.documentation {
+                float: right;
+                color: white;
+
+                a {
+                    color: white;
+
+                    i {
+                        vertical-align: bottom;
+                    }
+                }
+            }
         }
 
         .content-implementation {

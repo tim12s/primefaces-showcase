@@ -12,6 +12,8 @@
         DataTable displays data in tabular format.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/datatable" />
+
     <ui:define name="implementation">
         <p:dataTable var="car" value="#{dtBasicView.cars}">
             <p:column headerText="Id">

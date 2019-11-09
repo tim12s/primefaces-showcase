@@ -13,6 +13,8 @@
         DataTable has built-in support for RTL languages..
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/datatable" />
+
     <ui:define name="implementation">
         <p:dataTable var="car" value="#{dtBasicView.cars}" dir="rtl">
             <p:column headerText="Id">

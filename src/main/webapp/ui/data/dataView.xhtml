@@ -33,6 +33,8 @@
         DataView displays data in grid or list layout.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/dataview" />
+
     <ui:define name="implementation">
         <h:form id="form">
             <p:dataView var="car" value="#{dataGridView.cars}" rows="12" paginator="true" rowsPerPageTemplate="6,12,16"

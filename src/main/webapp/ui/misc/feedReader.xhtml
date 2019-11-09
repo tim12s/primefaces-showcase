@@ -13,6 +13,8 @@
         FeedReader retrieves and displays content from a feed.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/feedreader" />
+
     <ui:define name="implementation">
         <p:feedReader value="http://rss.news.yahoo.com/rss/sports" var="feed">
             <h:outputText value="#{feed.title}" style="font-weight: bold;display:block"/>

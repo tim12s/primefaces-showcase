@@ -13,6 +13,8 @@
         Dynamic dialogs fetch their content just before they are displayed rather than initial page load. This is a useful feature to reduce page size and speed up page load time.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/dialog" />
+
     <ui:define name="implementation">
 
        <p:commandButton value="Show Dialog" onclick="PF('dlg').show();" type="button" />

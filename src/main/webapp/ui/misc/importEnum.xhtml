@@ -17,6 +17,8 @@
         It also possible to get all enum values of the class with the "ALL_VALUES" suffix or a custom prefix via the "allSuffix" attribute. <br/>
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/importenum" />
+
     <ui:define name="implementation">
         <p:importEnum type="javax.faces.application.ProjectStage" var="JsfProjectStages" allSuffix="ALL_ENUM_VALUES" />  
 

@@ -27,6 +27,8 @@ function stop() {
         like button or a link. Additionally presentation of download can be configured with the contentDisposition attribute that takes either "attachment" or "inline" as a value.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/filedownload" />
+
     <ui:define name="implementation">
         
         <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">

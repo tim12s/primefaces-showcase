@@ -14,6 +14,8 @@
         Header and Footer section are defined using facets.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/datatable" />
+
     <ui:define name="implementation">
         <p:dataTable var="car" value="#{dtBasicView.cars}">
             <f:facet name="header">

@@ -13,6 +13,8 @@
         Galleria is a content gallery component.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/galleria" />
+
     <ui:define name="implementation">
         <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
             <p:graphicImage name="demo/images/nature/#{image}" alt="Image Description for #{image}" title="#{image}"/>

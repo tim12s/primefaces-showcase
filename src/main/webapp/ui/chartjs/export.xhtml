@@ -26,6 +26,8 @@
         Charts are canvas based and can be exported as static images with client side api.
     </ui:define>
 
+	<ui:param name="documentationLink" value="/components/charts?id=export" />
+
 	<ui:define name="implementation">
 		<p:barChart model="#{chartJsView.barModel}"	style="width: 100%; height: 500px;" widgetVar="chart" />
 		 <br />

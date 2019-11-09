@@ -23,6 +23,8 @@
         Certain rows can be styled based on a condition using rowStyleClass. Table below highlights cars that are manufactured before 1990.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/datatable" />
+
     <ui:define name="implementation">
         <p:dataTable var="car" value="#{dtBasicView.cars}" rowStyleClass="#{car.year le 1990 ? 'old' : null}">
             <p:column headerText="Id">

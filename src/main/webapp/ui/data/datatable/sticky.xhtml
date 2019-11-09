@@ -13,6 +13,8 @@
         Header of the datatable can be fixed to keep it in viewport during scroll.
     </ui:define>
 
+    <ui:param name="documentationLink" value="/components/datatable" />
+
     <ui:define name="implementation">
 
         <p:dataTable var="car" value="#{dtStickyView.cars}" stickyHeader="true" stickyTopAt=".layout-topbar">
