@@ -14,13 +14,12 @@
     </ui:define>
     
     <ui:define name="title">
-        Schedule (Java8; LocalDateTime; requires PrimeFaces >= 7.1) - <span class="subitem">Basic</span>
+        Schedule - <span class="subitem">Basic</span>
     </ui:define>
 
     <ui:define name="description">
         <p>
-            Schedule provides an Outlook, iCal like JSF component to manage events. Schedule is highly customizable featuring various views (month, day, week), built-in I18N, drag-drop, resize, customizable event dialog, ajax listeners for every user interaction and more.<br/>
-            Support for java.util.Date was dropped with PrimeFaces 7.1.
+            Schedule provides an Outlook, iCal like JSF component to manage events which is based on FullCalendar. Schedule is highly customizable featuring various views (month, day, week), built-in I18N, drag-drop, resize, customizable event dialog, ajax listeners for every user interaction and more.
         </p>
         <p>
             This Schedule is editable.
@@ -51,10 +50,10 @@
                     <p:inputText id="title" value="#{scheduleJava8View.event.title}" required="true" />
 
                     <p:outputLabel for="from" value="From:" />
-                    <p:calendar id="from" value="#{scheduleJava8View.event.startDate}" pattern="dd/MM/yyyy HH:mm" />
+                    <p:datePicker id="from" value="#{scheduleJava8View.event.startDate}" pattern="dd/MM/yyyy" showTime="true" appendTo="@(body)"  />
 
                     <p:outputLabel for="to" value="To:" />
-                    <p:calendar id="to" value="#{scheduleJava8View.event.endDate}" pattern="dd/MM/yyyy HH:mm" />
+                    <p:datePicker id="to" value="#{scheduleJava8View.event.endDate}" pattern="dd/MM/yyyy" showTime="true" appendTo="@(body)" />
 
                     <p:outputLabel for="allDay" value="All Day (see #1164):" />
                     <h:selectBooleanCheckbox id="allDay" value="#{scheduleJava8View.event.allDay}" />

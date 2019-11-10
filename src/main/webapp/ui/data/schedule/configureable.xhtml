@@ -14,7 +14,7 @@
     </ui:define>
     
     <ui:define name="title">
-        Schedule (Java8; LocalDateTime; requires PrimeFaces >= 7.1) - <span class="subitem">Configureable</span>
+        Schedule - <span class="subitem">Configureable</span>
     </ui:define>
 
     <ui:define name="description">
@@ -28,7 +28,7 @@
             <p:growl id="messages" showDetail="true" />
 
             <p:panel header="Settings">
-                <p:panelGrid columns="2" layout="flex" styleClass="ui-noborder">
+                <p:panelGrid columns="2" layout="flex" styleClass="ui-noborder" columnClasses="p-col-12 p-xl-6, p-col-12 p-xl-6">
                     <p:selectBooleanCheckbox value="#{scheduleJava8View.showWeekends}" itemLabel="show weekends">
                         <p:ajax update="schedule" />
                     </p:selectBooleanCheckbox>
@@ -102,7 +102,7 @@
                     </p:selectOneMenu>
 
                     <p:outputLabel value="columnHeaderFormat" for="columnHeaderFormat" />
-                    <p:selectOneMenu id="columnHeaderFormat" value="#{scheduleJava8View.columnHeaderFormat}">
+                    <p:selectOneMenu id="columnHeaderFormat" value="#{scheduleJava8View.columnHeaderFormat}" autoWidth="false">
                         <f:selectItem itemLabel="" itemValue="" />
                         <f:selectItem itemLabel="week:'dd DD MMM'" itemValue="week:'dd DD MMM'" />
                         <f:selectItem itemLabel="day: 'dd'" itemValue="day: 'dd'" />
@@ -142,10 +142,10 @@
                     <p:inputText id="title" value="#{scheduleJava8View.event.title}" required="true" />
 
                     <p:outputLabel for="from" value="From:" />
-                    <p:calendar id="from" value="#{scheduleJava8View.event.startDate}" pattern="dd/MM/yyyy HH:mm" />
+                    <p:datePicker id="from" value="#{scheduleJava8View.event.startDate}" pattern="dd/MM/yyyy" showTime="true" appendTo="@(body)"  />
 
                     <p:outputLabel for="to" value="To:" />
-                    <p:calendar id="to" value="#{scheduleJava8View.event.endDate}" pattern="dd/MM/yyyy HH:mm" />
+                    <p:datePicker id="to" value="#{scheduleJava8View.event.endDate}" pattern="dd/MM/yyyy" showTime="true" appendTo="@(body)" />
 
                     <p:outputLabel for="allDay" value="All Day (see #1164):" />
                     <h:selectBooleanCheckbox id="allDay" value="#{scheduleJava8View.event.allDay}" />
