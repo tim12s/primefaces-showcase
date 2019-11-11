@@ -25,10 +25,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 @Named
 @ViewScoped
@@ -57,6 +54,8 @@ public class CalendarView implements Serializable {
     private List<Integer> invalidDays;
     private Date minDate;
     private Date maxDate;
+    private Date minTime;
+    private Date maxTime;
 
     @PostConstruct
     public void init() {
@@ -74,6 +73,20 @@ public class CalendarView implements Serializable {
 
         minDate = new Date(today.getTime() - (365 * oneDay));
         maxDate = new Date(today.getTime() + (365 * oneDay));
+
+        Calendar tmp = Calendar.getInstance();
+        tmp.set(Calendar.HOUR_OF_DAY, 9);
+        tmp.set(Calendar.MINUTE, 0);
+        tmp.set(Calendar.SECOND, 0);
+        tmp.set(Calendar.MILLISECOND, 0);
+        minTime = tmp.getTime();
+
+        tmp = Calendar.getInstance();
+        tmp.set(Calendar.HOUR_OF_DAY, 17);
+        tmp.set(Calendar.MINUTE, 0);
+        tmp.set(Calendar.SECOND, 0);
+        tmp.set(Calendar.MILLISECOND, 0);
+        maxTime =  tmp.getTime();
 
         dateDe = GregorianCalendar.getInstance().getTime();
         dateTimeDe = GregorianCalendar.getInstance().getTime();
@@ -272,5 +285,21 @@ public class CalendarView implements Serializable {
 
     public void setDate15(Date date15) {
         this.date15 = date15;
+    }
+
+    public Date getMinTime() {
+        return minTime;
+    }
+
+    public void setMinTime(Date minTime) {
+        this.minTime = minTime;
+    }
+
+    public Date getMaxTime() {
+        return maxTime;
+    }
+
+    public void setMaxTime(Date maxTime) {
+        this.maxTime = maxTime;
     }
 }

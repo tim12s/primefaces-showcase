@@ -147,6 +147,9 @@
 
                 <p:outputLabel for="timeonly" value="Time Only:" />
                 <p:datePicker id="timeonly" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+
+                <p:outputLabel for="timeonlyMinMax" value="Time Only (Min-Max; not implemented yet):" />
+                <p:datePicker id="timeonlyMinMax" value="#{calendarView.date15}" timeOnly="true" pattern="HH:mm" mindate="#{calendarView.minTime}" maxdate="#{calendarView.maxTime}"/>
             </h:panelGrid>
 
             <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
@@ -246,6 +249,11 @@
 
                     <h:outputText value="Time Only:" />
                     <h:outputText value="#{calendarView.date14}">
+                        <f:convertDateTime pattern="HH:mm" />
+                    </h:outputText>
+
+                    <h:outputText value="Time Only (Min-Max; not implemented yet):" />
+                    <h:outputText value="#{calendarView.date15}">
                         <f:convertDateTime pattern="HH:mm" />
                     </h:outputText>
                 </p:panelGrid>

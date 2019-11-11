@@ -59,6 +59,8 @@ public class CalendarJava8View implements Serializable {
     private List<Integer> invalidDays;
     private LocalDate minDate;
     private LocalDate maxDate;
+    private LocalTime minTime;
+    private LocalTime maxTime;
     private ZonedDateTime zonedDateTime1;
     private YearMonth yearMonth;
 
@@ -76,6 +78,9 @@ public class CalendarJava8View implements Serializable {
 
         minDate = LocalDate.now().minusYears(1);
         maxDate = LocalDate.now().plusYears(1);
+
+        minTime = LocalTime.of(9, 0);
+        maxTime = LocalTime.of(17, 0);
 
         dateDe = LocalDate.of(2019, 7, 27);
         dateTimeDe = LocalDateTime.of(2019, 7, 27, 12, 59);
@@ -316,4 +321,19 @@ public class CalendarJava8View implements Serializable {
         this.yearMonth = yearMonth;
     }
 
+    public LocalTime getMinTime() {
+        return minTime;
+    }
+
+    public void setMinTime(LocalTime minTime) {
+        this.minTime = minTime;
+    }
+
+    public LocalTime getMaxTime() {
+        return maxTime;
+    }
+
+    public void setMaxTime(LocalTime maxTime) {
+        this.maxTime = maxTime;
+    }
 }
