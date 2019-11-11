@@ -142,6 +142,9 @@
                 <p:outputLabel for="time" value="Time" />
                 <p:datePicker id="time" value="#{calendarView.date13}" showTime="true"/>
 
+                <p:outputLabel for="timeMinMax" value="Time (Min-Max; not implemented yet)" />
+                <p:datePicker id="timeMinMax" value="#{calendarView.date16}" showTime="true" mindate="#{calendarView.minDateTime}" maxdate="#{calendarView.maxDateTime}"/>
+
                 <p:outputLabel for="timeDe" value="Time (German):" />
                 <p:datePicker id="timeDe" value="#{calendarView.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy"/>
 
@@ -239,6 +242,11 @@
 
                     <h:outputText value="Time:" />
                     <h:outputText value="#{calendarView.date13}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+                    </h:outputText>
+
+                    <h:outputText value="Time (Min-Max; not implemented yet):" />
+                    <h:outputText value="#{calendarView.date16}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
                     </h:outputText>
 

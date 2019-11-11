@@ -52,6 +52,7 @@ public class CalendarJava8View implements Serializable {
     private LocalTime time3;
     private LocalDateTime dateTime1;
     private LocalDateTime dateTime2;
+    private LocalDateTime dateTime3;
     private LocalDateTime dateTimeDe;
     private List<LocalDate> multi;
     private List<LocalDate> range;
@@ -61,6 +62,8 @@ public class CalendarJava8View implements Serializable {
     private LocalDate maxDate;
     private LocalTime minTime;
     private LocalTime maxTime;
+    private LocalDateTime minDateTime;
+    private LocalDateTime maxDateTime;
     private ZonedDateTime zonedDateTime1;
     private YearMonth yearMonth;
 
@@ -81,6 +84,9 @@ public class CalendarJava8View implements Serializable {
 
         minTime = LocalTime.of(9, 0);
         maxTime = LocalTime.of(17, 0);
+
+        minDateTime = LocalDateTime.now().minusWeeks(1);
+        maxDateTime = LocalDateTime.now().plusWeeks(1);
 
         dateDe = LocalDate.of(2019, 7, 27);
         dateTimeDe = LocalDateTime.of(2019, 7, 27, 12, 59);
@@ -335,5 +341,29 @@ public class CalendarJava8View implements Serializable {
 
     public void setMaxTime(LocalTime maxTime) {
         this.maxTime = maxTime;
+    }
+
+    public LocalDateTime getMinDateTime() {
+        return minDateTime;
+    }
+
+    public void setMinDateTime(LocalDateTime minDateTime) {
+        this.minDateTime = minDateTime;
+    }
+
+    public LocalDateTime getMaxDateTime() {
+        return maxDateTime;
+    }
+
+    public void setMaxDateTime(LocalDateTime maxDateTime) {
+        this.maxDateTime = maxDateTime;
+    }
+
+    public LocalDateTime getDateTime3() {
+        return dateTime3;
+    }
+
+    public void setDateTime3(LocalDateTime dateTime3) {
+        this.dateTime3 = dateTime3;
     }
 }
