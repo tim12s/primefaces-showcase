@@ -17,29 +17,29 @@ package org.primefaces.showcase.view.data.datatable;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import org.primefaces.model.FilterMeta;
 import org.primefaces.model.LazyDataModel;
-import org.primefaces.model.SortOrder;
+import org.primefaces.model.SortMeta;
 import org.primefaces.showcase.domain.Car;
 
 /**
  * Dummy implementation of LazyDataModel that uses a list to mimic a real datasource like a database.
  */
 public class LazyCarDataModel extends LazyDataModel<Car> {
-    
+
     private List<Car> datasource;
-    
+
     public LazyCarDataModel(List<Car> datasource) {
         this.datasource = datasource;
     }
-    
+
     @Override
     public Car getRowData(String rowKey) {
-        for(Car car : datasource) {
-            if(car.getId().equals(rowKey))
+        for (Car car : datasource) {
+            if (car.getId().equals(rowKey)) {
                 return car;
+            }
         }
 
         return null;
@@ -51,41 +51,44 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
     }
 
     @Override
-    public List<Car> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String,Object> filters) {
-        List<Car> data = new ArrayList<Car>();
+    public List<Car> load(int first, int pageSize, List<SortMeta> sortMeta, List<FilterMeta> filterMeta) {
+        List<Car> data = new ArrayList<>();
 
         //filter
-        for(Car car : datasource) {
+        for (Car car : datasource) {
             boolean match = true;
 
-            if (filters != null) {
-                for (Iterator<String> it = filters.keySet().iterator(); it.hasNext();) {
+            if (filterMeta != null) {
+                for (FilterMeta meta : filterMeta) {
                     try {
-                        String filterProperty = it.next();
-                        Object filterValue = filters.get(filterProperty);
-                        String fieldValue = String.valueOf(car.getClass().getField(filterProperty).get(car));
+                        String filterField = meta.getFilterField();
+                        Object filterValue = meta.getFilterValue();
+                        String fieldValue = String.valueOf(car.getClass().getField(filterField).get(car));
 
-                        if(filterValue == null || fieldValue.startsWith(filterValue.toString())) {
+                        if (filterValue == null || fieldValue.startsWith(filterValue.toString())) {
                             match = true;
-                    }
-                    else {
+                        }
+                        else {
                             match = false;
                             break;
                         }
-                    } catch(Exception e) {
+                    }
+                    catch (Exception e) {
                         match = false;
                     }
                 }
             }
 
-            if(match) {
+            if (match) {
                 data.add(car);
             }
         }
 
         //sort
-        if(sortField != null) {
-            Collections.sort(data, new LazySorter(sortField, sortOrder));
+        if (sortMeta != null && !sortMeta.isEmpty()) {
+            for (SortMeta meta : sortMeta) {
+                Collections.sort(data, new LazySorter(meta.getSortField(), meta.getSortOrder()));
+            }
         }
 
         //rowCount
@@ -93,11 +96,11 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
         this.setRowCount(dataSize);
 
         //paginate
-        if(dataSize > pageSize) {
+        if (dataSize > pageSize) {
             try {
                 return data.subList(first, first + pageSize);
             }
-            catch(IndexOutOfBoundsException e) {
+            catch (IndexOutOfBoundsException e) {
                 return data.subList(first, first + (dataSize % pageSize));
             }
         }
