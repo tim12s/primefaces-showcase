@@ -29,7 +29,7 @@
     <ui:define name="implementation">
 
         <h:form>
-            <p:treeTable value="#{ttScrollableView.root1}" var="document" style="margin-top:0">
+            <p:treeTable widgetVar="treeTable" value="#{ttScrollableView.root1}" var="document" style="margin-top:0" >
                 <f:facet name="header">
                     Vertical
                 </f:facet>
@@ -39,7 +39,19 @@
                 <p:column headerText="Size">
                     <h:outputText value="#{document.size}" />
                 </p:column>
-                <p:column headerText="Type">
+                <p:column headerText="Type" filterBy="#{document.type}" filterMatchMode="exact">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('treeTable').filter()" styleClass="custom-filter">
+                            <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                            <f:selectItem itemLabel="Folder" itemValue="Folder" />
+                            <f:selectItem itemLabel="JPEG Image" itemValue="JPEG Image" />
+                            <f:selectItem itemLabel="PNG Image" itemValue="PNG Image" />
+                            <f:selectItem itemLabel="Movie File" itemValue="Movie File" />
+                            <f:selectItem itemLabel="Word Document" itemValue="Word Document" />
+                            <f:selectItem itemLabel="Pages Document" itemValue="Pages Document" />
+                        </p:selectOneMenu>
+                    </f:facet>
+
                     <h:outputText value="#{document.type}" />
                 </p:column>
             </p:treeTable>
