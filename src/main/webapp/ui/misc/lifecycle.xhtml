@@ -17,15 +17,17 @@
     <ui:param name="documentationLink" value="/components/lifecycle" />
 
     <ui:define name="implementation">
-        <p:commandButton value="Dummy Ajax Request" update="@none" />
-        <h:commandButton value="Dummy Ajax Request">
-            <f:ajax render="@none" />
-        </h:commandButton>
+        <h:form>
+            <p:commandButton value="Dummy Ajax Request" update="@none" />
+            <h:commandButton value="Dummy Ajax Request">
+                <f:ajax render="@none" />
+            </h:commandButton>
 
-        <br />
-        <br />
+            <br />
+            <br />
 
-        <p:lifecycle/>
+            <p:lifecycle/>
+        </h:form>
     </ui:define>
 
 </ui:composition>
