@@ -90,16 +90,16 @@
                     end="#{allEventsTimelineView.end}"  
                     showNavigation="true" showButtonNew="true"
                     axisOnTop="true" stackEvents="false">
-            <p:ajax event="add" listener="#{allEventsTimelineView.onAdd}" global="false" update="eventsList"/>
-            <p:ajax event="change" listener="#{allEventsTimelineView.onChange}" global="false" update="eventsList"/>
-            <p:ajax event="changed" listener="#{allEventsTimelineView.onChanged}" global="false" update="eventsList"/>
-            <p:ajax event="edit" listener="#{allEventsTimelineView.onEdit}" global="false" update="eventsList"/>
-            <p:ajax event="delete" listener="#{allEventsTimelineView.onDelete}" global="false" update="eventsList"/>
-            <p:ajax event="select" listener="#{allEventsTimelineView.onSelect}" global="false" update="eventsList"/>
-            <p:ajax event="rangechange" listener="#{allEventsTimelineView.onRangeChange}" global="false" update="eventsList"/>
-            <p:ajax event="rangechanged" listener="#{allEventsTimelineView.onRangeChanged}" global="false" update="eventsList"/>
-            <p:ajax event="lazyload" listener="#{allEventsTimelineView.onLazyLoad}" global="false" update="eventsList"/>
-            <p:ajax event="drop" listener="#{allEventsTimelineView.onDrop}" global="false" update="eventsList"/>
+            <p:ajax event="add" listener="#{allEventsTimelineView.onAdd}"/>
+            <p:ajax event="change" listener="#{allEventsTimelineView.onChange}"/>
+            <p:ajax event="changed" listener="#{allEventsTimelineView.onChanged}"/>
+            <p:ajax event="edit" listener="#{allEventsTimelineView.onEdit}"/>
+            <p:ajax event="delete" listener="#{allEventsTimelineView.onDelete}"/>
+            <p:ajax event="select" listener="#{allEventsTimelineView.onSelect}"/>
+            <p:ajax event="rangechange" listener="#{allEventsTimelineView.onRangeChange}"/>
+            <p:ajax event="rangechanged" listener="#{allEventsTimelineView.onRangeChanged}"/>
+            <p:ajax event="lazyload" listener="#{allEventsTimelineView.onLazyLoad}"/>
+            <p:ajax event="drop" listener="#{allEventsTimelineView.onDrop}"/>
         </p:timeline>
 
     </ui:define>
