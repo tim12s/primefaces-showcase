@@ -46,19 +46,19 @@ public class LinkedTimelinesView implements Serializable {
     private void createFirstTimeline() {
         modelFirst = new TimelineModel();
 
-        modelFirst.add(new TimelineEvent(new Task("Mail from boss", "images/timeline/mail.png", false), LocalDateTime.of(2015, 8, 22, 17, 30)));
-        modelFirst.add(new TimelineEvent(new Task("Call back my boss", "images/timeline/callback.png", false), LocalDateTime.of(2015, 8, 23, 23, 0)));
-        modelFirst.add(new TimelineEvent(new Task("Travel to Spain", "images/timeline/location.png", false), LocalDateTime.of(2015, 8, 24, 21, 45)));
-        modelFirst.add(new TimelineEvent(new Task("Do homework", "images/timeline/homework.png", true), LocalDate.of(2015, 8, 26), LocalDate.of(2015, 9, 2)));
-        modelFirst.add(new TimelineEvent(new Task("Create memo", "images/timeline/memo.png", false), LocalDate.of(2015, 8, 28)));
-        modelFirst.add(new TimelineEvent(new Task("Create report", "images/timeline/report.png", true), LocalDate.of(2015, 8, 31), LocalDate.of(2015,9, 3)));
+        modelFirst.add(TimelineEvent.builder().data(new Task("Mail from boss", "images/timeline/mail.png", false)).startDate(LocalDateTime.of(2015, 8, 22, 17, 30)).build());
+        modelFirst.add(TimelineEvent.builder().data(new Task("Call back my boss", "images/timeline/callback.png", false)).startDate(LocalDateTime.of(2015, 8, 23, 23, 0)).build());
+        modelFirst.add(TimelineEvent.builder().data(new Task("Travel to Spain", "images/timeline/location.png", false)).startDate(LocalDateTime.of(2015, 8, 24, 21, 45)).build());
+        modelFirst.add(TimelineEvent.builder().data(new Task("Do homework", "images/timeline/homework.png", true)).startDate(LocalDate.of(2015, 8, 26)).endDate(LocalDate.of(2015, 9, 2)).build());
+        modelFirst.add(TimelineEvent.builder().data(new Task("Create memo", "images/timeline/memo.png", false)).startDate(LocalDate.of(2015, 8, 28)).build());
+        modelFirst.add(TimelineEvent.builder().data(new Task("Create report", "images/timeline/report.png", true)).startDate(LocalDate.of(2015, 8, 31)).endDate(LocalDate.of(2015,9, 3)).build());
     }
 
     private void createSecondTimeline() {
         modelSecond = new TimelineModel();
 
-        modelSecond.add(new TimelineEvent("Project A", LocalDate.of(2015, 8, 23), LocalDate.of(2015, 8, 30)));
-        modelSecond.add(new TimelineEvent("Project B", LocalDate.of(2015, 8, 27), LocalDate.of(2015, 8, 31)));
+        modelSecond.add(TimelineEvent.builder().data("Project A").startDate(LocalDate.of(2015, 8, 23)).endDate(LocalDate.of(2015, 8, 30)).build());
+        modelSecond.add(TimelineEvent.builder().data("Project B").startDate(LocalDate.of(2015, 8, 27)).endDate(LocalDate.of(2015, 8, 31)).build());
     }
 
     public void onSelect(TimelineSelectEvent e) {

@@ -40,8 +40,8 @@ public class LimitTimelineRangeView implements Serializable {
 	public void init() {
 		model = new TimelineModel();
 
-		model.add(new TimelineEvent("First", LocalDate.of(2015, 5, 25)));
-		model.add(new TimelineEvent("Last", LocalDate.of(2015, 5, 26)));
+		model.add(TimelineEvent.builder().data("First").startDate(LocalDate.of(2015, 5, 25)).build());
+		model.add(TimelineEvent.builder().data("Last").startDate(LocalDate.of(2015, 5, 26)).build());
 
 		// lower limit of visible range
 		min = LocalDate.of(2015, 1,1).atStartOfDay();

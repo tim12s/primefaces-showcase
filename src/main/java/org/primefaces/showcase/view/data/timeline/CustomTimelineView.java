@@ -54,9 +54,17 @@ public class CustomTimelineView implements Serializable {
                 long r = Math.round(Math.random() * 2);  
                 String availability = (r == 0 ? "Unavailable" : (r == 1 ? "Available" : "Maybe"));  
   
-                // create an event with content, start / end dates, editable flag, group name and custom style class  
-                TimelineEvent event = new TimelineEvent(availability, start, end, true, name, availability.toLowerCase());  
-                model.add(event);  
+                // create an event with content, start / end dates, editable flag, group name and custom style class
+                TimelineEvent event = TimelineEvent.builder()
+                        .data(availability)
+                        .startDate(start)
+                        .endDate(end)
+                        .editable(true)
+                        .group(name)
+                        .styleClass(availability.toLowerCase())
+                        .build();
+
+                model.add(event);
             }  
         }  
     }  
