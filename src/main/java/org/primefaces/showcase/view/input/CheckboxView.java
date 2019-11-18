@@ -22,6 +22,9 @@ import javax.faces.model.SelectItemGroup;
 import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.UnselectEvent;
 
 @Named
 @RequestScoped
@@ -48,7 +51,7 @@ public class CheckboxView {
         cities.add("Brasilia");
         cities.add("Amsterdam");
         
-        cars = new ArrayList<SelectItem>();
+        cars = new ArrayList<>();
         SelectItemGroup germanCars = new SelectItemGroup("German Cars");
         germanCars.setSelectItems(new SelectItem[] {
             new SelectItem("BMW", "BMW"),
@@ -119,4 +122,13 @@ public class CheckboxView {
         this.selectedCars = selectedCars;
     }
 
+    public void onItemUnselect(UnselectEvent event) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        
+        FacesMessage msg = new FacesMessage();
+        msg.setSummary("Item unselected: " + event.getObject().toString());
+        msg.setSeverity(FacesMessage.SEVERITY_INFO);
+        
+        context.addMessage(null, msg);
+    }
 }

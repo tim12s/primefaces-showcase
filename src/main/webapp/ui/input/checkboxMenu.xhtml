@@ -18,10 +18,14 @@
     <ui:define name="implementation">
 
         <h:form>
+            <p:growl>
+                <p:autoUpdate />
+            </p:growl>
+
             <h:panelGrid columns="2" cellpadding="5">
 
                 <h:outputLabel for="menu" value="Basic:" />
-                <p:selectCheckboxMenu id="menu" value="#{checkboxView.selectedCities}" label="Cities" 
+                <p:selectCheckboxMenu id="menu" value="#{checkboxView.selectedCities}" label="Cities"
                                       filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
                     <f:selectItems value="#{checkboxView.cities}" />
                 </p:selectCheckboxMenu>
@@ -29,9 +33,10 @@
                 <h:outputLabel for="multiple" value="Multiple:" />
                 <p:selectCheckboxMenu id="multiple" value="#{checkboxView.selectedCities2}" label="Cities" multiple="true"
                                       filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                    <p:ajax event="itemUnselect" listener="#{checkboxView.onItemUnselect}" />
                     <f:selectItems value="#{checkboxView.cities}" />
                 </p:selectCheckboxMenu>
- 
+
                 <h:outputLabel for="grouped" value="Grouped:" />
                 <p:selectCheckboxMenu id="grouped" value="#{checkboxView.selectedCars}" label="Cars" multiple="true"
                                       filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
@@ -56,7 +61,7 @@
                         </f:facet>
                         #{city}
                     </p:dataList>
-                    
+
                     <p:dataList value="#{checkboxView.selectedCars}" var="car" emptyMessage="No cars selected">
                         <f:facet name="header">
                             Grouped
