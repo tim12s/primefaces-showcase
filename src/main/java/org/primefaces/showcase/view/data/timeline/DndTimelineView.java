@@ -64,7 +64,13 @@ public class DndTimelineView implements Serializable {
         dndEvent.setEnd(e.getEndDate());
 
         // create a timeline event (not editable)
-        TimelineEvent event = new TimelineEvent(dndEvent, e.getStartDate(), e.getEndDate(), false, e.getGroup());
+        TimelineEvent event = TimelineEvent.builder()
+                .data(dndEvent)
+                .startDate(e.getStartDate())
+                .endDate(e.getEndDate())
+                .editable(false)
+                .group(e.getGroup())
+                .build();
 
         // add a new event
         TimelineUpdater timelineUpdater = TimelineUpdater.getCurrentInstance("timeline");

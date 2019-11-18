@@ -57,27 +57,47 @@ public class ScheduleJava8View implements Serializable {
 	public void init() {
 		eventModel = new DefaultScheduleModel();
 
-		DefaultScheduleEvent event = new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm());
-		event.setDescription("Team A vs. Team B");
+		DefaultScheduleEvent event = DefaultScheduleEvent.builder()
+				.title("Champions League Match")
+				.startDate(previousDay8Pm())
+				.endDate(previousDay11Pm())
+				.description("Team A vs. Team B")
+				.build();
 		eventModel.addEvent(event);
 
-		event = new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm());
-		event.setDescription("Aragon");
-		event.setOverlapAllowed(true);
+		event = DefaultScheduleEvent.builder()
+				.title("Birthday Party")
+				.startDate(today1Pm())
+				.endDate(today6Pm())
+				.description("Aragon")
+				.overlapAllowed(true)
+				.build();
 		eventModel.addEvent(event);
 
-		event = new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am());
-		event.setDescription("all you can eat");
-		event.setOverlapAllowed(true);
+		event = DefaultScheduleEvent.builder()
+				.title("Breakfast at Tiffanys")
+				.startDate(nextDay9Am())
+				.endDate(nextDay11Am())
+				.description("all you can eat")
+				.overlapAllowed(true)
+				.build();
 		eventModel.addEvent(event);
 
-		event = new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm());
-		event.setDescription("Trees, flowers, ...");
+		event = DefaultScheduleEvent.builder()
+				.title("Plant the new garden stuff")
+				.startDate(theDayAfter3Pm())
+				.endDate(fourDaysLater3pm())
+				.description("Trees, flowers, ...")
+				.build();
 		eventModel.addEvent(event);
 
-		DefaultScheduleEvent scheduleEventAllDay=new DefaultScheduleEvent("Holidays (AllDay)", sevenDaysLater0am(), eightDaysLater0am());
-		scheduleEventAllDay.setDescription("sleep as long as you want");
-		scheduleEventAllDay.setAllDay(true);
+		DefaultScheduleEvent scheduleEventAllDay=DefaultScheduleEvent.builder()
+				.title("Holidays (AllDay)")
+				.startDate(sevenDaysLater0am())
+				.endDate(eightDaysLater0am())
+				.description("sleep as long as you want")
+				.allDay(true)
+				.build();
 		eventModel.addEvent(scheduleEventAllDay);
 
 		lazyEventModel = new LazyScheduleModel() {
@@ -86,7 +106,7 @@ public class ScheduleJava8View implements Serializable {
 			public void loadEvents(LocalDateTime start, LocalDateTime end) {
 				for (int i=1; i<=5; i++) {
 					LocalDateTime random = getRandomDateTime(start);
-					addEvent(new DefaultScheduleEvent("Lazy Event " + i, random, random.plusHours(3)));
+					addEvent(DefaultScheduleEvent.builder().title("Lazy Event " + i).startDate(random).endDate(random.plusHours(3)).build());
 				}
 			}
 		};
@@ -175,7 +195,7 @@ public class ScheduleJava8View implements Serializable {
 	}
 	
 	public void onDateSelect(SelectEvent<LocalDateTime> selectEvent) {
-		event = new DefaultScheduleEvent("", selectEvent.getObject(), selectEvent.getObject());
+		event = DefaultScheduleEvent.builder().startDate(selectEvent.getObject()).endDate(selectEvent.getObject().plusHours(1)).build();
 	}
 	
 	public void onEventMove(ScheduleEntryMoveEvent event) {
