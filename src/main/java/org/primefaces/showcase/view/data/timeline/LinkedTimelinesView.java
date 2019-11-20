@@ -33,8 +33,8 @@ import java.time.LocalDateTime;
 @ViewScoped
 public class LinkedTimelinesView implements Serializable {
 
-    private TimelineModel modelFirst;  // model of the first timeline  
-    private TimelineModel modelSecond; // model of the second timeline  
+    private TimelineModel<Task, ?> modelFirst;  // model of the first timeline
+    private TimelineModel<String, ?> modelSecond; // model of the second timeline
     private boolean aSelected;         // flag if the project A is selected (for test of select() call on the 2. model)  
 
     @PostConstruct
@@ -44,33 +44,33 @@ public class LinkedTimelinesView implements Serializable {
     }
 
     private void createFirstTimeline() {
-        modelFirst = new TimelineModel();
+        modelFirst = new TimelineModel<>();
 
-        modelFirst.add(TimelineEvent.builder().data(new Task("Mail from boss", "images/timeline/mail.png", false)).startDate(LocalDateTime.of(2015, 8, 22, 17, 30)).build());
-        modelFirst.add(TimelineEvent.builder().data(new Task("Call back my boss", "images/timeline/callback.png", false)).startDate(LocalDateTime.of(2015, 8, 23, 23, 0)).build());
-        modelFirst.add(TimelineEvent.builder().data(new Task("Travel to Spain", "images/timeline/location.png", false)).startDate(LocalDateTime.of(2015, 8, 24, 21, 45)).build());
-        modelFirst.add(TimelineEvent.builder().data(new Task("Do homework", "images/timeline/homework.png", true)).startDate(LocalDate.of(2015, 8, 26)).endDate(LocalDate.of(2015, 9, 2)).build());
-        modelFirst.add(TimelineEvent.builder().data(new Task("Create memo", "images/timeline/memo.png", false)).startDate(LocalDate.of(2015, 8, 28)).build());
-        modelFirst.add(TimelineEvent.builder().data(new Task("Create report", "images/timeline/report.png", true)).startDate(LocalDate.of(2015, 8, 31)).endDate(LocalDate.of(2015,9, 3)).build());
+        modelFirst.add(TimelineEvent.<Task>builder().data(new Task("Mail from boss", "images/timeline/mail.png", false)).startDate(LocalDateTime.of(2015, 8, 22, 17, 30)).build());
+        modelFirst.add(TimelineEvent.<Task>builder().data(new Task("Call back my boss", "images/timeline/callback.png", false)).startDate(LocalDateTime.of(2015, 8, 23, 23, 0)).build());
+        modelFirst.add(TimelineEvent.<Task>builder().data(new Task("Travel to Spain", "images/timeline/location.png", false)).startDate(LocalDateTime.of(2015, 8, 24, 21, 45)).build());
+        modelFirst.add(TimelineEvent.<Task>builder().data(new Task("Do homework", "images/timeline/homework.png", true)).startDate(LocalDate.of(2015, 8, 26)).endDate(LocalDate.of(2015, 9, 2)).build());
+        modelFirst.add(TimelineEvent.<Task>builder().data(new Task("Create memo", "images/timeline/memo.png", false)).startDate(LocalDate.of(2015, 8, 28)).build());
+        modelFirst.add(TimelineEvent.<Task>builder().data(new Task("Create report", "images/timeline/report.png", true)).startDate(LocalDate.of(2015, 8, 31)).endDate(LocalDate.of(2015,9, 3)).build());
     }
 
     private void createSecondTimeline() {
-        modelSecond = new TimelineModel();
+        modelSecond = new TimelineModel<>();
 
-        modelSecond.add(TimelineEvent.builder().data("Project A").startDate(LocalDate.of(2015, 8, 23)).endDate(LocalDate.of(2015, 8, 30)).build());
-        modelSecond.add(TimelineEvent.builder().data("Project B").startDate(LocalDate.of(2015, 8, 27)).endDate(LocalDate.of(2015, 8, 31)).build());
+        modelSecond.add(TimelineEvent.<String>builder().data("Project A").startDate(LocalDate.of(2015, 8, 23)).endDate(LocalDate.of(2015, 8, 30)).build());
+        modelSecond.add(TimelineEvent.<String>builder().data("Project B").startDate(LocalDate.of(2015, 8, 27)).endDate(LocalDate.of(2015, 8, 31)).build());
     }
 
-    public void onSelect(TimelineSelectEvent e) {
+    public void onSelect(TimelineSelectEvent<?> e) {
         // get a thread-safe TimelineUpdater instance for the second timeline  
         TimelineUpdater timelineUpdater = TimelineUpdater.getCurrentInstance(":form:timelineSecond");
 
         if (aSelected) {
             // select project B visually (index in the event's list is 1)  
-            timelineUpdater.select(1);
+            timelineUpdater.select("projectB");
         } else {
             // select project A visually (index in the event's list is 0)  
-            timelineUpdater.select(0);
+            timelineUpdater.select("projectA");
         }
 
         aSelected = !aSelected;
@@ -80,19 +80,19 @@ public class LinkedTimelinesView implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public TimelineModel getModelFirst() {
+    public TimelineModel<Task, ?> getModelFirst() {
         return modelFirst;
     }
 
-    public TimelineModel getModelSecond() {
+    public TimelineModel<String, ?> getModelSecond() {
         return modelSecond;
     }
 
     public class Task implements Serializable {
 
-        private String title;
-        private String imagePath;
-        private boolean period;
+        private final String title;
+        private final String imagePath;
+        private final boolean period;
 
         public Task(String title, String imagePath, boolean period) {
             this.title = title;

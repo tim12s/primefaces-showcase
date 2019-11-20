@@ -87,8 +87,7 @@
         <p:timeline id="timeline" value="#{allEventsTimelineView.model}"
                     editable="true" eventMargin="10" eventMarginAxis="0"  
                     start="#{allEventsTimelineView.start}"  
-                    end="#{allEventsTimelineView.end}"  
-                    showNavigation="true" showButtonNew="true"
+                    end="#{allEventsTimelineView.end}"
                     axisOnTop="true" stackEvents="false">
             <p:ajax event="add" listener="#{allEventsTimelineView.onAdd}"/>
             <p:ajax event="change" listener="#{allEventsTimelineView.onChange}"/>

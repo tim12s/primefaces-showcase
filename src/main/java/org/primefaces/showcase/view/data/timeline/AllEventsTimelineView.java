@@ -33,11 +33,11 @@ import java.time.format.DateTimeFormatter;
 @ViewScoped
 public class AllEventsTimelineView implements Serializable {
   
-    private TimelineModel model;  
+    private TimelineModel<String, ?> model;
     private LocalDateTime start;
     private LocalDateTime end;
 
-    private static DateTimeFormatter formatter =  DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+    private static final DateTimeFormatter formatter =  DateTimeFormatter.ISO_LOCAL_DATE_TIME;
   
     @PostConstruct  
     public void init() {  
@@ -49,7 +49,7 @@ public class AllEventsTimelineView implements Serializable {
         String[] NAMES = new String[] {"User 1", "User 2", "User 3", "User 4", "User 5", "User 6"};  
   
         // create timeline model  
-        model = new TimelineModel();
+        model = new TimelineModel<>();
   
         for (String name : NAMES) {
             LocalDateTime end = LocalDateTime.now().minusHours(12).withMinute(0).withSecond(0).withNano(0);
@@ -81,34 +81,34 @@ public class AllEventsTimelineView implements Serializable {
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "add", e.getStartDate().format(formatter) + " - " + e.getEndDate().format(formatter)));
     }
 
-    public void onChange(TimelineModificationEvent e) {
-        TimelineEvent timelineEvent = e.getTimelineEvent();
+    public void onChange(TimelineModificationEvent<String> e) {
+        TimelineEvent<String> timelineEvent = e.getTimelineEvent();
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "change", timelineEvent.getData().toString() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "change", timelineEvent.getData() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
     }
 
-    public void onChanged(TimelineModificationEvent e) {
-        TimelineEvent timelineEvent = e.getTimelineEvent();
+    public void onChanged(TimelineModificationEvent<String> e) {
+        TimelineEvent<String> timelineEvent = e.getTimelineEvent();
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "changed", timelineEvent.getData().toString() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "changed", timelineEvent.getData() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
     }
 
-    public void onEdit(TimelineModificationEvent e) {
-        TimelineEvent timelineEvent = e.getTimelineEvent();
+    public void onEdit(TimelineModificationEvent<String> e) {
+        TimelineEvent<String> timelineEvent = e.getTimelineEvent();
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "edit", timelineEvent.getData().toString() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "edit", timelineEvent.getData() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
     }
 
-    public void onDelete(TimelineModificationEvent e) {
-        TimelineEvent timelineEvent = e.getTimelineEvent();
+    public void onDelete(TimelineModificationEvent<String> e) {
+        TimelineEvent<String> timelineEvent = e.getTimelineEvent();
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "delete", timelineEvent.getData().toString() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "delete", timelineEvent.getData() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
     }
 
-    public void onSelect(TimelineSelectEvent e) {
-        TimelineEvent timelineEvent = e.getTimelineEvent();
+    public void onSelect(TimelineSelectEvent<String> e) {
+        TimelineEvent<String> timelineEvent = e.getTimelineEvent();
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "select", timelineEvent.getData().toString() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "select", timelineEvent.getData() + ": " + timelineEvent.getStartDate().format(formatter) + " - " + timelineEvent.getEndDate().format(formatter)));
     }
 
     public void onRangeChange(TimelineRangeEvent e) {
@@ -131,7 +131,7 @@ public class AllEventsTimelineView implements Serializable {
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "drop", e.getData().getStart().format(formatter) + " - " + e.getData().getEnd().format(formatter)));
     }
   
-    public TimelineModel getModel() {  
+    public TimelineModel<String, ?> getModel() {
         return model;  
     }  
   

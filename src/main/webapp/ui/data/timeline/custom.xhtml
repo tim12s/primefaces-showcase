@@ -84,8 +84,18 @@
                     editable="true" eventMargin="10" eventMarginAxis="0"  
                     start="#{customTimelineView.start}"  
                     end="#{customTimelineView.end}"  
-                    showNavigation="true" showButtonNew="true"  
-                    axisOnTop="true" stackEvents="false"/>  
+                    axisOnTop="true" stackEvents="false" widgetVar="timelineWdgt">
+            <f:facet name="menu">
+                <p:commandButton type="button" icon="pi pi-chevron-left" onclick="PF('timelineWdgt').move(-0.3);" />
+                <p:commandButton type="button" icon="pi pi-chevron-right" onclick="PF('timelineWdgt').move(0.3);" />
+                <p:commandButton type="button" icon="pi pi-search-minus" onclick="PF('timelineWdgt').zoom(-0.5);" />
+                <p:commandButton type="button" icon="pi pi-search-plus" onclick="PF('timelineWdgt').zoom(0.5);" />
+            </f:facet>
+
+            <f:facet name="loading">
+                <i class="pi pi-spin pi-spinner" style="font-size: 3em"></i>
+            </f:facet>
+        </p:timeline>
 
     </ui:define>
 

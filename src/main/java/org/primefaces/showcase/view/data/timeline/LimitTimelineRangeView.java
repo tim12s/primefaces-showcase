@@ -29,7 +29,7 @@ import java.time.LocalDateTime;
 @ViewScoped
 public class LimitTimelineRangeView implements Serializable {
 
-	private TimelineModel model;
+	private TimelineModel<String, ?> model;
 
 	private LocalDateTime min;
 	private LocalDateTime max;
@@ -38,10 +38,10 @@ public class LimitTimelineRangeView implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		model = new TimelineModel();
+		model = new TimelineModel<>();
 
-		model.add(TimelineEvent.builder().data("First").startDate(LocalDate.of(2015, 5, 25)).build());
-		model.add(TimelineEvent.builder().data("Last").startDate(LocalDate.of(2015, 5, 26)).build());
+		model.add(TimelineEvent.<String>builder().data("First").startDate(LocalDate.of(2015, 5, 25)).build());
+		model.add(TimelineEvent.<String>builder().data("Last").startDate(LocalDate.of(2015, 5, 26)).build());
 
 		// lower limit of visible range
 		min = LocalDate.of(2015, 1,1).atStartOfDay();
@@ -56,7 +56,7 @@ public class LimitTimelineRangeView implements Serializable {
 		zoomMax = 1000L * 60 * 60 * 24 * 31 * 3;
 	}
 
-	public TimelineModel getModel() {
+	public TimelineModel<String, ?> getModel() {
 		return model;
 	}
 

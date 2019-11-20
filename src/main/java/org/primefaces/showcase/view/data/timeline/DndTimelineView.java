@@ -36,19 +36,19 @@ import java.util.List;
 @ViewScoped
 public class DndTimelineView implements Serializable {
 
-    private TimelineModel model;
+    private TimelineModel<Event, ?> model;
 
     private LocalDateTime start;
     private LocalDateTime end;
     
-    private List<Event> events = new ArrayList<Event>();
+    private final List<Event> events = new ArrayList<>();
 
     @PostConstruct
     public void init() {
         start = LocalDateTime.now().minusHours(4);
         end = LocalDateTime.now().plusHours(8);
 
-        model = new TimelineModel();
+        model = new TimelineModel<>();
 
         for (int i = 1; i <= 10; i++) {
             events.add(new Event("Event " + i));
@@ -87,7 +87,7 @@ public class DndTimelineView implements Serializable {
         model.clear();
     }
 
-    public TimelineModel getModel() {
+    public TimelineModel<Event, ?> getModel() {
         return model;
     }
 

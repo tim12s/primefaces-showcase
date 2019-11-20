@@ -28,7 +28,7 @@ import java.time.LocalDateTime;
 @ViewScoped
 public class CustomTimelineView implements Serializable {  
   
-    private TimelineModel model;  
+    private TimelineModel<String, ?> model;
     private LocalDateTime start;
     private LocalDateTime end;
   
@@ -42,7 +42,7 @@ public class CustomTimelineView implements Serializable {
         String[] NAMES = new String[] {"User 1", "User 2", "User 3", "User 4", "User 5", "User 6"};  
   
         // create timeline model  
-        model = new TimelineModel();
+        model = new TimelineModel<>();
   
         for (String name : NAMES) {
             LocalDateTime end = LocalDateTime.now().minusHours(12).withMinute(0).withSecond(0).withNano(0);
@@ -69,7 +69,7 @@ public class CustomTimelineView implements Serializable {
         }  
     }  
   
-    public TimelineModel getModel() {  
+    public TimelineModel<String, ?> getModel() {
         return model;  
     }  
   

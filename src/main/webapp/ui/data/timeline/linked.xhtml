@@ -9,12 +9,26 @@
         <script type="text/javascript">
             //<![CDATA[
             function onrangechange1() {
-                var range = PF('timelineFirstWdgt').getVisibleRange();
+                var second = PF('timelineSecondWdgt');
+                if (second.jq.data("rangeFired")) {
+                    second.jq.data("rangeFired", null);
+                    return;
+                }
+                var first = PF('timelineFirstWdgt');
+                var range = first.getVisibleRange();
+                first.jq.data("rangeFired", true);
                 PF('timelineSecondWdgt').setVisibleRange(range.start, range.end);
             }
 
             function onrangechange2() {
-                var range = PF('timelineSecondWdgt').getVisibleRange();
+                var first = PF('timelineFirstWdgt');
+                if (first.jq.data("rangeFired")) {
+                    first.jq.data("rangeFired", null);
+                    return;
+                }
+                var second = PF('timelineSecondWdgt');
+                var range = second.getVisibleRange();
+                second.jq.data("rangeFired", true);
                 PF('timelineFirstWdgt').setVisibleRange(range.start, range.end);
             }
             //]]>
@@ -42,13 +56,13 @@
             <h3 style="margin-top: 0">Events</h3>
             <p:timeline id="timelineFirst" value="#{linkedTimelinesView.modelFirst}" var="task"
                         height="250px" widgetVar="timelineFirstWdgt">
-                <p:ajax event="rangechange" oncomplete="onrangechange1()"/>
+                <p:ajax event="rangechange" process="@none" onstart="onrangechange1(); return false;"/>
                 <p:ajax event="select" listener="#{linkedTimelinesView.onSelect}"/>
 
                 <h:panelGroup layout="block" rendered="#{not task.period}" style="padding-bottom:5px">
                     <h:outputText value="#{task.title}"/>
                 </h:panelGroup>
-                <p:graphicImage library="demo" name="#{task.imagePath}"/>
+                <p:graphicImage library="demo" name="#{task.imagePath}" height="26px" />
                 <h:panelGroup rendered="#{task.period}" style="padding:8px">
                     <h:outputText value="#{task.title}"/>
                 </h:panelGroup>
@@ -57,7 +71,7 @@
             <h3>Projects</h3>
             <p:timeline id="timelineSecond" value="#{linkedTimelinesView.modelSecond}"
                         height="150px" widgetVar="timelineSecondWdgt">
-                <p:ajax event="rangechange" oncomplete="onrangechange2()"/>
+                <p:ajax event="rangechange" process="@none" onstart="onrangechange2(); return false;"/>
             </p:timeline>
         </h:form>
 
