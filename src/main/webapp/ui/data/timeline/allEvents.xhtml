@@ -90,12 +90,10 @@
                     end="#{allEventsTimelineView.end}"
                     axisOnTop="true" stackEvents="false">
             <p:ajax event="add" listener="#{allEventsTimelineView.onAdd}"/>
-            <p:ajax event="change" listener="#{allEventsTimelineView.onChange}"/>
             <p:ajax event="changed" listener="#{allEventsTimelineView.onChanged}"/>
             <p:ajax event="edit" listener="#{allEventsTimelineView.onEdit}"/>
             <p:ajax event="delete" listener="#{allEventsTimelineView.onDelete}"/>
             <p:ajax event="select" listener="#{allEventsTimelineView.onSelect}"/>
-            <p:ajax event="rangechange" listener="#{allEventsTimelineView.onRangeChange}"/>
             <p:ajax event="rangechanged" listener="#{allEventsTimelineView.onRangeChanged}"/>
             <p:ajax event="lazyload" listener="#{allEventsTimelineView.onLazyLoad}"/>
             <p:ajax event="drop" listener="#{allEventsTimelineView.onDrop}"/>
