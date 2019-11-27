@@ -55,11 +55,12 @@
                         <ui:insert name="submenu"></ui:insert>
                     </div>
                     <div class="content-section content-introduction">
-                        <div class="documentation">
-                            <a href="https://primefaces.github.io/primefaces/8_0/##{documentationLink}" target="_blank"><i class="pi pi-external-link"></i> Documentation</a>
-                        </div>
                         <h1><ui:insert name="title"></ui:insert></h1>
                         <p><ui:insert name="description"></ui:insert></p>
+                        <a class="documentation-link" href="https://primefaces.github.io/primefaces/8_0/##{documentationLink}" target="_blank">
+                            <i class="pi pi-external-link"></i> 
+                            Documentation
+                        </a>
                     </div>
                     <div class="content-section content-implementation #{guestPreferences.theme.startsWith('luna') ? 'dark-content' : null}">
                         <ui:insert name="implementation"></ui:insert>
