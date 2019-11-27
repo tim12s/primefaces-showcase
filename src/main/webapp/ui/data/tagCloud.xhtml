@@ -17,7 +17,7 @@
 
     <ui:define name="implementation">
         <h:form>
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
             <p:tagCloud model="#{tagCloudView.model}">
                 <p:ajax event="select" update="msgs" listener="#{tagCloudView.onSelect}" />
             </p:tagCloud>

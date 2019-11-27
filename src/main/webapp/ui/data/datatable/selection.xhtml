@@ -44,7 +44,7 @@
     <ui:define name="implementation">
         
         <h:form id="form">
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 
             <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.cars1}">
                 <f:facet name="header">

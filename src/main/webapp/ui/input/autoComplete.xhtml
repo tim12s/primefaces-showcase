@@ -42,7 +42,7 @@
     <ui:define name="implementation">
 
         <h:form>
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 
             <h:panelGrid columns="2" cellpadding="5">
                 <p:outputLabel value="Simple:" for="acSimple" />

@@ -20,7 +20,7 @@
         <h:form>
             <p:remoteCommand name="rc" update="msgs" action="#{remoteCommandView.execute}" />
             
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
             <p:commandButton type="button" onclick="rc()" value="Execute" icon="pi pi-refresh" />
         </h:form>
     

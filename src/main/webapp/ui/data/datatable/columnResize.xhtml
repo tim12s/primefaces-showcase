@@ -18,7 +18,7 @@
     <ui:define name="implementation">
         
         <h:form id="form">
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
             
             <h3 style="margin-top:0">Basic Resize</h3>
             <p:dataTable id="cars1" var="car" value="#{dtResizableColumnsView.cars1}" resizableColumns="true" style="margin-bottom:20px">

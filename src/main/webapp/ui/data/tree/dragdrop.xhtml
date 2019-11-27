@@ -32,7 +32,7 @@
     <ui:define name="implementation">
         
         <h:form id="form">
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 
             <h:panelGrid columns="3">
                 <p:tree id="tree1" value="#{treeDNDView.root1}" var="node" selectionMode="single" selection="#{treeDNDView.selectedNode1}" 

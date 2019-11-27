@@ -18,7 +18,7 @@
     <ui:define name="implementation">
 
         <h:form>
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 
             <h3 style="margin-top: 0">Basic OrderList</h3>
             <p:orderList value="#{orderListView.cities}" var="city" controlsLocation="none" itemLabel="#{city}" itemValue="#{city}" />

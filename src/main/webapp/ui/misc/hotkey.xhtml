@@ -31,7 +31,7 @@
 
         <h3>Ajax Hotkey (ctrl + shift + s)</h3>
         <h:form>
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
             
             <p:hotkey bind="ctrl+shift+s" update="msgs" action="#{hotkeyView.save}"/>
 

@@ -37,7 +37,7 @@
 
     <ui:define name="implementation">
         <h:form id="form">
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
             
             <p:diagram value="#{diagramEditableView.model}" style="height:600px" styleClass="ui-widget-content" var="el">
                 <f:facet name="element">

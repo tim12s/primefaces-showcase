@@ -89,7 +89,7 @@
     <ui:define name="implementation">
 
         <h:form id="form">
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 
             <h:panelGrid columns="2" cellpadding="5">
                 <p:outputLabel for="inline" value="Inline:" />
@@ -166,7 +166,10 @@
                 <p:datePicker id="timeonly" value="#{calendarJava8View.time1}" timeOnly="true" pattern="HH:mm"/>
 
                 <p:outputLabel for="timeonlyMinMax" value="Time Only (Min-Max):" />
-                <p:datePicker id="timeonlyMinMax" value="#{calendarJava8View.time3}" timeOnly="true" mindate="#{calendarJava8View.minTime}" maxdate="#{calendarJava8View.maxTime}"/>
+                <p:outputPanel>
+                    <p:datePicker id="timeonlyMinMax" value="#{calendarJava8View.time3}" timeOnly="true" mindate="#{calendarJava8View.minTime}" maxdate="#{calendarJava8View.maxTime}"/>
+                    (between <h:outputText value="#{calendarJava8View.minTime}"></h:outputText> and <h:outputText value="#{calendarJava8View.maxTime}"></h:outputText>)
+                </p:outputPanel>
             </h:panelGrid>
 
             <p:commandButton value="Submit" update="msgs" action="#{calendarJava8View.click}" icon="pi pi-check" />
