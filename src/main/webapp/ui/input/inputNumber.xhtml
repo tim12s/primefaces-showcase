@@ -108,7 +108,7 @@
                 <p:row>  
                     <p:column>
                         <p:inputNumber id="Input7" value="#{inputNumberView.input7}" symbol="%"  
-                                        symbolPosition="s" emptyValue="sign">  
+                                        symbolPosition="s" emptyValue="always">  
                             <p:ajax update="output7" />  
                         </p:inputNumber>
                     </p:column>
@@ -116,7 +116,7 @@
                         <p:inputText id="output7" disabled="true" value="#{inputNumberView.input7}"/>  
                     </p:column>
                     <p:column>
-                        Empty value (sign)
+                        Empty value (symbol is always displayed)
                     </p:column>  
                 </p:row>
                 <p:row>  
