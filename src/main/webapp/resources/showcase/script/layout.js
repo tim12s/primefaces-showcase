@@ -32,14 +32,15 @@ $(document).ready(function() {
                var topbarNewsCloseButton = topbarNewsBar.find('.layout-news-close'),
                removeTopbarNewsBar = function() {
                    $.cookie('showcase_newsbar', false, {path: '/'});
-                   topbarNewsBar.addClass('layout-news-disabled');
+                   topbarNewsBar.removeClass('layout-news-active');
                };
                
                 var newsbarcookie = $.cookie('showcase_newsbar');
                 if (newsbarcookie) {
-                    topbarNewsBar.addClass('layout-news-disabled');
+                    topbarNewsBar.removeClass('layout-news-active');
                 }
                 else {
+                    topbarNewsBar.addClass('layout-news-active');
                     topbarNewsCloseButton.on('click', function(e) {
                         removeTopbarNewsBar();
                         e.preventDefault();
