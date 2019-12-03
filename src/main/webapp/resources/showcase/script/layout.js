@@ -16,12 +16,36 @@ $(document).ready(function() {
             this.expandedMenuitems = this.expandedMenuitems||[];
             this.nano = this.sidebar.children('.nano');
             this.searchInput = this.sidebar.find('.search-input > input');
-
+            
+            this.initPrimeNewsBar();
+            
             this.restoreMenuState();
             
             this.nano.nanoScroller({flash:true});
 
             this._bindEvents();
+        },
+        
+        initPrimeNewsBar: function() {
+            var topbarNewsBar = this.wrapper.children('.layout-news');
+            if (topbarNewsBar.length) {
+               var topbarNewsCloseButton = topbarNewsBar.find('.layout-news-close'),
+               removeTopbarNewsBar = function() {
+                   $.cookie('showcase_newsbar', false, {path: '/'});
+                   topbarNewsBar.addClass('layout-news-disabled');
+               };
+               
+                var newsbarcookie = $.cookie('showcase_newsbar');
+                if (newsbarcookie) {
+                    topbarNewsBar.addClass('layout-news-disabled');
+                }
+                else {
+                    topbarNewsCloseButton.on('click', function(e) {
+                        removeTopbarNewsBar();
+                        e.preventDefault();
+                    });
+                }
+            }
         },
     
         _bindEvents: function() {
