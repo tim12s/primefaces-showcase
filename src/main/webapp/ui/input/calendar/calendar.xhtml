@@ -3,7 +3,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/template.xhtml">
+                template="./template.xhtml">
     
     <ui:define name="head">
         <script type="text/javascript">            
@@ -69,7 +69,7 @@
     </ui:define>
 
     <ui:define name="title">
-        Calendar (Java8; LocalDate, LocalTime, LocalDateTime; requires PrimeFaces >= 8.0)
+        Calendar (java.util.Date)
     </ui:define>
 
     <ui:define name="description">
@@ -85,114 +85,114 @@
             
             <h:panelGrid columns="2" cellpadding="5">
                 <p:outputLabel for="inline" value="Inline:" />
-                <p:calendar id="inline" value="#{calendarJava8View.date1}" mode="inline" />
+                <p:calendar id="inline" value="#{calendarView.date1}" mode="inline" />
                 
                 <p:outputLabel for="popup" value="Popup:" />
-                <p:calendar id="popup" value="#{calendarJava8View.date2}" />
+                <p:calendar id="popup" value="#{calendarView.date2}" />
                 
                 <p:outputLabel for="button" value="Button:" />
-                <p:calendar id="button" value="#{calendarJava8View.date3}" showOn="button" />
+                <p:calendar id="button" value="#{calendarView.date3}" showOn="button" />
                 
                 <p:outputLabel for="event" value="Select Event:" />
-                <p:calendar id="event" value="#{calendarJava8View.date4}">
-                    <p:ajax event="dateSelect" listener="#{calendarJava8View.onDateSelect}" update="msgs" />
+                <p:calendar id="event" value="#{calendarView.date4}">
+                    <p:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="msgs" />
                 </p:calendar>
                 
                 <p:outputLabel for="german" value="German:" />
-                <p:calendar id="german" value="#{calendarJava8View.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+                <p:calendar id="german" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
 
                 <p:outputLabel for="germanV2" value="German (other Pattern):" />
-                <p:calendar id="germanV2" value="#{calendarJava8View.dateDe}" locale="de" navigator="true" pattern="dd.MM.yyyy" />
+                <p:calendar id="germanV2" value="#{calendarView.dateDe}" locale="de" navigator="true" pattern="dd.MM.yyyy" />
 
                 <p:outputLabel for="restricted" value="Restricted:" />
-                <p:calendar id="restricted" value="#{calendarJava8View.date6}" mindate="4/1/14" maxdate="7/1/14" />
+                <p:calendar id="restricted" value="#{calendarView.date6}" mindate="4/1/14" maxdate="7/1/14" />
                 
                 <p:outputLabel for="multi" value="Multiple:" />
-                <p:calendar id="multi" value="#{calendarJava8View.date7}" pages="3" />
+                <p:calendar id="multi" value="#{calendarView.date7}" pages="3" />
                 
                 <p:outputLabel for="effect" value="Effect:" />
-                <p:calendar id="effect" value="#{calendarJava8View.date8}" effect="fold" />
+                <p:calendar id="effect" value="#{calendarView.date8}" effect="fold" />
                 
                 <p:outputLabel for="mask" value="Mask:" />
-                <p:calendar id="mask" value="#{calendarJava8View.date9}" pattern="dd-MM-yyyy" mask="true" />
+                <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true" />
                 
                 <p:outputLabel for="datetime" value="Datetime:" />
-                <p:calendar id="datetime" value="#{calendarJava8View.dateTime1}" pattern="MM/dd/yyyy HH:mm:ss" />
+                <p:calendar id="datetime" value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
 
                 <p:outputLabel for="dateTimeDe" value="Datetime (German):" />
-                <p:calendar id="dateTimeDe" value="#{calendarJava8View.dateTimeDe}" locale="de" pattern="dd.MM.yyyy HH:mm" />
+                <p:calendar id="dateTimeDe" value="#{calendarView.dateTimeDe}" locale="de" pattern="dd.MM.yyyy HH:mm" />
 
                 <p:outputLabel for="time" value="Time Only:" />
-                <p:calendar id="time" value="#{calendarJava8View.time1}" pattern="HH:mm" timeOnly="true"  />
+                <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm" timeOnly="true"  />
             </h:panelGrid>
             
-            <p:commandButton value="Submit" update="msgs" action="#{calendarJava8View.click}" icon="pi pi-check" />
+            <p:commandButton value="Submit" update="msgs" action="#{calendarView.click}" icon="pi pi-check" />
             
             <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
                 <p:panelGrid id="display" columns="2" columnClasses="label,value">
                     <h:outputText value="Inline:" />
-                    <h:outputText value="#{calendarJava8View.date1}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date1}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Popup:" />
-                    <h:outputText value="#{calendarJava8View.date2}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date2}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Button:" />
-                    <h:outputText value="#{calendarJava8View.date3}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date3}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Event:" />
-                    <h:outputText value="#{calendarJava8View.date4}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date4}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="German:" />
-                    <h:outputText value="#{calendarJava8View.date5}">
-                        <f:convertDateTime pattern="yyyy-MMM-dd" type="localDate"/>
+                    <h:outputText value="#{calendarView.date5}">
+                        <f:convertDateTime pattern="yyyy-MMM-dd" />
                     </h:outputText>
 
                     <h:outputText value="German (other Pattern):" />
-                    <h:outputText value="#{calendarJava8View.date5}">
-                        <f:convertDateTime pattern="dd.MM.yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date5}">
+                        <f:convertDateTime pattern="dd.MM.yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Restricted:" />
-                    <h:outputText value="#{calendarJava8View.date6}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date6}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Multiple:" />
-                    <h:outputText value="#{calendarJava8View.date7}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date7}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Effect:" />
-                    <h:outputText value="#{calendarJava8View.date8}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date8}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Mask:" />
-                    <h:outputText value="#{calendarJava8View.date9}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" type="localDate"/>
+                    <h:outputText value="#{calendarView.date9}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
                     
                     <h:outputText value="Datetime:" />
-                    <h:outputText value="#{calendarJava8View.dateTime1}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" type="localDateTime"/>
+                    <h:outputText value="#{calendarView.date10}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:outputText>
 
                     <h:outputText value="Datetime (German):" />
-                    <h:outputText value="#{calendarJava8View.dateTimeDe}">
-                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" type="localDateTime"/>
+                    <h:outputText value="#{calendarView.dateTimeDe}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
                     </h:outputText>
                     
                     <h:outputText value="Time Only:" />
-                    <h:outputText value="#{calendarJava8View.time1}">
-                        <f:convertDateTime pattern="HH:mm" type="localTime"/>
+                    <h:outputText value="#{calendarView.date11}">
+                        <f:convertDateTime pattern="HH:mm" />
                     </h:outputText>
                 </p:panelGrid>
             </p:dialog>
