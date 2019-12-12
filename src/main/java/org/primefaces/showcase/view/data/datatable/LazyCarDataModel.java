@@ -18,6 +18,7 @@ package org.primefaces.showcase.view.data.datatable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import org.primefaces.model.FilterMeta;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortMeta;
@@ -51,7 +52,7 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
     }
 
     @Override
-    public List<Car> load(int first, int pageSize, List<SortMeta> sortMeta, List<FilterMeta> filterMeta) {
+    public List<Car> load(int first, int pageSize, Map<String, SortMeta> sortMeta, Map<String, FilterMeta> filterMeta) {
         List<Car> data = new ArrayList<>();
 
         //filter
@@ -59,7 +60,7 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
             boolean match = true;
 
             if (filterMeta != null) {
-                for (FilterMeta meta : filterMeta) {
+                for (FilterMeta meta : filterMeta.values()) {
                     try {
                         String filterField = meta.getFilterField();
                         Object filterValue = meta.getFilterValue();
@@ -86,7 +87,7 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
 
         //sort
         if (sortMeta != null && !sortMeta.isEmpty()) {
-            for (SortMeta meta : sortMeta) {
+            for (SortMeta meta : sortMeta.values()) {
                 Collections.sort(data, new LazySorter(meta.getSortField(), meta.getSortOrder()));
             }
         }
