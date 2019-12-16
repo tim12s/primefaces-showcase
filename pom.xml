@@ -195,6 +195,14 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+            <resource>
+                <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+                <includes>
+                    <include>web.xml</include>
+                </includes>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}</targetPath>
+            </resource>
         </resources>
 
         <plugins>
@@ -223,7 +231,7 @@
                         </resource>
                     </webResources>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
             </plugin>
             <plugin>
@@ -256,6 +264,7 @@
                         <contextPath>/showcase</contextPath>
                     </webAppConfig>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
+                    <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
             </plugin>
             <plugin>
@@ -308,7 +317,6 @@
             </activation>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
-                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-8.0-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -323,12 +331,16 @@
                     <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/resources/filters/mojarra.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>dev-myfaces</id>
             <properties>
                 <jsfVersion>Apache MyFaces-${myfaces.version}</jsfVersion>
-                <jsfListener>org.apache.myfaces.webapp.StartupServletContextListener</jsfListener>
                 <primefacesVersion>PrimeFaces-8.0-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -348,12 +360,16 @@
                     <version>${myfaces.version}</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/resources/filters/myfaces.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>community-stable</id>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
-                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-7.0</primefacesVersion>
             </properties>
             <dependencies>
@@ -368,12 +384,16 @@
                     <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/resources/filters/mojarra.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>elite-dev</id>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
-                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-7.0.10</primefacesVersion>
             </properties>
             <dependencies>
@@ -388,12 +408,16 @@
                     <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/resources/filters/mojarra.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>elite-dev-6.2.x</id>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
-                <jsfListener>com.sun.faces.config.ConfigureListener</jsfListener>
                 <primefacesVersion>PrimeFaces-6.2.27-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
@@ -408,6 +432,11 @@
                     <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/resources/filters/mojarra.properties</filter>
+                </filters>
+            </build>
         </profile>
     </profiles>
 
