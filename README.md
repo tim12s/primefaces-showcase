@@ -23,7 +23,7 @@ mvn jetty:run              -- run showcase project locally
 ##### Run from local sources
 
 ```
-mvn clean jetty:run-exploded
+mvn clean jetty:run
 ```
 
 [http://localhost:8080/showcase/](http://localhost:8080/showcase)
