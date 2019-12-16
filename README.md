@@ -17,7 +17,7 @@ git clone https://github.com/primefaces/showcase-facelift.git
 cd showcase-facelift
 mvn clean                  -- clean temp files from target folder
 mvn package                -- create war file (under target directory)
-mvn jetty:run-exploded     -- run showcase project locally
+mvn jetty:run              -- run showcase project locally
 ```
 
 ##### Run from local sources
