@@ -52,21 +52,25 @@ $(document).ready(function() {
         _bindEvents: function() {
             var $this = this;
 
-            this.sidebar.on('click', function() {
+            this.sidebar.off('click.showcase').on('click.showcase', function() {
                 $this.menuClick = true;
             });
 
-            this.menuButton.off('click').on('click', function(e) {
+            this.menuButton.off('click.showcase').on('click.showcase', function(e) {
                 $this.menuClick = true;
                 if($this.isMobile()) {
                     $this.wrapper.toggleClass('layout-sidebar-mobile-active');   
                     $(document.body).toggleClass('hidden-overflow-body');   
                 }
+
+                setTimeout(function() {
+                    $(".nano").nanoScroller();
+                }, 500);
                 
                 e.preventDefault();
             });    
     
-            this.menulinks.on('click', function (e) {
+            this.menulinks.off('click.showcase').on('click.showcase', function (e) {
                 var link = $(this),
                 item = link.parent('li'),
                 submenu = item.children('div');
@@ -94,13 +98,18 @@ $(document).ready(function() {
                 }
             });
 
-            $(document.body).on('click', function() {
+            $(document.body).off('click.showcase').on('click.showcase', function() {
                 if(!$this.menuClick && $this.isMobile()) {
                     $this.wrapper.removeClass('layout-sidebar-mobile-active');
                     $(document.body).removeClass('hidden-overflow-body');  
                 }
+
+                if (!$this.topbarRootMenuItemClicked) {
+                    $this.topbar.find('> .topbar-menu > li').removeClass('topbar-menuitem-active');
+                }
     
                 $this.menuClick = false;
+                $this.topbarRootMenuItemClicked = false;
             });
             
             this.searchInput.on('keyup', function(e) {
@@ -143,8 +152,26 @@ $(document).ready(function() {
                     }
                 }   
             });
+
+            this.topbar.find('> .topbar-menu > li > a').off('click.showcase').on('click.showcase', function(e) {
+                var link = $(this),
+                    href = $(this).attr('href');
+
+                if(href && href !== '#') {
+                    window.location.href = href;
+                }
+                else {
+                    var parentItem = link.parent();
+
+                    $this.topbarRootMenuItemClicked = true;
+                    parentItem.siblings().removeClass('topbar-menuitem-active');
+                    parentItem.addClass('topbar-menuitem-active');
+
+                    e.preventDefault();
+                }
+            });
             
-            this.topbar.find('> .layout-topbar-menu .themes-overlay a').on("click", function(e) {
+            this.topbar.find('> .topbar-menu .themes-overlay a').off('click.showcase').on("click.showcase", function(e) {
                 var href = $(this).attr('href');
                 if(href && href !== '#') {
                     window.location.href = href;
