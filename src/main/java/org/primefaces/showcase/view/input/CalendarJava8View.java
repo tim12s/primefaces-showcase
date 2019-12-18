@@ -50,9 +50,13 @@ public class CalendarJava8View implements Serializable {
     private LocalTime time1;
     private LocalTime time2;
     private LocalTime time3;
+    private LocalTime time4;
+    private LocalTime time5;
+    private LocalTime time6;
     private LocalDateTime dateTime1;
     private LocalDateTime dateTime2;
     private LocalDateTime dateTime3;
+    private LocalDateTime dateTime4;
     private LocalDateTime dateTimeDe;
     private List<LocalDate> multi;
     private List<LocalDate> range;
@@ -90,6 +94,9 @@ public class CalendarJava8View implements Serializable {
 
         dateDe = LocalDate.of(2019, 7, 27);
         dateTimeDe = LocalDateTime.of(2019, 7, 27, 12, 59);
+        dateTime4 = LocalDateTime.now();
+
+        time4= LocalTime.of(6, 30);
     }
 
     public void onDateSelect(SelectEvent<LocalDate> event) {
@@ -365,5 +372,37 @@ public class CalendarJava8View implements Serializable {
 
     public void setDateTime3(LocalDateTime dateTime3) {
         this.dateTime3 = dateTime3;
+    }
+
+    public LocalTime getTime4() {
+        return time4;
+    }
+
+    public void setTime4(LocalTime time4) {
+        this.time4 = time4;
+    }
+
+    public LocalTime getTime5() {
+        return time5;
+    }
+
+    public void setTime5(LocalTime time5) {
+        this.time5 = time5;
+    }
+
+    public LocalTime getTime6() {
+        return time6;
+    }
+
+    public void setTime6(LocalTime time6) {
+        this.time6 = time6;
+    }
+
+    public LocalDateTime getDateTime4() {
+        return dateTime4;
+    }
+
+    public void setDateTime4(LocalDateTime dateTime4) {
+        this.dateTime4 = dateTime4;
     }
 }
