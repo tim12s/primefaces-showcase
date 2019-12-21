@@ -28,6 +28,7 @@ import java.util.List;
 public class DefaultCommandView {
     
     private String text;
+    private String text2;
     
     private String btn = "btn1";
     
@@ -63,6 +64,14 @@ public class DefaultCommandView {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getText2() {
+        return text2;
+    }
+
+    public void setText2(String text2) {
+        this.text2 = text2;
     }
     
     public void addMessage(String btn) {
