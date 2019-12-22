@@ -16,6 +16,7 @@
 package org.primefaces.showcase.view.data.datatable;
 
 import org.primefaces.PrimeFaces;
+import org.primefaces.component.datatable.DataTable;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
@@ -81,7 +82,13 @@ public class TableStateView implements Serializable {
     public void clearTableState() {
         String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
         PrimeFaces.current().multiViewState()
-                .clear(viewId, (clientId) -> showMessage(clientId));
+                .clear(viewId, (clientId) -> {
+                    //reset the DataTable-instances on the current view
+                    DataTable dataTable = (DataTable) FacesContext.getCurrentInstance().getViewRoot().findComponent(clientId);
+                    dataTable.reset();
+
+                    showMessage(clientId);
+                });
     }
 
     private void showMessage(String clientId) {
