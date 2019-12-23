@@ -16,7 +16,12 @@
 package org.primefaces.showcase.view.input;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+
+import org.primefaces.event.SelectEvent;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +46,10 @@ public class InputTextareaView {
         }
         
         return results;
+    }
+
+    public void onSelect(SelectEvent<String> event) {
+    	FacesContext facesContext = FacesContext.getCurrentInstance();
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "select", event.getObject()));
     }
 }

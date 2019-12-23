@@ -17,10 +17,16 @@
 
     <ui:define name="implementation">
 
+        <p:growl id="growl" showSummary="true" showDetail="true" keepAlive="true" life="3000">
+            <p:autoUpdate />
+        </p:growl>
+
         <h:form>            
             <h3 style="margin-top: 0">AutoComplete</h3>
             <p>Following inputTextarea send a query for each word that has at least 4 characters to the complete method. Try typing "PrimeFaces".</p>
-            <p:inputTextarea rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4" />
+            <p:inputTextarea rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4">
+               <p:ajax event="itemSelect" listener="#{inputTextareaView.onSelect}" />
+            </p:inputTextarea>
 
             <h3>AutoResize</h3>
             <p:inputTextarea rows="6" cols="33" />
