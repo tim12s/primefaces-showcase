@@ -27,6 +27,7 @@
             <p:commandButton action="#{exceptionHandlerView.throwNullPointerException}"
                              ajax="true"
                              value="Throw NullPointerException!" />
+            <!-- IllegalStateException is not handled using ajaxExceptionHandlers below, so the error page is shown-->
             <p:commandButton action="#{exceptionHandlerView.throwWrappedIllegalStateException}"
                              ajax="true"
                              value="Throw IllegalStateException!" />
@@ -35,6 +36,8 @@
             <p:commandButton action="#{exceptionHandlerView.throwViewExpiredException}"
                              ajax="false"
                              value="Throw ViewExpiredException!" />
+            <!-- NullPointerException has no specific error-page defined in web.xml compared to ViewExpiredException -->
+            <!-- https://github.com/primefaces/showcase-facelift/blob/master/src/main/webapp/WEB-INF/web.xml -->
             <p:commandButton action="#{exceptionHandlerView.throwNullPointerException}"
                              ajax="false"
                              value="Throw NullPointerException!" />
