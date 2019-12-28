@@ -79,7 +79,7 @@ public class DataListView implements Serializable {
         FacesContext context = FacesContext.getCurrentInstance();
         String viewId = context.getViewRoot().getViewId();
         PrimeFaces.current().multiViewState().clear(viewId, (clientId) -> {
-            //reset the DataTable-instances on the current view
+            //reset the DataList-instances on the current view
             context.getViewRoot().invokeOnComponent(context, clientId, (fc, component) -> {
                 ((DataList) component).setFirst(0);
             });
