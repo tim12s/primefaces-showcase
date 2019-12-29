@@ -29,7 +29,21 @@
     <ui:define name="implementation">
 
         <h:form>
-            <p:dataTable id="tbl" var="car" value="#{dtLazyView.lazyModel}" lazy="true"
+            <p:panel header="Settings">
+                <p:panelGrid columns="2" styleClass="ui-noborder">
+                    <p:outputLabel for="sortMode">SortMode: </p:outputLabel>
+                    <p:selectOneMenu id="sortMode" value="#{deLazyView.sortMode}">
+                        <f:selectItem itemLabel="single" itemValue="single" />
+                        <f:selectItem itemLabel="multiple" itemValue="multiple" />
+
+                        <p:ajax update="tbl" />
+                    </p:selectOneMenu>
+                </p:panelGrid>
+            </p:panel>
+
+            <br/>
+
+            <p:dataTable id="tbl" var="car" value="#{deLazyView.lazyModel}" lazy="true" sortMode="#{deLazyView.sortMode}" filteredValue="#{deLazyView.filteredCars}"
                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                          paginator="true" rows="10" style="margin-bottom:20px">
 
@@ -67,31 +81,19 @@
                     </div>
                 </f:facet>
 
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Id" />
-                    </f:facet>
+                <p:column headerText="Id" sortBy="#{car.id}">
                     <h:outputText value="#{car.id}" />
                 </p:column>
 
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Year"/>
-                    </f:facet>
+                <p:column headerText="Year" sortBy="#{car.year}" filterBy="#{car.year}">
                     <h:outputText value="#{car.year}" />
                 </p:column>
 
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Brand" />
-                    </f:facet>
+                <p:column headerText="Brand" sortBy="#{car.brand}">
                     <h:outputText value="#{car.brand}" />
                 </p:column>
 
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Color" />
-                    </f:facet>
+                <p:column headerText="Color" sortBy="#{car.color}">
                     <h:outputText value="#{car.color}" />
                 </p:column>
             </p:dataTable>
