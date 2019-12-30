@@ -1417,6 +1417,11 @@ body {
 
                     + .layout-content {
                         padding-top: 109px;
+
+                        + .layout-config {
+                            top: 109px;
+                            height: calc(100% - 109px);
+                        }
                     }
                 }
             }
@@ -1432,6 +1437,11 @@ body {
 
                         + .layout-content {
                             padding-top: 179px;
+
+                            + .layout-config {
+                                top: 179px;
+                                height: calc(100% - 179px);
+                            }
                         }
                     }
                 }
