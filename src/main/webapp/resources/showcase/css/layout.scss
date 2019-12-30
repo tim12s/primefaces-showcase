@@ -1284,13 +1284,8 @@ body {
     }
 
     a {
-        color: #638fb7;
         font-weight: 700;
         @include transition(color .2s);
-
-        &:hover {
-            color: #82a5c5;
-        }
     }
 
     .layout-config-content {
@@ -1307,7 +1302,7 @@ body {
         right: 20px;
         top: 20px;
         z-index: 999;
-        background-color: #41b783;
+        background-color: #007ad9;
         @include border-radius(50%);
         @include transition(background-color .2s, box-shadow .2s);
 
@@ -1318,7 +1313,7 @@ body {
         }
 
         &:hover {
-            background-color: #3aa476;
+            background-color: #116fbf;
         }
 
         &:focus {
@@ -1366,6 +1361,7 @@ body {
     }
 
     .ui-commandlink {
+        display: block;
         text-align: center;
         position: relative;
         @include transition(box-shadow .2s);
@@ -1379,12 +1375,13 @@ body {
             left: 50%;
             margin-left: -18px;
             margin-top: -18px;
-            padding: .18em;
+            padding: 5px;
             box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
             background-color: #ffffff;
             border-radius: 50%;
             width: 36px;
             height: 36px;
+            box-sizing: border-box;
         }
 
         &:focus {
