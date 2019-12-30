@@ -1361,7 +1361,7 @@ body {
     }
 
     .ui-commandlink {
-        display: block;
+        display: inline-block;
         text-align: center;
         position: relative;
         @include transition(box-shadow .2s);
