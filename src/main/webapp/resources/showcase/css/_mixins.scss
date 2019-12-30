@@ -40,7 +40,7 @@
     filter : progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$start-color}', endColorStr='#{$end-color}', gradientType='1');
 }
 
-@mixin shadow($value) {
+@mixin shadow($value...) {
     -webkit-box-shadow: $value;
     -moz-box-shadow: $value;
     box-shadow: $value;
