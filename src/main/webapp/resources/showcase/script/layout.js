@@ -16,6 +16,10 @@ $(document).ready(function() {
             this.expandedMenuitems = this.expandedMenuitems||[];
             this.nano = this.sidebar.children('.nano');
             this.searchInput = this.sidebar.find('.search-input > input');
+
+            this.configButton = $('.layout-config-button');
+            this.configMenu = $('.layout-config');
+            this.configMenuClose = this.configMenu.find('.layout-config-content-wrapper > .layout-config-close');
             
             this.initPrimeNewsBar();
             
@@ -98,6 +102,8 @@ $(document).ready(function() {
                 }
             });
 
+            this.bindConfigEvents();
+
             $(document.body).off('click.showcase').on('click.showcase', function() {
                 if(!$this.menuClick && $this.isMobile()) {
                     $this.wrapper.removeClass('layout-sidebar-mobile-active');
@@ -107,9 +113,14 @@ $(document).ready(function() {
                 if (!$this.topbarRootMenuItemClicked) {
                     $this.topbar.find('> .topbar-menu > li').removeClass('topbar-menuitem-active');
                 }
+
+                if (!$this.configMenuClicked) {
+                    $this.configMenu.removeClass('layout-config-active');
+                }
     
                 $this.menuClick = false;
                 $this.topbarRootMenuItemClicked = false;
+                $this.configMenuClicked = false;
             });
             
             this.searchInput.on('keyup', function(e) {
@@ -191,6 +202,32 @@ $(document).ready(function() {
                     e.preventDefault();
                 }
             });
+        },
+
+        bindConfigEvents: function() {
+            var $this = this;
+            var changeConfigMenuState = function(e) {
+                this.toggleClass(this.configMenu, 'layout-config-active');
+                
+                this.configMenuClicked = true;
+                e.preventDefault();
+            };
+            
+            this.configButton.off('click.config').on('click.config', changeConfigMenuState.bind(this));
+            this.configMenuClose.off('click.config').on('click.config', changeConfigMenuState.bind(this));
+            
+            this.configMenu.off('click.config').on('click.config', function() {
+                $this.configMenuClicked = true;
+            });
+        },
+
+        toggleClass: function(el, className) {
+            if (el.hasClass(className)) {
+                el.removeClass(className);
+            }
+            else {
+                el.addClass(className);
+            }
         },
 
         removeMenuitem: function (id) {
@@ -307,6 +344,38 @@ $(document).ready(function() {
     
     Showcase.init();
 });
+
+PrimeFaces.ShowcaseConfigurator = {
+    
+    changeTheme: function(theme) {
+        var library = 'primefaces-';
+        var linkElement = $('link[href*="theme.css"]');
+        var href = linkElement.attr('href');
+        var index = href.indexOf(library);
+        var currentTheme = href.substring(index + library.length);
+
+        this.replaceLink(linkElement, href.replace(currentTheme, theme));
+
+        if(theme.startsWith('luna')) {
+            $('.content-implementation').addClass('dark-content');
+        }
+        else {
+            $('.content-implementation').removeClass('dark-content');
+        }
+    },
+
+    replaceLink: function(linkElement, href) {
+        var cloneLinkElement = linkElement.clone(false);
+        
+        cloneLinkElement.attr('href', href);
+        linkElement.after(cloneLinkElement);
+        
+        cloneLinkElement.off('load').on('load', function() {
+            linkElement.remove();
+        });
+    }
+};
+
 /*!
  * jQuery Cookie Plugin v1.4.1
  * https://github.com/carhartl/jquery-cookie

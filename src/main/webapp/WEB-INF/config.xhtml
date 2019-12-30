@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <div class="layout-config">
+        <div class="layout-config-content-wrapper">
+            <a href="#" class="layout-config-button">
+                <i class="fa fa-cog"></i>
+            </a>
+            <a href="#" class="layout-config-close">
+                <i class="fa fa-times"></i>
+            </a>
+
+            <div class="layout-config-content">
+                <div class="free-themes">
+                    <h1 style="margin-top: 0">FREE THEMES</h1>
+                    <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primefaces">PrimeFaces Theme Designer</a>.</p>
+                    <h:form id="config-form">
+                        <div class="p-grid">
+                            <ui:repeat value="#{themeSwitcherView.themes}" var="theme">
+                                <div class="p-col-3">
+                                    <p:commandLink 
+                                        actionListener="#{guestPreferences.setTheme(theme.name)}"
+                                        oncomplete="PrimeFaces.ShowcaseConfigurator.changeTheme('#{theme.name}')"
+                                        update=":config-form">
+
+                                        <h:graphicImage name="showcase/images/themeswitcher/themeswitcher-#{theme.name}.png" alt="#{theme.name}"/>
+                                        <span>#{theme.displayName}</span>
+                                        <ui:fragment rendered="#{guestPreferences.theme == theme.name}">
+                                            <i class="fa fa-check"></i>
+                                        </ui:fragment>
+                                    </p:commandLink>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </h:form>
+                </div>
+
+                <div class="premium-themes">
+                    <h1>PREMIUM TEMPLATES</h1>
+                    <p>Create awesome applications in no time using the premium templates and impress your users.</p>
+                    <div class="p-grid">
+                        <div class="p-col-6">
+                            <a href="https://www.primefaces.org/layouts/prestige">
+                                <p:graphicImage name="images/prestige-store-400.png" library="showcase" />
+                            </a>
+                        </div>
+                        <div class="p-col-6">
+                            <a href="https://www.primefaces.org/layouts/babylon">
+                                <p:graphicImage name="images/babylon-store-400.png" library="showcase" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ui:composition>
