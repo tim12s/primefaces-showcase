@@ -13,20 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.primefaces.showcase.view.data;
+package org.primefaces.showcase.view.data.datalist;
 
-import javax.faces.view.ViewScoped;
+import org.primefaces.PrimeFaces;
+import org.primefaces.component.datalist.DataList;
 import org.primefaces.showcase.domain.Car;
 import org.primefaces.showcase.service.CarService;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class DataListView implements Serializable {
     
     private List<Car> cars1;
@@ -69,5 +73,24 @@ public class DataListView implements Serializable {
 
     public void setSelectedCar(Car selectedCar) {
         this.selectedCar = selectedCar;
+    }
+
+    public void clearMultiViewState() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String viewId = context.getViewRoot().getViewId();
+        PrimeFaces.current().multiViewState().clear(viewId, (clientId) -> {
+            //reset the DataList-instances on the current view
+            context.getViewRoot().invokeOnComponent(context, clientId, (fc, component) -> {
+                ((DataList) component).setFirst(0);
+            });
+
+            showMessage(clientId);
+        });
+    }
+
+    private void showMessage(String clientId) {
+        FacesContext.getCurrentInstance()
+                .addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, clientId + " multiview state has been cleared out", null));
     }
 }
