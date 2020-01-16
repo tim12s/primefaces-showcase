@@ -26,6 +26,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Named
@@ -164,6 +165,10 @@ public class ScheduleJava8View implements Serializable {
 
 	private LocalDateTime eightDaysLater0am() {
 		return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
+	}
+	
+	public LocalDate getInitialDate() {
+		return LocalDate.now().plusDays(1);
 	}
 
 	public ScheduleEvent getEvent() {

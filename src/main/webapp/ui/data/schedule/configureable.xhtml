@@ -126,7 +126,7 @@
                             timeFormat="#{scheduleJava8View.timeFormat}" slotDuration="#{scheduleJava8View.slotDuration}"
                             slotLabelInterval="#{scheduleJava8View.slotLabelInterval}" scrollTime="#{scheduleJava8View.scrollTime}"
                             minTime="#{scheduleJava8View.minTime}" maxTime="#{scheduleJava8View.maxTime}"
-                            columnHeaderFormat="#{scheduleJava8View.columnHeaderFormat}">
+                            columnHeaderFormat="#{scheduleJava8View.columnHeaderFormat}" initialDate="#{scheduleJava8View.initialDate}">
 
                     <p:ajax event="dateSelect" listener="#{scheduleJava8View.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
                     <p:ajax event="eventSelect" listener="#{scheduleJava8View.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
