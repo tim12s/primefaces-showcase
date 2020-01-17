@@ -160,13 +160,19 @@
     </ui:define>
 
     <ui:define name="description">
-
+        <h:outputLink value="https://github.com/primefaces/primeicons">PrimeIcons</h:outputLink> is a font icon library for PrimeTek UI libraries such as PrimeFaces.
     </ui:define>
 
-    <ui:param name="documentationLink" value="" />
+    <ui:param name="documentationLink" value="/core/fonticons" />
 
     <ui:define name="implementation">
         <h3 style="margin-top:0">Getting Started</h3>
+        <p>PrimeIcons was introduced in version 6.2.11 or higher. To use it you must include the CSS on your page</p>
+        <pre name="code" class="brush:xml">
+        &lt;h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" /&gt;
+        </pre>
+
+        <h3>Usage</h3>
         <p>PrimeIcons use the pi pi-{icon} syntax such as pi pi-check. A standalone icon can be displayed using an element such as i or span</p>
         <pre name="code" class="brush:xml">
         &lt;i class="pi pi-check"&gt;&lt;/i&gt;
