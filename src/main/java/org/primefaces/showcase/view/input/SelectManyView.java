@@ -29,7 +29,9 @@ import java.util.List;
 public class SelectManyView {
     
     private List<String> selectedOptions;
+    private List<String> selectedOptions2;
     private List<Theme> selectedThemes;
+    private List<Theme> selectedThemes2;
     private List<Theme> themes;
     
     @Inject
@@ -62,5 +64,21 @@ public class SelectManyView {
 
     public void setSelectedThemes(List<Theme> selectedThemes) {
         this.selectedThemes = selectedThemes;
+    }
+
+    public List<String> getSelectedOptions2() {
+        return selectedOptions2;
+    }
+
+    public void setSelectedOptions2(List<String> selectedOptions2) {
+        this.selectedOptions2 = selectedOptions2;
+    }
+
+    public List<Theme> getSelectedThemes2() {
+        return selectedThemes2;
+    }
+
+    public void setSelectedThemes2(List<Theme> selectedThemes2) {
+        this.selectedThemes2 = selectedThemes2;
     }
 }
