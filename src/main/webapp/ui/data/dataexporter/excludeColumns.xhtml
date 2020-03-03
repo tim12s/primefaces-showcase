@@ -54,6 +54,11 @@
                 <p:dataExporter type="xls" target="tbl" fileName="cars" />
             </h:commandLink>
 
+            <h:commandLink>
+                <p:graphicImage name="/demo/images/xlsx.png" width="24"/>
+                <p:dataExporter type="xlsxstream" target="tbl" fileName="cars" />
+            </h:commandLink>
+
             <h:commandLink id="pdf">
                 <p:graphicImage name="/demo/images/pdf.png" />
                 <p:dataExporter type="pdf" target="tbl" fileName="cars" />
