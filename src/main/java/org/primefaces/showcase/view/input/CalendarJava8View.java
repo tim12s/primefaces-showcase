@@ -57,6 +57,7 @@ public class CalendarJava8View implements Serializable {
     private LocalDateTime dateTime2;
     private LocalDateTime dateTime3;
     private LocalDateTime dateTime4;
+    private LocalDateTime dateTime5;
     private LocalDateTime dateTimeDe;
     private List<LocalDate> multi;
     private List<LocalDate> range;
@@ -404,5 +405,13 @@ public class CalendarJava8View implements Serializable {
 
     public void setDateTime4(LocalDateTime dateTime4) {
         this.dateTime4 = dateTime4;
+    }
+
+    public LocalDateTime getDateTime5() {
+        return dateTime5;
+    }
+
+    public void setDateTime5(LocalDateTime dateTime5) {
+        this.dateTime5 = dateTime5;
     }
 }

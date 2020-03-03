@@ -161,6 +161,9 @@
                 <p:outputLabel for="time4" value="Time (Min-Max; preset value):" />
                 <p:datePicker id="time4" value="#{calendarJava8View.dateTime4}" showTime="true" mindate="#{calendarJava8View.minDateTime}" maxdate="#{calendarJava8View.maxDateTime}"/>
 
+                <p:outputLabel for="time5" value="Time (with seconds):" />
+                <p:datePicker id="time5" value="#{calendarJava8View.dateTime5}" showTime="true" showSeconds="true"/>
+
                 <p:outputLabel for="timeDe" value="Time (German):" />
                 <p:datePicker id="timeDe" value="#{calendarJava8View.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy" />
 
@@ -298,6 +301,11 @@
                     <h:outputText value="Time (Min-Max; preset value):" />
                     <h:outputText value="#{calendarJava8View.dateTime4}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm"  type="localDateTime" />
+                    </h:outputText>
+
+                    <h:outputText value="Time (with seconds):" />
+                    <h:outputText value="#{calendarJava8View.dateTime5}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss"  type="localDateTime" />
                     </h:outputText>
 
                     <h:outputText value="Time (German):" />
