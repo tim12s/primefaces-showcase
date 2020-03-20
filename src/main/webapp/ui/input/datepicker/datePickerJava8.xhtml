@@ -54,6 +54,7 @@
                 secondText: 'Sekunde',
                 currentText: 'Aktuelles Datum',
                 ampm: false,
+                ampm: false,
                 month: 'Monat',
                 week: 'Woche',
                 day: 'Tag',
@@ -174,7 +175,7 @@
                             <p:datePicker id="time4" value="#{calendarJava8View.dateTime4}" showTime="true" mindate="#{calendarJava8View.minDateTime}" maxdate="#{calendarJava8View.maxDateTime}" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
 
                             <p:outputLabel for="time5" value="Time (with seconds):" />
-                            <p:datePicker id="time5" value="#{calendarJava8View.dateTime5}" showTime="true" showSeconds="true"/>
+                            <p:datePicker id="time5" value="#{calendarJava8View.dateTime5}" showTime="true" showSeconds="true" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
 
                             <p:outputLabel for="timeDe" value="Time (German):" />
                             <p:datePicker id="timeDe" value="#{calendarJava8View.dateTimeDe}" showTime="true" locale="de" pattern="dd.MM.yyyy"  timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
