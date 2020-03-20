@@ -5,7 +5,7 @@
 
     <groupId>org.primefaces</groupId>
     <artifactId>showcase</artifactId>
-    <version>8.0-SNAPSHOT</version>
+    <version>9.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>primefaces-showcase</name>
@@ -317,13 +317,13 @@
             </activation>
             <properties>
                 <jsfVersion>Mojarra-${mojarra.version}</jsfVersion>
-                <primefacesVersion>PrimeFaces-8.0-SNAPSHOT</primefacesVersion>
+                <primefacesVersion>PrimeFaces-9.0-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.primefaces</groupId>
                     <artifactId>primefaces</artifactId>
-                    <version>8.0-SNAPSHOT</version>
+                    <version>9.0-SNAPSHOT</version>
                 </dependency>
                 <dependency>
                     <groupId>org.glassfish</groupId>
@@ -341,13 +341,13 @@
             <id>dev-myfaces</id>
             <properties>
                 <jsfVersion>Apache MyFaces-${myfaces.version}</jsfVersion>
-                <primefacesVersion>PrimeFaces-8.0-SNAPSHOT</primefacesVersion>
+                <primefacesVersion>PrimeFaces-9.0-SNAPSHOT</primefacesVersion>
             </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.primefaces</groupId>
                     <artifactId>primefaces</artifactId>
-                    <version>8.0-SNAPSHOT</version>
+                    <version>9.0-SNAPSHOT</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>

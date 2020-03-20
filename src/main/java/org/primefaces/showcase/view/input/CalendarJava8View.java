@@ -33,6 +33,9 @@ import java.util.List;
 @ViewScoped
 public class CalendarJava8View implements Serializable {
 
+    private Boolean timeInput = Boolean.FALSE;
+    private Boolean showOtherMonths = Boolean.FALSE;
+
     private LocalDate date1;
     private LocalDate date2;
     private LocalDate date3;
@@ -97,7 +100,7 @@ public class CalendarJava8View implements Serializable {
         dateTimeDe = LocalDateTime.of(2019, 7, 27, 12, 59);
         dateTime4 = LocalDateTime.now();
 
-        time4= LocalTime.of(6, 30);
+        time4= LocalTime.of(10, 30);
     }
 
     public void onDateSelect(SelectEvent<LocalDate> event) {
@@ -413,5 +416,21 @@ public class CalendarJava8View implements Serializable {
 
     public void setDateTime5(LocalDateTime dateTime5) {
         this.dateTime5 = dateTime5;
+    }
+
+    public Boolean getTimeInput() {
+        return timeInput;
+    }
+
+    public void setTimeInput(Boolean timeInput) {
+        this.timeInput = timeInput;
+    }
+
+    public Boolean getShowOtherMonths() {
+        return showOtherMonths;
+    }
+
+    public void setShowOtherMonths(Boolean showOtherMonths) {
+        this.showOtherMonths = showOtherMonths;
     }
 }
