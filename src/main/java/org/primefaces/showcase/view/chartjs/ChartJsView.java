@@ -366,6 +366,7 @@ public class ChartJsView implements Serializable {
         BarChartOptions options = new BarChartOptions();
         CartesianScales cScales = new CartesianScales();
         CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setOffset(true);
         CartesianLinearTicks ticks = new CartesianLinearTicks();
         ticks.setBeginAtZero(true);
         linearAxes.setTicks(ticks);
@@ -442,6 +443,7 @@ public class ChartJsView implements Serializable {
         BarChartOptions options = new BarChartOptions();
         CartesianScales cScales = new CartesianScales();
         CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setOffset(true);
         CartesianLinearTicks ticks = new CartesianLinearTicks();
         ticks.setBeginAtZero(true);
         linearAxes.setTicks(ticks);
@@ -511,6 +513,7 @@ public class ChartJsView implements Serializable {
         BarChartOptions options = new BarChartOptions();
         CartesianScales cScales = new CartesianScales();
         CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setOffset(true);
         CartesianLinearTicks ticks = new CartesianLinearTicks();
         ticks.setBeginAtZero(true);
         linearAxes.setTicks(ticks);
@@ -587,7 +590,8 @@ public class ChartJsView implements Serializable {
         BarChartOptions options = new BarChartOptions();
         CartesianScales cScales = new CartesianScales();
         CartesianLinearAxes linearAxes = new CartesianLinearAxes();
-        linearAxes.setStacked(true);    
+        linearAxes.setStacked(true);
+        linearAxes.setOffset(true);
         cScales.addXAxesData(linearAxes);
         cScales.addYAxesData(linearAxes);
         options.setScales(cScales);
@@ -670,7 +674,8 @@ public class ChartJsView implements Serializable {
         BarChartOptions options = new BarChartOptions();
         CartesianScales cScales = new CartesianScales();
         CartesianLinearAxes linearAxes = new CartesianLinearAxes();
-        linearAxes.setStacked(true);    
+        linearAxes.setStacked(true);
+        linearAxes.setOffset(true);
         cScales.addXAxesData(linearAxes);
         cScales.addYAxesData(linearAxes);
         options.setScales(cScales);
@@ -894,6 +899,7 @@ public class ChartJsView implements Serializable {
         BarChartOptions options = new BarChartOptions();
         CartesianScales cScales = new CartesianScales();
         CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setOffset(true);
         CartesianLinearTicks ticks = new CartesianLinearTicks();
         ticks.setBeginAtZero(true);
         linearAxes.setTicks(ticks);
