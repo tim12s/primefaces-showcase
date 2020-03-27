@@ -16,14 +16,18 @@
     <ui:param name="documentationLink" value="/components/colorpicker" />
 
     <ui:define name="implementation">
-
-        <h:form>    
+        <h:form>  
+            <p:growl id="growl" />
             <h:panelGrid columns="2" cellpadding="5" style="margin-left: 20px">
                 <h:outputText value="Inline: " />
-                <p:colorPicker value="#{colorView.colorInline}" mode="inline" />
+                <p:colorPicker value="#{colorView.colorInline}" mode="inline">
+                    <p:ajax listener="#{colorView.onColorChange}" process="@this" update="growl"/>
+                </p:colorPicker>
 
                 <h:outputText value="Popup: " />
-                <p:colorPicker value="#{colorView.colorPopup}" />                   
+                <p:colorPicker value="#{colorView.colorPopup}">
+                    <p:ajax listener="#{colorView.onColorChange}" process="@this" update="growl"/>
+                </p:colorPicker>                   
             </h:panelGrid>
 
             <p:separator />

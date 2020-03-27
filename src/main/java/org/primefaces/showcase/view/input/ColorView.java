@@ -16,14 +16,19 @@
 package org.primefaces.showcase.view.input;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Named;
+
+import org.primefaces.component.colorpicker.ColorPicker;
 
 @Named
 @RequestScoped
 public class ColorView {
-    
+
     private String colorInline;
-    
+
     private String colorPopup;
 
     public String getColorInline() {
@@ -40,5 +45,11 @@ public class ColorView {
 
     public void setColorPopup(String colorPopup) {
         this.colorPopup = colorPopup;
-    } 
+    }
+
+    public void onColorChange(AjaxBehaviorEvent e) {
+        ColorPicker picker = (ColorPicker) e.getComponent();
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Color changed: " + picker.getValue(), null);
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
 }
