@@ -168,6 +168,9 @@
                             <p:outputLabel for="time1" value="Time:" />
                             <p:datePicker id="time1" value="#{calendarJava8View.dateTime1}" showTime="true" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
 
+                            <p:outputLabel for="time6" value="Time (without explicit showTime):" />
+                            <p:datePicker id="time6" value="#{calendarJava8View.dateTime6}" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
+
                             <p:outputLabel for="time3" value="Time (Min-Max):" />
                             <p:datePicker id="time3" value="#{calendarJava8View.dateTime3}" showTime="true" mindate="#{calendarJava8View.minDateTime}" maxdate="#{calendarJava8View.maxDateTime}" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
 
@@ -194,6 +197,9 @@
                         <p:panelGrid columns="2" layout="flex" id="inputPanelTime" styleClass="ui-noborder" columnClasses="p-col-12 p-lg-4, p-col-12 p-lg-8">
                             <p:outputLabel for="timeonly" value="Time Only (HH:mm):" />
                             <p:datePicker id="timeonly" value="#{calendarJava8View.time1}" timeOnly="true" pattern="HH:mm" timeInput="#{calendarJava8View.timeInput}"/>
+
+                            <p:outputLabel for="timeonlySmart" value="Time Only (without explicit timeOnly):" />
+                            <p:datePicker id="timeonlySmart" value="#{calendarJava8View.time7}" timeInput="#{calendarJava8View.timeInput}"/>
 
                             <p:outputLabel for="timeonlyMinMax" value="Time Only (Min-Max):" />
                             <p:outputPanel>
@@ -330,6 +336,11 @@
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm" type="localDateTime" />
                     </h:outputText>
 
+                    <h:outputText value="Time (without explicit showTime):" />
+                    <h:outputText value="#{calendarJava8View.dateTime6}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm" type="localDateTime" />
+                    </h:outputText>
+
                     <h:outputText value="Time (Min-Max):" />
                     <h:outputText value="#{calendarJava8View.dateTime3}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm"  type="localDateTime" />
@@ -362,6 +373,11 @@
 
                     <h:outputText value="Time Only (HH:mm):" />
                     <h:outputText value="#{calendarJava8View.time1}">
+                        <f:convertDateTime pattern="HH:mm" type="localTime" />
+                    </h:outputText>
+
+                    <h:outputText value="Time Only (without explicit timeOnly):" />
+                    <h:outputText value="#{calendarJava8View.time7}">
                         <f:convertDateTime pattern="HH:mm" type="localTime" />
                     </h:outputText>
 
