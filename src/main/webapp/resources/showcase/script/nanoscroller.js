@@ -534,8 +534,8 @@
                             _this.offsetY = 0;
                         }
                         _this.pane.addClass(_this.options.activeClass);
-                        _this.doc.bind(MOUSEMOVE, _this.events[DRAG]).bind(MOUSEUP, _this.events[UP]);
-                        _this.body.bind(MOUSEENTER, _this.events[ENTER]);
+                        _this.doc.on(MOUSEMOVE, _this.events[DRAG]).on(MOUSEUP, _this.events[UP]);
+                        _this.body.on(MOUSEENTER, _this.events[ENTER]);
                         return false;
                     };
                 })(this),
@@ -555,8 +555,8 @@
                     return function (e) {
                         _this.isBeingDragged = false;
                         _this.pane.removeClass(_this.options.activeClass);
-                        _this.doc.unbind(MOUSEMOVE, _this.events[DRAG]).unbind(MOUSEUP, _this.events[UP]);
-                        _this.body.unbind(MOUSEENTER, _this.events[ENTER]);
+                        _this.doc.off(MOUSEMOVE, _this.events[DRAG]).off(MOUSEUP, _this.events[UP]);
+                        _this.body.off(MOUSEENTER, _this.events[ENTER]);
                         return false;
                     };
                 })(this),
@@ -643,13 +643,13 @@
             this.removeEvents();
             events = this.events;
             if (!this.options.disableResize) {
-                this.win.bind(RESIZE, events[RESIZE]);
+                this.win.on(RESIZE, events[RESIZE]);
             }
             if (!this.iOSNativeScrolling) {
-                this.slider.bind(MOUSEDOWN, events[DOWN]);
-                this.pane.bind(MOUSEDOWN, events[PANEDOWN]).bind("" + MOUSEWHEEL + " " + DOMSCROLL, events[WHEEL]);
+                this.slider.on(MOUSEDOWN, events[DOWN]);
+                this.pane.on(MOUSEDOWN, events[PANEDOWN]).on("" + MOUSEWHEEL + " " + DOMSCROLL, events[WHEEL]);
             }
-            this.$content.bind("" + SCROLL + " " + MOUSEWHEEL + " " + DOMSCROLL + " " + TOUCHMOVE, events[SCROLL]);
+            this.$content.on("" + SCROLL + " " + MOUSEWHEEL + " " + DOMSCROLL + " " + TOUCHMOVE, events[SCROLL]);
         };
 
 
@@ -662,12 +662,12 @@
         NanoScroll.prototype.removeEvents = function () {
             var events;
             events = this.events;
-            this.win.unbind(RESIZE, events[RESIZE]);
+            this.win.off(RESIZE, events[RESIZE]);
             if (!this.iOSNativeScrolling) {
-                this.slider.unbind();
-                this.pane.unbind();
+                this.slider.off();
+                this.pane.off();
             }
-            this.$content.unbind("" + SCROLL + " " + MOUSEWHEEL + " " + DOMSCROLL + " " + TOUCHMOVE, events[SCROLL]);
+            this.$content.off("" + SCROLL + " " + MOUSEWHEEL + " " + DOMSCROLL + " " + TOUCHMOVE, events[SCROLL]);
         };
 
 
