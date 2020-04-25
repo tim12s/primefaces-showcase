@@ -107,7 +107,13 @@ public class CalendarJava8View implements Serializable {
 
     public void onDateSelect(SelectEvent<LocalDate> event) {
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", event.getObject().format(formatter)));
+    }
+
+    public void onDateTimeSelect(SelectEvent<LocalDateTime> event) {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", event.getObject().format(formatter)));
     }
 

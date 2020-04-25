@@ -165,8 +165,10 @@
 
                     <p:panel header="Date+Time (showTime=true)" toggleable="true">
                         <p:panelGrid columns="2" layout="flex" id="inputPanelDateTime" styleClass="ui-noborder" columnClasses="p-col-12 p-lg-4, p-col-12 p-lg-8">
-                            <p:outputLabel for="time1" value="Time:" />
-                            <p:datePicker id="time1" value="#{calendarJava8View.dateTime1}" showTime="true" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
+                            <p:outputLabel for="time1" value="Time (with Select Event):" />
+                            <p:datePicker id="time1" value="#{calendarJava8View.dateTime1}" showTime="true" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}">
+                                <p:ajax event="dateSelect" listener="#{calendarJava8View.onDateTimeSelect}" update="msgs" />
+                            </p:datePicker>
 
                             <p:outputLabel for="time6" value="Time (without explicit showTime):" />
                             <p:datePicker id="time6" value="#{calendarJava8View.dateTime6}" timeInput="#{calendarJava8View.timeInput}" showOtherMonths="#{calendarJava8View.showOtherMonths}"/>
@@ -331,7 +333,7 @@
                         <f:convertDateTime pattern="MM/dd/yyyy" type="localDate" />
                     </h:outputText>
 
-                    <h:outputText value="Time:" />
+                    <h:outputText value="Time (with Select Event):" />
                     <h:outputText value="#{calendarJava8View.dateTime1}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm" type="localDateTime" />
                     </h:outputText>
