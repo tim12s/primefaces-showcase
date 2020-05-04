@@ -19,11 +19,21 @@ import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.*;
+import org.primefaces.showcase.service.ExtenderService;
+import org.primefaces.showcase.service.ExtenderService.ExtenderExample;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -33,32 +43,40 @@ import java.time.LocalDateTime;
 @ViewScoped
 public class ScheduleJava8View implements Serializable {
 
+	@Inject
+	private ExtenderService extenderService;
+
 	private ScheduleModel eventModel;
-	
+
 	private ScheduleModel lazyEventModel;
 
-	private ScheduleEvent event = new DefaultScheduleEvent();
+	private ScheduleEvent<?> event = new DefaultScheduleEvent<>();
 
 	private boolean showWeekends = true;
 	private boolean tooltip = true;
 	private boolean allDaySlot = true;
 
 	private String timeFormat;
-	private String slotDuration="00:30:00";
+	private String slotDuration = "00:30:00";
 	private String slotLabelInterval;
-	private String scrollTime="06:00:00";
-	private String minTime="04:00:00";
-	private String maxTime="20:00:00";
-	private String locale="en";
-	private String timeZone="";
-	private String clientTimeZone="local";
-	private String columnHeaderFormat="";
+	private String scrollTime = "06:00:00";
+	private String minTime = "04:00:00";
+	private String maxTime = "20:00:00";
+	private String locale = "en";
+	private String timeZone = "";
+	private String clientTimeZone = "local";
+	private String columnHeaderFormat = "";
 
-    @PostConstruct
+	private String extenderCode = "// Write your code here or select an example from above";
+	private String selectedExtenderExample = "";
+
+	private Map<String, ExtenderExample> extenderExamples;
+
+	@PostConstruct
 	public void init() {
 		eventModel = new DefaultScheduleModel();
 
-		DefaultScheduleEvent event = DefaultScheduleEvent.builder()
+		DefaultScheduleEvent<?> event = DefaultScheduleEvent.builder()
 				.title("Champions League Match")
 				.startDate(previousDay8Pm())
 				.endDate(previousDay11Pm())
@@ -92,7 +110,7 @@ public class ScheduleJava8View implements Serializable {
 				.build();
 		eventModel.addEvent(event);
 
-		DefaultScheduleEvent scheduleEventAllDay=DefaultScheduleEvent.builder()
+		DefaultScheduleEvent<?> scheduleEventAllDay=DefaultScheduleEvent.builder()
 				.title("Holidays (AllDay)")
 				.startDate(sevenDaysLater0am())
 				.endDate(eightDaysLater0am())
@@ -102,43 +120,52 @@ public class ScheduleJava8View implements Serializable {
 		eventModel.addEvent(scheduleEventAllDay);
 
 		lazyEventModel = new LazyScheduleModel() {
-			
+
 			@Override
 			public void loadEvents(LocalDateTime start, LocalDateTime end) {
-				for (int i=1; i<=5; i++) {
+				for (int i = 1; i <= 5; i++) {
 					LocalDateTime random = getRandomDateTime(start);
 					addEvent(DefaultScheduleEvent.builder().title("Lazy Event " + i).startDate(random).endDate(random.plusHours(3)).build());
 				}
 			}
 		};
+
+		extenderExamples = extenderService.createExtenderExamples();
 	}
-	
+
+	public ExtenderService getScheduleExtenderService() {
+	  return extenderService;
+	}
+
+	public void setScheduleExtenderService(ExtenderService extenderService) {
+	  this.extenderService = extenderService;
+	}
+
 	public LocalDateTime getRandomDateTime(LocalDateTime base) {
 		LocalDateTime dateTime = base.withMinute(0).withSecond(0).withNano(0);
-		return dateTime.plusDays(((int) (Math.random()*30)));
+		return dateTime.plusDays(((int)(Math.random() * 30)));
 	}
-	
 
 	public ScheduleModel getEventModel() {
 		return eventModel;
 	}
-	
+
 	public ScheduleModel getLazyEventModel() {
 		return lazyEventModel;
 	}
 
 	private LocalDateTime previousDay8Pm() {
-    	return LocalDateTime.now().minusDays(1).withHour(20).withMinute(0).withSecond(0).withNano(0);
+		return LocalDateTime.now().minusDays(1).withHour(20).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
 	private LocalDateTime previousDay11Pm() {
 		return LocalDateTime.now().minusDays(1).withHour(23).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
 	private LocalDateTime today1Pm() {
 		return LocalDateTime.now().withHour(13).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
 	private LocalDateTime theDayAfter3Pm() {
 		return LocalDateTime.now().plusDays(1).withHour(15).withMinute(0).withSecond(0).withNano(0);
 	}
@@ -146,15 +173,15 @@ public class ScheduleJava8View implements Serializable {
 	private LocalDateTime today6Pm() {
 		return LocalDateTime.now().withHour(18).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
 	private LocalDateTime nextDay9Am() {
 		return LocalDateTime.now().plusDays(1).withHour(9).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
 	private LocalDateTime nextDay11Am() {
 		return LocalDateTime.now().plusDays(1).withHour(11).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
 	private LocalDateTime fourDaysLater3pm() {
 		return LocalDateTime.now().plusDays(4).withHour(15).withMinute(0).withSecond(0).withNano(0);
 	}
@@ -166,55 +193,74 @@ public class ScheduleJava8View implements Serializable {
 	private LocalDateTime eightDaysLater0am() {
 		return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
 	}
-	
+
 	public LocalDate getInitialDate() {
 		return LocalDate.now().plusDays(1);
 	}
 
-	public ScheduleEvent getEvent() {
+	public ScheduleEvent<?> getEvent() {
 		return event;
 	}
 
-	public void setEvent(ScheduleEvent event) {
+	public void setEvent(ScheduleEvent<?> event) {
 		this.event = event;
 	}
-	
+
 	public void addEvent() {
-    	if (event.isAllDay()) {
-    		//see https://github.com/primefaces/primefaces/issues/1164
-    		if (event.getStartDate().toLocalDate().equals(event.getEndDate().toLocalDate())) {
+		if (event.isAllDay()) {
+			// see https://github.com/primefaces/primefaces/issues/1164
+			if (event.getStartDate().toLocalDate().equals(event.getEndDate().toLocalDate())) {
 				event.setEndDate(event.getEndDate().plusDays(1));
 			}
 		}
 
-		if(event.getId() == null)
+		if (event.getId() == null)
 			eventModel.addEvent(event);
 		else
 			eventModel.updateEvent(event);
-		
-		event = new DefaultScheduleEvent();
+
+		event = new DefaultScheduleEvent<>();
 	}
 	
-	public void onEventSelect(SelectEvent<ScheduleEvent> selectEvent) {
+	public void onEventSelect(SelectEvent<ScheduleEvent<?>> selectEvent) {
 		event = selectEvent.getObject();
 	}
-	
+
 	public void onDateSelect(SelectEvent<LocalDateTime> selectEvent) {
 		event = DefaultScheduleEvent.builder().startDate(selectEvent.getObject()).endDate(selectEvent.getObject().plusHours(1)).build();
 	}
-	
+
 	public void onEventMove(ScheduleEntryMoveEvent event) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event moved", "Delta:" + event.getDeltaAsDuration());
-		
+
 		addMessage(message);
 	}
-	
+
 	public void onEventResize(ScheduleEntryResizeEvent event) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event resized", "Start-Delta:" + event.getDeltaStartAsDuration() + ", End-Delta: " + event.getDeltaEndAsDuration());
-		
+
 		addMessage(message);
 	}
 	
+	public void onEventDelete() {
+		String eventId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("eventId");
+		if (event != null) {
+			ScheduleEvent<?> event = eventModel.getEvent(eventId);
+			eventModel.deleteEvent(event);
+		}
+	}
+	
+	public void onExtenderExampleSelect(AjaxBehaviorEvent event) {
+		ExtenderExample example = getExtenderExample();
+		if (!"custom".equals(selectedExtenderExample) && example != null) {
+			if (example.getDetails() != null && !example.getDetails().isEmpty()) {
+				FacesMessage message = new FacesMessage(example.getName(), example.getDetails());
+				FacesContext.getCurrentInstance().addMessage(event.getComponent().getClientId(), message);
+			}
+			this.extenderCode = example.getValue();
+		}
+	}
+
 	private void addMessage(FacesMessage message) {
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
@@ -321,5 +367,32 @@ public class ScheduleJava8View implements Serializable {
 
 	public void setColumnHeaderFormat(String columnHeaderFormat) {
 		this.columnHeaderFormat = columnHeaderFormat;
+	}
+	
+	public ExtenderExample getExtenderExample() {
+		return extenderExamples.get(selectedExtenderExample);
+	}
+
+	public String getSelectedExtenderExample() {
+		return selectedExtenderExample;
+	}
+
+	public void setSelectedExtenderExample(String selectedExtenderExample) {
+		this.selectedExtenderExample = selectedExtenderExample;
+	}
+
+	public String getExtenderCode() {
+		return extenderCode;
+	}
+
+	public void setExtenderCode(String extenderCode) {
+		this.extenderCode = extenderCode;
+	}
+
+	public List<SelectItem> getExtenderExamples() {
+	  return extenderExamples.values().stream() //
+			  .sorted(Comparator.comparing(ExtenderExample::getName)) //
+			  .map(example -> new SelectItem(example.getKey(), example.getName())) //
+			  .collect(Collectors.toList());
 	}
 }
