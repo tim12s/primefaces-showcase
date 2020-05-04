@@ -4,6 +4,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:sc="http://primefaces.org/ui/showcase"
       lang="en">
 
@@ -18,7 +19,7 @@
             </script>
             <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0"/>
             <meta name="apple-mobile-web-app-capable" content="yes"/>
             <link href="#{resource['showcase/images/favicon-32x32.png']}" rel="icon" type="image/png" sizes="32x32"/>
             <link href="#{resource['showcase/images/favicon-16x16.png']}" rel="icon" type="image/png" sizes="16x16"/>
@@ -80,6 +81,12 @@
                             <i class="pi pi-external-link"></i> 
                             Documentation
                         </a>
+                        <span jsf:rendered="#{not empty widgetLink}">
+                            <a class="documentation-link" href="https://primefaces.github.io/primefaces/jsdocs/classes/primefaces.widget.#{widgetLink}.html" target="_blank">
+                                <i class="pi pi-external-link"></i> 
+                                Widget
+                            </a>
+                        </span>
                     </div>
                     <div class="content-section content-implementation #{guestPreferences.theme.startsWith('luna') ? 'dark-content' : null}">
                         <ui:insert name="implementation"></ui:insert>
